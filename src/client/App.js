@@ -9,7 +9,8 @@ export default class App extends React.Component {
       this.state = { 
             uid: '',
             name: '',
-            age: '18-34 years'
+            age: '18-34 years',
+            stayinthisarea: 'Yes'
           }
   }
 
@@ -56,11 +57,21 @@ export default class App extends React.Component {
           </select>
         </div>
 
+        <div>
+          Do you plan to stay in this area for the rest of your pregnancy?
+          <select onChange={(e) => this.handleChange(e, 'stayinthisarea')}>
+            <option value={'Yes'}selected="selected" >Yes</option>
+            <option value={'No'}>No</option>
+            <option value={'Unsure'} >Unsure</option>
+          </select>
+        </div>
+
         <div style={{paddingTop: 20}}>
           <form id="myForm" method="post" action="/api/pdf" >
             <input type="hidden" value={this.state.uid} name="uid" />
             <input type="hidden" value={this.state.name} name="name" />
             <input type="hidden" value={this.state.age} name="age" />
+            <input type="hidden" value={this.state.stayinthisarea} name="stayinthisarea" />
             <input type="submit" value="Generate PDF Form" />
           </form>
         </div>
