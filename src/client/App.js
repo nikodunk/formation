@@ -24,9 +24,14 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <p>Patient ID: {this.state.uid}</p>
+        <p>Patient ID 
+          <select>
+            <option value={this.state.uid}>{this.state.uid}</option>
+          </select>
+        </p>
+
         <span>
-          Patient Name: 
+          Patient Name 
           <input 
               value={this.state.name}
               onChange={this.handleChange}
