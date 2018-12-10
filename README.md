@@ -14,3 +14,9 @@
 
     # Start production server
     npm start
+
+
+
+To deploy on Heroku:
+
+	heroku config:set NPM_CONFIG_PRODUCTION=false
