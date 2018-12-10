@@ -24,19 +24,22 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <p>Patient ID 
+        
+        <div>
+          Patient ID 
           <select>
             <option value={this.state.uid}>{this.state.uid}</option>
           </select>
-        </p>
+        </div>
 
-        <span>
+        <div>
           Patient Name 
           <input 
               value={this.state.name}
               onChange={this.handleChange}
               />
-        </span>
+        </div>
+
         <div style={{paddingTop: 20}}>
           <form id="myForm" action={"/api/pdf/"+this.state.uid+"/"+this.state.name}>
             <input type="submit" value="Generate PDF Form" />
