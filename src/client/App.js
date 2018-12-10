@@ -41,7 +41,9 @@ export default class App extends React.Component {
         </div>
 
         <div style={{paddingTop: 20}}>
-          <form id="myForm" action={"/api/pdf/"+this.state.uid+"/"+this.state.name}>
+          <form id="myForm" method="post" action="/api/pdf" >
+            <input type="hidden" value={this.state.uid} name="uid" />
+            <input type="hidden" value={this.state.name} name="name" />
             <input type="submit" value="Generate PDF Form" />
           </form>
         </div>

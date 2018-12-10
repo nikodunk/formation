@@ -11,18 +11,18 @@ app.use(express.static('dist'));
 
 
 
-app.get('/api/pdf/:uid/:name', (req, res) => {
-	const pdfDoc = new HummusRecipe('./public/prenatal.pdf', 'output.pdf');
-
+app.post('/api/pdf', (req, res) => {
+	const pdfDoc = new HummusRecipe('./public/inputs/prenatal.pdf', './public/outputs/prenatal.pdf');
+	
 	pdfDoc
 	    // edit 1st page
 	    .editPage(1)
-	    .text(req.params.name, 100, 87)
-	    .text(req.params.uid, 480, 105)
+	    .text(req.body.name, 100, 87)
+	    .text(req.body.uid, 480, 105)
 	    .endPage()
 	    .endPDF();
 
-	res.download('output.pdf');
+	res.download('./public/outputs/prenatal.pdf');
 });
 
 
