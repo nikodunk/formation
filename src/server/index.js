@@ -13,12 +13,16 @@ app.use(express.static('dist'));
 
 app.post('/api/pdf', (req, res) => {
 	const pdfDoc = new HummusRecipe('./public/inputs/prenatal.pdf', './public/outputs/prenatal.pdf');
-	
+	console.log(req.body.age, req.body.name)
 	pdfDoc
 	    // edit 1st page
 	    .editPage(1)
 	    .text(req.body.name, 100, 87)
 	    .text(req.body.uid, 480, 105)
+	    .text(req.body.age === 'Less than 12 years' ? 'x' : ' ', 44, 201)
+	    .text(req.body.age === '12-17 years' ? 'x' : ' ', 44, 211)
+	    .text(req.body.age === '18-34 years' ? 'x' : ' ', 44, 222)
+	    .text(req.body.age === '35 years or older' ? 'x' : ' ', 44, 232)
 	    .endPage()
 	    .endPDF();
 
