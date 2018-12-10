@@ -7,8 +7,8 @@ export default class App extends React.Component {
       super(props);
       this.handleChange = this.handleChange.bind(this);
       this.state = { 
-            uid: 5,
-            name: 'Niko Dunk',
+            uid: '',
+            name: '',
             age: '18-34 years'
           }
   }
@@ -30,14 +30,17 @@ export default class App extends React.Component {
         
         <div>
           Patient ID 
-          <select>
-            <option value={this.state.uid}>{this.state.uid}</option>
-          </select>
+          <input
+              placeholder={'Y-9147d'}
+              value={this.state.uid}
+              onChange={(e) => this.handleChange(e, 'uid')}
+              />
         </div>
 
         <div>
           Patient Name 
-          <input 
+          <input
+              placeholder={'Jane Doe'}
               value={this.state.name}
               onChange={(e) => this.handleChange(e, 'name')}
               />
