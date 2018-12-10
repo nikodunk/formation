@@ -2,8 +2,6 @@ const express = require('express');
 const os = require('os');
 const PORT = process.env.PORT || 8080
 const app = express();
-const bodyParser = require("body-parser");
-const pdf = './public/prenatal.pdf'
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -18,9 +16,14 @@ app.get('/api/getUsername', (req, res) => {
 
 
 app.post('/api/makepdf', (req, res) => {
-	console.log(req.body.input)
-	res.send({ pdf: req.body.input })
-	//res.sendfile(pdf)
+	console.log(req.body.uid, req.body.name)
+	res.send({ pdf: req.body.uid })
 });
+
+app.get('/api/pdf/:uid', (req, res) => {
+	console.log(req.params.uid)
+	res.download('./public/prenatal.pdf');
+});
+
 
 app.listen(PORT, () => console.log('Listening on port 8080!'))
