@@ -7,12 +7,19 @@ export default class App extends React.Component {
       super(props);
       this.handleChange = this.handleChange.bind(this);
       this.state = { 
-            uid: '',
-            name: '',
+            uid: 'Y-9147d',
+            name: 'Example Rogers',
             age: '18-34 years',
             areyoumarried: '',
             howlongcurrenthome: 'Over one year',
-            stayinthisarea: 'Yes'
+            stayinthisarea: 'Yes',
+            howmanyyearsschool: '12-16 years',
+            preferredlanguagespeak: '',
+            howyouread: 'Like to read and read often',
+            fathername: 'John Doe',
+            fatherlanguage: 'English',
+            fathereducation: 'High School',
+            fatherage: '31'
           }
   }
 
@@ -100,21 +107,102 @@ export default class App extends React.Component {
         <div>
           4. Do you plan to stay in this area for the rest of your pregnancy?
           <select onChange={(e) => this.handleChange(e, 'stayinthisarea')}>
-            <option value={'Yes'}selected="selected" >Yes</option>
+            <option value={'Yes'} selected="selected" >Yes</option>
             <option value={'No'}>No</option>
             <option value={'Unsure'} >Unsure</option>
           </select>
+        </div>
+
+      {/* 5. How many years of school have you completed? */}
+        <div>
+          5. How many years of school have you completed?
+          <select onChange={(e) => this.handleChange(e, 'howmanyyearsschool')}>
+            <option value={'0-8 years'}  >0-8 years</option>
+            <option value={'9-11 years'}>9-11 years</option>
+            <option value={'12-16 years'} selected="selected" >12-16 years</option>
+            <option value={'16+ years'}>16+ years</option>
+          </select>
+        </div>
+
+      {/* 6. What language do you prefer to speak? */}
+        <div>
+          6. What language do you prefer to speak?
+          <select onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')}>
+            <option value={''} ></option>
+            <option value={'English'} >English</option>
+            <option value={'Spanish'}>Spanish</option>
+            <option value={'Other'} >Other</option>
+          </select>
+        </div>
+
+      {/* 7. Which of the following bests describes how you read */}
+        <div>
+          7. Which of the following bests describes how you read:
+          <select onChange={(e) => this.handleChange(e, 'howyouread')}>
+            <option value={'Like to read and read often'} selected="selected" >Like to read and read often</option>
+            <option value={'Can read, but don’t read very often'}>Can read, but don’t read very often</option>
+            <option value={'Can’t read'} >Can’t read</option>
+          </select>
+        </div>
+
+        <div>
+          8. Father of baby:
+          <div style={{marginLeft: 10}}>
+            <div>
+              Name
+              <input
+                  placeholder={'John Doe'}
+                  value={this.state.fathername}
+                  onChange={(e) => this.handleChange(e, 'fathername')}
+                  />
+            </div>
+            <div>
+              Language
+              <input
+                  placeholder={'English'}
+                  value={this.state.fatherlanguage}
+                  onChange={(e) => this.handleChange(e, 'fatherlanguage')}
+                  />
+            </div>
+            <div>
+              Education
+              <input
+                  placeholder={'High School'}
+                  value={this.state.fathereducation}
+                  onChange={(e) => this.handleChange(e, 'fathereducation')}
+                  />
+            </div>
+            <div>
+              Age
+              <input
+                  placeholder={'31'}
+                  value={this.state.fatherage}
+                  onChange={(e) => this.handleChange(e, 'fatherage')}
+                  />
+            </div>
+          </div>
+
         </div>
 
         
         <form style={{width: '100%'}} id="myForm" method="post" action="/api/pdf" >
           <input type="hidden" value={this.state.uid} name="uid" />
           <input type="hidden" value={this.state.name} name="name" />
+          
           <input type="hidden" value={this.state.age} name="age" />
           <input type="hidden" value={this.state.areyoumarried} name="areyoumarried" />
           <input type="hidden" value={this.state.howlongcurrenthome} name="howlongcurrenthome" />
           <input type="hidden" value={this.state.stayinthisarea} name="stayinthisarea" />
-          <input className={'primary'} type="submit" value="Generate PDF Form" />
+          <input type="hidden" value={this.state.howmanyyearsschool} name="howmanyyearsschool" />
+          <input type="hidden" value={this.state.preferredlanguagespeak} name="preferredlanguagespeak" />
+          <input type="hidden" value={this.state.howyouread} name="howyouread" />
+
+          <input type="hidden" value={this.state.fathername} name="fathername" />
+          <input type="hidden" value={this.state.fatherlanguage} name="fatherlanguage" />
+          <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
+          <input type="hidden" value={this.state.fatherage} name="fatherage" />
+
+          <input className={'primary'} type="submit" value="Export Pre-filled PDF" />
         </form>
         
         

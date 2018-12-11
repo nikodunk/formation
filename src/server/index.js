@@ -18,9 +18,17 @@ app.post('/api/pdf', (req, res) => {
 	    // edit 1st page
 	    .editPage(1)
 	    
+	    // client name
 	    .text(req.body.name ? req.body.name : ' ', 100, 87)
 	    
 	    .text(req.body.uid ? req.body.uid : ' ', 480, 105)
+	    .text('Formation Health', 90, 123)
+
+	    // coordinator
+	    .text('Casey Coordination', 120, 141)
+
+	    .text('Formation Demo Hospital', 440, 123)
+	    
 		
 		// 1. client age	    
 	    .text(req.body.age === 'Less than 12 years' ? 'x' : ' ', 44, 201)
@@ -45,7 +53,34 @@ app.post('/api/pdf', (req, res) => {
 	    .text(req.body.stayinthisarea === 'No' ? 'x' : ' ', 44, 412)
 	    .text(req.body.stayinthisarea === 'Unsure' ? 'x' : ' ', 44, 422)
 
+	    // 5. 
+	    .text(req.body.howmanyyearsschool === '0-8 years' ? 'x' : ' ', 42, 448)
+	    .text(req.body.howmanyyearsschool === '9-11 years' ? 'x' : ' ', 42, 458)
+	    .text(req.body.howmanyyearsschool === '12-16 years' ? 'x' : ' ', 42, 468)
+	    .text(req.body.howmanyyearsschool === '16+ years' ? 'x' : ' ', 42, 479)
+
+	    // 6. 
+	    .text(req.body.preferredlanguagespeak === 'English' ? 'x' : ' ', 43, 514)
+	    .text(req.body.preferredlanguagespeak === 'Spanish' ? 'x' : ' ', 43, 524)
+	    .text(req.body.preferredlanguagespeak === 'Other' ? 'x' : ' ', 43, 534)
+
+	    //7
+	    .text(req.body.howyouread === 'Like to read and read often' ? 'x' : ' ', 46, 559)
+	    .text(req.body.howyouread === 'Can read, but don’t read very often' ? 'x' : ' ', 46, 569)
+	    .text(req.body.howyouread === 'Can’t read' ? 'x' : ' ', 46, 579)
+
+	    //8
+	    .text(req.body.fathername ? req.body.fathername : ' ', 70, 622)
+	    .text(req.body.fatherlanguage ? req.body.fatherlanguage : ' ', 70, 638)
+	    .text(req.body.fathereducation ? req.body.fathereducation : ' ', 70, 653)
+	    .text(req.body.fatherage ? req.body.fatherage : ' ', 70, 668)
+
 	    .endPage()
+
+	    // edit 2nd page
+	    .editPage(2)
+	    .endPage()
+
 	    .endPDF();
 
 	res.download('./public/outputs/prenatal.pdf');

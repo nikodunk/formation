@@ -1,9 +1,13 @@
 body {
+	font-family: Verdana, sans-serif
+}
+
+#root {
   	text-align: left;
   	max-width: 600px;
 	margin: 0 auto;
 	padding: 50px;
-	font-family: Verdana, sans-serif
+	
 }
 
 hr {
