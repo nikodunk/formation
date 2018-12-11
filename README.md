@@ -30,8 +30,4 @@ Set up a new app
 
 	heroku config:set NPM_CONFIG_PRODUCTION=false
 
-Alter deploy.sh to reflect your Heroku git
-
-	./deploy.sh
-
 
