@@ -27,9 +27,9 @@ input {
 select {
 	padding: 5px;
 	margin: 5px;
+	width: 100%;
+    text-overflow: ellipsis;
 }
-
-
 
 .primary {
 	padding: 10px;
@@ -42,4 +42,8 @@ select {
 	margin-left: 20%;
 	margin-right: 20%;
 	margin-top: 50px;
+}
+
+.box{
+	margin-top: 20px;
 }

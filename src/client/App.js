@@ -48,7 +48,7 @@ export default class App extends React.Component {
 
         <hr />
 
-        <div>
+        <div class="box">
           Patient ID 
           <input
               placeholder={'Y-9147d'}
@@ -57,7 +57,7 @@ export default class App extends React.Component {
               />
         </div>
 
-        <div>
+        <div class="box">
           Patient Name 
           <input
               placeholder={'Jane Doe'}
@@ -69,7 +69,7 @@ export default class App extends React.Component {
         <hr />
 
         {/*1. client age*/}
-        <div>
+        <div class="box">
           1. Client Age
           <select onChange={(e) => this.handleChange(e, 'age')}>
             <option value={'Less than 12 years'}>Less than 12 years</option>
@@ -80,7 +80,7 @@ export default class App extends React.Component {
         </div>
 
       {/* 2. are you married etc */}
-        <div>
+        <div class="box">
           2. Are you:
           <select onChange={(e) => this.handleChange(e, 'areyoumarried')}>
             <option value={''} ></option>
@@ -95,7 +95,7 @@ export default class App extends React.Component {
         </div>
 
       {/* 3. how long have you lived in your */}
-        <div>
+        <div class="box">
           3. How long have you lived at your current home?
           <select onChange={(e) => this.handleChange(e, 'howlongcurrenthome')}>
             <option value={'Over one year'} selected="selected" >Over one year</option>
@@ -104,7 +104,7 @@ export default class App extends React.Component {
         </div>
 
       {/* 4. do you plan to stay */}
-        <div>
+        <div class="box">
           4. Do you plan to stay in this area for the rest of your pregnancy?
           <select onChange={(e) => this.handleChange(e, 'stayinthisarea')}>
             <option value={'Yes'} selected="selected" >Yes</option>
@@ -114,7 +114,7 @@ export default class App extends React.Component {
         </div>
 
       {/* 5. How many years of school have you completed? */}
-        <div>
+        <div class="box">
           5. How many years of school have you completed?
           <select onChange={(e) => this.handleChange(e, 'howmanyyearsschool')}>
             <option value={'0-8 years'}  >0-8 years</option>
@@ -125,7 +125,7 @@ export default class App extends React.Component {
         </div>
 
       {/* 6. What language do you prefer to speak? */}
-        <div>
+        <div class="box">
           6. What language do you prefer to speak?
           <select onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')}>
             <option value={''} ></option>
@@ -136,7 +136,7 @@ export default class App extends React.Component {
         </div>
 
       {/* 7. Which of the following bests describes how you read */}
-        <div>
+        <div class="box">
           7. Which of the following bests describes how you read:
           <select onChange={(e) => this.handleChange(e, 'howyouread')}>
             <option value={'Like to read and read often'} selected="selected" >Like to read and read often</option>
@@ -145,7 +145,7 @@ export default class App extends React.Component {
           </select>
         </div>
 
-        <div>
+        <div class="box">
           8. Father of baby:
           <div style={{marginLeft: 10}}>
             <div>
