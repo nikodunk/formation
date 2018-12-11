@@ -43,146 +43,141 @@ export default class App extends React.Component {
           <select>
             <option value={'Prenatal Assessment/Reassessment and Individualized Care Plan'}>Prenatal Assessment/Reassessment and Individualized Care Plan</option>
           </select>
-
         </div>
 
         <hr />
 
         <div class="box">
-          Patient ID 
-          <input
-              placeholder={'Y-9147d'}
-              value={this.state.uid}
-              onChange={(e) => this.handleChange(e, 'uid')}
-              />
+            Patient ID<br/>
+            <input
+                placeholder={'Y-9147d'}
+                value={this.state.uid}
+                onChange={(e) => this.handleChange(e, 'uid')} />
         </div>
 
-        <div class="box">
-          Patient Name 
-          <input
-              placeholder={'Jane Doe'}
-              value={this.state.name}
-              onChange={(e) => this.handleChange(e, 'name')}
-              />
+        <div class="box">          
+            Patient Name<br/>       
+            <input
+                placeholder={'Jane Doe'}
+                value={this.state.name}
+                onChange={(e) => this.handleChange(e, 'name')} />          
         </div>
 
         <hr />
 
         {/*1. client age*/}
         <div class="box">
-          1. Client Age
-          <select onChange={(e) => this.handleChange(e, 'age')}>
-            <option value={'Less than 12 years'}>Less than 12 years</option>
-            <option value={'12-17 years'}>12-17 years</option>
-            <option value={'18-34 years'} selected="selected">18-34 years</option>
-            <option value={'35 years or older'}>35 years or older</option>
-          </select>
+            1. Client Age<br/>
+            <select onChange={(e) => this.handleChange(e, 'age')}>
+              <option value={'Less than 12 years'}>Less than 12 years</option>
+              <option value={'12-17 years'}>12-17 years</option>
+              <option value={'18-34 years'} selected="selected">18-34 years</option>
+              <option value={'35 years or older'}>35 years or older</option>
+            </select>
         </div>
 
       {/* 2. are you married etc */}
         <div class="box">
-          2. Are you:
-          <select onChange={(e) => this.handleChange(e, 'areyoumarried')}>
-            <option value={''} ></option>
-            <option value={'Married'} >Married</option>
-            <option value={'Living with partner'} selected="selected">Living with partner</option>
-            <option value={'In a relationship'} >In a relationship</option>
-            <option value={'Single'} >Single</option>
-            <option value={'Divorced/Separated'} >Divorced/Separated</option>
-            <option value={'Widowed'} >Widowed</option>
-            <option value={'Other'} >Other</option>
-          </select>
+            2. Are you:<br/>
+            <select onChange={(e) => this.handleChange(e, 'areyoumarried')}>
+              <option value={''} ></option>
+              <option value={'Married'} >Married</option>
+              <option value={'Living with partner'} selected="selected">Living with partner</option>
+              <option value={'In a relationship'} >In a relationship</option>
+              <option value={'Single'} >Single</option>
+              <option value={'Divorced/Separated'} >Divorced/Separated</option>
+              <option value={'Widowed'} >Widowed</option>
+              <option value={'Other'} >Other</option>
+            </select>
         </div>
 
       {/* 3. how long have you lived in your */}
         <div class="box">
-          3. How long have you lived at your current home?
-          <select onChange={(e) => this.handleChange(e, 'howlongcurrenthome')}>
-            <option value={'Over one year'} selected="selected" >Over one year</option>
-            <option value={'Under one year, previously lived:'}>Under one year, previously lived:</option>
-          </select>
+            3. How long have you lived at your current home?<br/>
+            <select onChange={(e) => this.handleChange(e, 'howlongcurrenthome')}>
+              <option value={'Over one year'} selected="selected" >Over one year</option>
+              <option value={'Under one year, previously lived:'}>Under one year, previously lived:</option>
+            </select>
         </div>
 
       {/* 4. do you plan to stay */}
         <div class="box">
-          4. Do you plan to stay in this area for the rest of your pregnancy?
-          <select onChange={(e) => this.handleChange(e, 'stayinthisarea')}>
-            <option value={'Yes'} selected="selected" >Yes</option>
-            <option value={'No'}>No</option>
-            <option value={'Unsure'} >Unsure</option>
-          </select>
+            4. Do you plan to stay in this area for the rest of your pregnancy?<br/>
+            <select onChange={(e) => this.handleChange(e, 'stayinthisarea')}>
+              <option value={'Yes'} selected="selected" >Yes</option>
+              <option value={'No'}>No</option>
+              <option value={'Unsure'} >Unsure</option>
+            </select>
         </div>
 
       {/* 5. How many years of school have you completed? */}
         <div class="box">
-          5. How many years of school have you completed?
-          <select onChange={(e) => this.handleChange(e, 'howmanyyearsschool')}>
-            <option value={'0-8 years'}  >0-8 years</option>
-            <option value={'9-11 years'}>9-11 years</option>
-            <option value={'12-16 years'} selected="selected" >12-16 years</option>
-            <option value={'16+ years'}>16+ years</option>
-          </select>
+            5. How many years of school have you completed?<br/>
+            <select onChange={(e) => this.handleChange(e, 'howmanyyearsschool')}>
+              <option value={'0-8 years'}  >0-8 years</option>
+              <option value={'9-11 years'}>9-11 years</option>
+              <option value={'12-16 years'} selected="selected" >12-16 years</option>
+              <option value={'16+ years'}>16+ years</option>
+            </select>
         </div>
 
       {/* 6. What language do you prefer to speak? */}
         <div class="box">
-          6. What language do you prefer to speak?
-          <select onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')}>
-            <option value={''} ></option>
-            <option value={'English'} selected="selected">English</option>
-            <option value={'Spanish'}>Spanish</option>
-            <option value={'Other'} >Other</option>
-          </select>
+            6. What language do you prefer to speak?<br/>
+            <select onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')}>
+              <option value={''} ></option>
+              <option value={'English'} selected="selected">English</option>
+              <option value={'Spanish'}>Spanish</option>
+              <option value={'Other'} >Other</option>
+            </select>
         </div>
 
       {/* 7. Which of the following bests describes how you read */}
         <div class="box">
-          7. Which of the following bests describes how you read:
-          <select onChange={(e) => this.handleChange(e, 'howyouread')}>
-            <option value={'Like to read and read often'} selected="selected" >Like to read and read often</option>
-            <option value={'Can read, but don’t read very often'}>Can read, but don’t read very often</option>
-            <option value={'Can’t read'} >Can’t read</option>
-          </select>
+            7. Which of the following bests describes how you read:<br/>
+            <select onChange={(e) => this.handleChange(e, 'howyouread')}>
+              <option value={'Like to read and read often'} selected="selected" >Like to read and read often</option>
+              <option value={'Can read, but don’t read very often'}>Can read, but don’t read very often</option>
+              <option value={'Can’t read'} >Can’t read</option>
+            </select>
         </div>
 
+      {/* 8. Father of baby */}
         <div class="box">
-          8. Father of baby:
-          <div style={{marginLeft: 10}}>
-            <div>
-              Name
-              <input
-                  placeholder={'John Doe'}
-                  value={this.state.fathername}
-                  onChange={(e) => this.handleChange(e, 'fathername')}
-                  />
-            </div>
-            <div>
-              Language
-              <input
-                  placeholder={'English'}
-                  value={this.state.fatherlanguage}
-                  onChange={(e) => this.handleChange(e, 'fatherlanguage')}
-                  />
-            </div>
-            <div>
-              Education
-              <input
-                  placeholder={'High School'}
-                  value={this.state.fathereducation}
-                  onChange={(e) => this.handleChange(e, 'fathereducation')}
-                  />
-            </div>
-            <div>
-              Age
-              <input
-                  placeholder={'31'}
-                  value={this.state.fatherage}
-                  onChange={(e) => this.handleChange(e, 'fatherage')}
-                  />
-            </div>
+          8. Father of baby:<br/>
+          <div>
+            Name<br/>
+            <input
+                placeholder={'John Doe'}
+                value={this.state.fathername}
+                onChange={(e) => this.handleChange(e, 'fathername')} />
           </div>
+          <div>
+            Language<br/>
+            <input
+                placeholder={'English'}
+                value={this.state.fatherlanguage}
+                onChange={(e) => this.handleChange(e, 'fatherlanguage')} />
+          </div>
+          <div>
+            Education<br/>
+            <input
+                placeholder={'High School'}
+                value={this.state.fathereducation}
+                onChange={(e) => this.handleChange(e, 'fathereducation')} />
 
+          </div>
+          <div>
+            Age<br/>
+            <input
+                placeholder={'31'}
+                value={this.state.fatherage}
+                onChange={(e) => this.handleChange(e, 'fatherage')} />
+          </div>
+      
         </div>
+
+      
 
         <hr />
         
