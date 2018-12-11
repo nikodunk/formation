@@ -1,12 +1,17 @@
 body {
-	font-family: Verdana, sans-serif
+	font-family: Verdana, sans-serif;
+	padding: 10px;
+	padding-bottom: 200px;
+}
+
+h4 {
+	margin-top: 0;
 }
 
 #root {
   	text-align: left;
   	max-width: 600px;
 	margin: 0 auto;
-	padding: 10px;
 }
 
 hr {
@@ -17,28 +22,30 @@ hr {
 
 input {
 	padding: 5px;
+	padding-right: 0;
 	margin: 5px;
-	border-radius: 5px;
+	border-radius: 10px;
 	border: 1px solid lightgrey;
 	-webkit-appearance: none;
 }
 
 select {
-	padding: 5px;
 	margin: 5px;
 	max-width: 100%;
     text-overflow: ellipsis;
 }
 
 .primary {
+	padding: 20px;
+	margin: 0 auto;
 	display: flex;
-	padding: 10px;
+	border: 0;
 	background-color: dodgerblue;
 	color: white;
 	font-size: 1rem;
-	margin: 0 auto;
 	margin-top: 50px;
 	-webkit-appearance: none;
+	cursor: pointer;
 }
 
 .box{
