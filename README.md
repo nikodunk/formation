@@ -9,14 +9,20 @@
     # Start development server
     npm run dev
 
-    # Build for production
-    npm run build
-
-    # Start production server
-    npm start
 
 
+## To deploy on Heroku Dev:
 
-To deploy on Heroku:
+Set up a new app
 
 	heroku config:set NPM_CONFIG_PRODUCTION=false
+
+Alter deploy.sh to reflect your Heroku git
+
+	./deploy.sh
+
+
+
+![](/demo.png)
+
+![](/demo2.png)
