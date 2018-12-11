@@ -10,11 +10,11 @@ export default class App extends React.Component {
             uid: 'Y-9147d',
             name: 'Example Rogers',
             age: '18-34 years',
-            areyoumarried: '',
+            areyoumarried: 'Living with partner',
             howlongcurrenthome: 'Over one year',
             stayinthisarea: 'Yes',
             howmanyyearsschool: '12-16 years',
-            preferredlanguagespeak: '',
+            preferredlanguagespeak: 'English',
             howyouread: 'Like to read and read often',
             fathername: 'John Doe',
             fatherlanguage: 'English',
@@ -85,7 +85,7 @@ export default class App extends React.Component {
           <select onChange={(e) => this.handleChange(e, 'areyoumarried')}>
             <option value={''} ></option>
             <option value={'Married'} >Married</option>
-            <option value={'Living with partner'}>Living with partner</option>
+            <option value={'Living with partner'} selected="selected">Living with partner</option>
             <option value={'In a relationship'} >In a relationship</option>
             <option value={'Single'} >Single</option>
             <option value={'Divorced/Separated'} >Divorced/Separated</option>
@@ -129,7 +129,7 @@ export default class App extends React.Component {
           6. What language do you prefer to speak?
           <select onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')}>
             <option value={''} ></option>
-            <option value={'English'} >English</option>
+            <option value={'English'} selected="selected">English</option>
             <option value={'Spanish'}>Spanish</option>
             <option value={'Other'} >Other</option>
           </select>

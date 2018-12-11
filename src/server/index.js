@@ -13,7 +13,7 @@ app.use(express.static('dist'));
 
 app.post('/api/pdf', (req, res) => {
 	const pdfDoc = new HummusRecipe('./public/inputs/prenatal.pdf', './public/outputs/prenatal.pdf');
-	console.log(req.body.areyoumarried, req.body.howlongcurrenthome)
+	
 	pdfDoc
 	    // edit 1st page
 	    .editPage(1)
