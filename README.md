@@ -1,5 +1,18 @@
 # Turbotax for common medical forms
 
+Tech demo for a react app with Node backend to pre-fill most common medical forms with sane defaults, as a service.
+
+Demo at [http://useformation.herokuapp.com](http://useformation.herokuapp.com)
+
+Screenshots:
+
+![](/demo.png) | ![](/demo2.png)
+:-----------------------------:|:-------------------------:
+							   |
+
+
+
+
 ## Quick Start
 
 
@@ -22,7 +35,3 @@ Alter deploy.sh to reflect your Heroku git
 	./deploy.sh
 
 
-
-![](/demo.png)
-
-![](/demo2.png)
