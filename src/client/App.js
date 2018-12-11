@@ -184,6 +184,7 @@ export default class App extends React.Component {
 
         </div>
 
+        <hr />
         
         <form style={{width: '100%'}} id="myForm" method="post" action="/api/pdf" >
           <input type="hidden" value={this.state.uid} name="uid" />
@@ -205,6 +206,7 @@ export default class App extends React.Component {
           <input className={'primary'} type="submit" value="Export Pre-filled PDF" />
         </form>
         
+
         
       </div>
     );

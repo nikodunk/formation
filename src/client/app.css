@@ -7,7 +7,6 @@ body {
   	max-width: 600px;
 	margin: 0 auto;
 	padding: 50px;
-	
 }
 
 hr {
@@ -22,6 +21,7 @@ input {
 	border-radius: 5px;
 	border: 1px solid lightgrey;
 	margin-left: 20px;
+	-webkit-appearance: none;
 }
 
 select {
@@ -32,16 +32,14 @@ select {
 }
 
 .primary {
+	display: flex;
 	padding: 10px;
-	margin: 5px;
 	background-color: dodgerblue;
 	color: white;
 	font-size: 1rem;
-	border: 0;
-	width: 60%;
-	margin-left: 20%;
-	margin-right: 20%;
+	margin: 0 auto;
 	margin-top: 50px;
+	-webkit-appearance: none;
 }
 
 .box{
