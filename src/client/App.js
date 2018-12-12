@@ -44,35 +44,40 @@ export default class App extends React.Component {
         
         <div>
           Form<br/>
-          <select>
+          <select class="form-control">
             <option value={'Prenatal Assessment/Reassessment and Individualized Care Plan'}>Prenatal Assessment/Reassessment and Individualized Care Plan</option>
           </select><br />
         </div>
 
         <hr />
 
-        <div class="box">
-            Patient ID<br/>
-            <input
-                placeholder={'Y-9147d'}
-                value={this.state.uid}
-                onChange={(e) => this.handleChange(e, 'uid')} />
+
+        <div class="form-group">
+          <label >Patient ID</label>
+          <input 
+                class="form-control" 
+                onChange={(e) => this.handleChange(e, 'uid')}
+                value={this.state.uid} 
+                placeholder={'Y-9147d'} />
         </div>
 
-        <div class="box">          
-            Patient Name<br/>       
-            <input
-                placeholder={'Jane Doe'}
-                value={this.state.name}
-                onChange={(e) => this.handleChange(e, 'name')} />          
+
+        <div class="form-group">
+          <label >Patient Name</label>
+          <input 
+                class="form-control" 
+                onChange={(e) => this.handleChange(e, 'name')}
+                value={this.state.name} 
+                placeholder={'Jane Doe'} />
         </div>
+
 
         <hr />
 
         {/*1. client age*/}
         <div class="box">
             1. Client Age<br/>
-            <select onChange={(e) => this.handleChange(e, 'age')}>
+            <select class="form-control" onChange={(e) => this.handleChange(e, 'age')}>
               <option value={'Less than 12 years'}>Less than 12 years</option>
               <option value={'12-17 years'}>12-17 years</option>
               <option value={'18-34 years'} selected="selected">18-34 years</option>
@@ -83,7 +88,7 @@ export default class App extends React.Component {
       {/* 2. are you married etc */}
         <div class="box">
             2. Are you:<br/>
-            <select onChange={(e) => this.handleChange(e, 'areyoumarried')}>
+            <select class="form-control" onChange={(e) => this.handleChange(e, 'areyoumarried')}>
               <option value={''} ></option>
               <option value={'Married'} >Married</option>
               <option value={'Living with partner'} selected="selected">Living with partner</option>
@@ -98,7 +103,7 @@ export default class App extends React.Component {
       {/* 3. how long have you lived in your */}
         <div class="box">
             3. How long have you lived at your current home?<br/>
-            <select onChange={(e) => this.handleChange(e, 'howlongcurrenthome')}>
+            <select class="form-control" onChange={(e) => this.handleChange(e, 'howlongcurrenthome')}>
               <option value={'Over one year'} selected="selected" >Over one year</option>
               <option value={'Under one year, previously lived:'}>Under one year, previously lived:</option>
             </select>
@@ -107,7 +112,7 @@ export default class App extends React.Component {
       {/* 4. do you plan to stay */}
         <div class="box">
             4. Do you plan to stay in this area for the rest of your pregnancy?<br/>
-            <select onChange={(e) => this.handleChange(e, 'stayinthisarea')}>
+            <select class="form-control" onChange={(e) => this.handleChange(e, 'stayinthisarea')}>
               <option value={'Yes'} selected="selected" >Yes</option>
               <option value={'No'}>No</option>
               <option value={'Unsure'} >Unsure</option>
@@ -117,7 +122,7 @@ export default class App extends React.Component {
       {/* 5. How many years of school have you completed? */}
         <div class="box">
             5. How many years of school have you completed?<br/>
-            <select onChange={(e) => this.handleChange(e, 'howmanyyearsschool')}>
+            <select class="form-control" onChange={(e) => this.handleChange(e, 'howmanyyearsschool')}>
               <option value={'0-8 years'}  >0-8 years</option>
               <option value={'9-11 years'}>9-11 years</option>
               <option value={'12-16 years'} selected="selected" >12-16 years</option>
@@ -128,7 +133,7 @@ export default class App extends React.Component {
       {/* 6. What language do you prefer to speak? */}
         <div class="box">
             6. What language do you prefer to speak?<br/>
-            <select onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')}>
+            <select class="form-control" onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')}>
               <option value={''} ></option>
               <option value={'English'} selected="selected">English</option>
               <option value={'Spanish'}>Spanish</option>
@@ -139,7 +144,7 @@ export default class App extends React.Component {
       {/* 7. Which of the following bests describes how you read */}
         <div class="box">
             7. Which of the following bests describes how you read:<br/>
-            <select onChange={(e) => this.handleChange(e, 'howyouread')}>
+            <select class="form-control" onChange={(e) => this.handleChange(e, 'howyouread')}>
               <option value={'Like to read and read often'} selected="selected" >Like to read and read often</option>
               <option value={'Can read, but don’t read very often'}>Can read, but don’t read very often</option>
               <option value={'Can’t read'} >Can’t read</option>
@@ -149,34 +154,38 @@ export default class App extends React.Component {
       {/* 8. Father of baby */}
         <div class="box">
           8. Father of baby:<br/>
-          <div>
-            Name<br/>
+          <div class="form-group">
+            <label >Name</label>
             <input
                 placeholder={'John Doe'}
                 value={this.state.fathername}
-                onChange={(e) => this.handleChange(e, 'fathername')} />
+                onChange={(e) => this.handleChange(e, 'fathername')} 
+                class="form-control" />
           </div>
           <div>
-            Language<br/>
+            <label >Language</label>
             <input
                 placeholder={'English'}
                 value={this.state.fatherlanguage}
-                onChange={(e) => this.handleChange(e, 'fatherlanguage')} />
+                onChange={(e) => this.handleChange(e, 'fatherlanguage')}
+                class="form-control" />
           </div>
           <div>
-            Education<br/>
+            <label >Education</label>
             <input
                 placeholder={'High School'}
                 value={this.state.fathereducation}
-                onChange={(e) => this.handleChange(e, 'fathereducation')} />
+                onChange={(e) => this.handleChange(e, 'fathereducation')}
+                class="form-control" />
 
           </div>
           <div>
-            Age<br/>
+            <label >Age</label>
             <input
                 placeholder={'31'}
                 value={this.state.fatherage}
-                onChange={(e) => this.handleChange(e, 'fatherage')} />
+                onChange={(e) => this.handleChange(e, 'fatherage')}
+                class="form-control" />
           </div>
       
         </div>
@@ -202,7 +211,7 @@ export default class App extends React.Component {
           <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
           <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-          <input className={'primary'} type="submit" value="Export to PDF" />
+          <input className={'btn btn-primary'} type="submit" value="Export to PDF" />
         </form>
         
 

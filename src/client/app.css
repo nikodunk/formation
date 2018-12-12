@@ -1,6 +1,5 @@
 body {
 	font-family: Verdana, sans-serif;
-	padding: 10px;
 	padding-bottom: 200px;
 }
 
@@ -9,6 +8,7 @@ h4 {
 }
 
 #root {
+	padding: 10px;
   	text-align: left;
   	max-width: 600px;
 	margin: 0 auto;
