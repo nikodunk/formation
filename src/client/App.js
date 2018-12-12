@@ -39,8 +39,8 @@ export default class App extends React.Component {
       <div>
         
         <p style={{color: 'dodgerblue'}}>Welcome! </p>
-        <p style={{color: 'dodgerblue'}}>This app pre-selects the most common options on a "Prenatal A/R I.P.C." form (17 pages), and then exports an official PDF.</p>
-        <p style={{color: 'dodgerblue'}}>Edit the pre-selections as necessary then hit <b>Export to PDF</b> at the bottom to see the complete form.</p>
+        <p style={{color: 'dodgerblue'}}>This app pre-selects the most common answers on a <i>Prenatal A/R IPC</i> Form and exports an official, completed PDF.</p>
+        <p style={{color: 'dodgerblue'}}>Edit the pre-selections as necessary and hit <b>Export to PDF</b>.</p>
         
         <div>
           <label class="label">Form</label>
