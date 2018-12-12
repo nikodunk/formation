@@ -39,8 +39,8 @@ export default class App extends React.Component {
       <div>
         
         <p style={{color: 'dodgerblue'}}>Welcome! </p>
-        <p style={{color: 'dodgerblue'}}>This app pre-selects the most common answers on a <i>Prenatal A/R IPC</i> Form and exports an official, completed PDF.</p>
-        <p style={{color: 'dodgerblue'}}>Edit the pre-selections as necessary and hit <b>Export to PDF</b>.</p>
+        <p style={{color: 'dodgerblue'}}>This demo pre-selects the most common answers on a <i>Prenatal A/R IPC</i> Form and exports an official, completed PDF.</p>
+        <p style={{color: 'dodgerblue'}}>Edit the pre-selections as necessary and hit <b>Export Completed PDF</b>.</p>
         
         <div>
           <label class="label">Form</label>
@@ -476,7 +476,7 @@ export default class App extends React.Component {
           <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
           <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-          <input class='btn btn-primary w-100' type="submit" value="Export to PDF" />
+          <input class='btn btn-primary w-100' type="submit" value="Export Completed PDF" />
         </form>
 
         <p>Note: For demonstration purposes only page 1 is pre-filled here</p>
