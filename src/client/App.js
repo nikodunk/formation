@@ -144,12 +144,44 @@ export default class App extends React.Component {
       {/* 7. Which of the following bests describes how you read */}
         <div class="box">
             7. Which of the following bests describes how you read:<br/>
-            <select class="form-control" onChange={(e) => this.handleChange(e, 'howyouread')}>
-              <option value={'Like to read and read often'} selected="selected" >Like to read and read often</option>
-              <option value={'Can read, but don’t read very often'}>Can read, but don’t read very often</option>
-              <option value={'Can’t read'} >Can’t read</option>
-            </select>
+            <div class="form-check">
+              <input  class="form-check-input" 
+                      type="radio" 
+                      value={'Like to read and read often'}
+                      checked={this.state.howyouread === 'Like to read and read often'}
+                      onChange={(e) => this.handleChange(e, 'howyouread')} 
+                      id="howyouread1"/>
+              <label class="form-check-label" for="howyouread1">
+                Like to read and read often
+              </label>
+            </div>
+            <div class="form-check">
+              <input  class="form-check-input" 
+                      type="radio" 
+                      value={'Can read, but don’t read very often'}
+                      checked={this.state.howyouread === 'Can read, but don’t read very often'}
+                      onChange={(e) => this.handleChange(e, 'howyouread')} 
+                      id="howyouread2" />
+              <label class="form-check-label" for="howyouread2">
+                Can read, but don’t read very often
+              </label>
+            </div>
+            <div class="form-check">
+              <input  class="form-check-input" 
+                      type="radio" 
+                      value={'Can’t read'}
+                      checked={this.state.howyouread === 'Can’t read'}
+                      onChange={(e) => this.handleChange(e, 'howyouread')} 
+                      id="howyouread3" />
+              <label class="form-check-label" for="howyouread3">
+                Can’t read
+              </label>
+            </div>
         </div>
+
+      
+        
+        
 
       {/* 8. Father of baby */}
         <div class="box">
