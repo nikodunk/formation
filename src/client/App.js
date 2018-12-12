@@ -43,17 +43,16 @@ export default class App extends React.Component {
         <p style={{color: 'dodgerblue'}}>Edit the pre-selections as necessary then hit <b>Export to PDF</b> at the bottom to see the complete form.</p>
         
         <div>
-          Form<br/>
-          <select class="form-control">
-            <option value={'Prenatal Assessment/Reassessment and Individualized Care Plan'}>Prenatal Assessment/Reassessment and Individualized Care Plan</option>
-          </select><br />
+          <label class="label">Form</label>
+          <p style={{color: 'grey'}}>Prenatal Assessment/Reassessment and Individualized Care Plan</p>
+          
         </div>
 
         <hr />
 
 
         <div class="form-group">
-          <label >Patient ID</label>
+          <label class="label">Patient ID</label>
           <input 
                 class="form-control" 
                 onChange={(e) => this.handleChange(e, 'uid')}
@@ -63,7 +62,7 @@ export default class App extends React.Component {
 
 
         <div class="form-group">
-          <label >Patient Name</label>
+          <label class="label">Patient Name</label>
           <input 
                 class="form-control" 
                 onChange={(e) => this.handleChange(e, 'name')}
@@ -78,7 +77,7 @@ export default class App extends React.Component {
 
         {/*1. client age*/}
         <div class="box">
-            1. Client Age<br/>
+            <span class="label">1. Client Age</span>
             <div class="form-check">
               <input  class="form-check-input" 
                       type="radio" 
@@ -130,7 +129,7 @@ export default class App extends React.Component {
 
       {/* 2. are you married etc */}
         <div class="box">
-            2. Are you:<br/>
+            <span class="label">2. Are you:</span>
             <div class="form-check">
               <input  class="form-check-input" 
                       type="radio" 
@@ -214,7 +213,7 @@ export default class App extends React.Component {
 
       {/* 3. how long have you lived in your */}
         <div class="box">
-            3. How long have you lived at your current home?<br/>
+            <span class="label">3. How long have you lived at your current home?</span>
             <div class="form-check">
               <input  class="form-check-input" 
                       type="radio" 
@@ -243,7 +242,7 @@ export default class App extends React.Component {
 
       {/* 4. do you plan to stay */}
         <div class="box">
-            4. Do you plan to stay in this area for the rest of your pregnancy?<br/>
+            <span class="label">4. Do you plan to stay in this area for the rest of your pregnancy?</span>
                 <div class="form-check">
                   <input  class="form-check-input" 
                           type="radio" 
@@ -284,7 +283,7 @@ export default class App extends React.Component {
 
       {/* 5. How many years of school have you completed? */}
         <div class="box">
-            5. How many years of school have you completed?<br/>
+            <span class="label">5. How many years of school have you completed?</span>
             <div class="form-check">
               <input  class="form-check-input" 
                       type="radio" 
@@ -336,7 +335,7 @@ export default class App extends React.Component {
 
       {/* 6. What language do you prefer to speak? */}
         <div class="box">
-            6. What language do you prefer to speak?<br/>
+            <span class="label">6. What language do you prefer to speak?</span>
             <div class="form-check">
               <input  class="form-check-input" 
                       type="radio" 
@@ -377,7 +376,7 @@ export default class App extends React.Component {
 
       {/* 7. Which of the following bests describes how you read */}
         <div class="box">
-            7. Which of the following bests describes how you read:<br/>
+            <span class="label">7. Which of the following bests describes how you read:</span>
             <div class="form-check">
               <input  class="form-check-input" 
                       type="radio" 
@@ -419,7 +418,7 @@ export default class App extends React.Component {
 
       {/* 8. Father of baby */}
         <div class="box">
-          8. Father of baby:<br/>
+          <span class="label">8. Father of baby:</span>
           <div class="form-group">
             <label >Name</label>
             <input

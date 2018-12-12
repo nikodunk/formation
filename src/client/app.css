@@ -12,6 +12,9 @@ body {
 }
 
 
+.label{
+	font-weight: 600;
+}
 
 .box{
 	margin-top: 20px;
