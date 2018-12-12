@@ -40,7 +40,7 @@ export default class App extends React.Component {
         
         <p style={{color: 'dodgerblue'}}>Welcome! </p>
         <p style={{color: 'dodgerblue'}}>This app pre-fills the first page of a "Prenatal Assessment/Re-assessment IPC" Form for demonstration purposes.</p>
-        <p style={{color: 'dodgerblue'}}>Select <b>Export PDF</b> at the bottom to see the complete form.</p>
+        <p style={{color: 'dodgerblue'}}>Select <b>Export to PDF</b> at the bottom to see the complete form.</p>
         
         <div>
           Form<br/>
@@ -202,7 +202,7 @@ export default class App extends React.Component {
           <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
           <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-          <input className={'primary'} type="submit" value="EXPORT to PDF" />
+          <input className={'primary'} type="submit" value="Export to PDF" />
         </form>
         
 
