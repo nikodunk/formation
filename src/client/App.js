@@ -39,7 +39,7 @@ export default class App extends React.Component {
       <div>
         
         <p style={{color: 'dodgerblue'}}>Welcome! </p>
-        <p style={{color: 'dodgerblue'}}>This app pre-fills the first page of LA County's "Prenatal Assessment/Re-assesment IPC" Form for demonstration purposes.</p>
+        <p style={{color: 'dodgerblue'}}>This app pre-fills the first page of LA County's "Prenatal Assessment/Re-assessment IPC" Form for demonstration purposes.</p>
         <p style={{color: 'dodgerblue'}}>Hit <b>Export Pre-Filled PDF</b> at the bottom once you've altered the pre-filled common answers in the app as necessary.</p>
         
         <div>
