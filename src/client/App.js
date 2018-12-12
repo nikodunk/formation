@@ -38,7 +38,7 @@ export default class App extends React.Component {
     return (
       <div>
         
-        <p style={{color: 'dodgerblue'}}>Welcome to the IPC form filler! Leave all pre-set defaults and just hit <b>export</b> at the bottom, or customize everything as necessary.</p>
+        <p style={{color: 'dodgerblue'}}>Welcome to the IPC form filler demo! Leave all pre-set defaults and just hit <b>export</b> at the bottom, or customize everything as necessary.</p>
         
         <div>
           Form<br/>
