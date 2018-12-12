@@ -202,7 +202,7 @@ export default class App extends React.Component {
           <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
           <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-          <input className={'primary'} type="submit" value="Export PDF" />
+          <input className={'primary'} type="submit" value="EXPORT to PDF" />
         </form>
         
 
