@@ -39,8 +39,8 @@ export default class App extends React.Component {
       <div>
         
         <p style={{color: 'dodgerblue'}}>Welcome! </p>
-        <p style={{color: 'dodgerblue'}}>This app pre-selects the most common options on a "Prenatal Assessment/Re-assessment IPC" form, and then exports to the required official PDF format. (Only page 1 here, for demonstration purposes).</p>
-        <p style={{color: 'dodgerblue'}}>Select <b>Export to PDF</b> at the bottom to see the complete form.</p>
+        <p style={{color: 'dodgerblue'}}>This app pre-selects the most common options on a "Prenatal A/R I.P.C." form (17 pages), and then exports an official PDF.</p>
+        <p style={{color: 'dodgerblue'}}>Edit the pre-selections as necessary then hit <b>Export to PDF</b> at the bottom to see the complete form.</p>
         
         <div>
           Form<br/>
@@ -479,6 +479,8 @@ export default class App extends React.Component {
 
           <input class='btn btn-primary w-100' type="submit" value="Export to PDF" />
         </form>
+
+        <p>Note: For demonstration purposes only page 1 is pre-filled here</p>
         
 
         
