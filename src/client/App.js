@@ -38,11 +38,13 @@ export default class App extends React.Component {
     return (
       <div>
         
+        <p style={{color: 'dodgerblue'}}>Welcome to the IPC form filler! Leave all pre-set defaults and just hit <b>export</b> at the bottom, or customize everything as necessary.</p>
+        
         <div>
           Form<br/>
           <select>
             <option value={'Prenatal Assessment/Reassessment and Individualized Care Plan'}>Prenatal Assessment/Reassessment and Individualized Care Plan</option>
-          </select>
+          </select><br />
         </div>
 
         <hr />
