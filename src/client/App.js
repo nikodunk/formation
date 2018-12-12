@@ -38,7 +38,7 @@ export default class App extends React.Component {
     return (
       <div>
         
-        <p style={{color: 'dodgerblue'}}>Welcome! Leave all options on default and hit <b>Export Pre-Filled PDF</b> below, or as necessary.</p>
+        <p style={{color: 'dodgerblue'}}>Welcome! <br>Change pre-filled answers as necessary or leave as is, then hit <b>Export Pre-Filled PDF</b>.</p>
         
         <div>
           Form<br/>
