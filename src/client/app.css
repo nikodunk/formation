@@ -19,3 +19,10 @@ body {
 .box{
 	margin-top: 20px;
 }
+
+
+.navbar {
+    -webkit-box-shadow: 0 1px 3px -1px lightgrey;
+    -moz-box-shadow: 0 1px 3px -1px lightgrey;
+    box-shadow: 0 1px 3px -1px lightgrey;
+}
