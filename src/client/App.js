@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './app.css';
+import Analytics from './analytics.js'
 
 export default class App extends React.Component {
   
@@ -480,8 +481,10 @@ export default class App extends React.Component {
         </form>
 
         <p>Note: For demonstration purposes only page 1 is pre-filled here</p>
-        
 
+        <hr />        
+
+        <Analytics />
         
       </div>
     );
