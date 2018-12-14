@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './app.css';
 
-export default class Analytics extends React.Component {
+export default class Reports extends React.Component {
   
   constructor(props) {
       super(props);
@@ -22,10 +22,11 @@ export default class Analytics extends React.Component {
     return (
       <div style={{marginTop: 100}}>
         
-        <h4> Your Analytics YTD </h4>
+        <h4> Reporting/Analytics Dashboard </h4>
         <p> Coming Soon! </p>
 
-        
+
+
       </div>
     );
   }
