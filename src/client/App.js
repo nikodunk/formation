@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './app.css';
 
 import PrenatalPage from './pages/PrenatalPage'
+import PostpartumPage from './pages/PostpartumPage'
 
 export default class App extends React.Component {
   
@@ -9,7 +10,7 @@ export default class App extends React.Component {
       super(props);
       
       this.state = { 
-            form: 'Prenatal Assessment/Reassessment and Individualized Care Plan',
+            form: 'postpartum',
             uid: 'Example-9147d',
             name: 'Georgia Examplette',
           }
@@ -19,6 +20,11 @@ export default class App extends React.Component {
     
   }
 
+  handleChange(e, fieldname) {
+    let newState = {}
+    newState[fieldname] = e.target.value;
+    this.setState(newState);
+  }
 
 
   render() {
@@ -32,17 +38,6 @@ export default class App extends React.Component {
           </p>
         </div>
         
-
-      {/* FORM NUMBER */}
-        <div>
-          <label className="label">Form</label>
-          <select value={this.state.value} onChange={this.handleChange}>
-              <option value="grapefruit">LAC CPSP 2017 Prenatal Assessment/Reassessment and Individualized Care Plan</option>
-              <option value="lime">LAC CPSP 2017 Postpartum Assessment & ICP tool</option>
-          </select>
-        </div>
-
-        <hr />
 
       {/* PATIENT ID */}
         <div className="form-group">
@@ -67,7 +62,20 @@ export default class App extends React.Component {
 
         <hr />
 
-        { this.state.form === 'Prenatal Assessment/Reassessment and Individualized Care Plan' ? <PrenatalPage uid={this.state.uid} name={this.state.name} /> : null }
+      {/* FORM NUMBER */}
+        <div>
+          <label className="label">Form</label>
+          <select value={this.state.form} onChange={(e) => this.handleChange(e, 'form')}>
+              <option value="prenatal">LAC CPSP 2017 Prenatal Assessment/Reassessment and Individualized Care Plan</option>
+              <option value="postpartum">LAC CPSP 2017 Postpartum Assessment & ICP tool</option>
+          </select>
+        </div>
+
+        
+
+        
+        { this.state.form === 'prenatal' ? <PrenatalPage uid={this.state.uid} name={this.state.name} /> : <PostpartumPage uid={this.state.uid} name={this.state.name} /> }
+
 
       </div>
     );

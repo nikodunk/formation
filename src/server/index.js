@@ -6,7 +6,7 @@ const HummusRecipe = require('hummus-recipe');
 
 
 const prenatal = require('./pages/prenatal');
-const perinatal = require('./pages/perinatal');
+const postpartum = require('./pages/postpartum');
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -16,7 +16,7 @@ app.use(express.static('dist'));
 
 
 app.use('/api/prenatal', prenatal);
-app.use('/api/perinatal', perinatal);
+app.use('/api/postpartum', postpartum);
 
 
 

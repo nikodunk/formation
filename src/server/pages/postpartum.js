@@ -18,7 +18,38 @@ router.post('/', function(req, res, next) {
   	pdfDoc
   	    // edit 1st page
   	    .editPage(1)
-  	    .text('test', 44, 201)
+
+        
+      // ----------------------
+
+
+  	    // patient name
+        .text(req.body.name ? req.body.name : ' ', 100, 73)
+        
+
+
+
+        // health plan
+        .text('Paperwork Health Plan', 95, 91)
+        
+        // provider
+        .text('Paperwork Health', 95, 109)
+
+        //case coordinator
+        .text('Casey Coordination', 120, 125)
+
+
+        // ID number
+        .text(req.body.uid ? req.body.uid : ' ', 420, 91)
+        
+        // DOB
+        .text('01/20/1988', 430, 74)
+        
+        // hospital
+        .text('Paperwork Demo Hospital', 440, 107)
+        
+        // ----------------------
+        
 
 
   	    .endPage()

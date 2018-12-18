@@ -19,18 +19,36 @@ router.post('/', function(req, res, next) {
           // edit 1st page
           .editPage(1)
           
-          // client name
+
+         // ----------------------
+
+          // patient name
           .text(req.body.name ? req.body.name : ' ', 100, 87)
+
+          // health plan
+          .text('Paperwork Health Plan', 95, 106)
           
+          // ID number
           .text(req.body.uid ? req.body.uid : ' ', 480, 105)
+
+          // provider
           .text('Paperwork Health', 90, 123)
 
           // coordinator
           .text('Casey Coordination', 120, 141)
 
+          // hospital
           .text('Paperwork Demo Hospital', 440, 123)
+
+          // DOB
+          .text('01/20/1988', 460, 87)
+
           
-        
+        // ----------------------
+
+
+
+
         // 1. client age      
           .text(req.body.age === 'Less than 12 years' ? 'x' : ' ', 44, 201)
           .text(req.body.age === '12-17 years' ? 'x' : ' ', 44, 211)
