@@ -51,6 +51,10 @@ router.post('/', function(req, res, next) {
         // ----------------------
         
 
+        // 1. DELIVERY RECORD FILED IN CHART?
+        .text(req.body.filedinchart === 'Yes' ? 'x' : ' ', 171, 227)
+        .text(req.body.filedinchart === 'No' ? 'x' : ' ', 202, 227)
+
 
   	    .endPage()
 

@@ -13,6 +13,7 @@ export default class App extends React.Component {
             form: 'postpartum',
             uid: 'Example-9147d',
             name: 'Georgia Examplette',
+            dob: '01/20/1988'
           }
   }
 
@@ -30,6 +31,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+
+
+
         <div class="alert alert-info">
           <p >
             Welcome! <br />
@@ -37,44 +41,76 @@ export default class App extends React.Component {
             Edit the pre-selections as necessary and hit <b>Export Completed PDF</b>.
           </p>
         </div>
-        
+       
 
-      {/* PATIENT ID */}
-        <div className="form-group">
-          <label className="label">Patient ID</label>
-          <input 
-                className="form-control" 
-                onChange={(e) => this.handleChange(e, 'uid')}
-                value={this.state.uid} 
-                placeholder={'Y-9147d'} />
+
+
+
+        <div class="card" >
+          <div class="card-body">
+              {/* PATIENT ID NUMBER */}
+                <div className="form-group">
+                  <label className="label">Patient ID Number</label>
+                  <select class="form-control" value={this.state.uid} onChange={(e) => this.handleChange(e, 'uid')}>
+                      <option value="Y-9147d">Y-9147d</option>
+                  </select>
+                </div>
+
+              {/* PATIENT NAME */}
+                <div className="form-group">
+                  <label className="label">Patient Name</label>
+                  <input 
+                        className="form-control" 
+                        onChange={(e) => this.handleChange(e, 'name')}
+                        value={this.state.name} 
+                        placeholder={'Jane Doe'} />
+                </div>
+
+              {/* DOB */}
+                <div className="form-group">
+                  <label className="label">Date of Birth</label>
+                  <input 
+                        className="form-control" 
+                        onChange={(e) => this.handleChange(e, 'dob')}
+                        value={this.state.dob} 
+                        placeholder={'01/20/1988'} />
+                </div>
+
+              {/* PATIENT INFO BOX */}
+              <p>
+              Paperwork Health Plan | Paperwork Health <br />     
+              Casey Coordination | Paperwork Demo Hospital</p>     
+          </div>
         </div>
 
-      {/* PATIENT NAME */}
-        <div className="form-group">
-          <label className="label">Patient Name</label>
-          <input 
-                className="form-control" 
-                onChange={(e) => this.handleChange(e, 'name')}
-                value={this.state.name} 
-                placeholder={'Jane Doe'} />
+        <br />
+
+        <div class="card">
+          <div class="card-body">
+
+            {/* FORM SELECTOR */}
+              <div>
+                <label className="label">Form</label>
+                <select class="form-control" value={this.state.form} onChange={(e) => this.handleChange(e, 'form')}>
+                    <option value="prenatal">LAC CPSP 2017 Prenatal Assessment/Reassessment and Individualized Care Plan</option>
+                    <option value="postpartum">LAC CPSP 2017 Postpartum Assessment & ICP tool</option>
+                </select>
+              </div>
+
+            <br />
+
+            
+
+            <div class="card" style={{backgroundColor: '#fcfcfc'}}>
+              <div class="card-body">
+                { this.state.form === 'prenatal' ? <PrenatalPage uid={this.state.uid} name={this.state.name} /> : <PostpartumPage uid={this.state.uid} name={this.state.name} /> }
+              </div>
+            </div>
+
+          </div>
         </div>
 
 
-        <hr />
-
-      {/* FORM NUMBER */}
-        <div>
-          <label className="label">Form</label>
-          <select value={this.state.form} onChange={(e) => this.handleChange(e, 'form')}>
-              <option value="prenatal">LAC CPSP 2017 Prenatal Assessment/Reassessment and Individualized Care Plan</option>
-              <option value="postpartum">LAC CPSP 2017 Postpartum Assessment & ICP tool</option>
-          </select>
-        </div>
-
-        
-
-        
-        { this.state.form === 'prenatal' ? <PrenatalPage uid={this.state.uid} name={this.state.name} /> : <PostpartumPage uid={this.state.uid} name={this.state.name} /> }
 
 
       </div>
