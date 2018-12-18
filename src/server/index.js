@@ -43,10 +43,13 @@ app.post('/api/pdf', (req, res) => {
 	    .text(req.body.areyoumarried === 'Single' ? 'x' : ' ', 183, 288)
 	    .text(req.body.areyoumarried === 'Divorced/Separated' ? 'x' : ' ', 183, 298)
 	    .text(req.body.areyoumarried === 'Widowed' ? 'x' : ' ', 183, 310)
+	    .text(!['Married','Living with partner','In a relationship','Single','Divorced/Separated','Widowed'].includes(req.body.areyoumarried)  ? 'x' : ' ', 89, 320)
+	    .text(!['Married','Living with partner','In a relationship','Single','Divorced/Separated','Widowed'].includes(req.body.areyoumarried) ? req.body.areyoumarried : ' ', 119, 320)
 
 	    // 3. how long have you lived
 	    .text(req.body.howlongcurrenthome === 'Over one year' ? 'x' : ' ', 43, 346)
-	    .text(req.body.howlongcurrenthome === 'Under one year, previously lived:' ? 'x' : ' ', 43, 356)
+	    .text(!['Over one year'].includes(req.body.howlongcurrenthome) ? 'x' : ' ', 43, 356)
+	    .text(!['Over one year'].includes(req.body.howlongcurrenthome) ? req.body.howlongcurrenthome : ' ', 183, 356)
 	    
 	    // 4. do you plan to stay
 	    .text(req.body.stayinthisarea === 'Yes' ? 'x' : ' ', 44, 402)
@@ -62,7 +65,8 @@ app.post('/api/pdf', (req, res) => {
 	    // 6. 
 	    .text(req.body.preferredlanguagespeak === 'English' ? 'x' : ' ', 43, 514)
 	    .text(req.body.preferredlanguagespeak === 'Spanish' ? 'x' : ' ', 43, 524)
-	    .text(req.body.preferredlanguagespeak === 'Other' ? 'x' : ' ', 43, 534)
+	    .text(!['English', 'Spanish'].includes(req.body.preferredlanguagespeak) ? 'x' : ' ', 43, 534)
+	    .text(!['English', 'Spanish'].includes(req.body.preferredlanguagespeak) ? req.body.preferredlanguagespeak : ' ', 83, 534)
 
 	    //7
 	    .text(req.body.howyouread === 'Like to read and read often' ? 'x' : ' ', 46, 559)
