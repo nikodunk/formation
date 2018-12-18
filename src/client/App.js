@@ -36,7 +36,10 @@ export default class App extends React.Component {
       {/* FORM NUMBER */}
         <div>
           <label className="label">Form</label>
-          <p style={{color: 'grey'}}>{this.state.form}</p>
+          <select value={this.state.value} onChange={this.handleChange}>
+              <option value="grapefruit">LAC CPSP 2017 Prenatal Assessment/Reassessment and Individualized Care Plan</option>
+              <option value="lime">LAC CPSP 2017 Postpartum Assessment & ICP tool</option>
+          </select>
         </div>
 
         <hr />
