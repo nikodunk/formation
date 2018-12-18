@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './app.css';
 
+import InputRadio from './InputRadio'
+import InputRadioWithText from './InputRadioWithText'
 
 
 export default class App extends React.Component {
@@ -8,6 +10,7 @@ export default class App extends React.Component {
   constructor(props) {
       super(props);
       this.handleChange = this.handleChange.bind(this);
+      this.handleOtherChange = this.handleOtherChange.bind(this);
       this.state = { 
             uid: 'Y-9147d',
             name: 'Example Rogers',
@@ -21,7 +24,8 @@ export default class App extends React.Component {
             fathername: 'John Doe',
             fatherlanguage: 'English',
             fathereducation: 'High School',
-            fatherage: '31'
+            fatherage: '31',
+            input: {areyoumarried: ''}
           }
   }
 
@@ -33,6 +37,12 @@ export default class App extends React.Component {
     let newState = {}
     newState[fieldname] = e.target.value;
     this.setState(newState);
+  }
+
+  handleOtherChange(e, fieldname) {
+    let newInput = {}
+    newInput[fieldname] = e.target.value;
+    this.setState({input: newInput});
   }
 
 
@@ -80,50 +90,10 @@ export default class App extends React.Component {
         {/*1. client age*/}
         <div class="box">
             <span class="label">1. Client Age</span>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Less than 12 years'}
-                      checked={this.state.age === 'Less than 12 years'}
-                      onChange={(e) => this.handleChange(e, 'age')} 
-                      id="age1"/>
-              <label class="form-check-label" for="age1">
-                Less than 12 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'12-17 years'}
-                      checked={this.state.age === '12-17 years'}
-                      onChange={(e) => this.handleChange(e, 'age')} 
-                      id="age2" />
-              <label class="form-check-label" for="age2">
-                12-17 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'18-34 years'}
-                      checked={this.state.age === '18-34 years'}
-                      onChange={(e) => this.handleChange(e, 'age')} 
-                      id="age3" />
-              <label class="form-check-label" for="age3">
-                18-34 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'35 years or older'}
-                      checked={this.state.age === '35 years or older'}
-                      onChange={(e) => this.handleChange(e, 'age')} 
-                      id="age4" />
-              <label class="form-check-label" for="age4">
-                35 years or older
-              </label>
-            </div>
+            <InputRadio value={'Less than 12 years'} iter={"1"} var={'age'} checked={this.state.age}  handleChange={this.handleChange} />
+            <InputRadio value={'12-17 years'} iter={"2"} var={'age'} checked={this.state.age}  handleChange={this.handleChange} />
+            <InputRadio value={'18-34 years'} iter={"3"} var={'age'} checked={this.state.age}  handleChange={this.handleChange} />
+            <InputRadio value={'35 years or older'} iter={"4"} var={'age'} checked={this.state.age}  handleChange={this.handleChange} />
         </div>
 
 
@@ -132,83 +102,13 @@ export default class App extends React.Component {
       {/* 2. are you married etc */}
         <div class="box">
             <span class="label">2. Are you:</span>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Married'}
-                      checked={this.state.areyoumarried === 'Married'}
-                      onChange={(e) => this.handleChange(e, 'areyoumarried')} 
-                      id="areyoumarried1"/>
-              <label class="form-check-label" for="areyoumarried1">
-                Married
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Living with partner'}
-                      checked={this.state.areyoumarried === 'Living with partner'}
-                      onChange={(e) => this.handleChange(e, 'areyoumarried')} 
-                      id="areyoumarried2" />
-              <label class="form-check-label" for="areyoumarried2">
-                Living with partner
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'In a relationship'}
-                      checked={this.state.areyoumarried === 'In a relationship'}
-                      onChange={(e) => this.handleChange(e, 'areyoumarried')} 
-                      id="areyoumarried3" />
-              <label class="form-check-label" for="areyoumarried3">
-                In a relationship
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Single'}
-                      checked={this.state.areyoumarried === 'Single'}
-                      onChange={(e) => this.handleChange(e, 'areyoumarried')} 
-                      id="areyoumarried4" />
-              <label class="form-check-label" for="areyoumarried4">
-                Single
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Divorced/Separated'}
-                      checked={this.state.areyoumarried === 'Divorced/Separated'}
-                      onChange={(e) => this.handleChange(e, 'areyoumarried')} 
-                      id="areyoumarried5" />
-              <label class="form-check-label" for="areyoumarried5">
-                Divorced/Separated
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Widowed'}
-                      checked={this.state.areyoumarried === 'Widowed'}
-                      onChange={(e) => this.handleChange(e, 'areyoumarried')} 
-                      id="areyoumarried6" />
-              <label class="form-check-label" for="areyoumarried6">
-                Widowed
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Other'}
-                      checked={this.state.areyoumarried === 'Other'}
-                      onChange={(e) => this.handleChange(e, 'areyoumarried')} 
-                      id="areyoumarried7" />
-              <label class="form-check-label" for="areyoumarried7">
-                Other
-              </label>
-            </div>
+            <InputRadio value={'Married'} iter={"1"} var={'areyoumarried'} checked={this.state.areyoumarried}  handleChange={this.handleChange} />
+            <InputRadio value={'Living with partner'} iter={"2"} var={'areyoumarried'} checked={this.state.areyoumarried}  handleChange={this.handleChange} />
+            <InputRadio value={'In a relationship'} iter={"3"} var={'areyoumarried'} checked={this.state.areyoumarried}  handleChange={this.handleChange} />
+            <InputRadio value={'Single'} iter={"4"} var={'areyoumarried'} checked={this.state.areyoumarried}  handleChange={this.handleChange} />
+            <InputRadio value={'Divorced/Separated'} iter={"5"} var={'areyoumarried'} checked={this.state.areyoumarried}  handleChange={this.handleChange} />
+            <InputRadio value={'Widowed'} iter={"6"} var={'areyoumarried'} checked={this.state.areyoumarried}  handleChange={this.handleChange} />
+            <InputRadio value={'Other:'} iter={"7"} var={'areyoumarried'} checked={this.state.areyoumarried}  handleChange={this.handleChange} />
         </div>
 
 
@@ -216,28 +116,8 @@ export default class App extends React.Component {
       {/* 3. how long have you lived in your */}
         <div class="box">
             <span class="label">3. How long have you lived at your current home?</span>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Over one year'}
-                      checked={this.state.howlongcurrenthome === 'Over one year'}
-                      onChange={(e) => this.handleChange(e, 'howlongcurrenthome')} 
-                      id="howlongcurrenthome1"/>
-              <label class="form-check-label" for="howlongcurrenthome1">
-                Over one year
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Under one year, previously lived:'}
-                      checked={this.state.howlongcurrenthome === 'Under one year, previously lived:'}
-                      onChange={(e) => this.handleChange(e, 'howlongcurrenthome')} 
-                      id="howlongcurrenthome2" />
-              <label class="form-check-label" for="howlongcurrenthome2">
-                Under one year
-              </label>
-            </div>
+            <InputRadio value={'Over one year'} iter={"1"} var={'howlongcurrenthome'} checked={this.state.howlongcurrenthome}  handleChange={this.handleChange} />
+            <InputRadio value={'Under one year, previously lived:'} iter={"2"} var={'howlongcurrenthome'} checked={this.state.howlongcurrenthome}  handleChange={this.handleChange} />            
         </div>
 
 
@@ -245,39 +125,9 @@ export default class App extends React.Component {
       {/* 4. do you plan to stay */}
         <div class="box">
             <span class="label">4. Do you plan to stay in this area for the rest of your pregnancy?</span>
-                <div class="form-check">
-                  <input  class="form-check-input" 
-                          type="radio" 
-                          value={'Yes'}
-                          checked={this.state.stayinthisarea === 'Yes'}
-                          onChange={(e) => this.handleChange(e, 'stayinthisarea')} 
-                          id="stayinthisarea1"/>
-                  <label class="form-check-label" for="stayinthisarea1">
-                    Yes
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input  class="form-check-input" 
-                          type="radio" 
-                          value={'No'}
-                          checked={this.state.stayinthisarea === 'No'}
-                          onChange={(e) => this.handleChange(e, 'stayinthisarea')} 
-                          id="stayinthisarea2" />
-                  <label class="form-check-label" for="stayinthisarea2">
-                    No
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input  class="form-check-input" 
-                          type="radio" 
-                          value={'Unsure'}
-                          checked={this.state.stayinthisarea === 'Unsure'}
-                          onChange={(e) => this.handleChange(e, 'stayinthisarea')} 
-                          id="stayinthisarea3" />
-                  <label class="form-check-label" for="stayinthisarea3">
-                    Unsure
-                  </label>
-                </div>
+            <InputRadio value={'Yes'} iter={"1"} var={'stayinthisarea'} checked={this.state.stayinthisarea}  handleChange={this.handleChange} />
+            <InputRadio value={'No'} iter={"2"} var={'stayinthisarea'} checked={this.state.stayinthisarea}  handleChange={this.handleChange} />
+            <InputRadio value={'Unsure'} iter={"3"} var={'stayinthisarea'} checked={this.state.stayinthisarea}  handleChange={this.handleChange} />
         </div>
         
 
@@ -286,50 +136,10 @@ export default class App extends React.Component {
       {/* 5. How many years of school have you completed? */}
         <div class="box">
             <span class="label">5. How many years of school have you completed?</span>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'0-8 years'}
-                      checked={this.state.howmanyyearsschool === '0-8 years'}
-                      onChange={(e) => this.handleChange(e, 'howmanyyearsschool')} 
-                      id="howmanyyearsschool1"/>
-              <label class="form-check-label" for="howmanyyearsschool1">
-                0-8 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'9-11 years'}
-                      checked={this.state.howmanyyearsschool === '9-11 years'}
-                      onChange={(e) => this.handleChange(e, 'howmanyyearsschool')} 
-                      id="howmanyyearsschool2" />
-              <label class="form-check-label" for="howmanyyearsschool2">
-                9-11 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'12-16 years'}
-                      checked={this.state.howmanyyearsschool === '12-16 years'}
-                      onChange={(e) => this.handleChange(e, 'howmanyyearsschool')} 
-                      id="howmanyyearsschool3" />
-              <label class="form-check-label" for="howmanyyearsschool3">
-                12-16 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'16+ years'}
-                      checked={this.state.howmanyyearsschool === '16+ years'}
-                      onChange={(e) => this.handleChange(e, 'howmanyyearsschool')} 
-                      id="howmanyyearsschool4" />
-              <label class="form-check-label" for="howmanyyearsschool4">
-                16+ years
-              </label>
-            </div>
+            <InputRadio value={'0-8 years'} iter={"1"} var={'howmanyyearsschool'} checked={this.state.howmanyyearsschool}  handleChange={this.handleChange} />
+            <InputRadio value={'9-11 years'} iter={"2"} var={'howmanyyearsschool'} checked={this.state.howmanyyearsschool}  handleChange={this.handleChange} />
+            <InputRadio value={'12-16 years'} iter={"3"} var={'howmanyyearsschool'} checked={this.state.howmanyyearsschool}  handleChange={this.handleChange} />
+            <InputRadio value={'16+ years'} iter={"4"} var={'howmanyyearsschool'} checked={this.state.howmanyyearsschool}  handleChange={this.handleChange} />
         </div>
 
 
@@ -338,39 +148,9 @@ export default class App extends React.Component {
       {/* 6. What language do you prefer to speak? */}
         <div class="box">
             <span class="label">6. What language do you prefer to speak?</span>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'English'}
-                      checked={this.state.preferredlanguagespeak === 'English'}
-                      onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')} 
-                      id="preferredlanguagespeak1"/>
-              <label class="form-check-label" for="preferredlanguagespeak1">
-                English
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Spanish'}
-                      checked={this.state.preferredlanguagespeak === 'Spanish'}
-                      onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')} 
-                      id="preferredlanguagespeak2" />
-              <label class="form-check-label" for="preferredlanguagespeak2">
-                Spanish
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Other'}
-                      checked={this.state.preferredlanguagespeak === 'Other'}
-                      onChange={(e) => this.handleChange(e, 'preferredlanguagespeak')} 
-                      id="preferredlanguagespeak3" />
-              <label class="form-check-label" for="preferredlanguagespeak3">
-                Other
-              </label>
-            </div>
+            <InputRadio value={'English'} iter={"1"} var={'preferredlanguagespeak'} checked={this.state.preferredlanguagespeak}  handleChange={this.handleChange} />
+            <InputRadio value={'Spanish'} iter={"2"} var={'preferredlanguagespeak'} checked={this.state.preferredlanguagespeak}  handleChange={this.handleChange} />
+            <InputRadio value={'Other'} iter={"3"} var={'preferredlanguagespeak'} checked={this.state.preferredlanguagespeak}  handleChange={this.handleChange} />
         </div>
 
 
@@ -379,44 +159,13 @@ export default class App extends React.Component {
       {/* 7. Which of the following bests describes how you read */}
         <div class="box">
             <span class="label">7. Which of the following bests describes how you read:</span>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Like to read and read often'}
-                      checked={this.state.howyouread === 'Like to read and read often'}
-                      onChange={(e) => this.handleChange(e, 'howyouread')} 
-                      id="howyouread1"/>
-              <label class="form-check-label" for="howyouread1">
-                Like to read and read often
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Can read, but don’t read very often'}
-                      checked={this.state.howyouread === 'Can read, but don’t read very often'}
-                      onChange={(e) => this.handleChange(e, 'howyouread')} 
-                      id="howyouread2" />
-              <label class="form-check-label" for="howyouread2">
-                Can read, but don’t read very often
-              </label>
-            </div>
-            <div class="form-check">
-              <input  class="form-check-input" 
-                      type="radio" 
-                      value={'Can’t read'}
-                      checked={this.state.howyouread === 'Can’t read'}
-                      onChange={(e) => this.handleChange(e, 'howyouread')} 
-                      id="howyouread3" />
-              <label class="form-check-label" for="howyouread3">
-                Can’t read
-              </label>
-            </div>
+            <InputRadio value={'Like to read and read often'} iter={"1"} var={'howyouread'} checked={this.state.howyouread}  handleChange={this.handleChange} />
+            <InputRadio value={'Can read, but don’t read very often'} iter={"2"} var={'howyouread'} checked={this.state.howyouread}  handleChange={this.handleChange} />
+            <InputRadio value={'Can’t read'} iter={"3"} var={'howyouread'} checked={this.state.howyouread}  handleChange={this.handleChange} />
         </div>
 
       
-        
-        
+      
 
       {/* 8. Father of baby */}
         <div class="box">
