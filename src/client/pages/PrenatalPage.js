@@ -27,7 +27,7 @@ export default class PrenatalPage extends React.Component {
   }
 
   componentDidMount() {
-    
+    mixpanel.track("Prenatal Loaded");
   }
 
   handleChange(e, fieldname) {
@@ -182,7 +182,7 @@ export default class PrenatalPage extends React.Component {
           <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
           <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-          <input className='btn btn-primary w-100' type="submit" value="Export Completed PDF" />
+          <input className='btn btn-primary w-100' type="submit" value="Export Completed PDF" onClick={mixpanel.track("Export PDF Pressed")} />
         </form>
 
         <p>Note: For demonstration purposes only page 1 is pre-filled here</p>
