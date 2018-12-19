@@ -16,6 +16,7 @@
     "babel-polyfill": "^6.26.0",
     "chart.js": "^2.7.3",
     "express": "^4.16.3",
+    "heroku-ssl-redirect": "0.0.4",
     "hummus-recipe": "^1.8.0",
     "react": "^16.5.2",
     "react-chartjs-2": "^2.7.4",
