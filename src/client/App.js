@@ -35,7 +35,7 @@ export default class App extends React.Component {
     return (
       <div>
           <nav class="navbar navbar-light  navbar-expand-md" >
-            <a class="navbar-brand" href="/app">
+            <a class="navbar-brand" href="/app.html">
               paperwork labs
             </a>
             <span class="navbar-text" style={{marginRight: "auto"}}>
@@ -59,7 +59,9 @@ export default class App extends React.Component {
 
           </nav>
 
-          <br /><br />
+          
+
+          <div style={{paddingTop: 55}}>
 
           {this.state.dashboard ?
             <ReportingDashboard />
@@ -143,6 +145,7 @@ export default class App extends React.Component {
 
           </div>
           }
+        </div>
 
 
 
