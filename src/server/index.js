@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8080
 const app = express();
 const HummusRecipe = require('hummus-recipe');
 
-const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
+var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 
 
 const prenatal = require('./pages/prenatal');
