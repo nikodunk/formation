@@ -19,7 +19,8 @@
     "hummus-recipe": "^1.8.0",
     "react": "^16.5.2",
     "react-chartjs-2": "^2.7.4",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "ssl-express-www": "^3.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

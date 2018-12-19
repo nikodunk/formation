@@ -4,28 +4,20 @@ const PORT = process.env.PORT || 8080
 const app = express();
 const HummusRecipe = require('hummus-recipe');
 
+const secure = require('ssl-express-www');
 
 
 const prenatal = require('./pages/prenatal');
 const postpartum = require('./pages/postpartum');
 
 
-
+app.use(secure);
 
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('dist'));
 
-
-app.use(function(req, res, next) {
-  if(!req.secure) {
-    var secureUrl = "https://" + req.headers['host'] + req.url; 
-    res.writeHead(301, { "Location":  secureUrl });
-    res.end();
-  }
-  next();
-});
 
 
 
