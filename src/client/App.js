@@ -48,9 +48,9 @@ export default class App extends React.Component {
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>Generate<span class="sr-only">(current)</span></a>
+                  <a class="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>Smart Forms<span class="sr-only">(current)</span></a>
                     <span class="nav-item nav-link"> | </span>
-                  <a class="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>Report</a>
+                  <a class="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>Report Dashboard</a>
                     <span class="nav-item nav-link"> | </span>
                   <a class="nav-item nav-link" href="/">Logout</a>
                 </div>
