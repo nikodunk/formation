@@ -57,6 +57,9 @@ router.post('/', function(req, res, next) {
         .text(req.body.filedinchart === 'No' ? 'x' : ' ', 202, 227)
 
 
+        .text(req.body.gestationalageexact ? req.body.gestationalageexact : ' ', 130, 247)
+
+
   	    .endPage()
 
   	    // edit 2nd page

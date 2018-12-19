@@ -10,9 +10,9 @@ export default class App extends React.Component {
       super(props);
       
       this.state = { 
-            form: 'prenatal',
+            form: 'postpartum',
             uid: 'Example-9147d',
-            name: 'Georgia Examplette',
+            name: 'Georgia Examplo',
             dob: '01/20/1988'
           }
   }
@@ -48,6 +48,8 @@ export default class App extends React.Component {
 
         <div class="card" >
           <div class="card-body">
+              <p>Casey Coordination | Paperwork Demo Hospital</p>
+              
               {/* PATIENT ID NUMBER */}
                 <div className="form-group">
                   <label className="label">Patient ID Number</label>
@@ -78,8 +80,8 @@ export default class App extends React.Component {
 
               {/* PATIENT INFO BOX */}
               <p>
-              Paperwork Health Plan | Paperwork Health <br />     
-              Casey Coordination | Paperwork Demo Hospital</p>     
+                Paperwork Health Plan | Paperwork Health
+              </p>
           </div>
         </div>
 
