@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('dist'));
 
+
 app.use(function(request, response){
   if(!request.secure){
     response.redirect("https://" + request.headers.host + request.url);
