@@ -91,6 +91,7 @@ export default class PrenatalPage extends React.Component {
         </div>
 
       {/* -----------------------   */}
+        <hr />
         <h5>Clinical-Infant</h5>
 
       {/* 5. Infant has a pediatric provider? */}
@@ -115,6 +116,7 @@ export default class PrenatalPage extends React.Component {
 
 
       {/* -----------------------   */}
+        <hr />
         <h5>Clinical-Maternal</h5>
 
       {/* 8. Have you had your postpartum check-up */}
