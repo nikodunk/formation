@@ -38,7 +38,11 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './public/index.html',
+      favicon: './public/favicon.ico'
+    }),
     new HtmlWebpackPlugin({
       filename: 'login',
       template: './public/login.html'
