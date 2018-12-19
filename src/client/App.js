@@ -3,7 +3,7 @@ import './app.css';
 
 import PrenatalPage from './pages/PrenatalPage'
 import PostpartumPage from './pages/PostpartumPage'
-import ReportingDashboard from './Reporting'
+import ReportingDashboard from './ReportingDashboard'
 
 
 export default class App extends React.Component {
