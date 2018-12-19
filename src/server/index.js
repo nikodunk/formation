@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8080
 const app = express();
 const HummusRecipe = require('hummus-recipe');
 
-const sslRedirect = require(‘heroku-ssl-redirect’);
+const sslRedirect = require('heroku-ssl-redirect');
 
 const prenatal = require('./pages/prenatal');
 const postpartum = require('./pages/postpartum');
@@ -16,7 +16,6 @@ app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('dist'));
-
 
 
 
