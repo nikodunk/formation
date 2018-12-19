@@ -7,10 +7,10 @@ body {
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-#root {
+#main {
 	padding: 10px;
-  	text-align: left;
-  	max-width: 600px;
+  text-align: left;
+  max-width: 600px;
 	margin: 0 auto;
 	padding-bottom: 200px;
 }
@@ -29,6 +29,10 @@ body {
     -webkit-box-shadow: 0 1px 3px -1px lightgrey;
     -moz-box-shadow: 0 1px 3px -1px lightgrey;
     box-shadow: 0 1px 3px -1px lightgrey;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: white;
 }
 
 
@@ -46,4 +50,11 @@ select{
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+.dodgerblue{
+  color: dodgerblue !important;
+  font-weight: bold;
+  cursor: pointer;
 }

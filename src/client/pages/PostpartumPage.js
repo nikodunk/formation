@@ -205,6 +205,10 @@ export default class PrenatalPage extends React.Component {
             <input onChange={(e) => this.handleChange(e, 'bloodhct')} value={this.state.bloodhct} placeholder={'eg. 143 lbs'} className="form-control" />
         </div>
 
+      {/* -----------------------   */}
+        <hr />
+        <h5>Nutrition: Clinical</h5>
+
       {/* 16. OGTT – date: */}
         <div className="box">
             <span className="label">16. OGTT – date:</span>
@@ -214,10 +218,26 @@ export default class PrenatalPage extends React.Component {
             {/*{ this.makeRadios(['N/A'], 'ogttna') }*/}
         </div>
 
-      {/* 17. Are you currently taking prenatal vitamins? */}
+      {/* 18. Are you currently taking prenatal vitamins? */}
         <div className="box">
             <span className="label">17. Are you currently taking prenatal vitamins?</span>
             { this.makeRadios(['Yes', 'No'], 'prenatalvitamins') }
+        </div>
+
+      {/* -----------------------   */}
+        <hr />
+        <h5>Nutrition: Dietary</h5>
+
+      {/* 19. Dietary intake assessment completed: */}
+        <div className="box">
+            <span className="label">Perinatal Food Group Recall (PFGR)</span>
+            <input onChange={(e) => this.handleChange(e, 'blooddatecollected')} value={this.state.blooddatecollected} placeholder={'eg. 143 lbs'} className="form-control" />
+
+            <span className="label">Perinatal Food Frequency Questionnaire (PFFQ)</span>
+            <input onChange={(e) => this.handleChange(e, 'bloodhgb')} value={this.state.bloodhgb} placeholder={'eg. 143 lbs'} className="form-control" />
+
+            <span className="label">24-hour Perinatal Dietary Recall</span>
+            <input onChange={(e) => this.handleChange(e, 'bloodhct')} value={this.state.bloodhct} placeholder={'eg. 143 lbs'} className="form-control" />
         </div>
 
 
