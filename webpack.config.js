@@ -44,11 +44,11 @@ module.exports = {
       favicon: './public/favicon.ico'
     }),
     new HtmlWebpackPlugin({
-      filename: 'login',
+      filename: 'login.html',
       template: './public/login.html'
     }),
     new HtmlWebpackPlugin({
-      filename: 'app',
+      filename: 'app.html',
       template: './public/app.html'
     })
   ]
