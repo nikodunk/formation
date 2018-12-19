@@ -12,7 +12,14 @@ export default class PrenatalPage extends React.Component {
       super(props);
       this.handleChange = this.handleChange.bind(this);
       this.state = { 
-          filedinchart: 'Yes'
+          filedinchart: 'Yes',
+          gestationalage: '> 37 weeks',
+          deliverycomplications: 'No',
+          multiplebirths: 'No',
+          infantpediatricprovider: ' ',
+          infantcheckup: 'Yes, with no problems',
+          postpartumcheckup: 'Yes, date:'
+
             
           }
   }
@@ -43,16 +50,78 @@ export default class PrenatalPage extends React.Component {
   render() {
     return (
       <div>
+        {/*<h5>Baby</h5>*/}
+
+
+
+        <h5>Clinical-Delivery</h5>
+
         
 
-
-        {/*1. client age*/}
+        {/*1. delivery record filed in chart */}
         <div className="box">
             <span className="label">1. Delivery Record Filed in Chart?</span>
             { this.makeRadios(['Yes', 'No'], 'filedinchart') }
         </div>
 
-      
+        
+
+        {/* 2. gestational age */}
+        <div className="box">
+            <span className="label">2. Gestational age:</span>
+            <input 
+                  className="form-control" 
+                  onChange={(e) => this.handleChange(e, 'gestationalageexact')}
+                  value={this.state.gestationalageexact} 
+                  placeholder={'eg. 40 weeks'} />
+            { this.makeRadios(['> 37 weeks', '< 37 weeks'], 'gestationalage') }
+        </div>
+
+      {/* 3. pregnancy/delivery complications */}
+        <div className="box">
+            <span className="label">3. Pregnancy/Delivery complications?</span>
+            { this.makeRadios(['No'], 'deliverycomplications') }
+            <InputRadioWithText not={['No']} value={'Yes:'} iter={"2"} var={'deliverycomplications'} checked={this.state.deliverycomplications}  handleChange={this.handleChange} />
+        </div>
+
+      {/* 4. Client had multiple births? */}
+        <div className="box">
+            <span className="label">4. Client had multiple births?</span>
+            { this.makeRadios(['No', 'Yes'], 'multiplebirths') }
+        </div>
+
+      {/* -----------------------   */}
+        <h5>Clinical-Infant</h5>
+
+      {/* 5. Infant has a pediatric provider? */}
+        <div className="box">
+            <span className="label">5. Infant has a pediatric provider?</span>
+            { this.makeRadios(['No'], 'infantpediatricprovider') }
+            <InputRadioWithText not={['No']} value={'Yes, provider:'} iter={"2"} var={'infantpediatricprovider'} checked={this.state.infantpediatricprovider}  handleChange={this.handleChange} />
+        </div>
+
+      {/* 6. Has infant had a newborn check-up? */}
+        <div className="box">
+            <span className="label">6. Has infant had a newborn check-up?</span>
+            { this.makeRadios(['Yes', 'Yes, with no problems'], 'infantcheckup') }
+            <InputRadioWithText not={['Yes', 'Yes, with no problems']} value={'Yes, with problems. Describe:'} iter={"3"} var={'infantcheckup'} checked={this.state.infantcheckup}  handleChange={this.handleChange} />
+        </div>
+
+      {/* 7. Infant prenatal exposure to: (Check all that apply) */}
+        <div className="box">
+            <span className="label">7. Infant prenatal exposure to: (Check all that apply)</span>
+            { this.makeRadios(['Tobacco', 'Alcohol', 'Drugs', 'Non-prescribed Medicine'], 'prenatalexposureto') }
+        </div>
+
+
+      {/* -----------------------   */}
+        <h5>Clinical-Maternal</h5>
+
+      {/* 8. Have you had your postpartum check-up */}
+        <div className="box">
+            <span className="label">8. Have you had your postpartum check-up</span>
+            { this.makeRadios(['Yes, date:', 'No, when scheduled?'], 'postpartumcheckup') }
+        </div>
 
         <hr />
         
