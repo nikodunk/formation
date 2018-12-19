@@ -14,10 +14,8 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 
-
 app.use('/api/prenatal', prenatal);
 app.use('/api/postpartum', postpartum);
-
 
 
 app.listen(PORT, () => console.log('Listening on port 8080!'))
