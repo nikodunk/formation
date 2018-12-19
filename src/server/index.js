@@ -4,9 +4,14 @@ const PORT = process.env.PORT || 8080
 const app = express();
 const HummusRecipe = require('hummus-recipe');
 
+const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
+
 
 const prenatal = require('./pages/prenatal');
 const postpartum = require('./pages/postpartum');
+
+
+app.use(redirectToHTTPS([/localhost:(\d{4})/], 301));
 
 
 app.use(express.urlencoded({ extended: false }));
