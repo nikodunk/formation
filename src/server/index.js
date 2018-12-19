@@ -10,14 +10,19 @@ const prenatal = require('./pages/prenatal');
 const postpartum = require('./pages/postpartum');
 
 
-app.get("*", function(request, response){
-  response.redirect("https://" + request.headers.host + request.url);
-});
+
 
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('dist'));
+
+app.use(function(request, response){
+  if(!request.secure){
+    response.redirect("https://" + request.headers.host + request.url);
+  }
+});
+
 
 
 app.use('/api/prenatal', prenatal);
