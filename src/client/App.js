@@ -26,6 +26,7 @@ export default class App extends React.Component {
 
           {/* NAVIGATION */}
           <nav class="navbar navbar-light  navbar-expand-md" >
+            <img src={'../../public/icon.png'} width="30" height="30" class="d-inline-block align-top" alt="" />
             <a class="navbar-brand" href="/app.html">
               paperwork labs
             </a>
