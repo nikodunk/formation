@@ -58,3 +58,11 @@ select{
   font-weight: bold;
   cursor: pointer;
 }
+
+
+.tab-pane{
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-top: none;
+  margin-bottom: 30px;
+}

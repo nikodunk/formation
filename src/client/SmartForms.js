@@ -11,7 +11,7 @@ export default class App extends React.Component {
       super(props);
       
       this.state = { 
-            form: 'prenatal',
+            form: 'postpartum',
             uid: 'Example-9147d',
             name: 'Georgia Examplo',
             dob: '01/20/1988'
@@ -89,22 +89,19 @@ export default class App extends React.Component {
                     <div>
                       <label className="label">Form</label>
                       <select class="form-control" value={this.state.form} onChange={(e) => this.handleChange(e, 'form')}>
-                          <option value="prenatal">LAC CPSP 2017 Prenatal Assessment/Reassessment and Individualized Care Plan</option>
-                          <option value="postpartum">LAC CPSP 2017 Postpartum Assessment & ICP tool</option>
+                          <option value="prenatal">LAC CPSP 2017 Prenatal Assessment/Reassessment and Individualized Care Plan (17-pages)</option>
+                          <option value="postpartum">LAC CPSP 2017 Postpartum Assessment & ICP tool (6-pages)</option>
                       </select>
                     </div>
 
                   <br />
 
+                
                   
-
-                  <div class="card" style={{backgroundColor: '#fcfcfc'}}>
-                    <div class="card-body">
-                      { this.state.form === 'prenatal' ? 
-                          <PrenatalPage uid={this.state.uid} name={this.state.name} /> : 
-                          <PostpartumPage uid={this.state.uid} name={this.state.name} /> }
-                    </div>
-                  </div>
+                  { this.state.form === 'prenatal' ? 
+                      <PrenatalPage uid={this.state.uid} name={this.state.name} /> : 
+                      <PostpartumPage uid={this.state.uid} name={this.state.name} /> }
+          
 
               </div>
         </div>
