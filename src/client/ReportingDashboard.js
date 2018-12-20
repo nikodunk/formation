@@ -3,21 +3,29 @@ import React, { Component } from 'react';
 import {Bar} from 'react-chartjs-2';
 
 
-const data= {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-          label: "Reports on all forms",
-          backgroundColor: 'dodgerblue',
-          data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    }
+
 
 export default class ReportingDashboard extends React.Component {
   
-  componentDidMount(){
+  constructor(props) {
+      super(props);
       
-
+      this.state = { 
+            data: {
+                          labels: ["January", "February", "March", "April", "May", "June", "July"],
+                          datasets: [{
+                            label: "Reports on all forms",
+                            backgroundColor: 'dodgerblue',
+                            data: [0, 10, 5, 2, 20, 30, 45],
+                          }]
+                  }
+          }
   }
+
+  componentDidMount() {
+    
+  }
+
 
   render() {
     return (
@@ -116,7 +124,7 @@ export default class ReportingDashboard extends React.Component {
                 </div>
 
                 {/*<canvas class="my-4" id="myChart" width="900" height="380"></canvas>*/}
-                < Bar data={data} />
+                < Bar data={this.state.data} />
 
                 <h2>Section title</h2>
                 <div class="table-responsive">
