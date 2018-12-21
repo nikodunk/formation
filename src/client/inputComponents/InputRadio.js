@@ -6,9 +6,9 @@ export default class InputRadio extends React.Component {
   
   render() {
     return (
-      <div className="form-check">
+      <div key={this.props.var+this.props.iter} className="form-check">
         <input  className="form-check-input" 
-                type="radio" 
+                type="radio"
                 value={this.props.value}
                 checked={this.props.checked === this.props.value}
                 onChange={(e) => this.props.handleChange(e, this.props.var)} 

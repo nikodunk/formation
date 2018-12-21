@@ -27,30 +27,30 @@ export default class App extends React.Component {
       <div>
 
           {/* NAVIGATION */}
-          <nav class="navbar navbar-light  navbar-expand-md" >
-            <img src={imageUrl} width="30" height="30" class="d-inline-block align-top" alt="" />
-            <a class="navbar-brand" href="/app.html">
+          <nav className="navbar navbar-light  navbar-expand-md" >
+            <img src={imageUrl} width="30" height="30" className="d-inline-block align-top" alt="" />
+            <a className="navbar-brand" href="/app.html">
               paperwork labs
             </a>
-            <span class="navbar-text" style={{marginRight: "auto"}}>
+            <span className="navbar-text" style={{marginRight: "auto"}}>
               Healthcare Form Automation
             </span>
 
             <div>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
+              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                  <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
                     Smart Forms
                   </a>
-                  <span class="nav-item nav-link"> | </span>
-                  <a class="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                  <span className="nav-item nav-link"> | </span>
+                  <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
                     Report Dashboard
                   </a>
-                  <span class="nav-item nav-link"> | </span>
-                  <a class="nav-item nav-link" href="/">
+                  <span className="nav-item nav-link"> | </span>
+                  <a className="nav-item nav-link" href="/">
                     Logout
                   </a>
                 </div>
