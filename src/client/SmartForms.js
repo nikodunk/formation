@@ -14,7 +14,11 @@ export default class App extends React.Component {
             form: 'postpartum',
             uid: 'Example-9147d',
             name: 'Georgia Examplo',
-            dob: '01/20/1988'
+            dob: '01/20/1988',
+            healthplan: 'Paperwork Health Plan',
+            provider: 'Paperwork Health',
+            coordinator: 'Casey Coordination',
+            hospital: 'Paperwork Demo Hospital'
           }
   }
 
@@ -43,7 +47,7 @@ export default class App extends React.Component {
 
               <div class="card" >
                 <div class="card-body">
-                    <p>Casey Coordination | Paperwork Demo Hospital</p>
+                    <p>{this.state.coordinator} | {this.state.hospital}</p>
                     
                     {/* PATIENT ID NUMBER */}
                       <div className="form-group">
@@ -75,7 +79,7 @@ export default class App extends React.Component {
 
                     {/* PATIENT INFO BOX */}
                     <p>
-                      Paperwork Health Plan | Paperwork Health
+                      {this.state.healthplan} | {this.state.provider}
                     </p>
                 </div>
               </div>
@@ -99,9 +103,31 @@ export default class App extends React.Component {
                 
                   
                   { this.state.form === 'prenatal' ? 
-                      <PrenatalPage uid={this.state.uid} name={this.state.name} /> : 
-                      <PostpartumPage uid={this.state.uid} name={this.state.name} /> }
+                      <PrenatalPage 
+                          uid={this.state.uid} 
+                          name={this.state.name}
+                          dob={this.state.dob}
+                          healthplan={this.state.healthplan}
+                          provider={this.state.provider}
+                          coordinator={this.state.coordinator}
+                          hospital={this.state.hospital} /> 
+                      : 
+                      <PostpartumPage 
+                          uid={this.state.uid} 
+                          name={this.state.name}
+                          dob={this.state.dob}
+                          healthplan={this.state.healthplan}
+                          provider={this.state.provider}
+                          coordinator={this.state.coordinator}
+                          hospital={this.state.hospital} /> 
+                      }
           
+
+        
+            
+            
+            
+            
 
               </div>
         </div>

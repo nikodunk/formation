@@ -45,11 +45,11 @@ export default class App extends React.Component {
                   <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
                     Smart Forms
                   </a>
-                  <span className="nav-item nav-link"> | </span>
+                  
                   <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
                     Report Dashboard
                   </a>
-                  <span className="nav-item nav-link"> | </span>
+                  
                   <a className="nav-item nav-link" href="/">
                     Logout
                   </a>

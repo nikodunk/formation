@@ -31,33 +31,149 @@ router.post('/', function(req, res, next) {
 
 
         // health plan
-        .text('Paperwork Health Plan', 95, 91)
+        .text(req.body.healthplan ? req.body.healthplan : ' ', 95, 91)
         
         // provider
-        .text('Paperwork Health', 95, 109)
+        .text(req.body.provider ? req.body.provider : ' ', 95, 109)
 
         //case coordinator
-        .text('Casey Coordination', 120, 125)
+        .text(req.body.coordinator ? req.body.coordinator : ' ', 120, 125)
 
 
         // ID number
         .text(req.body.uid ? req.body.uid : ' ', 420, 91)
         
         // DOB
-        .text('01/20/1988', 430, 74)
+        .text(req.body.dob ? req.body.dob : ' ', 430, 74)
         
         // hospital
-        .text('Paperwork Demo Hospital', 440, 107)
+        .text(req.body.hospital ? req.body.hospital : ' ', 440, 107)
         
         // ----------------------
         
 
-        // 1. DELIVERY RECORD FILED IN CHART?
+        //page1
         .text(req.body.filedinchart === 'Yes' ? 'x' : ' ', 171, 227)
         .text(req.body.filedinchart === 'No' ? 'x' : ' ', 202, 227)
 
 
-        .text(req.body.gestationalageexact ? req.body.gestationalageexact : ' ', 130, 247)
+        .text(req.body.gestationalageexact ? req.body.gestationalageexact : ' ', 110, 247)
+
+        
+        // gestationalage: '> 37 weeks',
+        .text(req.body.gestationalage === '> 37 weeks' ? 'x' : ' ', 109, 261)
+        .text(req.body.gestationalage === '< 37 weeks' ? 'x' : ' ', 43, 261)
+
+        // deliverycomplications: 'No',
+        .text(req.body.deliverycomplications === 'No' ? 'x' : ' ', 43, 294)
+        .text(!['No'].includes(req.body.deliverycomplications) ? 'x' : ' ', 73, 294)
+        .text(!['No'].includes(req.body.deliverycomplications) && req.body.deliverycomplications ? req.body.deliverycomplications : ' ', 103, 294)
+
+        // multiplebirths: 'No',
+        .text(req.body.multiplebirths === 'No' ? 'x' : ' ', 43, 334)
+        .text(req.body.multiplebirths === 'Yes' ? 'x' : ' ', 73, 334)
+
+        // infantpediatricprovider: ' ',
+        .text(req.body.infantpediatricprovider === 'No' ? 'x' : ' ', 43, 376)
+        .text(!['No'].includes(req.body.infantpediatricprovider) ? 'x' : ' ', 73, 376)
+        .text(!['No'].includes(req.body.infantpediatricprovider) && req.body.infantpediatricprovider ? req.body.infantpediatricprovider : ' ', 135, 376)
+        
+        // infantcheckup: 'Yes, with no problems',
+        .text(req.body.infantcheckup === 'Yes, with no problems.' ? 'x' : ' ', 47, 400)
+        .text(req.body.infantcheckup === 'Yes, with no problems.' ? 'x' : ' ', 78, 414)
+        .text(req.body.infantcheckup === 'No' ? 'x' : ' ', 47, 425)
+        .text(req.body.infantcheckup === 'No' ? req.body.infantcheckupscheduled : ' ', 137, 427)
+        .text(!['No', 'Yes, with no problems.'].includes(req.body.infantcheckup) ? 'x' : ' ', 107, 413)
+        .text(!['No', 'Yes, with no problems.'].includes(req.body.infantcheckup) && req.body.infantcheckup ? req.body.infantcheckup : ' ', 170, 412)
+
+        // need checkboxes
+        // prenatal exposure to
+        // postpartumcheckup: 'Yes, date:',
+        
+        // problemssincedelivery: 'No',
+        .text(req.body.problemssincedelivery === 'No' ? 'x' : ' ', 43, 532)
+        .text(!['No'].includes(req.body.problemssincedelivery) ? 'x' : ' ', 73, 532)
+        .text(!['No'].includes(req.body.problemssincedelivery) && req.body.problemssincedelivery ? req.body.problemssincedelivery : ' ', 155, 532)
+
+        
+        // ownhealthinsurance: 'Yes',
+        .text(req.body.ownhealthinsurance === 'Yes' ? 'x' : ' ', 43, 570)
+        .text(req.body.ownhealthinsurance === 'No' ? 'x' : ' ', 76, 570)
+
+
+        // currentweightcategory: 'Normal',
+        // postpartumweightgoal: '',
+
+
+
+        // //page2
+        // blooddatecollected: '',
+        // bloodhgb: '',
+        // bloodhct: '',
+
+        // ogttdate: '',
+        // ogttfasting: '',
+        // ogtt2hr: '',
+
+        // prenatalvitamins: 'Yes',
+        // // checkbox missing
+        // dietadequate: 'Yes',
+        // // checkbox missing
+        // questionsaboutfeeding: 'No',
+        // wetdiapersperday: '',
+        // feedingper24: '',
+
+
+
+        // //page3:
+        // breastfeedingcomfortable: 'Yes',
+        // returningtowork: 'No',
+        // // checkboxes missing
+        // typeofformula: '',
+        // formulawithiron: 'Yes',
+        // formulaoztimesperday: '',
+        // phq9: '0-4 (None - Minimal)',
+        // supportyouneed: 'Yes',
+        // difficultybabydemands: 'No',
+        // changesinmood: 'No',
+        // hoursofsleep: '',
+        // abletosleepwhenbabyissleeping: 'Yes',
+        // whensomeoneelseistakingcare: 'Yes',
+
+
+
+        // //page4:
+        // hit: 'No',
+        // hithowmanytimes: '',
+        // forcedsex: 'No',
+        // forcedsexhowmanytimes: '',
+        // everythingyouneedforbaby: 'Yes',
+
+        // oralhealthproblems: 'No',
+        // dentistlast6: 'Yes',
+        // postpartumdiscomforts: 'No',
+        // prescribedpastyear: 'No',
+        // doyoudrinkalcohol: '',
+
+
+
+        // //page5
+        // smoketobacco: 'No',
+        // pregnantnext18: 'No',
+        // plansbirthcontrol: 'Yes',
+        // partnereverpressuredbirthcontrol: 'Never',
+
+        // dangerouschemicals: 'No',
+        // questionsbabyssafety: 'No',
+        // //checkboxes missing
+        // outstandingissues: 'No',
+        // completedby: '',
+
+
+
+        // //page6
+        // providersignature: '',
+        // clientstrengths: '',
 
 
   	    .endPage()

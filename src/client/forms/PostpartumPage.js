@@ -15,11 +15,13 @@ export default class PrenatalPage extends React.Component {
 
           //page1
           filedinchart: 'Yes',
+          gestationalageexact: '',
           gestationalage: '> 37 weeks',
           deliverycomplications: 'No',
           multiplebirths: 'No',
           infantpediatricprovider: ' ',
-          infantcheckup: 'Yes, with no problems',
+          infantcheckup: 'Yes, with no problems.',
+          infantcheckupscheduled: '',
 
           postpartumcheckup: 'Yes, date:',
           problemssincedelivery: 'No',
@@ -125,6 +127,17 @@ export default class PrenatalPage extends React.Component {
     return results
   }
 
+  makeHiddenInputs(){
+    let results = []
+    let keys = Object.keys(this.state)
+    for (var i in keys) {
+        results.push(
+          <input type="hidden" value={this.state[keys[i]]} name={keys[i]} />
+          );
+    }
+    return results
+  }
+
 
   render() {
     return (
@@ -220,8 +233,14 @@ export default class PrenatalPage extends React.Component {
             {/* 6. Has infant had a newborn check-up? */}
               <div className="box">
                   <span className="label">6. Has infant had a newborn check-up?</span>
-                  { this.makeRadios(['Yes', 'Yes, with no problems'], 'infantcheckup') }
-                  <InputRadioWithText not={['Yes', 'Yes, with no problems']} value={'Yes, with problems. Describe:'} iter={"3"} var={'infantcheckup'} checked={this.state.infantcheckup}  handleChange={this.handleChange} />
+                  { this.makeRadios(['No', 'Yes, with no problems.'], 'infantcheckup') }
+                  <InputRadioWithText not={['Yes, with no problems.', 'No']} value={'Yes, with problems. Describe:'} iter={"2"} var={'infantcheckup'} checked={this.state.infantcheckup}  handleChange={this.handleChange} />
+                  <span>If not, then scheduled:</span>
+                  <input 
+                        className="form-control" 
+                        onChange={(e) => this.handleChange(e, 'infantcheckupscheduled')}
+                        value={this.state.infantcheckupscheduled} 
+                        placeholder={'05/20/2020'} />
               </div>
 
             {/* 7. Infant prenatal exposure to: (Check all that apply) */}
@@ -317,10 +336,10 @@ export default class PrenatalPage extends React.Component {
                  <input onChange={(e) => this.handleChange(e, 'blooddatecollected')} value={this.state.blooddatecollected} placeholder={'eg. 01/01/2011'} className="form-control" />
 
                  <span className="label">Hgb:</span>
-                 <input onChange={(e) => this.handleChange(e, 'bloodhgb')} value={this.state.bloodhgb} placeholder={'eg. 143 lbs'} className="form-control" />
+                 <input onChange={(e) => this.handleChange(e, 'bloodhgb')} value={this.state.bloodhgb} placeholder={'eg. 13.5-17.5g'} className="form-control" />
 
                  <span className="label">Hct</span>
-                 <input onChange={(e) => this.handleChange(e, 'bloodhct')} value={this.state.bloodhct} placeholder={'eg. 143 lbs'} className="form-control" />
+                 <input onChange={(e) => this.handleChange(e, 'bloodhct')} value={this.state.bloodhct} placeholder={'eg. 37%'} className="form-control" />
              </div>
 
            {/* -----------------------   */}
@@ -648,11 +667,13 @@ export default class PrenatalPage extends React.Component {
         <form  className="w-100" id="myForm" method="post" action="/api/postpartum" >
           <input type="hidden" value={this.props.uid} name="uid" />
           <input type="hidden" value={this.props.name} name="name" />
+          <input type="hidden" value={this.props.dob} name="dob" />
+          <input type="hidden" value={this.props.healthplan} name="healthplan" />
+          <input type="hidden" value={this.props.provider} name="provider" />
+          <input type="hidden" value={this.props.coordinator} name="coordinator" />
+          <input type="hidden" value={this.props.hospital} name="hospital" />
           
-          <input type="hidden" value={this.state.filedinchart} name="filedinchart" />
-          <input type="hidden" value={this.state.gestationalageexact} name="gestationalageexact" />
-          <input type="hidden" value={this.state.gestationalage} name="gestationalage" />
-
+          {this.makeHiddenInputs()}
 
           <input className='btn btn-primary w-100' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
         </form>

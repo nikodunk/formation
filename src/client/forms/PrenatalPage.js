@@ -199,6 +199,12 @@ export default class PrenatalPage extends React.Component {
         <form  className="w-100" id="myForm" method="post" action="/api/prenatal" >
           <input type="hidden" value={this.props.uid} name="uid" />
           <input type="hidden" value={this.props.name} name="name" />
+          <input type="hidden" value={this.props.dob} name="dob" />
+          <input type="hidden" value={this.props.healthplan} name="healthplan" />
+          <input type="hidden" value={this.props.provider} name="provider" />
+          <input type="hidden" value={this.props.coordinator} name="coordinator" />
+          <input type="hidden" value={this.props.hospital} name="hospital" />
+ 
           
           <input type="hidden" value={this.state.age} name="age" />
           <input type="hidden" value={this.state.areyoumarried} name="areyoumarried" />
