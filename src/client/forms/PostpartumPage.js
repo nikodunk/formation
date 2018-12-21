@@ -12,6 +12,8 @@ export default class PrenatalPage extends React.Component {
       super(props);
       this.handleChange = this.handleChange.bind(this);
       this.state = { 
+
+          //page1
           filedinchart: 'Yes',
           gestationalage: '> 37 weeks',
           deliverycomplications: 'No',
@@ -24,17 +26,78 @@ export default class PrenatalPage extends React.Component {
           ownhealthinsurance: 'Yes',
 
           currentweightcategory: 'Normal',
-          
+          postpartumweightgoal: '',
+
+
 
           //page2
+          blooddatecollected: '',
+          bloodhgb: '',
+          bloodhct: '',
+
+          ogttdate: '',
+          ogttfasting: '',
+          ogtt2hr: '',
+
           prenatalvitamins: 'Yes',
+          // checkbox missing
+          dietadequate: 'Yes',
+          // checkbox missing
+          questionsaboutfeeding: 'No',
+          wetdiapersperday: '',
+          feedingper24: '',
+
 
 
           //page3:
           breastfeedingcomfortable: 'Yes',
           returningtowork: 'No',
+          // checkboxes missing
+          typeofformula: '',
           formulawithiron: 'Yes',
-          phq9: '0-4 (None - Minimal)'
+          formulaoztimesperday: '',
+          phq9: '0-4 (None - Minimal)',
+          supportyouneed: 'Yes',
+          difficultybabydemands: 'No',
+          changesinmood: 'No',
+          hoursofsleep: '',
+          abletosleepwhenbabyissleeping: 'Yes',
+          whensomeoneelseistakingcare: 'Yes',
+
+
+
+          //page4:
+          hit: 'No',
+          hithowmanytimes: '',
+          forcedsex: 'No',
+          forcedsexhowmanytimes: '',
+          everythingyouneedforbaby: 'Yes',
+
+          oralhealthproblems: 'No',
+          dentistlast6: 'Yes',
+          postpartumdiscomforts: 'No',
+          prescribedpastyear: 'No',
+          doyoudrinkalcohol: '',
+
+
+
+          //page5
+          smoketobacco: 'No',
+          pregnantnext18: 'No',
+          plansbirthcontrol: 'Yes',
+          partnereverpressuredbirthcontrol: 'Never',
+
+          dangerouschemicals: 'No',
+          questionsbabyssafety: 'No',
+          //checkboxes missing
+          outstandingissues: 'No',
+          completedby: '',
+
+
+
+          //page6
+          providersignature: '',
+          clientstrengths: '',
 
             
           }
@@ -251,7 +314,7 @@ export default class PrenatalPage extends React.Component {
            {/* 15. Blood – date collected: */}
              <div className="box">
                  <span className="label">15. Blood – date collected:</span>
-                 <input onChange={(e) => this.handleChange(e, 'blooddatecollected')} value={this.state.blooddatecollected} placeholder={'eg. 143 lbs'} className="form-control" />
+                 <input onChange={(e) => this.handleChange(e, 'blooddatecollected')} value={this.state.blooddatecollected} placeholder={'eg. 01/01/2011'} className="form-control" />
 
                  <span className="label">Hgb:</span>
                  <input onChange={(e) => this.handleChange(e, 'bloodhgb')} value={this.state.bloodhgb} placeholder={'eg. 143 lbs'} className="form-control" />
@@ -423,6 +486,7 @@ export default class PrenatalPage extends React.Component {
               <span className="label">33. Within the last year, have you been hit, slapped, kicked, choked, or otherwise physically hurt by someone?</span>
               { this.makeRadios(['No'], 'hit') }
               <InputRadioWithText not={['No']} value={'Yes, by whom?'} iter={"1"} var={'hit'} checked={this.state.hit}  handleChange={this.handleChange} />
+              <span >How many times?</span>
               <input onChange={(e) => this.handleChange(e, 'hithowmanytimes')} value={this.state.hithowmanytimes} placeholder={''} className="form-control" />
           </div>
 
@@ -430,6 +494,7 @@ export default class PrenatalPage extends React.Component {
               <span className="label">34. Within the last year, has anyonce forced you to have sexual activities?</span>
               { this.makeRadios(['No'], 'forcedsex') }
               <InputRadioWithText not={['No']} value={'Yes, by whom?'} iter={"1"} var={'forcedsex'} checked={this.state.forcedsex}  handleChange={this.handleChange} />
+              <span >How many times?</span>
               <input onChange={(e) => this.handleChange(e, 'forcedsexhowmanytimes')} value={this.state.forcedsexhowmanytimes} placeholder={''} className="form-control" />  
           </div>
 
@@ -447,27 +512,31 @@ export default class PrenatalPage extends React.Component {
 
           <div className="box">
               <span className="label">36. Do you have any sore/bleeding gums, sensitive/loose teeth, bad taste or smell in your mouth, or other oral health problems?</span>
-              
+              { this.makeRadios(['No'], 'oralhealthproblems') }
+              <InputRadioWithText not={['No']} value={'Yes:'} iter={"1"} var={'oralhealthproblems'} checked={this.state.oralhealthproblems}  handleChange={this.handleChange} />
           </div>
 
           <div className="box">
               <span className="label">37. Have you seen a dentist in the last 6 months?</span>
-                                      
+              { this.makeRadios(['Yes'], 'dentistlast6') }
+              <InputRadioWithText not={['Yes']} value={'No'} iter={"1"} var={'dentistlast6'} checked={this.state.dentistlast6}  handleChange={this.handleChange} />             
           </div>
 
           <div className="box">
               <span className="label">38. Do you have any postpartum discomforts?</span>
-                                      
+              { this.makeRadios(['No'], 'postpartumdiscomforts') }
+              <InputRadioWithText not={['No']} value={'Yes:'} iter={"1"} var={'postpartumdiscomforts'} checked={this.state.postpartumdiscomforts}  handleChange={this.handleChange} />
           </div>
 
           <div className="box">
               <span className="label">39. Have you used drugs or medications other than as prescribed in the past year?</span>
-                                      
+              { this.makeRadios(['No'], 'prescribedpastyear') }
+              <InputRadioWithText not={['No']} value={'Yes, explain:'} iter={"1"} var={'prescribedpastyear'} checked={this.state.prescribedpastyear}  handleChange={this.handleChange} />
           </div>
 
           <div className="box">
               <span className="label">40. Do you drink alcohol?</span>
-                                      
+              { this.makeRadios(['No', 'Yes: less than 3 drinks/day or 7 drinks/week in the past 3 months', 'Yes: more than 3 drinks/day or 7 drinks/week in the past 3 months'], 'doyoudrinkalcohol') }
           </div>
         </div>
         
@@ -476,28 +545,30 @@ export default class PrenatalPage extends React.Component {
         <div className="tab-pane  fade" id="p5" role="tabpanel" >
           <div className="box">
               <span className="label">41. Do you smoke any tobacco products (including hookah or vaping), or are you exposed to secondhand smoke?</span>
-                                      
-          </div>
-
-          <div className="box">
-              <span className="label">42. Would you like to become pregnant within the next 18 months?</span>
-                                      
+              { this.makeRadios(['No'], 'smoketobacco') }
+              <InputRadioWithText not={['No']} value={'Yes:'} iter={"1"} var={'smoketobacco'} checked={this.state.smoketobacco}  handleChange={this.handleChange} />
           </div>
 
 
           <hr />
           <h5>Health Education: Family Planning</h5>
 
+          <div className="box">
+              <span className="label">42. Would you like to become pregnant within the next 18 months?</span>
+              { this.makeRadios(['No'], 'pregnantnext18') }
+              <InputRadioWithText not={['No']} value={'Yes:'} iter={"1"} var={'pregnantnext18'} checked={this.state.pregnantnext18}  handleChange={this.handleChange} />
+          </div>
 
 
           <div className="box">
               <span className="label">43. Any plans to use birth control?</span>
-                                      
+              { this.makeRadios(['Yes'], 'plansbirthcontrol') }
+              <InputRadioWithText not={['Yes']} value={'No:'} iter={"1"} var={'plansbirthcontrol'} checked={this.state.plansbirthcontrol}  handleChange={this.handleChange} />
           </div>
 
           <div className="box">
               <span className="label">44. Has your partner ever pressured you to become pregnant, interfered with your birth control, or refused a condom?</span>
-                                      
+              { this.makeRadios(['Never', 'Sometimes', 'Often'], 'partnereverpressuredbirthcontrol') }
           </div>
 
 
@@ -508,17 +579,19 @@ export default class PrenatalPage extends React.Component {
 
           <div className="box">
               <span className="label">45. Are you around dangerous chemicals in your household, environment, or workplace?</span>
-                                      
+              { this.makeRadios(['No'], 'dangerouschemicals') }
+              <InputRadioWithText not={['No']} value={'Yes:'} iter={"1"} var={'dangerouschemicals'} checked={this.state.dangerouschemicals}  handleChange={this.handleChange} />
           </div>
 
           <div className="box">
               <span className="label">46. Do you have any questions about your baby's health or safety?</span>
-                                      
+              { this.makeRadios(['No'], 'questionsbabyssafety') }
+              <InputRadioWithText not={['No']} value={'Yes:'} iter={"1"} var={'questionsbabyssafety'} checked={this.state.questionsbabyssafety}  handleChange={this.handleChange} />
           </div>
 
           <div className="box">
               <span className="label">47. Would you like more information on the following topics?</span>
-                                      
+              {/* CHECKBOXES NEEDED */}
           </div>
 
 
@@ -529,13 +602,14 @@ export default class PrenatalPage extends React.Component {
 
           <div className="box">
               <span className="label">48. Any other outstanding issues from the Prenatal Assessment/Reassessment?</span>
-                                      
+              { this.makeRadios(['No'], 'outstandingissues') }
+              <InputRadioWithText not={['No']} value={'Yes:'} iter={"1"} var={'outstandingissues'} checked={this.state.outstandingissues}  handleChange={this.handleChange} />
           </div>
 
 
           <div className="box">
               <span className="label">Postpartum Assessment Completed By:</span>
-                                      
+              <input onChange={(e) => this.handleChange(e, 'completedby')} value={this.state.completedby} placeholder={'Name & CPSP Title'} className="form-control" />  
           </div>
         </div>
 
@@ -545,15 +619,18 @@ export default class PrenatalPage extends React.Component {
         <div className="tab-pane  fade" id="p6" role="tabpanel" >
           
 
-          <hr />
+          
           <h5>Provider Signature</h5>
-
+          <input onChange={(e) => this.handleChange(e, 'providersignature')} value={this.state.providersignature} placeholder={''} className="form-control" />  
 
           <h5>Client Strengths:</h5>
-
+          <input onChange={(e) => this.handleChange(e, 'clientstrengths')} value={this.state.clientstrengths} placeholder={''} className="form-control" />  
 
           <h5>Postpartum Individualized Care Plan Summary</h5>
-
+          <input onChange={(e) => this.handleChange(e, 'number')} value={this.state.number} placeholder={'#'} className="form-control" />  
+          <input onChange={(e) => this.handleChange(e, 'problemriskconcern')} value={this.state.problemriskconcern} placeholder={'Problem/Risk/Concern'} className="form-control" />  
+          <input onChange={(e) => this.handleChange(e, 'clientgoal')} value={this.state.clientgoal} placeholder={'Client Goal'} className="form-control" />  
+          <input onChange={(e) => this.handleChange(e, 'updatesoutcomes')} value={this.state.updatesoutcomes} placeholder={'Updates & Outcomes'} className="form-control" />  
 
         </div>
 
@@ -561,10 +638,6 @@ export default class PrenatalPage extends React.Component {
 
 
       </div>
-
-
-
-        
 
 
 
@@ -585,6 +658,5 @@ export default class PrenatalPage extends React.Component {
         </form>
         
       </div>
-    );
-  }
+    )}
 }

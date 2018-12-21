@@ -66,3 +66,8 @@ select{
   border-top: none;
   margin-bottom: 30px;
 }
+
+
+.form-control{
+  margin-bottom: 5px !important;
+}
