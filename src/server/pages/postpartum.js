@@ -41,7 +41,7 @@ router.post('/', function(req, res, next) {
 
 
         // ID number
-        .text(req.body.uid ? req.body.uid : ' ', 420, 91)
+        .text(req.body.patientuid ? req.body.patientuid : ' ', 420, 91)
         
         // DOB
         .text(req.body.dob ? req.body.dob : ' ', 430, 74)

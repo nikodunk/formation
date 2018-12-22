@@ -10,25 +10,38 @@ export default class App extends React.Component {
   constructor(props) {
       super(props);
       
-      this.state = { 
+      this.state = {
             form: 'postpartum',
-            uid: 'Example-9147d',
-            name: 'Georgia Examplo',
-            dob: '01/20/1988',
-            healthplan: 'Paperwork Health Plan',
-            provider: 'Paperwork Health',
+
             coordinator: 'Casey Coordination',
-            hospital: 'Paperwork Demo Hospital'
+            hospital: 'Paperwork Demo Hospital',
+
+            currentpatient: 'Example-9147d',
+            patients: { 
+                  'Example-9147d': {
+                            patientuid: 'Example-9147d', 
+                            name: 'Georgia Examplo', 
+                            dob: '01/20/1988',
+                            healthplan: 'Paperwork Health Plan',
+                            provider: 'Paperwork Health'
+                          }
+                } 
           }
   }
 
   componentDidMount() {
-    
+    // fetch patients, coordinator, hospital etc for current userid
   }
 
   handleChange(e, fieldname) {
     let newState = {}
     newState[fieldname] = e.target.value;
+    this.setState(newState);
+  }
+
+  handlePatientInfoChange(e, fieldname) {
+    let newState = this.state
+    newState['patients'][this.state.currentpatient][fieldname] = e.target.value;
     this.setState(newState);
   }
 
@@ -52,18 +65,20 @@ export default class App extends React.Component {
                     {/* PATIENT ID NUMBER */}
                       <div className="form-group">
                         <label className="label">Patient ID Number</label>
-                        <select class="form-control" value={this.state.uid} onChange={(e) => this.handleChange(e, 'uid')}>
-                            <option value="Y-9147d">Y-9147d</option>
+                        <select class="form-control" value={this.state.patients[this.state.currentpatient].patientuid} onChange={(e) => this.handleChange(e, 'currentpatient')}>
+                            <option value="Example-9147d">Example-9147d</option>
                         </select>
                       </div>
+
+
 
                     {/* PATIENT NAME */}
                       <div className="form-group">
                         <label className="label">Patient Name</label>
                         <input 
                               className="form-control" 
-                              onChange={(e) => this.handleChange(e, 'name')}
-                              value={this.state.name} 
+                              onChange={(e) => this.handlePatientInfoChange(e, 'name')}
+                              value={this.state.patients[this.state.currentpatient].name} 
                               placeholder={'Jane Doe'} />
                       </div>
 
@@ -72,14 +87,14 @@ export default class App extends React.Component {
                         <label className="label">Date of Birth</label>
                         <input 
                               className="form-control" 
-                              onChange={(e) => this.handleChange(e, 'dob')}
-                              value={this.state.dob} 
+                              onChange={(e) => this.handlePatientInfoChange(e, 'dob')}
+                              value={this.state.patients[this.state.currentpatient].dob} 
                               placeholder={'01/20/1988'} />
                       </div>
 
                     {/* PATIENT INFO BOX */}
                     <p>
-                      {this.state.healthplan} | {this.state.provider}
+                      {this.state.patients[this.state.currentpatient].healthplan} | {this.state.patients[this.state.currentpatient].provider}
                     </p>
                 </div>
               </div>
@@ -104,20 +119,20 @@ export default class App extends React.Component {
                   
                   { this.state.form === 'prenatal' ? 
                       <PrenatalPage 
-                          uid={this.state.uid} 
-                          name={this.state.name}
-                          dob={this.state.dob}
-                          healthplan={this.state.healthplan}
-                          provider={this.state.provider}
+                          patientuid={this.state.patients[this.state.currentpatient].patientuid} 
+                          name={this.state.patients[this.state.currentpatient].name}
+                          dob={this.state.patients[this.state.currentpatient].dob}
+                          healthplan={this.state.patients[this.state.currentpatient].healthplan}
+                          provider={this.state.patients[this.state.currentpatient].provider}
                           coordinator={this.state.coordinator}
                           hospital={this.state.hospital} /> 
                       : 
                       <PostpartumPage 
-                          uid={this.state.uid} 
-                          name={this.state.name}
-                          dob={this.state.dob}
-                          healthplan={this.state.healthplan}
-                          provider={this.state.provider}
+                          patientuid={this.state.patients[this.state.currentpatient].patientuid} 
+                          name={this.state.patients[this.state.currentpatient].name}
+                          dob={this.state.patients[this.state.currentpatient].dob}
+                          healthplan={this.state.patients[this.state.currentpatient].healthplan}
+                          provider={this.state.patients[this.state.currentpatient].provider}
                           coordinator={this.state.coordinator}
                           hospital={this.state.hospital} /> 
                       }

@@ -29,7 +29,7 @@ router.post('/', function(req, res, next) {
           .text('Paperwork Health Plan', 95, 106)
           
           // ID number
-          .text(req.body.uid ? req.body.uid : ' ', 480, 105)
+          .text(req.body.patientuid ? req.body.patientuid : ' ', 480, 105)
 
           // provider
           .text('Paperwork Health', 90, 123)

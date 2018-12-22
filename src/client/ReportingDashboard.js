@@ -23,7 +23,7 @@ export default class ReportingDashboard extends React.Component {
   }
 
   componentDidMount() {
-    
+    // fetch state
   }
 
 

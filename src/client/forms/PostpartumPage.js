@@ -107,6 +107,8 @@ export default class PrenatalPage extends React.Component {
 
   componentDidMount() {
     mixpanel.track("Prenatal Loaded");
+
+    // fetch state for this.props.patientuid
   }
 
   handleChange(e, fieldname) {
@@ -665,7 +667,7 @@ export default class PrenatalPage extends React.Component {
       
         
         <form  className="w-100" id="myForm" method="post" action="/api/postpartum" >
-          <input type="hidden" value={this.props.uid} name="uid" />
+          <input type="hidden" value={this.props.patientuid} name="patientuid" />
           <input type="hidden" value={this.props.name} name="name" />
           <input type="hidden" value={this.props.dob} name="dob" />
           <input type="hidden" value={this.props.healthplan} name="healthplan" />

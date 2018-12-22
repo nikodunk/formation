@@ -12,12 +12,14 @@ export default class App extends React.Component {
       super(props);
       
       this.state = { 
-            dashboard: false
+            dashboard: false,
+
+            userid: 'paperworklabs'
           }
   }
 
   componentDidMount() {
-    
+     // check that userid is logged in and fetch state
   }
 
 
