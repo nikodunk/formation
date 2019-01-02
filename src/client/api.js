@@ -28,7 +28,7 @@ const api = {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ formdata: formData }),
+          body: JSON.stringify({ formData }),
       })
         .then(res => res.text()) 
         .then(json => { console.log(json); })
