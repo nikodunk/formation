@@ -11,13 +11,13 @@ client.connect();
 
 
 
-// router.get('/', function(req, res, next) {
-// 	        // client.query(`SELECT name FROM patients WHERE patientid = '`+req.body.patientid+`';`, (err, queryResult) => { 
-// 	        // 			res.send(queryResult)
-// 	        // 		})
-// 	        // console.log('gaggi')
-// 	        res.send('gaggi')
-//     	}
-//     )
+router.get('/', function(req, res, next) {
+	        // client.query(`SELECT name FROM patients WHERE patientid = '`+req.body.patientid+`';`, (err, queryResult) => { 
+	        // 			res.send(queryResult)
+	        // 		})
+	        // console.log('gaggi')
+	        res.send('gaggi')
+    	}
+    )
 
 module.exports = router;
