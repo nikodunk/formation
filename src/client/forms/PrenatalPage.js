@@ -29,8 +29,7 @@ export default class PrenatalPage extends React.Component {
 
   componentDidMount() {
     mixpanel.track("Prenatal Loaded");
-    console.log(this.state.patientuid)
-    // fetch state for this.props.uid
+    api.loadForm(this.props.patientuid, this.props.form)
   }
 
   handleChange(e, fieldname) {
@@ -41,7 +40,6 @@ export default class PrenatalPage extends React.Component {
 
 
   saveForm(){
-    console.log('saved')
     api.saveForm(this.props.patientuid , this.props.form ,this.state)
   }
 

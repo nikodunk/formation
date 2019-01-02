@@ -31,3 +31,16 @@ Set up a new app
 	heroku config:set NPM_CONFIG_PRODUCTION=false
 
 
+
+
+-------
+
+## dev commands:
+
+	heroku pg:psql
+
+	CREATE TABLE forms (
+	  patientuid text NOT NULL,
+	  formname text NOT NULL,
+	  data jsonb
+	);

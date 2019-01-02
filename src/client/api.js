@@ -1,22 +1,38 @@
 const api = {
 
-  loadForm(){
+  
 
-        fetch('https://www.paperworklabs.com/api/')
+
+  loadForm(patientuid, formName){
+
+        let uriBase = process.env.NODE_ENV === 'development' 
+         ? 'http://localhost:3000'
+         : 'https://www.paperworklabs.com'
+
+        fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
            .then(res => res.text()) 
            .then(json => { console.log(json); })
            .catch(error => { console.log(error) });
     },
 
   saveForm(patientuid, formName, formData ){
-      fetch('https://www.paperworklabs.com/api/saveform/'+patientuid+'/'+formName, {
+
+      let uriBase = process.env.NODE_ENV === 'development' 
+         ? 'http://localhost:3000'
+         : 'https://www.paperworklabs.com'
+
+
+      fetch(`${uriBase}/api/saveform/${patientuid}/${formName}`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ formdata: formData }),
-      }).then((res) => console.log(res))
+      })
+        .then(res => res.text()) 
+        .then(json => { console.log(json); })
+        .catch(error => { console.log(error) });
     }
 
 }
