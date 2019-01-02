@@ -4,6 +4,8 @@ import '../app.css';
 import InputRadio from '../inputComponents/InputRadio'
 import InputRadioWithText from '../inputComponents/InputRadioWithText'
 
+import api from '../api'
+
 
 export default class PrenatalPage extends React.Component {
 
@@ -107,7 +109,7 @@ export default class PrenatalPage extends React.Component {
 
   componentDidMount() {
     mixpanel.track("Prenatal Loaded");
-    this.loadForm()
+    api.loadForm()
   }
 
   handleChange(e, fieldname) {
@@ -116,38 +118,10 @@ export default class PrenatalPage extends React.Component {
     this.setState(newState);
   }
 
-
-  loadForm(){
-
-      // fetch('https://www.paperworklabs.com/api/')
-      //   .then((res) => console.log(res.json()))
-      //   .then((res) => console.log(JSON.stringify(res)))
-        
-      fetch('https://www.paperworklabs.com/api/')
-      .then((res) => {
-        console.log('results')
-        return res.json();
-      })
-      .then((json) => {
-        console.log('Success: ', json);
-      })
-
-      // fetch('https://www.paperworklabs.com/api/', {
-      //     method: 'GET',
-      //     headers: {
-      //       Accept: 'application/json',
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify({
-      //       patient: this.props.patientuid
-      //     }),
-      // }).then((res) => console.log(res))
-  }
-
   saveForm(){
-    // save state to server for patientuid
+    console.log('saved')
+    api.saveForm(this.props.patientuid , this.props.form ,this.state)
   }
-
 
 
   makeRadios(inputs, variableName){
@@ -176,6 +150,8 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
+      <input className='btn btn-primary' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+      <br /><br />
 
     {/* PAGE NAVS*/}
       <ul className="nav nav-tabs" id="myTab" role="tablist">

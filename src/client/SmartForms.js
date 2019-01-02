@@ -119,8 +119,9 @@ export default class App extends React.Component {
                 
                   
                   { this.state.form === 'prenatal' ? 
-                      <PrenatalPage 
+                      <PrenatalPage
                           patientuid={this.state.patients[this.state.currentpatient].patientuid} 
+                          form={this.state.form}
                           name={this.state.patients[this.state.currentpatient].name}
                           dob={this.state.patients[this.state.currentpatient].dob}
                           healthplan={this.state.patients[this.state.currentpatient].healthplan}
@@ -129,7 +130,8 @@ export default class App extends React.Component {
                           hospital={this.state.hospital} /> 
                       : 
                       <PostpartumPage 
-                          patientuid={this.state.patients[this.state.currentpatient].patientuid} 
+                          patientuid={this.state.patients[this.state.currentpatient].patientuid}
+                          form={this.state.form}
                           name={this.state.patients[this.state.currentpatient].name}
                           dob={this.state.patients[this.state.currentpatient].dob}
                           healthplan={this.state.patients[this.state.currentpatient].healthplan}

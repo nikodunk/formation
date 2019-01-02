@@ -4,6 +4,7 @@ import '../app.css';
 import InputRadio from '../inputComponents/InputRadio'
 import InputRadioWithText from '../inputComponents/InputRadioWithText'
 
+import api from '../api'
 
 export default class PrenatalPage extends React.Component {
 
@@ -39,6 +40,10 @@ export default class PrenatalPage extends React.Component {
   }
 
 
+  saveForm(){
+    console.log('saved')
+    api.saveForm(this.props.patientuid , this.props.form ,this.state)
+  }
 
   makeRadios(inputs, variableName){
     let results = []
@@ -54,6 +59,9 @@ export default class PrenatalPage extends React.Component {
   render() {
     return (
       <div>
+
+      <input className='btn btn-primary' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+      <br /><br />
         
       {/* PAGE NAVS*/}
         <ul class="nav nav-tabs" id="myTab" role="tablist">
