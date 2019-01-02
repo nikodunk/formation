@@ -119,8 +119,18 @@ export default class PrenatalPage extends React.Component {
 
   loadForm(){
 
-      fetch('https://www.paperworklabs.com/api/').then((res) => console.log(res.json()))
-
+      // fetch('https://www.paperworklabs.com/api/')
+      //   .then((res) => console.log(res.json()))
+      //   .then((res) => console.log(JSON.stringify(res)))
+        
+      fetch('https://www.paperworklabs.com/api/')
+      .then((res) => {
+        console.log('results')
+        return res.json();
+      })
+      .then((json) => {
+        console.log('Success: ', json);
+      })
 
       // fetch('https://www.paperworklabs.com/api/', {
       //     method: 'GET',
