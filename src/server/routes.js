@@ -19,3 +19,5 @@ router.get('/', function(req, res, next) {
 	        res.send('gaggi')
     	}
     )
+
+module.exports = router;
