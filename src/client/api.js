@@ -9,7 +9,7 @@ const api = {
     },
 
   saveForm(patientuid, formName, formData ){
-      fetch('https://www.paperworklabs.com/api/'+patientuid+'/'+formName, {
+      fetch('https://www.paperworklabs.com/api/saveform/'+patientuid+'/'+formName, {
           method: 'POST',
           headers: {
             Accept: 'application/json',

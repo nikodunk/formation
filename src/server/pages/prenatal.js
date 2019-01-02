@@ -1,14 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const HummusRecipe = require('hummus-recipe');
-// const { Client } = require('pg');
-// const client = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: true,
-// });
-
-// client.connect();
-
 
 
 /* PRENATAL */
