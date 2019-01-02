@@ -21,7 +21,7 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
 	        			res.send(queryResult)
 	        			console.log(queryResult)
 	        		})
-	        res.send(`got Form ${req.params.formName}`)
+	        // res.send(`got Form ${req.params.formName}`)
     	}
     )
 
@@ -29,7 +29,7 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
 router.post('/saveform/:patientuid/:formName', function(req, res, next) {
 			console.log(req.params.patientuid, req.params.formName, JSON.stringify(req.body))
 	        client.query(`INSERT INTO forms VALUES ( '${req.params.patientuid}',  '${req.params.formName}', '${JSON.stringify(req.body)}');`, (err, queryResult) => { 
-	        			res.send(queryResult)
+	        			console.log(queryResult)
 	        		})
 	        res.send(`saved Form to user: ${req.params.patientuid}`)
     	}
