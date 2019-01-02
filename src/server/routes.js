@@ -16,15 +16,14 @@ router.get('/', function(req, res, next) {
     )
 
 router.get('/getform/:patientuid/:formName', function(req, res, next) {
-			console.log(req.params.patientuid, req.params.formName)
-	        client.query(`SELECT data FROM forms WHERE patientuid = '${req.params.patientuid}' AND form = '${req.params.formName}';`, (err, queryResult) => { 
+			console.log('GET FORM', req.params.patientuid, req.params.formName)
+	        client.query(`SELECT data FROM forms WHERE patientuid = '${req.params.patientuid}' AND formname = '${req.params.formName}';`, (err, queryResult) => { 
 	        			res.send(queryResult)
 	        			console.log(queryResult)
 	        		})
 	        // res.send(`got Form ${req.params.formName}`)
     	}
     )
-
 
 router.post('/saveform/:patientuid/:formName', function(req, res, next) {
 			console.log(req.params.patientuid, req.params.formName, JSON.stringify(req.body))
