@@ -12,6 +12,7 @@ client.connect();
 
 
 router.get('/saveform/:patientuid/:formName', function(req, res, next) {
+			console.log(req.params.patientuid, req.params.formName, req.body)
 	        // client.query(`SELECT name FROM patients WHERE patientid = '`+req.body.patientid+`';`, (err, queryResult) => { 
 	        // 			res.send(queryResult)
 	        // 		})
