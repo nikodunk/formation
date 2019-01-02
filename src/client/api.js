@@ -3,17 +3,21 @@ const api = {
   
 
 
-  loadForm(patientuid, formName){
+  async loadForm(patientuid, formName){
 
         let uriBase = 'https://www.paperworklabs.com'
         // let urBase = process.env.NODE_ENV === 'development' 
         //  ? 'http://localhost:3000'
         //  : 'https://www.paperworklabs.com'
+        
 
-        fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
+        let results = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
            .then(res => res.text())
-           .then(json => { console.log(json); })
+           .then(res => JSON.parse(res) )
+           .then(json => { return json.formData })
            .catch(error => { console.log(error) });
+
+        return results
     },
 
   saveForm(patientuid, formName, formData ){
