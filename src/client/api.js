@@ -11,7 +11,7 @@ const api = {
         //  : 'https://www.paperworklabs.com'
 
         fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
-           .then(res => res.text()) 
+           .then(res => res.text())
            .then(json => { console.log(json); })
            .catch(error => { console.log(error) });
     },
