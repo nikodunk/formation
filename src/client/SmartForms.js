@@ -30,7 +30,8 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    // fetch patients, coordinator, hospital etc for current userid
+    // fetch ( this.props.user ).then((res) => this.setState({this.state: res}))
+    // fetch patients, coordinator, hospital etc for current user
   }
 
   handleChange(e, fieldname) {
@@ -53,7 +54,7 @@ export default class App extends React.Component {
               <div class="alert alert-info">
                 <p >
                   Welcome! <br />
-                  This demo pre-selects the most common answers on a <i>Prenatal A/R IPC</i> Form and exports an official, completed PDF.<br />
+                  This demo pre-selects the most common answers on common medical forms and exports an official, completed PDF.<br />
                   Edit the pre-selections as necessary and hit <b>Export Completed PDF</b>.
                 </p>
               </div>
@@ -135,12 +136,7 @@ export default class App extends React.Component {
                           provider={this.state.patients[this.state.currentpatient].provider}
                           coordinator={this.state.coordinator}
                           hospital={this.state.hospital} /> 
-                      }
-          
-
-        
-            
-            
+                      }            
             
             
 

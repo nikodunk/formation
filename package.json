@@ -18,6 +18,7 @@
     "express": "^4.16.3",
     "heroku-ssl-redirect": "0.0.4",
     "hummus-recipe": "^1.8.0",
+    "pg": "^7.7.1",
     "react": "^16.5.2",
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.5.2",

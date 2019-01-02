@@ -107,14 +107,35 @@ export default class PrenatalPage extends React.Component {
 
   componentDidMount() {
     mixpanel.track("Prenatal Loaded");
-
-    // fetch state for this.props.patientuid
+    this.loadForm()
   }
 
   handleChange(e, fieldname) {
     let newState = {}
     newState[fieldname] = e.target.value;
     this.setState(newState);
+  }
+
+
+  loadForm(){
+      
+      fetch('https://www.paperworklabs.com/api/').then((res) => console.log(res))
+
+
+      // fetch('https://www.paperworklabs.com/api/', {
+      //     method: 'GET',
+      //     headers: {
+      //       Accept: 'application/json',
+      //       'Content-Type': 'application/json',
+      //     },
+      //     body: JSON.stringify({
+      //       patient: this.props.patientuid
+      //     }),
+      // }).then((res) => console.log(res))
+  }
+
+  saveForm(){
+    // save state to server for patientuid
   }
 
 
@@ -639,8 +660,6 @@ export default class PrenatalPage extends React.Component {
       {/* PAGE 6 */}
         <div className="tab-pane  fade" id="p6" role="tabpanel" >
           
-
-          
           <h5>Provider Signature</h5>
           <input onChange={(e) => this.handleChange(e, 'providersignature')} value={this.state.providersignature} placeholder={''} className="form-control" />  
 
@@ -668,6 +687,7 @@ export default class PrenatalPage extends React.Component {
         
         <form  className="w-100" id="myForm" method="post" action="/api/postpartum" >
           <input type="hidden" value={this.props.patientuid} name="patientuid" />
+          
           <input type="hidden" value={this.props.name} name="name" />
           <input type="hidden" value={this.props.dob} name="dob" />
           <input type="hidden" value={this.props.healthplan} name="healthplan" />

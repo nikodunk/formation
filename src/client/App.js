@@ -14,7 +14,7 @@ export default class App extends React.Component {
       this.state = { 
             dashboard: false,
 
-            userid: 'paperworklabs'
+            user: 'paperworklabs'
           }
   }
 
@@ -66,8 +66,8 @@ export default class App extends React.Component {
           <div style={{paddingTop: 55}}>
 
               {this.state.dashboard ? 
-                  <ReportingDashboard /> : 
-                  <SmartForms /> }
+                  <ReportingDashboard user={this.state.user} /> : 
+                  <SmartForms user={this.state.user} /> }
           </div>
 
 

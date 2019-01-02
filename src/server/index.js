@@ -9,6 +9,8 @@ const sslRedirect = require('heroku-ssl-redirect');
 const prenatal = require('./pages/prenatal');
 const postpartum = require('./pages/postpartum');
 
+const routes = require('./routes');
+
 
 app.use(sslRedirect());
 
@@ -18,9 +20,9 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 
-
 app.use('/api/prenatal', prenatal);
 app.use('/api/postpartum', postpartum);
 
+app.use('/api/', routes);
 
 app.listen(PORT, () => console.log('Listening on port 8080!'))
