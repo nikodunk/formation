@@ -17,10 +17,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/getform/:patientuid/:formName', function(req, res, next) {
 			console.log(req.params.patientuid, req.params.formName)
-	        // client.query(`SELECT name FROM patients WHERE patientid = '`+req.body.patientid+`';`, (err, queryResult) => { 
-	        // 			res.send(queryResult)
-	        // 		})
-	        // console.log('gaggi')
+	        client.query(`SELECT data FROM forms WHERE patientuid = '${req.params.patientuid}' AND form = '${req.params.formName}';`, (err, queryResult) => { 
+	        			res.send(queryResult)
+	        			console.log(queryResult)
+	        		})
 	        res.send(`got Form ${req.params.formName}`)
     	}
     )

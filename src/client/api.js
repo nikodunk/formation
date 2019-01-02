@@ -5,9 +5,10 @@ const api = {
 
   loadForm(patientuid, formName){
 
-        let uriBase = process.env.NODE_ENV === 'development' 
-         ? 'http://localhost:3000'
-         : 'https://www.paperworklabs.com'
+        let uriBase = 'https://www.paperworklabs.com'
+        // let urBase = process.env.NODE_ENV === 'development' 
+        //  ? 'http://localhost:3000'
+        //  : 'https://www.paperworklabs.com'
 
         fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
            .then(res => res.text()) 
@@ -17,9 +18,10 @@ const api = {
 
   saveForm(patientuid, formName, formData ){
 
-      let uriBase = process.env.NODE_ENV === 'development' 
-         ? 'http://localhost:3000'
-         : 'https://www.paperworklabs.com'
+      let uriBase = 'https://www.paperworklabs.com'
+              // let urBase = process.env.NODE_ENV === 'development' 
+              //  ? 'http://localhost:3000'
+              //  : 'https://www.paperworklabs.com'
 
 
       fetch(`${uriBase}/api/saveform/${patientuid}/${formName}`, {
