@@ -114,15 +114,17 @@ export default class App extends React.Component {
                         
                         {/* PATIENT NAME */}
                           <label className="label">Patient Name</label>
-                          <input 
+                          <p>{this.state.patients[this.state.currentpatient].name} </p>
+                          {/*<input 
                                 className="form-control" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'name')}
                                 value={this.state.patients[this.state.currentpatient].name} 
-                                placeholder={'Jane Doe'} />
+                                placeholder={'Jane Doe'} />*/}
 
 
                         {/* DOB */}
                           <label className="label">Date of Birth</label>
+                          <p>{this.state.patients[this.state.currentpatient].dob} </p>
                           <input 
                                 className="form-control" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'dob')}
@@ -134,17 +136,19 @@ export default class App extends React.Component {
 
                     {/* PATIENT INFO BOX */}
                       <p>
-                        <input 
+                        {this.state.patients[this.state.currentpatient].healthplan} |
+                        {/*<input 
                                 className="" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'healthplan')}
                                 value={this.state.patients[this.state.currentpatient].healthplan} 
-                                placeholder={'Paperwork Labs Healthplan'} />
+                                placeholder={'Paperwork Labs Healthplan'} />*/}
                                  | 
-                        <input 
+                        {this.state.patients[this.state.currentpatient].provider}
+                        {/*<input 
                                 className="" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'provider')}
                                 value={this.state.patients[this.state.currentpatient].provider}
-                                placeholder={'Paperwork Labs Provider'} />
+                                placeholder={'Paperwork Labs Provider'} />*/}
                       </p>
                 </div>
               </div>
