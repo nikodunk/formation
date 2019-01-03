@@ -29,7 +29,7 @@ export default class PrenatalPage extends React.Component {
 
   componentDidMount() {
     mixpanel.track("Prenatal Loaded");
-    api.loadForm(this.props.patientuid, this.props.form)
+    api.loadForm(this.props.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
   }
 
   handleChange(e, fieldname) {
@@ -40,7 +40,7 @@ export default class PrenatalPage extends React.Component {
 
 
   saveForm(){
-    api.saveForm(this.props.patientuid , this.props.form ,this.state)
+    api.saveForm(this.props.patientuid , this.props.form, this.state)
   }
 
   makeRadios(inputs, variableName){
