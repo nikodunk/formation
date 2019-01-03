@@ -40,7 +40,7 @@ export default class PrenatalPage extends React.Component {
 
 
   saveForm(){
-    api.saveForm(this.props.patientuid , this.props.form, this.state)
+    api.saveForm(this.props.patientuid, this.props.form, this.state)
   }
 
   makeRadios(inputs, variableName){

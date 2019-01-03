@@ -30,9 +30,9 @@ router.post('/saveform/:patientuid/:formName', function(req, res, next) {
 	        	INSERT INTO forms (patientuid, formname, data) VALUES ( '${req.params.patientuid}',  '${req.params.formName}', '${JSON.stringify(req.body)}')
 	        	ON CONFLICT (formname) DO UPDATE SET data = '${JSON.stringify(req.body)}';
 	        	`, (err, queryResult) => { 
-	        			console.log(queryResult)
+	        			res.send(`saved Form to user: ${req.params.patientuid}. results: ${queryResult}`)
 	        		})
-	        res.send(`saved Form to user: ${req.params.patientuid}`)
+	        
     	}
     )
 
