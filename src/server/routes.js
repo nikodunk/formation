@@ -36,7 +36,7 @@ router.post('/saveform/:patientuid/:formName', function(req, res, next) {
     	}
     )
 
-router.post('/getreport/:formname', function(req, res, next) {
+router.post('/getreportcount/:formname', function(req, res, next) {
 	        client.query(`
 	        	SELECT count(*) FROM forms where formname = '${formname}';
 	        	`, (err, queryResult) => {

@@ -25,7 +25,6 @@ const api = {
       let uriBase = 'https://www.paperworklabs.com'
 
 
-
       fetch(`${uriBase}/api/saveform/${patientuid}/${formName}`, {
           method: 'POST',
           headers: {
@@ -43,7 +42,7 @@ const api = {
       
       let uriBase = 'https://www.paperworklabs.com'
 
-      let results = await fetch(`${uriBase}/api/getreport/${formName}`)
+      let results = await fetch(`${uriBase}/api/getreportcount/${formName}`)
          .then(res => res.text())
          .then(res => JSON.parse(res) )
          .then(json => { return json })

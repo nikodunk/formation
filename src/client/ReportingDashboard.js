@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Bar} from 'react-chartjs-2';
 
-
+import api from './api'
 
 
 export default class ReportingDashboard extends React.Component {
@@ -42,7 +42,7 @@ export default class ReportingDashboard extends React.Component {
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link disabled" href="#">
                         <span data-feather="file"></span>
                         Orders
                       </a>
