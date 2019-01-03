@@ -109,7 +109,13 @@ export default class PrenatalPage extends React.Component {
   componentDidMount() {
     mixpanel.track("Prenatal Loaded");
     api.loadForm(this.props.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
-  }
+  } 
+
+  // componentWillReceiveProps(props){
+  //   if (props.patientuid !== this.props.patientuid || props.form !== this.props.form) {
+  //     api.loadForm(props.patientuid, props.form).then((res) => { console.log(res); this.setState(res) })
+  //   }
+  // } 
 
   handleChange(e, fieldname) {
     let newState = {}

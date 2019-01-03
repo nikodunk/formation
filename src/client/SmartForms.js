@@ -32,7 +32,9 @@ export default class App extends React.Component {
                             healthplan: 'Kaiser HMO/HPO',
                             provider: 'Kaiser Permanente'
                           }
-                } 
+                } ,
+
+            loading: false
           }
   }
 
@@ -45,6 +47,14 @@ export default class App extends React.Component {
     let newState = {}
     newState[fieldname] = e.target.value;
     this.setState(newState);
+  }
+
+  handlePatientChange(e) {
+    this.setState({loading: true})
+    let newState = {}
+    newState['currentpatient'] = e.target.value;
+    this.setState(newState)
+    setTimeout(() => {this.setState({loading: false})} , 100);
   }
 
   handlePatientInfoChange(e, fieldname) {
@@ -94,7 +104,7 @@ export default class App extends React.Component {
                     {/* PATIENT ID NUMBER */}
                       <div className="form-group">
                         <label className="label">Patient ID Number</label>
-                        <select class="form-control" value={this.state.patients[this.state.currentpatient].patientuid} onChange={(e) => this.handleChange(e, 'currentpatient')}>
+                        <select class="form-control" value={this.state.patients[this.state.currentpatient].patientuid} onChange={(e) => this.handlePatientChange(e)}>
                             {this.makePatients()}
                         </select>
                         {/*<input type="button" onClick={() => this.addPatient()} className="btn btn-primary" value="Add Patient" />*/}
@@ -155,8 +165,8 @@ export default class App extends React.Component {
 
                   <br />
 
-                
-                  
+                { !this.state.loading ?
+                <div>
                   { this.state.form === 'prenatal' ? 
                       <PrenatalPage
                           patientuid={this.state.patients[this.state.currentpatient].patientuid} 
@@ -178,6 +188,10 @@ export default class App extends React.Component {
                           coordinator={this.state.coordinator}
                           hospital={this.state.hospital} /> 
                       }            
+                  } 
+                </div>
+                : null
+              }
             
             
 
