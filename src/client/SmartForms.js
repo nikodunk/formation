@@ -170,32 +170,31 @@ export default class App extends React.Component {
                   <br />
 
                 { !this.state.loading ?
-                <div>
-                  { this.state.form === 'prenatal' ? 
-                      <PrenatalPage
-                          patientuid={this.state.patients[this.state.currentpatient].patientuid} 
-                          form={this.state.form}
-                          name={this.state.patients[this.state.currentpatient].name}
-                          dob={this.state.patients[this.state.currentpatient].dob}
-                          healthplan={this.state.patients[this.state.currentpatient].healthplan}
-                          provider={this.state.patients[this.state.currentpatient].provider}
-                          coordinator={this.state.coordinator}
-                          hospital={this.state.hospital} /> 
-                      : 
-                      <PostpartumPage 
-                          patientuid={this.state.patients[this.state.currentpatient].patientuid}
-                          form={this.state.form}
-                          name={this.state.patients[this.state.currentpatient].name}
-                          dob={this.state.patients[this.state.currentpatient].dob}
-                          healthplan={this.state.patients[this.state.currentpatient].healthplan}
-                          provider={this.state.patients[this.state.currentpatient].provider}
-                          coordinator={this.state.coordinator}
-                          hospital={this.state.hospital} /> 
-                      }            
-                  } 
-                </div>
-                : null
-              }
+                  <div>
+                    { this.state.form === 'prenatal' ? 
+                        <PrenatalPage
+                            patientuid={this.state.patients[this.state.currentpatient].patientuid} 
+                            form={this.state.form}
+                            name={this.state.patients[this.state.currentpatient].name}
+                            dob={this.state.patients[this.state.currentpatient].dob}
+                            healthplan={this.state.patients[this.state.currentpatient].healthplan}
+                            provider={this.state.patients[this.state.currentpatient].provider}
+                            coordinator={this.state.coordinator}
+                            hospital={this.state.hospital} /> 
+                        : 
+                        <PostpartumPage 
+                            patientuid={this.state.patients[this.state.currentpatient].patientuid}
+                            form={this.state.form}
+                            name={this.state.patients[this.state.currentpatient].name}
+                            dob={this.state.patients[this.state.currentpatient].dob}
+                            healthplan={this.state.patients[this.state.currentpatient].healthplan}
+                            provider={this.state.patients[this.state.currentpatient].provider}
+                            coordinator={this.state.coordinator}
+                            hospital={this.state.hospital} /> 
+                    } 
+                  </div>
+                  : null
+                }
             
             
 
