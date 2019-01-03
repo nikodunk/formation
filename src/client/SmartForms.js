@@ -24,6 +24,13 @@ export default class App extends React.Component {
                             dob: '09/18/1972',
                             healthplan: 'Paperwork Health Plan',
                             provider: 'Paperwork Health'
+                          },
+                  'Example-2353c': {
+                            patientuid: 'Example-2353c', 
+                            name: 'George Example', 
+                            dob: '10/14/1983',
+                            healthplan: 'Kaiser HMO/HPO',
+                            provider: 'Kaiser Permanente'
                           }
                 } 
           }
