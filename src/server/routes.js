@@ -36,20 +36,10 @@ router.post('/saveform/:patientuid/:formName', function(req, res, next) {
     	}
     )
 
-router.post('/getreport/prenatalcount', function(req, res, next) {
+router.post('/getreport/:formname', function(req, res, next) {
 	        client.query(`
-	        	SELECT count(*) FROM forms where formname = 'prenatal';
-	        	`, (err, queryResult) => { 
-	        			res.send(queryResult.rows[0] ? queryResult.rows[0].data : {} )
-	        		})
-	        
-    	}
-    )
-
-router.post('/getreport/postpartumcount', function(req, res, next) {
-	        client.query(`
-	        	SELECT count(*) FROM forms where formname = 'postpartum';
-	        	`, (err, queryResult) => { 
+	        	SELECT count(*) FROM forms where formname = '${formname}';
+	        	`, (err, queryResult) => {
 	        			res.send(queryResult.rows[0] ? queryResult.rows[0].data : {} )
 	        		})
 	        

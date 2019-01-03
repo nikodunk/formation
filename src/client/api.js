@@ -23,9 +23,7 @@ const api = {
   saveForm(patientuid, formName, formData ){
 
       let uriBase = 'https://www.paperworklabs.com'
-              // let urBase = process.env.NODE_ENV === 'development' 
-              //  ? 'http://localhost:3000'
-              //  : 'https://www.paperworklabs.com'
+
 
 
       fetch(`${uriBase}/api/saveform/${patientuid}/${formName}`, {
@@ -39,7 +37,20 @@ const api = {
         .then(res => res.text()) 
         .then(json => { console.log(json); })
         .catch(error => { console.log(error) });
-    }
+    },
+
+  async getReportCount(formName){
+      
+      let uriBase = 'https://www.paperworklabs.com'
+
+      let results = await fetch(`${uriBase}/api/getreport/${formName}`)
+         .then(res => res.text())
+         .then(res => JSON.parse(res) )
+         .then(json => { return json })
+         .catch(error => { console.log(error) });
+
+      return results
+  }
 
 }
 
