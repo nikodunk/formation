@@ -98,7 +98,6 @@ export default class PrenatalPage extends React.Component {
           completedby: '',
 
 
-
           //page6
           providersignature: '',
           clientstrengths: '',
