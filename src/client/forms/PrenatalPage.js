@@ -58,7 +58,34 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
-      <input className='btn btn-primary' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+                <form  className="w-100" id="myForm" method="post" action="/api/prenatal" >
+                  <input type="hidden" value={this.props.patientuid} name="patientuid" />
+                  <input type="hidden" value={this.props.name} name="name" />
+                  <input type="hidden" value={this.props.dob} name="dob" />
+                  <input type="hidden" value={this.props.healthplan} name="healthplan" />
+                  <input type="hidden" value={this.props.provider} name="provider" />
+                  <input type="hidden" value={this.props.coordinator} name="coordinator" />
+                  <input type="hidden" value={this.props.hospital} name="hospital" />
+         
+                  
+                  <input type="hidden" value={this.state.age} name="age" />
+                  <input type="hidden" value={this.state.areyoumarried} name="areyoumarried" />
+                  <input type="hidden" value={this.state.howlongcurrenthome} name="howlongcurrenthome" />
+                  <input type="hidden" value={this.state.stayinthisarea} name="stayinthisarea" />
+                  <input type="hidden" value={this.state.howmanyyearsschool} name="howmanyyearsschool" />
+                  <input type="hidden" value={this.state.preferredlanguagespeak} name="preferredlanguagespeak" />
+                  <input type="hidden" value={this.state.howyouread} name="howyouread" />
+
+                  <input type="hidden" value={this.state.fathername} name="fathername" />
+                  <input type="hidden" value={this.state.fatherlanguage} name="fatherlanguage" />
+                  <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
+                  <input type="hidden" value={this.state.fatherage} name="fatherage" />
+
+                  <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+                  {'  '}
+                  <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
+                </form>
+
       <br /><br />
         
       {/* PAGE NAVS*/}
@@ -227,8 +254,12 @@ export default class PrenatalPage extends React.Component {
           <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
           <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-          <input className='btn btn-primary w-100' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
+          <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+          {'  '}
+          <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
         </form>
+
+
 
         <p>Note: For demonstration purposes only page 1 is pre-filled here</p>
         

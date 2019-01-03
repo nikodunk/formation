@@ -21,7 +21,7 @@ export default class App extends React.Component {
                   'Example-9147d': {
                             patientuid: 'Example-9147d', 
                             name: 'Georgia Examplo', 
-                            dob: '01/20/1988',
+                            dob: '09/18/1972',
                             healthplan: 'Paperwork Health Plan',
                             provider: 'Paperwork Health'
                           }
@@ -46,6 +46,27 @@ export default class App extends React.Component {
     this.setState(newState);
   }
 
+  makePatients(){
+    let results = []
+      for (var patient in this.state.patients) {
+          results.push( <option value={this.state.patients[patient].patientuid}>{this.state.patients[patient].patientuid}</option>)
+        }
+    return results
+  }
+
+  addPatient(){
+    let newPatients = this.state.patients
+    newPatients['Another-Patient'] = 
+                          {
+                            patientuid: 'Another-Patient', 
+                            name: '', 
+                            dob: '',
+                            healthplan: '',
+                            provider: ''
+                          }
+    this.setState({patients: newPatients})
+    this.setState({currentpatient: 'Another-Patient'})
+  }
 
   render() {
     return (
@@ -67,36 +88,47 @@ export default class App extends React.Component {
                       <div className="form-group">
                         <label className="label">Patient ID Number</label>
                         <select class="form-control" value={this.state.patients[this.state.currentpatient].patientuid} onChange={(e) => this.handleChange(e, 'currentpatient')}>
-                            <option value="Example-9147d">Example-9147d</option>
+                            {this.makePatients()}
                         </select>
+                        <input type="button" onClick={() => this.addPatient()} className="btn btn-primary" value="Add Patient" />
                       </div>
-
-
-
-                    {/* PATIENT NAME */}
+                    
                       <div className="form-group">
-                        <label className="label">Patient Name</label>
-                        <input 
-                              className="form-control" 
-                              onChange={(e) => this.handlePatientInfoChange(e, 'name')}
-                              value={this.state.patients[this.state.currentpatient].name} 
-                              placeholder={'Jane Doe'} />
+                        
+                        {/* PATIENT NAME */}
+                          <label className="label">Patient Name</label>
+                          <input 
+                                className="form-control" 
+                                onChange={(e) => this.handlePatientInfoChange(e, 'name')}
+                                value={this.state.patients[this.state.currentpatient].name} 
+                                placeholder={'Jane Doe'} />
+
+
+                        {/* DOB */}
+                          <label className="label">Date of Birth</label>
+                          <input 
+                                className="form-control" 
+                                onChange={(e) => this.handlePatientInfoChange(e, 'dob')}
+                                value={this.state.patients[this.state.currentpatient].dob} 
+                                placeholder={'01/20/1988'} />
+                        
                       </div>
 
-                    {/* DOB */}
-                      <div className="form-group">
-                        <label className="label">Date of Birth</label>
-                        <input 
-                              className="form-control" 
-                              onChange={(e) => this.handlePatientInfoChange(e, 'dob')}
-                              value={this.state.patients[this.state.currentpatient].dob} 
-                              placeholder={'01/20/1988'} />
-                      </div>
 
                     {/* PATIENT INFO BOX */}
-                    <p>
-                      {this.state.patients[this.state.currentpatient].healthplan} | {this.state.patients[this.state.currentpatient].provider}
-                    </p>
+                      <p>
+                        <input 
+                                className="" 
+                                onChange={(e) => this.handlePatientInfoChange(e, 'healthplan')}
+                                value={this.state.patients[this.state.currentpatient].healthplan} 
+                                placeholder={'Paperwork Labs Healthplan'} />
+                                 | 
+                        <input 
+                                className="" 
+                                onChange={(e) => this.handlePatientInfoChange(e, 'provider')}
+                                value={this.state.patients[this.state.currentpatient].provider}
+                                placeholder={'Paperwork Labs Provider'} />
+                      </p>
                 </div>
               </div>
 

@@ -148,7 +148,22 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
-      <input className='btn btn-primary' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+              <form  className="w-100" id="myForm" method="post" action="/api/postpartum" >
+                <input type="hidden" value={this.props.patientuid} name="patientuid" />
+                
+                <input type="hidden" value={this.props.name} name="name" />
+                <input type="hidden" value={this.props.dob} name="dob" />
+                <input type="hidden" value={this.props.healthplan} name="healthplan" />
+                <input type="hidden" value={this.props.provider} name="provider" />
+                <input type="hidden" value={this.props.coordinator} name="coordinator" />
+                <input type="hidden" value={this.props.hospital} name="hospital" />
+                
+                {this.makeHiddenInputs()}
+
+                <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+                {'  '}
+                <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
+              </form>
       <br /><br />
 
     {/* PAGE NAVS*/}
@@ -314,7 +329,7 @@ export default class PrenatalPage extends React.Component {
             {/* 13. Current weight category: */}
               <div className="box">
                   <span className="label">13. Current weight category:</span>
-                  { this.makeRadios(['Underweight', 'Normal', 'Overweight', 'Obese'], 'currentweightcategory') }
+                  { this.makeRadios(['Underweight', 'Normal', 'Overweight', 'Obese', 'None'], 'currentweightcategory') }
               </div>
 
             {/* 14. Postpartum weight goal: */}
@@ -681,7 +696,9 @@ export default class PrenatalPage extends React.Component {
           
           {this.makeHiddenInputs()}
 
-          <input className='btn btn-primary w-100' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
+          <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+          {'  '}
+          <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
         </form>
         
       </div>
