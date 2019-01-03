@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 router.get('/getform/:patientuid/:formName', function(req, res, next) {
 			console.log('GET FORM', req.params.patientuid, req.params.formName)
 	        client.query(`SELECT data FROM forms WHERE patientuid = '${req.params.patientuid}' AND formname = '${req.params.formName}';`, (err, queryResult) => { 
-	        			res.send(queryResult.rows[0].data ? queryResult.rows[0].data : {} )
+	        			res.send(queryResult.rows[0] ? queryResult.rows[0].data : {} )
 	        			console.log(queryResult.rows[0].data)
 	        		})
 	        // res.send(`got Form ${req.params.formName}`)

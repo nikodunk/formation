@@ -40,7 +40,7 @@ Set up a new app
 	heroku pg:psql
 
 	CREATE TABLE forms (
-	  patientuid text NOT NULL,
-	  formname text NOT NULL,
+	  patientuid text PRIMARY KEY,
+	  formname text NOT NULL UNIQUE,
 	  data jsonb
 	);
