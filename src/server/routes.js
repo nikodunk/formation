@@ -27,8 +27,8 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
 router.post('/saveform/:patientuid/:formName', function(req, res, next) {
 			console.log(req.params.patientuid, req.params.formName, JSON.stringify(req.body))
 	        client.query(`
-	        	INSERT INTO forms (patientuid, formname, data) VALUES ( '${req.params.patientuid}',  '${req.params.formName}', '${JSON.stringify(req.body)}')
-	        	ON CONFLICT (formname) DO UPDATE SET data = '${JSON.stringify(req.body)}';
+	        	INSERT INTO forms (formhash, patientuid, formname, data) VALUES ( '${req.params.patientuid}${req.params.formName}', '${req.params.patientuid}',  '${req.params.formName}', '${JSON.stringify(req.body)}')
+	        	ON CONFLICT (formhash) DO UPDATE SET data = '${JSON.stringify(req.body)}';
 	        	`, (err, queryResult) => { 
 	        			res.send(`saved Form to user: ${req.params.patientuid}. results: ${queryResult}`)
 	        		})
