@@ -28,8 +28,8 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
 router.post('/saveform/:patientuid/:formName', function(req, res, next) {
 			console.log(req.params.patientuid, req.params.formName, JSON.stringify(req.body))
 	        client.query(`
-	        	INSERT INTO forms VALUES ( '${req.params.patientuid}',  '${req.params.formName}', '${JSON.stringify(req.body)}')
-	        	ON CONFLICT (patientuid, formname) DO UPDATE SET data = '${JSON.stringify(req.body)}';
+	        	INSERT INTO forms (patientuid, formname, data) VALUES ( '${req.params.patientuid}',  '${req.params.formName}', '${JSON.stringify(req.body)}')
+	        	ON CONFLICT (formname) DO UPDATE SET data = '${JSON.stringify(req.body)}';
 	        	`, (err, queryResult) => { 
 	        			console.log(queryResult)
 	        		})
@@ -38,3 +38,4 @@ router.post('/saveform/:patientuid/:formName', function(req, res, next) {
     )
 
 module.exports = router;
+
