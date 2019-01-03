@@ -125,11 +125,11 @@ export default class App extends React.Component {
                         {/* DOB */}
                           <label className="label">Date of Birth</label>
                           <p>{this.state.patients[this.state.currentpatient].dob} </p>
-                          <input 
+                          {/*<input 
                                 className="form-control" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'dob')}
                                 value={this.state.patients[this.state.currentpatient].dob} 
-                                placeholder={'01/20/1988'} />
+                                placeholder={'01/20/1988'} />*/}
                         
                       </div>
 
