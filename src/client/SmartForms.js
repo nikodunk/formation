@@ -90,7 +90,7 @@ export default class App extends React.Component {
                         <select class="form-control" value={this.state.patients[this.state.currentpatient].patientuid} onChange={(e) => this.handleChange(e, 'currentpatient')}>
                             {this.makePatients()}
                         </select>
-                        <input type="button" onClick={() => this.addPatient()} className="btn btn-primary" value="Add Patient" />
+                        {/*<input type="button" onClick={() => this.addPatient()} className="btn btn-primary" value="Add Patient" />*/}
                       </div>
                     
                       <div className="form-group">
