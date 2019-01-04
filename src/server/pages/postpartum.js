@@ -104,25 +104,67 @@ router.post('/', function(req, res, next) {
         .text(req.body.currentweightcategory === 'Obese' ? 'x' : ' ', 207, 650)
         
         // postpartumweightgoal: '',
-        .text(req.body.postpartumweightgoal ? req.body.postpartumweightgoal : ' ', 133, 669)
+        .text(req.body.postpartumweightgoal ? req.body.postpartumweightgoal : ' ', 133, 665)
+
+  	    .endPage()
 
 
-        // //page2
+
+
+        // -------------------------------------------------------------------------------------
+  	    // edit 2nd page
+  	    .editPage(2)
+
         // blooddatecollected: '',
+        .text(req.body.blooddatecollected ? req.body.blooddatecollected : ' ', 126, 92)
+
         // bloodhgb: '',
+        .text(req.body.bloodhgb ? req.body.bloodhgb : ' ', 93, 105)
+        
         // bloodhct: '',
+        .text(req.body.bloodhct ? req.body.bloodhct : ' ', 93, 119)
 
         // ogttdate: '',
+        .text(req.body.ogttdate ? req.body.ogttdate : ' ', 94, 143)
+
         // ogttfasting: '',
+        .text(req.body.ogttfasting ? req.body.ogttfasting : ' ', 106, 156)
+
         // ogtt2hr: '',
+        .text(req.body.ogtt2hr ? req.body.ogtt2hr : ' ', 97, 170)
+
+        // followupneededfor: '',
+        .text(req.body.followupneededfor === 'Diabetes' ? 'x' : ' ', 45, 242)
+        .text(req.body.followupneededfor === 'Hypertension' ? 'x' : ' ', 45, 256)
+        .text(req.body.followupneededfor === 'Other' ? 'x' : ' ', 45, 269)
+        .text(req.body.followupneededfor === 'N/A' ? 'x' : ' ', 45, 283)
 
         // prenatalvitamins: 'Yes',
+        .text(req.body.prenatalvitamins === 'Yes' ? 'x' : ' ', 43, 367)
+        .text(req.body.prenatalvitamins === 'No' ? 'x' : ' ', 75, 367)
+        
+
         // // checkbox missing
+
         // dietadequate: 'Yes',
-        // // checkbox missing
+        .text(req.body.dietadequate === 'Yes' ? 'x' : ' ', 149, 467)
+        .text(req.body.dietadequate === 'No' ? 'x' : ' ', 179, 466)
+
+        // whatareyoufeedingyourbaby
+        .text(req.body.whatareyoufeedingyourbaby === 'Breastmilk only' ? 'x' : ' ', 43, 519)
+        .text(req.body.whatareyoufeedingyourbaby === 'Formula only' ? 'x' : ' ', 114, 519)
+        .text(req.body.whatareyoufeedingyourbaby === 'Breastmilk + fomula' ? 'x' : ' ', 178, 519)
+
         // questionsaboutfeeding: 'No',
+        .text(req.body.questionsaboutfeeding === 'Yes' ? 'x' : ' ', 43, 547)
+        .text(req.body.questionsaboutfeeding === 'No' ? 'x' : ' ', 76, 547)
+        .text(req.body.questionsaboutfeeding === 'N/A' ? 'x' : ' ', 106, 547)
+
         // wetdiapersperday: '',
+        .text(req.body.wetdiapersperday ? req.body.wetdiapersperday : ' ', 115, 564)
+
         // feedingper24: '',
+        .text(req.body.feedingper24 ? req.body.feedingper24 : ' ', 239, 582)
 
 
 
@@ -175,12 +217,6 @@ router.post('/', function(req, res, next) {
         // //page6
         // providersignature: '',
         // clientstrengths: '',
-
-
-  	    .endPage()
-
-  	    // edit 2nd page
-  	    .editPage(2)
   	    .endPage()
 
   	    .endPDF();

@@ -44,10 +44,11 @@ export default class PrenatalPage extends React.Component {
           ogttfasting: '',
           ogtt2hr: '',
 
+          followupneededfor: '',
           prenatalvitamins: 'Yes',
           // checkbox missing
           dietadequate: 'Yes',
-          // checkbox missing
+          whatareyoufeedingyourbaby: 'Breastmilk only',
           questionsaboutfeeding: 'No',
           wetdiapersperday: '',
           feedingper24: '',
@@ -200,6 +201,7 @@ export default class PrenatalPage extends React.Component {
             Page 6</a>
         </li>
       </ul>
+
       <div className="tab-content" id="myTabContent">
 
 
@@ -386,9 +388,16 @@ export default class PrenatalPage extends React.Component {
                  {/*{ this.makeRadios(['N/A'], 'ogttna') }*/}
              </div>
 
+           {/* 17. Follow up needed for: */}
+             <div className="box">
+                 <span className="label">17. Follow up needed for:</span>
+                 { this.makeRadios(['Diabetes', 'Hypertension', 'Other', 'N/A'], 'followupneededfor') }
+             </div>
+
+
            {/* 18. Are you currently taking prenatal vitamins? */}
              <div className="box">
-                 <span className="label">17. Are you currently taking prenatal vitamins?</span>
+                 <span className="label">18. Are you currently taking prenatal vitamins?</span>
                  { this.makeRadios(['Yes', 'No'], 'prenatalvitamins') }
              </div>
 
@@ -418,8 +427,7 @@ export default class PrenatalPage extends React.Component {
             {/* 20. What are you feeding your baby? */}
               <div className="box">
                   <span className="label">20. What are you feeding your baby?</span>
-                  
-                  {/* CHECKBOXES NEEDED*/}
+                  { this.makeRadios(['Breastmilk only', 'Formula only', 'Breastmilk + fomula'], 'whatareyoufeedingyourbaby') }
               </div>
 
             {/* 21. Do you have questions about missing or feeding formula? */}
@@ -688,6 +696,36 @@ export default class PrenatalPage extends React.Component {
       </div>
 
 
+
+      <ul className="nav" id="myTab" role="tablist">
+        <li className="nav-item">
+          <a className="btn active" id="1-tab" data-toggle="tab" href="#p1" role="tab" >
+            Page 1</a>
+        </li>
+        <li className="nav-item">
+          <a className="btn" id="2-tab" data-toggle="tab" href="#p2" role="tab">
+            Page 2</a>
+        </li>
+        <li className="nav-item">
+          <a className="btn" id="3-tab" data-toggle="tab" href="#p3" role="tab">
+            Page 3</a>
+        </li>
+        <li className="nav-item">
+          <a className="btn" id="4-tab" data-toggle="tab" href="#p4" role="tab">
+            Page 4</a>
+        </li>
+        <li className="nav-item">
+          <a className="btn" id="5-tab" data-toggle="tab" href="#p5" role="tab">
+            Page 5</a>
+        </li>
+        <li className="nav-item">
+          <a className="btn" id="6-tab" data-toggle="tab" href="#p6" role="tab">
+            Page 6</a>
+        </li>
+      </ul>
+
+      <br />
+      <br />
 
 
       {/* -----------------------   */}
