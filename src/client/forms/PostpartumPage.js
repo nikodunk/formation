@@ -29,9 +29,10 @@ export default class PrenatalPage extends React.Component {
           problemssincedelivery: 'No',
           ownhealthinsurance: 'Yes',
 
+          totalpregnancyweightgain: '',
+          currentweight: '',
           currentweightcategory: 'Normal',
           postpartumweightgoal: '',
-
 
 
           //page2
@@ -248,6 +249,8 @@ export default class PrenatalPage extends React.Component {
               </div>
 
             {/* -----------------------   */}
+
+
               <hr />
               <h5>Clinical-Infant</h5>
 
@@ -317,7 +320,7 @@ export default class PrenatalPage extends React.Component {
                   <input 
                         className="form-control" 
                         onChange={(e) => this.handleChange(e, 'totalpregnancyweightgain')}
-                        value={this.state.totalpregnancyweightgain} 
+                        value={ this.state.totalpregnancyweightgain } 
                         placeholder={'eg. 10 lbs'} />
               </div>
 
@@ -335,7 +338,7 @@ export default class PrenatalPage extends React.Component {
             {/* 13. Current weight category: */}
               <div className="box">
                   <span className="label">13. Current weight category:</span>
-                  { this.makeRadios(['Underweight', 'Normal', 'Overweight', 'Obese', 'None'], 'currentweightcategory') }
+                  { this.makeRadios(['Underweight', 'Normal', 'Overweight', 'Obese'], 'currentweightcategory') }
               </div>
 
             {/* 14. Postpartum weight goal: */}

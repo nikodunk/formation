@@ -93,9 +93,18 @@ router.post('/', function(req, res, next) {
         .text(req.body.ownhealthinsurance === 'No' ? 'x' : ' ', 76, 570)
 
 
+        // totalpregnancyweightgain: '',
+        .text(req.body.totalpregnancyweightgain ? req.body.totalpregnancyweightgain : ' ', 151, 603)
+        // currentweight: '',
+        .text(req.body.currentweight ? req.body.currentweight : ' ', 100, 618)
         // currentweightcategory: 'Normal',
+        .text(req.body.currentweightcategory === 'Underweight' ? 'x' : ' ', 43, 650)
+        .text(req.body.currentweightcategory === 'Normal' ? 'x' : ' ', 107, 650)
+        .text(req.body.currentweightcategory === 'Overweight' ? 'x' : ' ', 149, 650)
+        .text(req.body.currentweightcategory === 'Obese' ? 'x' : ' ', 207, 650)
+        
         // postpartumweightgoal: '',
-
+        .text(req.body.postpartumweightgoal ? req.body.postpartumweightgoal : ' ', 133, 669)
 
 
         // //page2
