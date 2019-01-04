@@ -94,10 +94,7 @@ export default class PrenatalPage extends React.Component {
             <a class="nav-link active" id="1-tab" data-toggle="tab" href="#p1" role="tab" >
               Page 1</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="2-tab" data-toggle="tab" href="#p2" role="tab">
-              Page 2</a>
-          </li>
+          
         </ul>
         <div class="tab-content" id="myTabContent">
 
