@@ -219,9 +219,9 @@ export default class PrenatalPage extends React.Component {
 
 
         {/* PAGE 2 */}
-        <div class="tab-pane fade show active" id="p2" role="tabpanel" >
+        {/*<div class="tab-pane fade show active" id="p2" role="tabpanel" >
            PAGE 2
-        </div>
+        </div>*/}
 
       </div>
       
