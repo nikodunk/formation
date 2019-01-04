@@ -6,10 +6,10 @@ const HummusRecipe = require('hummus-recipe');
 
 const sslRedirect = require('heroku-ssl-redirect');
 
-const prenatal = require('./pages/prenatal');
-const postpartum = require('./pages/postpartum');
+const prenatal = require('./forms/prenatal');
+const postpartum = require('./forms/postpartum');
 
-const routes = require('./routes');
+const routes = require('./api');
 
 
 app.use(sslRedirect());
@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 
-app.use('/api/prenatal', prenatal);
-app.use('/api/postpartum', postpartum);
+app.use('/forms/prenatal', prenatal);
+app.use('/forms/postpartum', postpartum);
 
 app.use('/api/', routes);
 

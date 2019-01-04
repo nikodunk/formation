@@ -156,7 +156,7 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
-              <form  className="w-100" id="myForm" method="post" action="/api/postpartum" >
+              <form  className="w-100" id="myForm" method="post" action="/forms/postpartum" >
                 <input type="hidden" value={this.props.patientuid} name="patientuid" />
                 
                 <input type="hidden" value={this.props.name} name="name" />
@@ -731,7 +731,7 @@ export default class PrenatalPage extends React.Component {
       {/* -----------------------   */}
       
         
-        <form  className="w-100" id="myForm" method="post" action="/api/postpartum" >
+        <form  className="w-100" id="myForm" method="post" action="/forms/postpartum" >
           <input type="hidden" value={this.props.patientuid} name="patientuid" />
           
           <input type="hidden" value={this.props.name} name="name" />
