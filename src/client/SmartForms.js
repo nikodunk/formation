@@ -136,13 +136,13 @@ export default class App extends React.Component {
 
                     {/* PATIENT INFO BOX */}
                       <p>
-                        {this.state.patients[this.state.currentpatient].healthplan} |
+                        {this.state.patients[this.state.currentpatient].healthplan}
                         {/*<input 
                                 className="" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'healthplan')}
                                 value={this.state.patients[this.state.currentpatient].healthplan} 
                                 placeholder={'Paperwork Labs Healthplan'} />*/}
-                                 | 
+                        <span> | </span>
                         {this.state.patients[this.state.currentpatient].provider}
                         {/*<input 
                                 className="" 

@@ -16,7 +16,7 @@ export default class InputRadioWithText extends React.Component {
         </label>
         <input
               className="form-control"
-              value={ this.props.checked !== 'on' ? this.props.checked : '' }
+              value={ !['on', 'No', 'Yes'].includes(this.props.checked) ? this.props.checked : '' }
               onFocus={(e) => this.props.handleChange(e, this.props.var)}
               onChange={(e) => this.props.handleChange(e, this.props.var)} />
       </div>

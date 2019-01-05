@@ -6,7 +6,8 @@ const HummusRecipe = require('hummus-recipe');
 
 /* POSTPARTUM */
 router.post('/', function(req, res, next) {
-  	const pdfDoc = new HummusRecipe(`./public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, `./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+  	const pdfDoc = new HummusRecipe(`./public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, 
+                                    `./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
   	
   	pdfDoc
   	     
@@ -174,18 +175,62 @@ router.post('/', function(req, res, next) {
         .editPage(3)
 
             // breastfeedingcomfortable: 'Yes',
+            .text(req.body.breastfeedingcomfortable === 'Yes' ? 'x' : ' ', 43, 105)
+            .text(!['Yes'].includes(req.body.breastfeedingcomfortable) ? 'x' : ' ', 78, 105)
+            .text(!['Yes'].includes(req.body.breastfeedingcomfortable) && req.body.breastfeedingcomfortable ? req.body.breastfeedingcomfortable : ' ', 101, 105)
+            
             // returningtowork: 'No',
-            // // checkboxes missing
+            .text(req.body.returningtowork === 'No' ? 'x' : ' ', 45, 144)
+            .text(!['No'].includes(req.body.returningtowork) ? 'x' : ' ', 74, 144)
+            .text(!['No'].includes(req.body.returningtowork) && req.body.returningtowork ? req.body.returningtowork : ' ', 101, 142)
+            
+            // checkboxes missing
+            
             // typeofformula: '',
+            .text(req.body.typeofformula ? req.body.typeofformula : ' ', 108, 248)
+            
             // formulawithiron: 'Yes',
+            .text(req.body.formulawithiron === 'Yes' ? 'x' : ' ', 93, 264)
+            .text(req.body.formulawithiron === 'No' ? 'x' : ' ', 126, 264)
+
             // formulaoztimesperday: '',
+            .text(req.body.formulaoztimesperday ? req.body.formulaoztimesperday : ' ', 50, 277)
+
             // phq9: '0-4 (None - Minimal)',
+            .text(req.body.phq9 === '0-4 (None - Minimal)' ? 'x' : ' ', 46, 342)
+            .text(req.body.phq9 === '5-9 (Mild)' ? 'x' : ' ', 46, 352)
+            .text(req.body.phq9 === '10-14 (Moderate)' ? 'x' : ' ', 46, 367)
+            .text(req.body.phq9 === '15-19 (Moderate Severe)' ? 'x' : ' ', 46, 379)
+            .text(req.body.phq9 === '20-27 (Severe)' ? 'x' : ' ', 46, 391)
+
             // supportyouneed: 'Yes',
+            .text(req.body.supportyouneed === 'Yes' ? 'x' : ' ', 44, 461)
+            .text(!['Yes'].includes(req.body.supportyouneed) ? 'x' : ' ', 78, 461)
+            .text(!['Yes'].includes(req.body.supportyouneed) && req.body.supportyouneed ? req.body.supportyouneed : ' ', 130, 461)
+            
             // difficultybabydemands: 'No',
+            .text(req.body.difficultybabydemands === 'No' ? 'x' : ' ', 44, 508)
+            .text(!['No'].includes(req.body.difficultybabydemands) ? 'x' : ' ', 44, 521)
+            .text(!['No'].includes(req.body.difficultybabydemands) && req.body.difficultybabydemands ? req.body.difficultybabydemands : ' ', 110, 521)
+
             // changesinmood: 'No',
+            .text(req.body.changesinmood === 'No' ? 'x' : ' ', 44, 602)
+            .text(!['No'].includes(req.body.changesinmood) ? 'x' : ' ', 72, 602)
+            .text(!['No'].includes(req.body.changesinmood) && req.body.changesinmood ? req.body.changesinmood : ' ', 155, 602)
+
+
             // hoursofsleep: '',
+            .text(req.body.hoursofsleep ? req.body.hoursofsleep : ' ', 209, 628)
+
             // abletosleepwhenbabyissleeping: 'Yes',
+            .text(req.body.abletosleepwhenbabyissleeping === 'Yes' ? 'x' : ' ', 58, 660)
+            .text(!['Yes'].includes(req.body.abletosleepwhenbabyissleeping) ? 'x' : ' ', 89, 660)
+            .text(!['Yes'].includes(req.body.abletosleepwhenbabyissleeping) && req.body.abletosleepwhenbabyissleeping ? req.body.abletosleepwhenbabyissleeping : ' ', 170, 660)
+
             // whensomeoneelseistakingcare: 'Yes',
+            .text(req.body.whensomeoneelseistakingcare === 'Yes' ? 'x' : ' ', 58, 701)
+            .text(!['Yes'].includes(req.body.whensomeoneelseistakingcare) ? 'x' : ' ', 89, 701)
+            .text(!['Yes'].includes(req.body.whensomeoneelseistakingcare) && req.body.whensomeoneelseistakingcare ? req.body.whensomeoneelseistakingcare : ' ', 170, 701)
 
         .endPage()
 

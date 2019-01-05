@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 
-app.use('/forms/prenatal', prenatal);
-app.use('/forms/postpartum', postpartum);
+app.use('/api/prenatal', prenatal);
+app.use('/api/postpartum', postpartum);
 
 app.use('/api/', routes);
 

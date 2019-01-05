@@ -156,7 +156,7 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
-              <form  className="w-100" id="myForm" method="post" action="/forms/postpartum" >
+              <form  className="w-100" id="myForm" method="post" action="/api/postpartum" >
                 <input type="hidden" value={this.props.patientuid} name="patientuid" />
                 
                 <input type="hidden" value={this.props.name} name="name" />
@@ -282,7 +282,9 @@ export default class PrenatalPage extends React.Component {
                   { this.makeRadios(['Tobacco', 'Alcohol', 'Drugs', 'Non-prescribed Medicine'], 'prenatalexposureto') }
               </div>
 
-
+              {/* CHECKBOX MISSING */}
+             
+             
             {/* -----------------------   */}
 
 
@@ -385,7 +387,6 @@ export default class PrenatalPage extends React.Component {
                  <input onChange={(e) => this.handleChange(e, 'ogttdate')} value={this.state.ogttdate} placeholder={'Date Collected'} className="form-control" />
                  <input onChange={(e) => this.handleChange(e, 'ogttfasting')} value={this.state.ogttfasting} placeholder={'Fasting'} className="form-control" />
                  <input onChange={(e) => this.handleChange(e, 'ogtt2hr')} value={this.state.ogtt2hr} placeholder={'2 Hr'} className="form-control" />
-                 {/*{ this.makeRadios(['N/A'], 'ogttna') }*/}
              </div>
 
            {/* 17. Follow up needed for: */}
@@ -393,6 +394,9 @@ export default class PrenatalPage extends React.Component {
                  <span className="label">17. Follow up needed for:</span>
                  { this.makeRadios(['Diabetes', 'Hypertension', 'Other', 'N/A'], 'followupneededfor') }
              </div>
+
+             {/* CHECKBOXES NECESSARY */}
+             <br /> CHECKBOXES MISSING
 
 
            {/* 18. Are you currently taking prenatal vitamins? */}
@@ -411,7 +415,8 @@ export default class PrenatalPage extends React.Component {
              <div className="box">
                  <span className="label">19. Dietary intake assessment completed?</span>
                  
-                 {/* CHECKBOXES NEEDED: DIET ADEQUATE? */}
+                 {/* CHECKBOX MISSING */}
+
              </div>
              
 
@@ -450,7 +455,8 @@ export default class PrenatalPage extends React.Component {
                   
                   <input onChange={(e) => this.handleChange(e, 'feedingper24')} value={this.state.feedingper24} placeholder={'eg. 5 times'} className="form-control" />
 
-                {/* CHECKBOX FOR IF BREASTFEEDING N/A */}
+                {/* CHECKBOX MISSING */}
+                
               </div>
 
 
@@ -477,14 +483,25 @@ export default class PrenatalPage extends React.Component {
 
             <div className="box">
                 <span className="label">26. Do you have any of the following concerns?</span>
-                {/* CHECKBOXES NECESSARY */}
+                
+                {/* CHECKBOX MISSING */}
+                
             </div>
 
             <div className="box">
                 <span className="label">27. If formula is used:</span>
-                {/* CHECKBOX FOR N/A */}
+              
+               {/* CHECKBOX MISSING */}
+
+               <p>Type of formula:</p>
                <input onChange={(e) => this.handleChange(e, 'typeofformula')} value={this.state.typeofformula} placeholder={''} className="form-control" />
+               <br />
+
+               <p>With Iron?</p>
                { this.makeRadios(['Yes', 'No'], 'formulawithiron') }
+               <br />
+
+               <p>Formula Ounces per day</p>
                <input onChange={(e) => this.handleChange(e, 'formulaoztimesperday')} value={this.state.formulaoztimesperday} placeholder={'eg. 3 oz. 5 times/day'} className="form-control" />
             </div>
 
@@ -495,7 +512,7 @@ export default class PrenatalPage extends React.Component {
 
             <div className="box">
                 <span className="label">28. Patient Health Questionnaire 9 (PHQ-9)</span>
-                { this.makeRadios(['0-4 (None - Minimal)', '5-9 (Mild)', '10-14 (Moderate)', '15-19 (Moderate Severe', '20-27 (Severe'], 'phq9') }
+                { this.makeRadios(['0-4 (None - Minimal)', '5-9 (Mild)', '10-14 (Moderate)', '15-19 (Moderate Severe)', '20-27 (Severe)'], 'phq9') }
             </div>
 
             <div className="box">
@@ -560,7 +577,7 @@ export default class PrenatalPage extends React.Component {
               <span className="label">35. Do you feel like you have everything you need for your baby?</span>
               { this.makeRadios(['Yes', 'No'], 'everythingyouneedforbaby') }
 
-              {/* CHECKBOXES REQUIRED */}
+              {/* CHECKBOX MISSING */}
           </div>
 
 
@@ -649,7 +666,8 @@ export default class PrenatalPage extends React.Component {
 
           <div className="box">
               <span className="label">47. Would you like more information on the following topics?</span>
-              {/* CHECKBOXES NEEDED */}
+              
+              {/* CHECKBOX MISSING */}
           </div>
 
 
@@ -731,7 +749,7 @@ export default class PrenatalPage extends React.Component {
       {/* -----------------------   */}
       
         
-        <form  className="w-100" id="myForm" method="post" action="/forms/postpartum" >
+        <form  className="w-100" id="myForm" method="post" action="/api/postpartum" >
           <input type="hidden" value={this.props.patientuid} name="patientuid" />
           
           <input type="hidden" value={this.props.name} name="name" />
