@@ -43,6 +43,11 @@ router.post('/', function(req, res, next) {
             // ----------------------
             
 
+            // BABY MISSING 
+            
+
+            // ----------------------
+
             //filedinchart
             .text(req.body.filedinchart === 'Yes' ? 'x' : ' ', 171, 227)
             .text(req.body.filedinchart === 'No' ? 'x' : ' ', 202, 227)
@@ -105,6 +110,7 @@ router.post('/', function(req, res, next) {
             // postpartumweightgoal: '',
             .text(req.body.postpartumweightgoal ? req.body.postpartumweightgoal : ' ', 133, 665)
 
+
   	    .endPage()
 
 
@@ -165,6 +171,8 @@ router.post('/', function(req, res, next) {
             // feedingper24: '',
             .text(req.body.feedingper24 ? req.body.feedingper24 : ' ', 239, 582)
 
+            .text(req.body.name ? req.body.name : ' ', 387, 742)
+            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
         .endPage()
 
 
@@ -232,6 +240,8 @@ router.post('/', function(req, res, next) {
             .text(!['Yes'].includes(req.body.whensomeoneelseistakingcare) ? 'x' : ' ', 89, 701)
             .text(!['Yes'].includes(req.body.whensomeoneelseistakingcare) && req.body.whensomeoneelseistakingcare ? req.body.whensomeoneelseistakingcare : ' ', 170, 701)
 
+            .text(req.body.name ? req.body.name : ' ', 387, 742)
+            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
         .endPage()
 
 
@@ -288,7 +298,8 @@ router.post('/', function(req, res, next) {
             .text(req.body.doyoudrinkalcohol === 'Yes: less than 3 drinks/day or 7 drinks/week in the past 3 months' ? 'x' : ' ', 70, 672)
             .text(req.body.doyoudrinkalcohol === 'Yes: more than 3 drinks/day or 7 drinks/week in the past 3 months' ? 'x' : ' ', 70, 682)
             
-
+            .text(req.body.name ? req.body.name : ' ', 387, 742)
+            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
         .endPage()
 
 
@@ -300,16 +311,54 @@ router.post('/', function(req, res, next) {
         .editPage(5)
 
             // smoketobacco: 'No',
+            .text(req.body.smoketobacco === 'No' ? 'x' : ' ', 47, 92)
+            .text(!['No'].includes(req.body.smoketobacco) ? 'x' : ' ', 47, 104)
+            .text(!['No'].includes(req.body.smoketobacco) && req.body.smoketobacco ? req.body.smoketobacco : ' ', 85, 104)
+            
             // pregnantnext18: 'No',
+            .text(req.body.pregnantnext18 === 'No' ? 'x' : ' ', 48, 196)
+            .text(!['No'].includes(req.body.pregnantnext18) ? 'x' : ' ', 48, 208)
+            .text(!['No'].includes(req.body.pregnantnext18) && req.body.pregnantnext18 ? req.body.pregnantnext18 : ' ', 85, 209)
+
             // plansbirthcontrol: 'Yes',
+            .text(req.body.plansbirthcontrolyes ? 'x' : ' ', 48, 262)
+            .text(req.body.plansbirthcontrolyes ? req.body.plansbirthcontrolyes : ' ', 90, 262)
+            .text(req.body.plansbirthcontrolno ? 'x' : ' ', 48, 274)
+            .text(req.body.plansbirthcontrolno ? req.body.plansbirthcontrolno : ' ', 90, 275)
+            
+
             // partnereverpressuredbirthcontrol: 'Never',
+            .text(req.body.partnereverpressuredbirthcontrol === 'Never' ? 'x' : ' ', 48, 346)
+            .text(req.body.partnereverpressuredbirthcontrol === 'Sometimes' ? 'x' : ' ', 48, 358)
+            .text(req.body.partnereverpressuredbirthcontrol === 'Often' ? 'x' : ' ', 48, 370)
 
             // dangerouschemicals: 'No',
-            // questionsbabyssafety: 'No',
-            // //checkboxes missing
-            // outstandingissues: 'No',
-            // completedby: '',
+            .text(req.body.dangerouschemicals === 'No' ? 'x' : ' ', 50, 426)
+            .text(!['No'].includes(req.body.dangerouschemicals) ? 'x' : ' ', 50, 439)
+            .text(!['No'].includes(req.body.dangerouschemicals) && req.body.dangerouschemicals ? req.body.dangerouschemicals : ' ', 85, 439)
 
+            // questionsbabyssafety: 'No',
+            .text(req.body.questionsbabyssafety === 'No' ? 'x' : ' ', 50, 480)
+            .text(!['No'].includes(req.body.questionsbabyssafety) ? 'x' : ' ', 50, 492)
+            .text(!['No'].includes(req.body.questionsbabyssafety) && req.body.questionsbabyssafety ? req.body.questionsbabyssafety : ' ', 85, 492)
+
+            // //checkboxes missing
+
+            // outstandingissues: 'No',
+            .text(req.body.outstandingissues === 'No' ? 'x' : ' ', 49, 630)
+            .text(!['No'].includes(req.body.outstandingissues) ? 'x' : ' ', 49, 643)
+            .text(!['No'].includes(req.body.outstandingissues) && req.body.outstandingissues ? req.body.outstandingissues : ' ', 85, 643)
+
+            // completedby: '',
+            .text(req.body.completedby ? req.body.completedby : ' ', 192, 689)
+            // completeddate: '',
+            .text(req.body.completeddate ? req.body.completeddate : ' ', 400, 689)
+            // completedminutes: '',
+            .text(req.body.completedminutes ? req.body.completedminutes : ' ', 506, 689)
+
+
+            .text(req.body.name ? req.body.name : ' ', 387, 742)
+            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
         .endPage()
 
 
@@ -321,8 +370,29 @@ router.post('/', function(req, res, next) {
         .editPage(6)
 
             // providersignature: '',
-            // clientstrengths: '',
+            .text(req.body.providersignature ? req.body.providersignature : ' ', 36, 65)
+            // providersignaturedate: '',
+            .text(req.body.providersignaturedate ? req.body.providersignaturedate : ' ', 464, 65)
 
+            // clientstrengths: '',
+            .text(req.body.clientstrengths ? req.body.clientstrengths : ' ', 121, 110)
+
+
+            // number: '',
+            .text(req.body.number ? req.body.number : ' ', 32, 190)
+
+            // problemriskconcern: '',
+            .text(req.body.problemriskconcern ? req.body.problemriskconcern : ' ', 66, 190)
+
+            // clientgoal: '',
+            .text(req.body.clientgoal ? req.body.clientgoal : ' ', 223, 190)
+
+            // updatesoutcomes: ''
+            .text(req.body.updatesoutcomes ? req.body.updatesoutcomes : ' ', 384, 190)
+
+
+            .text(req.body.name ? req.body.name : ' ', 387, 742)
+            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
   	    .endPage()
 
 

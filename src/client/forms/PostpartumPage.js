@@ -90,20 +90,30 @@ export default class PrenatalPage extends React.Component {
           //page5
           smoketobacco: 'No',
           pregnantnext18: 'No',
-          plansbirthcontrol: 'Yes',
+          plansbirthcontrolyes: '',
+          plansbirthcontrolno: '',
           partnereverpressuredbirthcontrol: 'Never',
 
           dangerouschemicals: 'No',
           questionsbabyssafety: 'No',
           //checkboxes missing
           outstandingissues: 'No',
+          
           completedby: '',
+          completeddate: '',
+          completedminutes: '',
 
 
           //page6
           providersignature: '',
-          clientstrengths: '',
+          providersignaturedate: '',
 
+          clientstrengths: '',
+          
+          number: '',
+          problemriskconcern: '',
+          clientgoal: '',
+          updatesoutcomes: ''
             
           }
   }
@@ -636,8 +646,9 @@ export default class PrenatalPage extends React.Component {
 
           <div className="box">
               <span className="label">43. Any plans to use birth control?</span>
-              { this.makeRadios(['Yes'], 'plansbirthcontrol') }
-              <InputRadioWithText not={['Yes']} value={'No:'} iter={"1"} var={'plansbirthcontrol'} checked={this.state.plansbirthcontrol}  handleChange={this.handleChange} />
+              <br />
+              <span>Yes: <input onChange={(e) => this.handleChange(e, 'plansbirthcontrolyes')} value={this.state.plansbirthcontrolyes} placeholder={''} className="form-control" /> </span>
+              <span>No: <input onChange={(e) => this.handleChange(e, 'plansbirthcontrolno')} value={this.state.plansbirthcontrolno} placeholder={''} className="form-control" /> </span>
           </div>
 
           <div className="box">
@@ -685,6 +696,8 @@ export default class PrenatalPage extends React.Component {
           <div className="box">
               <span className="label">Postpartum Assessment Completed By:</span>
               <input onChange={(e) => this.handleChange(e, 'completedby')} value={this.state.completedby} placeholder={'Name & CPSP Title'} className="form-control" />  
+              <input onChange={(e) => this.handleChange(e, 'completeddate')} value={this.state.completeddate} placeholder={'01/01/2019'} className="form-control" />  
+              <input onChange={(e) => this.handleChange(e, 'completedminutes')} value={this.state.completedminutes} placeholder={'12 min'} className="form-control" />  
           </div>
         </div>
 
@@ -695,6 +708,7 @@ export default class PrenatalPage extends React.Component {
           
           <h5>Provider Signature</h5>
           <input onChange={(e) => this.handleChange(e, 'providersignature')} value={this.state.providersignature} placeholder={''} className="form-control" />  
+          <input onChange={(e) => this.handleChange(e, 'providersignaturedate')} value={this.state.providersignaturedate} placeholder={'01/01/2019'} className="form-control" />  
 
           <h5>Client Strengths:</h5>
           <input onChange={(e) => this.handleChange(e, 'clientstrengths')} value={this.state.clientstrengths} placeholder={''} className="form-control" />  
