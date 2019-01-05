@@ -236,23 +236,58 @@ router.post('/', function(req, res, next) {
 
 
 
-
-
         // ----------------------------------------------------------
         // //page4:
         .editPage(4)
 
             // hit: 'No',
-            // hithowmanytimes: '',
-            // forcedsex: 'No',
-            // forcedsexhowmanytimes: '',
-            // everythingyouneedforbaby: 'Yes',
+            .text(req.body.hit === 'No' ? 'x' : ' ', 40, 91)
+            .text(!['No'].includes(req.body.hit) ? 'x' : ' ', 40, 103)
+            .text(!['No'].includes(req.body.hit) && req.body.hit ? req.body.hit : ' ', 117, 103)
 
+            // hithowmanytimes: '',
+            .text(req.body.hithowmanytimes ? req.body.hithowmanytimes : ' ', 127, 116)
+
+            // forcedsex: 'No',
+            .text(req.body.forcedsex === 'No' ? 'x' : ' ', 40, 159)
+            .text(!['No'].includes(req.body.forcedsex) ? 'x' : ' ', 40, 171)
+            .text(!['No'].includes(req.body.forcedsex) && req.body.forcedsex ? req.body.forcedsex : ' ', 117, 171)
+
+            // forcedsexhowmanytimes: '',
+            .text(req.body.forcedsexhowmanytimes ? req.body.forcedsexhowmanytimes : ' ', 126, 185)
+
+            // everythingyouneedforbaby: 'Yes',
+            .text(req.body.everythingyouneedforbaby === 'Yes' ? 'x' : ' ', 42, 251)
+            .text(!['Yes'].includes(req.body.everythingyouneedforbaby) ? 'x' : ' ', 42, 263)
+            // checkboxes missing!
+            
             // oralhealthproblems: 'No',
+            .text(req.body.oralhealthproblems === 'No' ? 'x' : ' ', 40, 402)
+            .text(!['No'].includes(req.body.oralhealthproblems) ? 'x' : ' ', 68, 402)
+            .text(!['No'].includes(req.body.oralhealthproblems) && req.body.oralhealthproblems ? req.body.oralhealthproblems : ' ', 95, 403)
+
             // dentistlast6: 'Yes',
+            .text(req.body.dentistlast6 === 'Yes' ? 'x' : ' ', 39, 427)
+            .text(req.body.dentistlast6 === 'No' ? 'x' : ' ', 69, 427)
+
+
             // postpartumdiscomforts: 'No',
+            .text(req.body.postpartumdiscomforts === 'No' ? 'x' : ' ', 39, 451)
+            .text(!['No'].includes(req.body.postpartumdiscomforts) ? 'x' : ' ', 67, 451)
+            .text(!['No'].includes(req.body.postpartumdiscomforts) && req.body.postpartumdiscomforts ? req.body.postpartumdiscomforts : ' ', 95, 451)
+
             // prescribedpastyear: 'No',
+            .text(req.body.prescribedpastyear === 'No' ? 'x' : ' ', 39, 530)
+            .text(!['No'].includes(req.body.prescribedpastyear) ? 'x' : ' ', 39, 542)
+            .text(!['No'].includes(req.body.prescribedpastyear) && req.body.prescribedpastyear ? req.body.prescribedpastyear : ' ', 110, 542)
+
             // doyoudrinkalcohol: '',
+            .text(req.body.doyoudrinkalcohol === 'No' ? 'x' : ' ', 39, 659)
+            .text(req.body.doyoudrinkalcohol === 'Yes: less than 3 drinks/day or 7 drinks/week in the past 3 months' ? 'x' : ' ', 39, 672)
+            .text(req.body.doyoudrinkalcohol === 'Yes: more than 3 drinks/day or 7 drinks/week in the past 3 months' ? 'x' : ' ', 39, 672)
+            .text(req.body.doyoudrinkalcohol === 'Yes: less than 3 drinks/day or 7 drinks/week in the past 3 months' ? 'x' : ' ', 70, 672)
+            .text(req.body.doyoudrinkalcohol === 'Yes: more than 3 drinks/day or 7 drinks/week in the past 3 months' ? 'x' : ' ', 70, 682)
+            
 
         .endPage()
 

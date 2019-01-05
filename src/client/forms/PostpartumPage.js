@@ -593,8 +593,7 @@ export default class PrenatalPage extends React.Component {
 
           <div className="box">
               <span className="label">37. Have you seen a dentist in the last 6 months?</span>
-              { this.makeRadios(['Yes'], 'dentistlast6') }
-              <InputRadioWithText not={['Yes']} value={'No'} iter={"1"} var={'dentistlast6'} checked={this.state.dentistlast6}  handleChange={this.handleChange} />             
+              { this.makeRadios(['Yes', 'No'], 'dentistlast6') }              
           </div>
 
           <div className="box">
