@@ -15,27 +15,32 @@ export default class ReportingDashboard extends React.Component {
       
       this.state = { 
             data: {
-                          labels: ["June", "July", "August", "September", "October", "November", "December"],
+                          labels: [ "May", "June", "July", "August", "September", "October", "November", "December", "January"],
                           datasets: [{
-                            label: "Postpartum",
+                            label: "All forms (combined)",
                             backgroundColor: 'dodgerblue',
-                            data: [12, 5, 10, 5, 2, 20, 30, 45]
+                            data: [12, 5, 10, 5, 2, 20, 30, 45, 4]
                           }]
                   },
             gestationalage: {
                           labels: ['> 37 weeks', '< 37 weeks'],
                           datasets: [{
-                            label: "CPSP Postpartum form: Gestational Age",
-                            backgroundColor: ['yellow', 'dodgerblue'],
+                            backgroundColor: ['blue', 'dodgerblue'],
                             data: [25, 32]
                           }]
             },
             deliverycomplications: {
                           labels: ['No', 'Yes: C-Section', 'Yes: Labor too long'],
                           datasets: [{
-                            label: "CPSP Postpartum form: Delivery complications",
-                            backgroundColor: ['green', 'blue', 'magenta'],
+                            backgroundColor: ['green', 'seagreen', 'aqua'],
                             data: [47, 12, 2]
+                          }]
+            },
+            healthinsurance: {
+                          labels: ['Yes', 'No'],
+                          datasets: [{
+                            backgroundColor: ['pink', 'orange'],
+                            data: [47, 12]
                           }]
             },
           }
@@ -57,37 +62,19 @@ export default class ReportingDashboard extends React.Component {
                     <li class="nav-item">
                       <a class="nav-link active" href="#">
                         <span data-feather="home"></span>
-                        Report Dashboard <span class="sr-only">(current)</span>
+                        Overview <span className="sr-only">(current)</span>
                       </a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link disabled" href="#">
                         <span data-feather="file"></span>
-                        Orders
+                        CPSP Postpartum
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link disabled" href="#">
                         <span data-feather="shopping-cart"></span>
-                        Products
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        <span data-feather="users"></span>
-                        Customers
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        <span data-feather="bar-chart-2"></span>
-                        Reports
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        <span data-feather="layers"></span>
-                        Integrations
+                        CPSP Prenatal
                       </a>
                     </li>
                   </ul>
@@ -100,27 +87,15 @@ export default class ReportingDashboard extends React.Component {
                   </h6>
                   <ul class="nav flex-column mb-2">
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link disabled" href="#">
                         <span data-feather="file-text"></span>
                         Current month
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link disabled" href="#">
                         <span data-feather="file-text"></span>
                         Last quarter
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        <span data-feather="file-text"></span>
-                        Social engagement
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        <span data-feather="file-text"></span>
-                        Year-end sale
                       </a>
                     </li>
                   </ul>
@@ -128,6 +103,8 @@ export default class ReportingDashboard extends React.Component {
               </nav>
 
               <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+              {/* SIDEBAR */}
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                   <h1 class="h2">Report Dashboard</h1>
                   <div class="btn-toolbar mb-2 mb-md-0">
@@ -137,44 +114,56 @@ export default class ReportingDashboard extends React.Component {
                     </div>
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
                       <span data-feather="calendar"></span>
-                      This week
+                      This year
                     </button>
                   </div>
                 </div>
 
-                {/*<canvas class="my-4" id="myChart" width="900" height="380"></canvas>*/}
-                
-                < Bar data={this.state.data} />
 
-                <h2>Form Types</h2>
-                <div class="table-responsive">
-                  <table class="table table-striped table-sm">
-                    <thead>
-                      <tr>
-                        <th>Month</th>
-                        <th>Forms #</th>
-                        <th>Patients</th>
-                        <th>Prenatal</th>
-                        <th>Postpartum</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>{this.state.data.labels[0]}</td>
-                        <td>{this.state.data.datasets[0].data[0]}</td>
-                        <td>{this.state.data.datasets[0].data[0]}</td>
-                        <td>{this.state.data.datasets[0].data[0] / 2}</td>
-                        <td>{this.state.data.datasets[0].data[0] / 2}</td>
-                      </tr>
-                      <tr>
-                        <td>{this.state.data.labels[1]}</td>
-                        <td>{this.state.data.datasets[0].data[1]}</td>
-                        <td>{this.state.data.datasets[0].data[1]}</td>
-                        <td>{this.state.data.datasets[0].data[1] / 2}</td>
-                        <td>{this.state.data.datasets[0].data[1] / 2}</td>
-                      </tr>
-                    </tbody>
-                  </table>
+              {/* TOTAL FORMS BAR */}
+                <div className="container">
+                  <h2>Total Forms (by month)</h2>
+                  <Bar data={this.state.data} />
+                </div>
+
+                <br />
+                <br />
+                <hr />
+                <br />
+                <br />
+
+              {/* FORM TYPE TABLE */}
+                <div className="container">
+                  <h2>Form Types</h2>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                      <thead>
+                        <tr>
+                          <th>Month</th>
+                          <th>Forms #</th>
+                          <th>Patients</th>
+                          <th>Prenatal</th>
+                          <th>Postpartum</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{this.state.data.labels[0]}</td>
+                          <td>{this.state.data.datasets[0].data[0]}</td>
+                          <td>{this.state.data.datasets[0].data[0]}</td>
+                          <td>{this.state.data.datasets[0].data[0] / 2}</td>
+                          <td>{this.state.data.datasets[0].data[0] / 2}</td>
+                        </tr>
+                        <tr>
+                          <td>{this.state.data.labels[1]}</td>
+                          <td>{this.state.data.datasets[0].data[1]}</td>
+                          <td>{this.state.data.datasets[0].data[1]}</td>
+                          <td>{this.state.data.datasets[0].data[1] / 2}</td>
+                          <td>{this.state.data.datasets[0].data[1] / 2}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <br />
@@ -184,20 +173,36 @@ export default class ReportingDashboard extends React.Component {
                 <br />
 
                 <div className="container">
-                  <h2>CPSP Postpartum Responses</h2>
+
+                  <div className="row">
+                    <h2>CPSP Postpartum Responses</h2>
+                  </div>
+
+                  <br />
+
                   <div className="row">
                     <div className="col-6">
-                      <h4>2. Gestational age</h4>
+                      <h4 className="text-center">Reponses: Gestational age</h4>
                       <Doughnut data={this.state.gestationalage} />
                     </div>
                     <div className="col-6">
-                      <h4>3. Delivery Complications</h4>
+                      <h4 className="text-center">Reponses: Delivery Complications</h4>
                       <Doughnut data={this.state.deliverycomplications} />
                     </div>
                   </div>
+                
+                  <br /><br /><br />
+
+                  <div className="row">
+                    <div className="col-6">
+                      <h4 className="text-center">Reponses: Health Insurance?</h4>
+                      <Doughnut data={this.state.healthinsurance} />
+                    </div>
+                  </div>
+
                 </div>
 
-
+              
                 <br />
                 <br />
                 <hr />
