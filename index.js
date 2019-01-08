@@ -13,7 +13,6 @@ app.use(express.static('static')); // serve static html landingpage, login page,
 app.use(express.static('client/build')); // Serve static files JS React client
 
 
-//
 
 
 // Send back React's index.html file.
