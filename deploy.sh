@@ -9,7 +9,7 @@ git add .
 
 git commit -m "$commitmessage"
 
-git push origin master
+git push origin develop
 
 heroku config:set NPM_CONFIG_PRODUCTION=false
 
