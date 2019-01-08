@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styles from './app.css';
+
+import './App.css';
 
 import ReportingDashboard from './ReportingDashboard'
 import SmartForms from './SmartForms'

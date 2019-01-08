@@ -4,8 +4,6 @@ import {Bar, Doughnut} from 'react-chartjs-2';
 
 import api from './api'
 
-import styles from './app.css';
-
 
 
 export default class ReportingDashboard extends React.Component {
