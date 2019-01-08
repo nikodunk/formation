@@ -119,7 +119,7 @@ export default class PrenatalPage extends React.Component {
   }
 
   componentDidMount() {
-    mixpanel.track("Prenatal Loaded");
+    // mixpanel.track("Prenatal Loaded");
     api.loadForm(this.props.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
   } 
 
@@ -178,9 +178,9 @@ export default class PrenatalPage extends React.Component {
                 
                 {this.makeHiddenInputs()}
 
-                <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+                <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); }} />
                 {'  '}
-                <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
+                <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => {}} />
               </form>
       <br /><br />
 
@@ -774,9 +774,9 @@ export default class PrenatalPage extends React.Component {
           
           {this.makeHiddenInputs()}
 
-          <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); mixpanel.track("Save Pressed")}} />
+          <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); }} />
           {'  '}
-          <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => mixpanel.track("Export PDF Pressed")} />
+          <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => {}} />
         </form>
         
       </div>

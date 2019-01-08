@@ -11,16 +11,13 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 
-
-
 // Send back React's index.html file.
 app.get('/app', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back static landing page.
+// match one above, send back static login page.
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname+'/public/login.html'));
 });
@@ -28,7 +25,7 @@ app.get('/login', (req, res) => {
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back static landing page.
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 

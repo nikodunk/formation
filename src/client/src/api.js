@@ -1,8 +1,5 @@
 const api = {
 
-  
-
-
   async loadForm(patientuid, formName){
 
         let uriBase = 'https://www.paperworklabs.com'
@@ -53,4 +50,4 @@ const api = {
 
 }
 
-module.exports = api;
+export default api;
