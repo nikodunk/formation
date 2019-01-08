@@ -15,6 +15,7 @@ app.use(express.static('client/build')); // Serve static files JS React client
 
 
 
+
 // Send back React's index.html file.
 app.get('/app', (req, res) => {
   res.sendFile(path.join(__dirname, '/client/build/index.html'));
