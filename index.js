@@ -22,14 +22,14 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(express.json());
 
 
-// serve landingpage, public page, favicons, etc
+// serve static html landingpage, login page, favicons, etc
 app.use(express.static('static'));
 
-// Serve static files from the React app
+// Serve static files JS React client
 app.use(express.static('client/build'));
 
 
-
+// api routes
 app.use('/api/prenatal', prenatal);
 app.use('/api/postpartum', postpartum);
 app.use('/api/', routes);

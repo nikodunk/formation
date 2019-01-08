@@ -1,0 +1,73 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+#main {
+	padding: 10px;
+  text-align: left;
+  max-width: 600px;
+	margin: 0 auto;
+	padding-bottom: 200px;
+}
+
+
+.label{
+	font-weight: 600;
+}
+
+.box{
+	margin-top: 20px;
+}
+
+
+.navbar {
+    -webkit-box-shadow: 0 1px 3px -1px lightgrey;
+    -moz-box-shadow: 0 1px 3px -1px lightgrey;
+    box-shadow: 0 1px 3px -1px lightgrey;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: white;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+
+select{
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.dodgerblue{
+  color: dodgerblue !important;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.tab-pane{
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-top: none;
+  margin-bottom: 30px;
+}
+
+
+.form-control{
+  margin-bottom: 5px !important;
+}
