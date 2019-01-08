@@ -9,12 +9,23 @@ const client = new Client({
 
 client.connect();
 
-// a
+
+const prenatal = require('./forms/prenatal');
+const postpartum = require('./forms/postpartum');
+
+
 
 router.get('/', function(req, res, next) {
 	        res.send('gaggi')
     	}
     )
+
+
+router.use('/prenatal', prenatal);
+
+router.use('/postpartum', postpartum);
+
+
 
 router.get('/getform/:patientuid/:formName', function(req, res, next) {
 			console.log('GET FORM', req.params.patientuid, req.params.formName)
@@ -37,7 +48,7 @@ router.post('/saveform/:patientuid/:formName', function(req, res, next) {
     	}
     )
 
-router.post('/getreportcount/:formname', function(req, res, next) {
+router.get('/getreportcount/:formname', function(req, res, next) {
 	        client.query(`
 	        	SELECT count(*) FROM forms where formname = '${formname}';
 	        	`, (err, queryResult) => {
@@ -48,4 +59,3 @@ router.post('/getreportcount/:formname', function(req, res, next) {
     )
 
 module.exports = router;
-
