@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import {Bar, Doughnut} from 'react-chartjs-2';
 
-import api from './api'
+// import api from './api'
 
 
 

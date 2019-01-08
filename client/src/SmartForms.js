@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 import PrenatalPage from './forms/PrenatalPage'
 import PostpartumPage from './forms/PostpartumPage'
+
 
 
 export default class App extends React.Component {

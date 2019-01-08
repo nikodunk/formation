@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "server": "node index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
   "dependencies": {
     "express": "^4.15.3",
-    "password-generator": "^2.1.0"
+    "heroku-ssl-redirect": "0.0.4",
+    "hummus-recipe": "^1.8.0",
+    "pg": "^7.7.1"
   },
-  "scripts": {
-    "start": "node src/index.js",
-    "heroku-postbuild": "cd src/client && npm install && npm run build"
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
   }
 }
