@@ -1,7 +1,9 @@
-const path = require('path');
+
 
 const express = require('express');
 const app = express();
+
+const path = require('path');
 
 const sslRedirect = require('heroku-ssl-redirect');
 
@@ -50,7 +52,7 @@ app.get('/login', (req, res) => {
 // The "catchall" handler: for any request that doesn't
 // match one above, send back static landing page.
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '/client/public/index.html'));
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 
