@@ -6,8 +6,8 @@ const HummusRecipe = require('hummus-recipe');
 
 /* POSTPARTUM */
 router.post('/', function(req, res, next) {
-  	const pdfDoc = new HummusRecipe(`./static/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, 
-                                    `./static/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+  	const pdfDoc = new HummusRecipe(`./public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, 
+                                    `./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
   	
   	pdfDoc
   	     
@@ -400,7 +400,7 @@ router.post('/', function(req, res, next) {
 
   	.endPDF();
 
-  	res.download(`./static/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+  	res.download(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
 });
 
 

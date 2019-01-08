@@ -8,31 +8,34 @@ const apiRoutes = require('./api/index');
 app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
 // app.use(express.json());
+
+
+
+
+app.use(express.static('public')); // static html landingpage, login page, favicons, etc
+app.use(express.static('client/build')); // static react JS client app files
 app.use('/api/', apiRoutes); // api routes
-app.use(express.static('static')); // serve static html landingpage, login page, favicons, etc
-app.use(express.static('client/build')); // Serve static files JS React client
 
 
 
 
-
-// Send back React's index.html file.
+// GET React's index.html entrance file
 app.get('/app', (req, res) => {
   res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
 
 
 
-// match one above, send back static login page.
+// GET login.html static page.
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '/static/login.html'));
+  res.sendFile(path.join(__dirname, '/public/login.html'));
 });
 
 
-// The "catchall" handler: for any request that doesn't
+// GET index.html static landing page. The "catchall" handler: for any request that doesn't
 // match one above, send back static landing page.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/static/index.html'));
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 

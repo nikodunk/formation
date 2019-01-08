@@ -16,11 +16,14 @@ Screenshots:
 ## Quick Start
 
 
-    # Install dependencies
+    # Install Node dependencies
     npm install
 
+    # Install React dependencies
+    cd client && npm install
+
     # Start development server
-    npm run dev
+    cd .. && npm run dev
 
 
 
@@ -28,9 +31,7 @@ Screenshots:
 
 Set up a new app
 
-	heroku config:set NPM_CONFIG_PRODUCTION=false
-
-
+Push to heroku git – the postbuild script (see package.json) will take care of the rest.
 
 
 -------
