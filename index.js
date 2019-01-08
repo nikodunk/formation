@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 // serve landingpage, public page, favicons, etc
-app.use(express.static('public'));
+app.use(express.static('static'));
 
 // Serve static files from the React app
 app.use(express.static('client/build'));
@@ -39,20 +39,20 @@ app.use('/api/', routes);
 
 // Send back React's index.html file.
 app.get('/app', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '/client/build/index.html'));
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
 
 
 // match one above, send back static login page.
 app.get('/login', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '/public/login.html'));
+  res.sendFile(path.join(__dirname, '/static/login.html'));
 });
 
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back static landing page.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/index.html'));
+  res.sendFile(path.join(__dirname, '/static/index.html'));
 });
 
 
