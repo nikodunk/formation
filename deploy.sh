@@ -11,8 +11,6 @@ git commit -m "$commitmessage"
 
 git push origin develop
 
-heroku config:set NPM_CONFIG_PRODUCTION=false
-
 # echo -e "\033[0;32mDeploying updates to Heroku...\033[0m"
 
 # git push heroku master
