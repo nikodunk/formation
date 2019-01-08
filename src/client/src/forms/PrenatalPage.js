@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../app.css';
+// import '../app.css';
 
 import InputRadio from '../inputComponents/InputRadio'
 import InputRadioWithText from '../inputComponents/InputRadioWithText'

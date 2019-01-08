@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../app.css';
+// import '../app.css';
 
 export default class InputRadio extends React.Component {
   
