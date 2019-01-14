@@ -7,11 +7,12 @@ const fhirRoutes = require('./api/fhir');
 
 app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json()); // aka bodyparser!!
 
 
 app.use(express.static('public')); // static html landingpage, login page, favicons, etc
 app.use(express.static('client/build')); // static react JS client app files
+
+app.use(express.json()); // aka bodyparser!!
 app.use('/api/', apiRoutes); // api routes
 app.use('/fhir/', fhirRoutes); // fhir routes
 
