@@ -21,7 +21,7 @@ const api = {
 
       let uriBase = 'https://www.paperworklabs.com'
 
-      console.log(formData)
+      // console.log(formData)
 
       fetch(`${uriBase}/api/saveform/${patientuid}/${formName}`, {
           method: 'POST',
