@@ -20,10 +20,10 @@ Screenshots:
     npm install
 
     # Install React dependencies
-    cd client && npm install
+    npm install --client
 
     # Start development server
-    cd .. && npm run dev
+    npm run dev
 
 
 

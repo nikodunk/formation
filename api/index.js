@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 const { Client } = require('pg');
 const client = new Client({
@@ -22,7 +22,6 @@ router.get('/', function(req, res, next) {
 
 
 router.use('/prenatal', prenatal);
-
 router.use('/postpartum', postpartum);
 
 

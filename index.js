@@ -3,19 +3,24 @@ const app = express();
 const path = require('path');
 const sslRedirect = require('heroku-ssl-redirect');
 const apiRoutes = require('./api/index');
-
+const fhirRoutes = require('./api/fhir');
 
 app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
 // app.use(express.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 
 
 app.use(express.static('public')); // static html landingpage, login page, favicons, etc
 app.use(express.static('client/build')); // static react JS client app files
 app.use('/api/', apiRoutes); // api routes
-
+app.use('/fhir/', fhirRoutes); // fhir routes
 
 
 
