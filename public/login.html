@@ -18,8 +18,45 @@
 
     <!-- my own stylesheet -->
     <link rel="stylesheet" href="./app.css">
-
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAPNHdEvZpl-pu_riiPmBw0aYDz2kT_Hn4",
+        authDomain: "paperworklabs.firebaseapp.com",
+        databaseURL: "https://paperworklabs.firebaseio.com",
+        projectId: "paperworklabs",
+        storageBucket: "paperworklabs.appspot.com",
+        messagingSenderId: "1052524175634"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+        <script type="text/javascript">
+          // FirebaseUI config.
+          var uiConfig = {
+            signInSuccessUrl: '/app',
+            signInOptions: [
+              // Leave the lines as is for the providers you want to offer your users.
+              firebase.auth.EmailAuthProvider.PROVIDER_ID
+            ],
+            // tosUrl and privacyPolicyUrl accept either url string or a callback
+            // function.
+            // Terms of service url/callback.
+            tosUrl: '<your-tos-url>',
+            // Privacy policy url/callback.
+            privacyPolicyUrl: function() {
+              window.location.assign('<your-privacy-policy-url>');
+            }
+          };
+
+          // Initialize the FirebaseUI Widget using Firebase.
+          var ui = new firebaseui.auth.AuthUI(firebase.auth());
+          // The start method will wait until the DOM is loaded.
+          ui.start('#firebaseui-auth-container', uiConfig);
+        </script>
   </head>
 
   <body >
@@ -39,9 +76,12 @@
 
       <div style="max-width: 400px; margin: 0 auto; padding-top: 200px">
         <form class="form-signin">
-          <h1 class="h3 mb-3 font-weight-normal">paperwork labs</h1>
-          <h3 class="h5 font-weight-normal">Please sign in</h3>
-          <label for="inputEmail" class="sr-only">Email address</label>
+          <!-- <h1 class="h3 mb-3 font-weight-normal">paperwork labs</h1> -->
+         <!--  <h3 class="h5 font-weight-normal">Please sign in</h3> -->
+          
+          <div id="firebaseui-auth-container"></div>
+
+          <!-- <label for="inputEmail" class="sr-only">Email address</label>
           <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
           <label for="inputPassword" class="sr-only">Password</label>
           <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
@@ -49,9 +89,9 @@
             <label>
               <input type="checkbox" value="remember-me"> Remember me
             </label>
-          </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          <p class="mt-5 mb-3 text-muted">paperwork labs | &copy; 2018</p>
+          </div> -->
+          <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+          <!-- <p class="mt-5 mb-3 text-muted">paperwork labs | &copy; 2018</p> -->
         </form>
       </div>
 
