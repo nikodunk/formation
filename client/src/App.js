@@ -11,14 +11,16 @@ import imageUrl from './icon.png';
 
 export default class App extends React.Component {
   
+
   // Configure FirebaseUI.
   uiConfig = {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
     // We will display Google and Facebook as auth providers.
     signInOptions: [
-      firebase.auth.EmailAuthProvider.PROVIDER_ID
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
+    credentialHelper: 'none',
     callbacks: {
       // Avoid redirects after sign-in.
       signInSuccessWithAuthResult: () => false
@@ -34,6 +36,7 @@ export default class App extends React.Component {
             isSignedIn: false,
             user: null
           }
+
   }
 
   componentDidMount() {
@@ -42,12 +45,19 @@ export default class App extends React.Component {
       this.setState({isSignedIn: !!user})
       this.setState({ user: firebase.auth().currentUser })
      });
+
+
   }
 
 
   // Make sure we un-register Firebase observers when the component unmounts.
   componentWillUnmount() {
     this.unregisterAuthObserver();
+  }
+
+  logout(){
+    firebase.auth().signOut();
+    window.location = '/'
   }
 
 
@@ -90,7 +100,7 @@ export default class App extends React.Component {
                       Report Dashboard
                     </a>
                     
-                    <a className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {firebase.auth().signOut()}}>Logout</a>
+                    <button className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {this.logout()}}>Logout</button>
                   </div>
                 </div> 
               </div>
