@@ -71,3 +71,12 @@ select{
 .form-control{
   margin-bottom: 5px !important;
 }
+
+
+.mdl-card {
+  box-shadow: none !important
+  } 
+
+.mdl-shadow--2dp{
+  box-shadow: none !important
+}

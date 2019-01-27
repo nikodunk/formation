@@ -65,9 +65,21 @@ export default class App extends React.Component {
     if (!this.state.isSignedIn) {
       return (
         <div>
-          <h1>My App</h1>
-          <p>Please sign-in:</p>
-          <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+          <nav class="navbar navbar-light " >
+            <a class="navbar-brand" href="/">
+              <img src="./icon.png" width="30" height="30" class="d-inline-block align-top" alt="" />
+              paperwork labs
+            </a>
+              <span class="navbar-text" style={{marginRight: 'auto'}}>
+                Healthcare Form Automation
+              </span>
+              <a class="navbar-text" href="/login">
+                Login
+              </a>
+          </nav>
+          <div style={{paddingTop: 70}}>
+            <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+          </div>
         </div>
       );
     }
@@ -100,7 +112,7 @@ export default class App extends React.Component {
                       Report Dashboard
                     </a>
                     
-                    <button className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {this.logout()}}>Logout</button>
+                    <a className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {this.logout()}}>Logout</a>
                   </div>
                 </div> 
               </div>
