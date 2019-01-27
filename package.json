@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
     "express": "^4.15.3",
     "fhir.js": "0.0.20",
     "heroku-ssl-redirect": "0.0.4",
     "hummus-recipe": "^1.8.0",
+    "knex": "^0.16.3",
     "pg": "^7.7.1"
   },
   "devDependencies": {

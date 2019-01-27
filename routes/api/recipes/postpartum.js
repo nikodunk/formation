@@ -6,6 +6,17 @@ const HummusRecipe = require('hummus-recipe');
 
 /* POSTPARTUM */
 router.post('/', function(req, res, next) {
+
+
+    // admin.auth().verifyIdToken(idToken)
+    //   .then(function(decodedToken) {
+    //     var uid = decodedToken.uid;
+    //     // ...
+    //   }).catch(function(error) {
+    //     // Handle error
+    //   });
+
+    
   	const pdfDoc = new HummusRecipe(`./public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, 
                                     `./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
   	

@@ -5,6 +5,16 @@ const HummusRecipe = require('hummus-recipe');
 
 /* PRENATAL */
 router.post('/', function(req, res, next) {
+
+     // admin.auth().verifyIdToken(idToken)
+     //   .then(function(decodedToken) {
+     //     var uid = decodedToken.uid;
+     //     // ...
+     //   }).catch(function(error) {
+     //     // Handle error
+     //   });
+
+     
   	const pdfDoc = new HummusRecipe(`./public/inputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`, `./public/outputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`);
       
       pdfDoc
