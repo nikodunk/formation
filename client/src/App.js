@@ -90,7 +90,7 @@ export default class App extends React.Component {
                       Report Dashboard
                     </a>
                     
-                    <a className="nav-item nav-link" onClick={() => {firebase.auth().signOut()}}>Logout</a>
+                    <a className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {firebase.auth().signOut()}}>Logout</a>
                   </div>
                 </div> 
               </div>
