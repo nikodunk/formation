@@ -66,16 +66,13 @@ export default class App extends React.Component {
       return (
         <div>
           <nav class="navbar navbar-light " >
-            <a class="navbar-brand" href="/">
-              <img src="./icon.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-              paperwork labs
-            </a>
-              <span class="navbar-text" style={{marginRight: 'auto'}}>
+            <img src={imageUrl} width="30" height="30" className="d-inline-block align-top" alt="" />
+              <a className="navbar-brand" href="/app.html">
+                paperwork labs
+              </a>
+              <span className="navbar-text" style={{marginRight: "auto"}}>
                 Healthcare Form Automation
               </span>
-              <a class="navbar-text" href="/login">
-                Login
-              </a>
           </nav>
           <div style={{paddingTop: 70}}>
             <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>

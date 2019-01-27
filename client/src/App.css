@@ -73,10 +73,7 @@ select{
 }
 
 
-.mdl-card {
-  box-shadow: none !important
-  } 
 
 .mdl-shadow--2dp{
-  box-shadow: none !important
+  box-shadow: none !important;
 }
