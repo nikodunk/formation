@@ -11,18 +11,14 @@ import imageUrl from './icon.png';
 
 export default class App extends React.Component {
   
-
   // Configure FirebaseUI.
   uiConfig = {
-    // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
-    // We will display Google and Facebook as auth providers.
     signInOptions: [
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
     credentialHelper: 'none',
     callbacks: {
-      // Avoid redirects after sign-in.
       signInSuccessWithAuthResult: () => false
     }
   };
@@ -42,8 +38,7 @@ export default class App extends React.Component {
   componentDidMount() {
      // check that userid is logged in and fetch state
      this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
-      this.setState({isSignedIn: !!user})
-      this.setState({ user: firebase.auth().currentUser })
+            this.setState({isSignedIn: !!user})
      });
 
 
@@ -92,7 +87,7 @@ export default class App extends React.Component {
                 paperwork labs
               </a>
               <span className="navbar-text" style={{marginRight: "auto"}}>
-                Healthcare Form Automation
+                { firebase.auth().currentUser.displayName }
               </span>
 
               <div>
@@ -121,8 +116,8 @@ export default class App extends React.Component {
             <div style={{paddingTop: 55}}>
                 
                 {this.state.dashboard ? 
-                    <ReportingDashboard user={this.state.user} /> : 
-                    <SmartForms user={this.state.user} /> }
+                    <ReportingDashboard user={firebase.auth().currentUser} /> : 
+                    <SmartForms user={firebase.auth().currentUser} /> }
             </div>
 
 

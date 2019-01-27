@@ -1,5 +1,4 @@
 import React from 'react';
-import firebase from './auth/firebase';
 
 import PrenatalPage from './forms/PrenatalPage'
 import PostpartumPage from './forms/PostpartumPage'
@@ -41,10 +40,8 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    // fetch ( this.props.user ).then((res) => this.setState({this.state: res}))
-    // fetch patients, coordinator, hospital etc for current user
-    this.setState({coordinator: firebase.auth().currentUser.displayName })
-    // this.setState({uid: firebase.auth().currentUser.uid})
+    // fetch patients, hospital etc for this.props.user.uid
+    // fetch ( this.props.user.uid ).then((res) => this.setState({this.state: res}))
   }
 
   handleChange(e, fieldname) {
@@ -93,17 +90,9 @@ export default class App extends React.Component {
     return (
 
       <div id="main">
-              <div class="alert alert-info">
-                <p >
-                  Welcome! <br />
-                  This demo pre-selects the most common answers on common medical forms and exports an official, completed PDF.<br />
-                  Edit the pre-selections as necessary and hit <b>Export Completed PDF</b>.
-                </p>
-              </div>
-
               <div class="card" >
                 <div class="card-body">
-                    <p>{this.state.coordinator} | {this.state.hospital}</p>
+                    <p>{this.props.user.displayName} | {this.state.hospital} </p>
                     
                     {/* PATIENT ID NUMBER */}
                       <div className="form-group">
