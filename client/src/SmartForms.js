@@ -1,5 +1,5 @@
 import React from 'react';
-
+import firebase from './auth/firebase';
 
 import PrenatalPage from './forms/PrenatalPage'
 import PostpartumPage from './forms/PostpartumPage'
@@ -14,8 +14,9 @@ export default class App extends React.Component {
       this.state = {
             form: 'postpartum',
 
-            coordinator: 'Casey Coordination',
+            coordinator: null,
             hospital: 'Paperwork Demo Hospital',
+            uid: null,
 
             currentpatient: 'Example-9147d',
             patients: { 
@@ -42,6 +43,8 @@ export default class App extends React.Component {
   componentDidMount() {
     // fetch ( this.props.user ).then((res) => this.setState({this.state: res}))
     // fetch patients, coordinator, hospital etc for current user
+    this.setState({coordinator: firebase.auth().currentUser.displayName })
+    // this.setState({uid: firebase.auth().currentUser.uid})
   }
 
   handleChange(e, fieldname) {

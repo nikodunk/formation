@@ -100,9 +100,7 @@ export default class App extends React.Component {
             
             {/* APP  */}
             <div style={{paddingTop: 55}}>
-                <p>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
-                <p>Your uid is {firebase.auth().currentUser.uid}!</p>
-
+                
                 {this.state.dashboard ? 
                     <ReportingDashboard user={this.state.user} /> : 
                     <SmartForms user={this.state.user} /> }
