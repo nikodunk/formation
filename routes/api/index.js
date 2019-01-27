@@ -10,24 +10,35 @@ const client = new Client({
 client.connect();
 
 
-const prenatal = require('./forms/prenatal');
-const postpartum = require('./forms/postpartum');
+const prenatal = require('./recipes/prenatal');
+const postpartum = require('./recipes/postpartum');
 
 
-
-router.get('/', function(req, res, next) {
-	        res.send('gaggi')
-    	}
-    )
 
 
 router.use('/prenatal', prenatal);
 router.use('/postpartum', postpartum);
 
 
+router.get('/', function(req, res, next) {
+	        res.send('hello world')
+    	}
+    )
+
+
 
 router.get('/getform/:patientuid/:formName', function(req, res, next) {
 			console.log('GET FORM', req.params.patientuid, req.params.formName)
+
+			// admin.auth().verifyIdToken(idToken)
+			//   .then(function(decodedToken) {
+			//     var uid = decodedToken.uid;
+			//     // ...
+			//   }).catch(function(error) {
+			//     // Handle error
+			//   });
+
+
 	        client.query(`SELECT data FROM forms WHERE patientuid = '${req.params.patientuid}' AND formname = '${req.params.formName}';`, (err, queryResult) => { 
 	        			res.send(queryResult.rows[0] ? queryResult.rows[0].data : {} )
 	        		})

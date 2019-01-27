@@ -1,15 +1,16 @@
 {
   "name": "paperworklabsserver",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
     "client": "cd client && npm start",
-    "dev": "concurrently \"nodemon index.js\" \"npm run client\"",
+    "dev": "concurrently \"nodemon app.js\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.15.3",
     "fhir.js": "0.0.20",
     "heroku-ssl-redirect": "0.0.4",

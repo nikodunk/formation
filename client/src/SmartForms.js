@@ -11,13 +11,14 @@ export default class App extends React.Component {
       super(props);
       
       this.state = {
-            form: 'postpartum',
-
-            coordinator: null,
-            hospital: 'Paperwork Demo Hospital',
-            uid: null,
-
+            currentForm: 'postpartum',
             currentpatient: 'Example-9147d',
+            loading: false,
+
+            hospital: null,
+
+            
+            
             patients: { 
                   'Example-9147d': {
                             patientuid: 'Example-9147d', 
@@ -33,15 +34,23 @@ export default class App extends React.Component {
                             healthplan: 'Kaiser HMO/HPO',
                             provider: 'Kaiser Permanente'
                           }
-                } ,
-
-            loading: false
+                } 
           }
   }
 
   componentDidMount() {
-    // fetch patients, hospital etc for this.props.user.uid
-    // fetch ( this.props.user.uid ).then((res) => this.setState({this.state: res}))
+    // firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then((idToken) => {
+    //   // Send token to your backend via HTTPS
+      
+    //   // fetch patients, hospital etc for this.props.user.uid
+    //   // fetch ( this.props.user.uid ).then((res) => this.setState({this.state: res}))
+
+
+    // }).catch(function(error) {
+    //   // Handle error
+    // });
+
+    
   }
 
   handleChange(e, fieldname) {
@@ -154,7 +163,7 @@ export default class App extends React.Component {
                   {/* FORM SELECTOR */}
                     <div>
                       <label className="label">Form</label>
-                      <select class="form-control" value={this.state.form} onChange={(e) => this.handleChange(e, 'form')}>
+                      <select class="form-control" value={this.state.currentForm} onChange={(e) => this.handleChange(e, 'currentForm')}>
                           <option value="prenatal">LAC CPSP 2017 Prenatal Assessment/Reassessment and Individualized Care Plan (17-pages)</option>
                           <option value="postpartum">LAC CPSP 2017 Postpartum Assessment & ICP tool (6-pages)</option>
                       </select>
@@ -164,10 +173,10 @@ export default class App extends React.Component {
 
                 { !this.state.loading ?
                   <div>
-                    { this.state.form === 'prenatal' ? 
+                    { this.state.currentForm === 'prenatal' ? 
                         <PrenatalPage
                             patientuid={this.state.patients[this.state.currentpatient].patientuid} 
-                            form={this.state.form}
+                            form={this.state.currentForm}
                             name={this.state.patients[this.state.currentpatient].name}
                             dob={this.state.patients[this.state.currentpatient].dob}
                             healthplan={this.state.patients[this.state.currentpatient].healthplan}
@@ -177,7 +186,7 @@ export default class App extends React.Component {
                         : 
                         <PostpartumPage 
                             patientuid={this.state.patients[this.state.currentpatient].patientuid}
-                            form={this.state.form}
+                            form={this.state.currentForm}
                             name={this.state.patients[this.state.currentpatient].name}
                             dob={this.state.patients[this.state.currentpatient].dob}
                             healthplan={this.state.patients[this.state.currentpatient].healthplan}
