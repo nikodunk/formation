@@ -5,7 +5,7 @@ const api = {
         // let uriBase = 'https://www.paperworklabs.com'
         let uriBase = process.env.NODE_ENV === 'development' 
          ? 'http://localhost:8080'
-         : 'https://www.paperworklabs.com'
+         : `https://${window.location.hostname}`
         
 
         let results = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
@@ -20,7 +20,7 @@ const api = {
 
       let uriBase = process.env.NODE_ENV === 'development' 
                ? 'http://localhost:8080'
-               : 'https://www.paperworklabs.com'
+               : `https://${window.location.hostname}`
 
       // console.log(formData)
 
@@ -41,7 +41,7 @@ const api = {
       
       let uriBase = process.env.NODE_ENV === 'development' 
                ? 'http://localhost:8080'
-               : 'https://www.paperworklabs.com'
+               : `https://${window.location.hostname}`
 
       let results = await fetch(`${uriBase}/api/getreportcount/${formName}`)
          .then(res => res.text())
