@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const Sticker = require('../../db/sticker');
-const Patients = require('../../db/patients');
+const Users = require('../../db/user');
+const Patients = require('../../db/patient');
+const Forms = require('../../db/form');
 
 const { Client } = require('pg');
 const client = new Client({
@@ -18,19 +19,23 @@ const postpartum = require('./recipes/postpartum');
 
 
 
-
-router.use('/prenatal', prenatal);
-router.use('/postpartum', postpartum);
-
-
 router.get('/', function(req, res, next) {
 	     
-	        Patients.getByUser(1).then(patients => {
-	          res.json(patients);
+	        // Patients.getByUser(1).then(patients => {
+	        //   res.json(patients);
+	        // });
+
+	        Forms.getByPatient('Example-9147d', 'prenatal').then(forms => {
+	          res.json(forms);
 	        });
     	}
     )
 
+
+
+
+router.use('/prenatal', prenatal);
+router.use('/postpartum', postpartum);
 
 
 router.get('/getform/:patientuid/:formName', function(req, res, next) {

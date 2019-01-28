@@ -1,5 +1,5 @@
 exports.seed = (knex, Promise) => {
-  return knex.raw('DELETE FROM patients; ALTER SEQUENCE sticker_id_seq RESTART WITH 1')
+  return knex.raw('DELETE FROM patients;')
       .then(() => {
         const patients = [{
           patientuid: 'Example-9147d', 

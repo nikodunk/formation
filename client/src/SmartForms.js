@@ -49,7 +49,6 @@ export default class App extends React.Component {
     // }).catch(function(error) {
     //   // Handle error
     // });
-
     
   }
 
