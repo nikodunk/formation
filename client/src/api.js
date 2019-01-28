@@ -2,16 +2,15 @@ const api = {
 
   async loadForm(patientuid, formName){
 
-        let uriBase = 'https://www.paperworklabs.com'
-        // let urBase = process.env.NODE_ENV === 'development' 
-        //  ? 'http://localhost:3000'
-        //  : 'https://www.paperworklabs.com'
+        // let uriBase = 'https://www.paperworklabs.com'
+        let uriBase = process.env.NODE_ENV === 'development' 
+         ? 'http://localhost:8080'
+         : 'https://www.paperworklabs.com'
         
 
         let results = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
-           .then(res => res.text())
-           .then(res => JSON.parse(res) )
-           .then(json => { return json.formData })
+           .then(res => res.json())
+           .then(json => { return json[0].data.formData })
            .catch(error => { console.log(error) });
 
         return results
@@ -19,7 +18,9 @@ const api = {
 
   saveForm(patientuid, formName, formData ){
 
-      let uriBase = 'https://www.paperworklabs.com'
+      let uriBase = process.env.NODE_ENV === 'development' 
+               ? 'http://localhost:8080'
+               : 'https://www.paperworklabs.com'
 
       // console.log(formData)
 
@@ -38,7 +39,9 @@ const api = {
 
   async getReportCount(formName){
       
-      let uriBase = 'https://www.paperworklabs.com'
+      let uriBase = process.env.NODE_ENV === 'development' 
+               ? 'http://localhost:8080'
+               : 'https://www.paperworklabs.com'
 
       let results = await fetch(`${uriBase}/api/getreportcount/${formName}`)
          .then(res => res.text())
