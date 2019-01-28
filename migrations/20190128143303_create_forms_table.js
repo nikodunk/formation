@@ -16,7 +16,6 @@ exports.down = function(knex, Promise) {
 
 
 
-
 // CREATE TABLE forms (
 // 	 NEW INCREMENTER
 //   formhash text PRIMARY KEY,

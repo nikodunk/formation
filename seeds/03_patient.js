@@ -6,8 +6,7 @@ exports.seed = (knex, Promise) => {
           name: 'Georgia Examplo', 
           dob: '09/18/1972',
           healthplan: 'Paperwork Health Plan',
-          provider: 'Paperwork Health',
-          user_id: 1
+          provider: 'Paperwork Health'
         }];
 
         return knex('patients').insert(patients);
