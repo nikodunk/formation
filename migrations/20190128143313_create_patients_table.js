@@ -7,7 +7,6 @@ exports.up = function(knex, Promise) {
     table.text('dob').notNullable();
     table.text('healthplan');
     table.text('provider');
-    table.integer('user_id').references('user.id').unsigned().onDelete('cascade');
   });
 };
 
