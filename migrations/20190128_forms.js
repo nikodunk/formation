@@ -19,6 +19,7 @@ exports.down = function(knex, Promise) {
 
 
 // CREATE TABLE forms (
+// 	 NEW INCREMENTER
 //   formhash text PRIMARY KEY,
 //   patientuid text NOT NULL,
 //   formname text NOT NULL,
