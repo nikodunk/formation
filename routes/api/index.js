@@ -19,10 +19,28 @@ const postpartum = require('./recipes/postpartum');
 
 
 
-router.get('/', function(req, res, next) {
+router.get('/forms', function(req, res, next) {
 	     
 	        Forms.getAll().then(forms => {
 	          res.json(forms);
+	        });
+    	}
+    )
+
+router.get('/patients', function(req, res, next) {
+	     
+	        Patients.getAll().then(patients => {
+	          res.json(patients);
+	        });
+    	}
+    )
+
+
+
+router.get('/patients/newpatient', function(req, res, next) {
+	     
+	        Patients.createNew().then(result => {
+	          res.json(result);
 	        });
     	}
     )
@@ -65,7 +83,7 @@ router.post('/saveform/:patientuid/:formName', function(req, res, next) {
 			//     // Handle error
 			//   });
 
-			Forms.insertByPatient(req.params.patientuid, req.params.formName, JSON.stringify(req.body)).then(forms => {
+			Forms.updateByPatient(req.params.patientuid, req.params.formName, JSON.stringify(req.body)).then(forms => {
 			  res.json(forms);
 			});
 			
