@@ -58,7 +58,7 @@ export async function getPatientsAndInfoForUser(org){
              ? 'http://localhost:8080'
              : `https://${window.location.hostname}`
 
-    let results = await fetch(`${uriBase}/api/patients/${org}`)
+    let results = await fetch(`${uriBase}/api/patients/get/${org}`)
                           .then(res => res.json())
                           .then(json => { return json })
 
@@ -81,6 +81,25 @@ export function updateForm(patientuid, formName, formData ){
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ formData }),
+      })
+        .then(res => res.text()) 
+        .then(json => { console.log(json); })
+        .catch(error => { console.log(error) });
+    }
+
+export function updatePatient(patientuid, patientData ){
+
+      let uriBase = process.env.NODE_ENV === 'development' 
+               ? 'http://localhost:8080'
+               : `https://${window.location.hostname}`
+
+      fetch(`${uriBase}/api/patients/update/${patientuid}`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ patientData }),
       })
         .then(res => res.text()) 
         .then(json => { console.log(json); })

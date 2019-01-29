@@ -19,18 +19,20 @@ const postpartum = require('./recipes/postpartum');
 
 
 
-router.get('/forms', function(req, res, next) {
-	     
+router.get('/forms/get/all', function(req, res, next) {
+	     	
 	        Forms.getAll().then(forms => {
 	          res.json(forms);
+	          console.log('GOT ALL FORMS')
 	        });
     	}
     )
 
-router.get('/patients/all', function(req, res, next) {
-	     
+router.get('/patients/get/all', function(req, res, next) {
+	     	
 	        Patients.getAll().then(patients => {
 	          res.json(patients);
+	          console.log('GOT ALL PATIENTS')
 	        });
     	}
     )
@@ -38,12 +40,11 @@ router.get('/patients/all', function(req, res, next) {
 
 
 router.post('/patients/create/:organisation', function(req, res, next) {
-	     
+	        
 	        Patients.createNew(req.params.organisation).then(patientuid => {
-
-	          console.log(patientuid[0].toString())
 	          Forms.createFormsForNewPatient(patientuid[0].toString()).then(forms => {
 		          res.json(patientuid);
+		          console.log('CREATED PATIENT')
 		        });
 	          
 	        });
@@ -52,11 +53,23 @@ router.post('/patients/create/:organisation', function(req, res, next) {
     	}
     )
 
-router.get('/patients/:organisation', function(req, res, next) {
+router.get('/patients/get/:organisation', function(req, res, next) {
 	     	
 	        Patients.getAllByOrganisation(req.params.organisation).then(patients => {
+	          res.json(patients);
+	          console.log('GOT ALL PATIENTS FOR ', req.params.organisation)
+	        });
+
+
+    	}
+    )
+
+router.post('/patients/update/:patientuid/', function(req, res, next) {
+
+	        Patients.update(req.params.patientuid, req.body.patientData).then(patients => {
 	          // console.log(patients, req.params.organisation)
 	          res.json(patients);
+	          console.log('UPDATED PATIENT ', req.params.patientuid)
 	        });
 
 
@@ -69,7 +82,6 @@ router.use('/postpartum', postpartum);
 
 
 router.get('/getform/:patientuid/:formName', function(req, res, next) {
-			console.log('GET FORM', req.params.patientuid, req.params.formName)
 
 			// admin.auth().verifyIdToken(idToken)
 			//   .then(function(decodedToken) {
@@ -80,8 +92,9 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
 			//   });
 
 			Forms.getByPatient(req.params.patientuid, req.params.formName).then(forms => {
-			  console.log(forms)
+			  // console.log(forms)
 			  res.json(forms);
+			  console.log('GOT FORMS FOR ', req.params.patientuid)
 			});
 
 
@@ -89,7 +102,7 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
     )
 
 router.post('/updateform/:patientuid/:formName', function(req, res, next) {
-			console.log('POST FORM', req.params.patientuid, req.params.formName, JSON.stringify(req.body))
+			
 
 
 			// admin.auth().verifyIdToken(idToken)
@@ -102,6 +115,7 @@ router.post('/updateform/:patientuid/:formName', function(req, res, next) {
 
 			Forms.updateByPatient(req.params.patientuid, req.params.formName, JSON.stringify(req.body)).then(forms => {
 			  res.json(forms);
+			  console.log('UPDATED FORMS', req.params.patientuid, req.params.formName, JSON.stringify(req.body))
 			});
 			
 	        

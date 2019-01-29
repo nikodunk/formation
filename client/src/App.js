@@ -5,7 +5,7 @@ import firebase from './auth/firebase';
 import './App.css';
 
 import ReportingDashboard from './ReportingDashboard'
-import SmartForms from './SmartForms'
+import PatientSmartForms from './PatientSmartForms'
 
 import imageUrl from './icon.png';
 
@@ -119,7 +119,7 @@ export default class App extends React.Component {
                 
                 {this.state.dashboard ? 
                     <ReportingDashboard user={firebase.auth().currentUser} /> : 
-                    <SmartForms user={firebase.auth().currentUser} /> }
+                    <PatientSmartForms user={firebase.auth().currentUser} /> }
             </div>
 
 

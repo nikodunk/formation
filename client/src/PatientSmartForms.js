@@ -3,7 +3,7 @@ import React from 'react';
 import PrenatalPage from './forms/PrenatalPage'
 import PostpartumPage from './forms/PostpartumPage'
 
-import { getPatientsAndInfoForUser, createNewPatient } from './api'
+import { createNewPatient, getPatientsAndInfoForUser, updatePatient } from './api'
 
 import firebase from './auth/firebase';
 
@@ -22,9 +22,6 @@ export default class App extends React.Component {
             
             patients: null
           }
-
-
-
   }
 
   componentDidMount() {
@@ -64,6 +61,10 @@ export default class App extends React.Component {
     let newState = this.state
     newState['patients'][this.state.currentpatient][fieldname] = e.target.value;
     this.setState(newState);
+  }
+
+  updatePatient(){
+    updatePatient(this.props.patientuid, this.state.patients[this.state.currentpatient])
   }
 
   makePatients(){
@@ -118,42 +119,40 @@ export default class App extends React.Component {
                         
                         {/* PATIENT NAME */}
                           <label className="label">Patient Name</label>
-                          <p>{this.state.patients[this.state.currentpatient].name} </p>
-                          {/*<input 
+                         
+                          <input 
                                 className="form-control" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'name')}
                                 value={this.state.patients[this.state.currentpatient].name} 
-                                placeholder={'Jane Doe'} />*/}
+                                placeholder={'Jane Doe'} />
 
 
                         {/* DOB */}
                           <label className="label">Date of Birth</label>
-                          <p>{this.state.patients[this.state.currentpatient].dob} </p>
-                          {/*<input 
+                          <input 
                                 className="form-control" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'dob')}
                                 value={this.state.patients[this.state.currentpatient].dob} 
-                                placeholder={'01/20/1988'} />*/}
+                                placeholder={'01/20/1988'} />
                         
                       </div>
 
 
                     {/* PATIENT INFO BOX */}
                       <p>
-                        {this.state.patients[this.state.currentpatient].healthplan}
-                        {/*<input 
+                        <input 
                                 className="" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'healthplan')}
                                 value={this.state.patients[this.state.currentpatient].healthplan} 
-                                placeholder={'Paperwork Labs Healthplan'} />*/}
+                                placeholder={'Paperwork Labs Healthplan'} />
                         <span> | </span>
-                        {this.state.patients[this.state.currentpatient].provider}
-                        {/*<input 
+                        <input 
                                 className="" 
                                 onChange={(e) => this.handlePatientInfoChange(e, 'provider')}
                                 value={this.state.patients[this.state.currentpatient].provider}
-                                placeholder={'Paperwork Labs Provider'} />*/}
+                                placeholder={'Paperwork Labs Provider'} />
                       </p>
+                      <button type="button" onClick={() => this.updatePatient()} className="btn btn-primary">Update Patient Info</button>
                 </div>
               </div>
 

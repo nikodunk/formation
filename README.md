@@ -25,24 +25,14 @@ Screenshots:
     # Start development server
     npm run dev
 
+    # To set up local databases, run
+    ./setup.sh
 
 
 ## To deploy on Heroku Dev:
 
 Set up a new app
 
+	./deploy.sh
+
 Push to heroku git – the postbuild script (see package.json) will take care of the rest.
-
-
--------
-
-## dev commands:
-
-	heroku pg:psql
-
-	CREATE TABLE forms (
-	  formhash text PRIMARY KEY,
-	  patientuid text NOT NULL,
-	  formname text NOT NULL,
-	  data jsonb
-	);

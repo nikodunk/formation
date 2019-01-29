@@ -25,15 +25,16 @@ module.exports = {
         .where('organisation', organisation);
   },
 
-  update: function(patientuid, name, dob, healthplan, provider){
+  update: function(patientuid, patientdata){
     return knex('patients')
     		.update({
-                  patientuid: patientuid,
-                  name: name,
-                  dob: dob,
-                  healthplan: healthplan,
-                  provider: provider
-                });
+                  patientuid: patientdata.patientuid,
+                  name: patientdata.name,
+                  dob: patientdata.dob,
+                  healthplan: patientdata.healthplan,
+                  provider: patientdata.provider
+                })
+        .where('patientuid', patientdata.patientuid)
   }
   
 }
