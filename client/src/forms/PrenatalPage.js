@@ -3,7 +3,7 @@ import React from 'react';
 import InputRadio from '../inputComponents/InputRadio'
 import InputRadioWithText from '../inputComponents/InputRadioWithText'
 
-import api from '../api'
+import { getForm, updateForm } from '../api'
 
 export default class PrenatalPage extends React.Component {
 
@@ -28,7 +28,7 @@ export default class PrenatalPage extends React.Component {
 
   componentDidMount() {
     // mixpanel.track("Prenatal Loaded");
-    api.loadForm(this.props.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
+    getForm(this.props.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
   }
 
   handleChange(e, fieldname) {
@@ -38,8 +38,9 @@ export default class PrenatalPage extends React.Component {
   }
 
 
-  saveForm(){
-    api.saveForm(this.props.patientuid, this.props.form, this.state)
+  updateForm(){
+
+    updateForm(this.props.patientuid, this.props.form, this.state)
   }
 
   makeRadios(inputs, variableName){
@@ -80,7 +81,7 @@ export default class PrenatalPage extends React.Component {
                   <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
                   <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-                  <input className='btn btn-success' value="Save" onClick={() => { this.saveForm() }} />
+                  <input className='btn btn-success' value="Save" onClick={() => { this.updateForm() }} />
                   {'  '}
                   <input className='btn btn-primary' type="submit" value="Export Completed PDF"  />
                 </form>
@@ -250,7 +251,7 @@ export default class PrenatalPage extends React.Component {
           <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
           <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-          <input className='btn btn-success' value="Save" onClick={() => { this.saveForm(); }} />
+          <input className='btn btn-success' value="Save" onClick={() => { this.updateForm(); }} />
           {'  '}
           <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => {}} />
         </form>

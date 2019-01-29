@@ -3,14 +3,15 @@ const knex = require('./connection');
 module.exports = {
 
   
-  createNew: function(){
+  createNew: function(organisation){
     return knex('patients')
             .insert({
                   patientuid: Date.now().toString(),
                   name: 'First Last',
                   dob: Date.now(),
                   healthplan: null,
-                  provider: null
+                  provider: null,
+                  organisation: organisation
                 })
             .returning('patientuid')
   },
@@ -19,9 +20,9 @@ module.exports = {
     return knex('patients');
   },
 
-  getAllByUser: function(id){
+  getAllByOrganisation: function(organisation){
     return knex('patients')
-        .where('user_id', id);
+        .where('organisation', organisation);
   },
 
   update: function(patientuid, name, dob, healthplan, provider){
@@ -34,7 +35,5 @@ module.exports = {
                   provider: provider
                 });
   }
-
-  
   
 }

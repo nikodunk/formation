@@ -3,7 +3,9 @@ import React from 'react';
 import PrenatalPage from './forms/PrenatalPage'
 import PostpartumPage from './forms/PostpartumPage'
 
+import { getPatientsAndInfoForUser, createNewPatient } from './api'
 
+import firebase from './auth/firebase';
 
 export default class App extends React.Component {
   
@@ -12,43 +14,35 @@ export default class App extends React.Component {
       
       this.state = {
             currentForm: 'postpartum',
-            currentpatient: 'Example-9147d',
+            currentpatient: 0,
             loading: false,
 
             hospital: null,
-
             
-            
-            patients: { 
-                  'Example-9147d': {
-                            patientuid: 'Example-9147d', 
-                            name: 'Georgia Examplo', 
-                            dob: '09/18/1972',
-                            healthplan: 'Paperwork Health Plan',
-                            provider: 'Paperwork Health'
-                          },
-                  'Example-2353c': {
-                            patientuid: 'Example-2353c', 
-                            name: 'George Example', 
-                            dob: '10/14/1983',
-                            healthplan: 'Kaiser HMO/HPO',
-                            provider: 'Kaiser Permanente'
-                          }
-                } 
+            patients: null
           }
+
+
+
   }
 
   componentDidMount() {
     // firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then((idToken) => {
     //   // Send token to your backend via HTTPS
       
-    //   // fetch patients, hospital etc for this.props.user.uid
-    //   // fetch ( this.props.user.uid ).then((res) => this.setState({this.state: res}))
+    // fetch PATIENTS, hospital etc for this.props.user.uid
+
+
+    getPatientsAndInfoForUser(this.props.user.uid).then((res) => {
+            // console.log(res)
+            this.setState({patients: res})
+          })
 
 
     // }).catch(function(error) {
     //   // Handle error
     // });
+
     
   }
 
@@ -60,9 +54,7 @@ export default class App extends React.Component {
 
   handlePatientChange(e) {
     this.setState({loading: true})
-    let newState = {}
-    newState['currentpatient'] = e.target.value;
-    this.setState(newState)
+    this.setState({currentpatient: e.target.value})
     setTimeout(() => {this.setState({loading: false})} , 100);
   }
 
@@ -75,28 +67,27 @@ export default class App extends React.Component {
   makePatients(){
     let results = []
       for (var patient in this.state.patients) {
-          results.push( <option value={this.state.patients[patient].patientuid}>{this.state.patients[patient].patientuid}</option>)
+          results.push( <option value={patient}>{this.state.patients[patient].patientuid}</option>)
         }
     return results
   }
 
-  addPatient(){
-    let newPatients = this.state.patients
-    newPatients['Another-Patient'] = 
-                          {
-                            patientuid: 'Another-Patient', 
-                            name: '', 
-                            dob: '',
-                            healthplan: '',
-                            provider: ''
-                          }
-    this.setState({patients: newPatients})
-    this.setState({currentpatient: 'Another-Patient'})
+  createPatient(){
+
+    createNewPatient(this.props.user.uid).then((res) => {
+      console.log(res)
+      getPatientsAndInfoForUser(this.props.user.uid).then((result) => {
+              // console.log(res)
+              this.setState({patients: result, currentpatient: result.length-1})
+            })
+    })
+
   }
 
   render() {
     return (
-
+    <div>
+      { this.state.patients ? 
       <div id="main">
               <div class="card" >
                 <div class="card-body">
@@ -105,10 +96,12 @@ export default class App extends React.Component {
                     {/* PATIENT ID NUMBER */}
                       <div className="form-group">
                         <label className="label">Patient ID Number</label>
-                        <select class="form-control" value={this.state.patients[this.state.currentpatient].patientuid} onChange={(e) => this.handlePatientChange(e)}>
+                        <select class="form-control" 
+                                selected={this.state.currentpatient} 
+                                onChange={(e) => this.handlePatientChange(e)}>
                             {this.makePatients()}
                         </select>
-                        {/*<input type="button" onClick={() => this.addPatient()} className="btn btn-primary" value="Add Patient" />*/}
+                        <button type="button" onClick={() => this.createPatient()} className="btn btn-primary">Add Patient</button>
                       </div>
                     
                       <div className="form-group">
@@ -202,6 +195,8 @@ export default class App extends React.Component {
               </div>
         </div>
       </div>
+      : null }
+    </div>
             
 
     );

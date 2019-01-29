@@ -2,12 +2,16 @@ const knex = require('./connection');
 
 module.exports = {
 
-  // createByPatient: function(patient){
-  //   return knex('forms')
-  //         .where( 'patientuid', patient )
-  //         .andWhere('formname', formname)
-  //         .update( 'data', data)
-  // },
+  createFormsForNewPatient: function(patientuid){
+    return knex('forms')
+            .insert({
+                      'patientuid': patientuid, 'formname': 'prenatal', 'data': {}
+                    }, {
+                      'patientuid': patientuid, 'formname': 'postpartum', 'data': {}
+                    }
+                    )
+            .returning('patientuid')
+  },
   
   getByPatient: function(patient, formname){
     return knex('forms')

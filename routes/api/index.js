@@ -27,7 +27,7 @@ router.get('/forms', function(req, res, next) {
     	}
     )
 
-router.get('/patients', function(req, res, next) {
+router.get('/patients/all', function(req, res, next) {
 	     
 	        Patients.getAll().then(patients => {
 	          res.json(patients);
@@ -37,15 +37,31 @@ router.get('/patients', function(req, res, next) {
 
 
 
-router.get('/patients/newpatient', function(req, res, next) {
+router.post('/patients/create/:organisation', function(req, res, next) {
 	     
-	        Patients.createNew().then(result => {
-	          res.json(result);
+	        Patients.createNew(req.params.organisation).then(patientuid => {
+
+	          console.log(patientuid[0].toString())
+	          Forms.createFormsForNewPatient(patientuid[0].toString()).then(forms => {
+		          res.json(patientuid);
+		        });
+	          
 	        });
+
+
     	}
     )
 
+router.get('/patients/:organisation', function(req, res, next) {
+	     	
+	        Patients.getAllByOrganisation(req.params.organisation).then(patients => {
+	          // console.log(patients, req.params.organisation)
+	          res.json(patients);
+	        });
 
+
+    	}
+    )
 
 
 router.use('/prenatal', prenatal);
@@ -64,6 +80,7 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
 			//   });
 
 			Forms.getByPatient(req.params.patientuid, req.params.formName).then(forms => {
+			  console.log(forms)
 			  res.json(forms);
 			});
 
@@ -71,7 +88,7 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
     	}
     )
 
-router.post('/saveform/:patientuid/:formName', function(req, res, next) {
+router.post('/updateform/:patientuid/:formName', function(req, res, next) {
 			console.log('POST FORM', req.params.patientuid, req.params.formName, JSON.stringify(req.body))
 
 
