@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.text('dob').notNullable();
     table.text('healthplan');
     table.text('provider');
+    table.text('organisation');
   });
 };
 
