@@ -16,6 +16,7 @@ export default class App extends React.Component {
             currentForm: 'postpartum',
             currentpatient: 0,
             loading: false,
+            redraw: false,
 
             hospital: null,
             
@@ -54,6 +55,7 @@ export default class App extends React.Component {
 
   handlePatientChange(e) {
     this.setState({loading: true})
+    console.log(typeof e.target.value)
     this.setState({currentpatient: e.target.value})
     setTimeout(() => {this.setState({loading: false})} , 100);
   }
@@ -78,7 +80,10 @@ export default class App extends React.Component {
       console.log(res)
       getPatientsAndInfoForUser(this.props.user.uid).then((result) => {
               // console.log(res)
-              this.setState({patients: result, currentpatient: result.length-1})
+              let newCurrent = result.length-1
+              newCurrent = newCurrent.toString()
+              this.setState({patients: result, redraw: true, currentpatient: newCurrent})
+              setTimeout(() => {this.setState({redraw: false})} , 100);
             })
     })
 
@@ -96,11 +101,16 @@ export default class App extends React.Component {
                     {/* PATIENT ID NUMBER */}
                       <div className="form-group">
                         <label className="label">Patient ID Number</label>
-                        <select class="form-control" 
-                                selected={this.state.currentpatient} 
-                                onChange={(e) => this.handlePatientChange(e)}>
-                            {this.makePatients()}
+
+                        {!this.state.redraw ?
+                          <select class="form-control" 
+                              selected={this.state.currentpatient}
+                              value={this.state.currentpatient} 
+                              onChange={(e) => this.handlePatientChange(e)}>
+                          {this.makePatients()}
                         </select>
+                        : null }
+
                         <button type="button" onClick={() => this.createPatient()} className="btn btn-primary">Add Patient</button>
                       </div>
                     
