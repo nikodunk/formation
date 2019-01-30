@@ -15,10 +15,10 @@ client.connect();
 
 
 // EXPORT
-const prenatal = require('./recipes/prenatal');
-const postpartum = require('./recipes/postpartum');
-router.use('/prenatal', prenatal);
-router.use('/postpartum', postpartum);
+// const prenatal = require('./recipes/prenatal');
+// const postpartum = require('./recipes/postpartum');
+// router.use('/prenatal', prenatal);
+// router.use('/postpartum', postpartum);
 
 
 
