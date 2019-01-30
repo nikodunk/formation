@@ -3,7 +3,7 @@ exports.seed = (knex, Promise) => {
       .then(() => {
         const patients = [
         {
-          patientuid: 'Example', 
+          patientuid: 'foo', 
           patientmedicalrecordno: '16707284',
           name: 'Georgia Examplo', 
           dob: '09/18/1972',
@@ -12,13 +12,22 @@ exports.seed = (knex, Promise) => {
           usergroup: 'DXis21cAGSbWIOhbG2yyYXgV3c93'
         },
         {
-          patientuid: 'Example1', 
+          patientuid: 'bar', 
           patientmedicalrecordno: '16707284',
           name: 'Georgia Examplo', 
           dob: '09/18/1972',
           healthplan: 'Paperwork Health Plan',
           provider: 'Paperwork Health',
           usergroup: 'Bux3BnyLoDecUKr4fzmupiV3xfq2'
+        },
+        {
+          patientuid: 'baz', 
+          patientmedicalrecordno: '16707284',
+          name: 'Georgia Examplo', 
+          dob: '09/18/1972',
+          healthplan: 'Paperwork Health Plan',
+          provider: 'Paperwork Health',
+          usergroup: 'GGpqsjCo7LP05KzEJY5BKCOTrxu1'
         }
         ];
 

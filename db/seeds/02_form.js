@@ -3,22 +3,32 @@ exports.seed = (knex, Promise) => {
       .then(() => {
         const forms = [
           {
-            patientuid: 'Example1',
+            patientuid: 'foo',
             formname: 'prenatal',
             data: {}
           },
           {
-            patientuid: 'Example1',
+            patientuid: 'foo',
             formname: 'postpartum',
             data: {}
           },
           {
-            patientuid: 'Example',
+            patientuid: 'bar',
             formname: 'prenatal',
             data: {}
           },
           {
-            patientuid: 'Example',
+            patientuid: 'bar',
+            formname: 'postpartum',
+            data: {}
+          },
+          {
+            patientuid: 'baz',
+            formname: 'prenatal',
+            data: {}
+          },
+          {
+            patientuid: 'baz',
             formname: 'postpartum',
             data: {}
           }

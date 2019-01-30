@@ -13,6 +13,12 @@ exports.seed = (knex, Promise) => {
             uid: 'Bux3BnyLoDecUKr4fzmupiV3xfq2',
             email: 'mitul.karia@gmail.com',
             usergroup: '2'
+          },
+          {
+            id: 3,
+            uid: 'GGpqsjCo7LP05KzEJY5BKCOTrxu1',
+            email: 'george.jetson@gmail.com',
+            usergroup: '3'
           }
         ]
         return knex('user').insert(users)
