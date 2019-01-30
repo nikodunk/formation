@@ -14,20 +14,17 @@ const client = new Client({
 client.connect();
 
 
+// EXPORT
 const prenatal = require('./recipes/prenatal');
 const postpartum = require('./recipes/postpartum');
+router.use('/prenatal', prenatal);
+router.use('/postpartum', postpartum);
 
 
 
-router.get('/forms/get/all', function(req, res, next) {
-	     	
-	        Forms.getAll().then(forms => {
-	          res.json(forms);
-	          console.log('GOT ALL FORMS')
-	        });
-    	}
-    )
 
+
+// PATIENTS
 router.get('/patients/get/all', function(req, res, next) {
 	     	
 	        Patients.getAll().then(patients => {
@@ -54,6 +51,7 @@ router.post('/patients/create/:usergroup', function(req, res, next) {
     	}
     )
 
+
 router.get('/patients/get/:usergroup', function(req, res, next) {
 
 	        Patients.getAllByUsergroup(req.params.usergroup).then(patients => {
@@ -64,6 +62,7 @@ router.get('/patients/get/:usergroup', function(req, res, next) {
 
     	}
     )
+
 
 router.post('/patients/update/:patientuid/', function(req, res, next) {
 
@@ -78,8 +77,18 @@ router.post('/patients/update/:patientuid/', function(req, res, next) {
     )
 
 
-router.use('/prenatal', prenatal);
-router.use('/postpartum', postpartum);
+
+
+// FORMS
+router.get('/forms/get/all', function(req, res, next) {
+	     	
+	        Forms.getAll().then(forms => {
+	          res.json(forms);
+	          console.log('GOT ALL FORMS')
+	        });
+    	}
+    )
+
 
 
 router.get('/getform/:patientuid/:formName', function(req, res, next) {
@@ -121,6 +130,9 @@ router.post('/updateform/:patientuid/:formName', function(req, res, next) {
     	}
     )
 
+
+
+// REPORTS
 router.get('/getreportcount/:formname', function(req, res, next) {
 
 			// admin.auth().verifyIdToken(idToken)
