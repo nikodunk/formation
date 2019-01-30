@@ -4,11 +4,13 @@ exports.seed = (knex, Promise) => {
         const users = [
           {
             id: 1,
-            email: 'berto.ort@gmail.com'
+            uid: 'berto.ort@gmail.com',
+            usergroup: 'DXis21cAGSbWIOhbG2yyYXgV3c93'
           },
           {
             id: 2,
-            email: 'hello@cjr.co.de'
+            uid: 'hello@cjr.co.de',
+            usergroup: 'DXis21cAGSbWIOhbG2yyYXgV3c93'
           }
         ]
         return knex('user').insert(users)

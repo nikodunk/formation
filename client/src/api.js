@@ -1,11 +1,11 @@
 
-export function createNewPatient(organisation){
+export function createNewPatient(usergroup){
 
     let uriBase = process.env.NODE_ENV === 'development' 
              ? 'http://localhost:8080'
              : `https://${window.location.hostname}`
 
-    return fetch(`${uriBase}/api/patients/create/${organisation}`, {
+    return fetch(`${uriBase}/api/patients/create/${usergroup}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

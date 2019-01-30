@@ -70,7 +70,7 @@ export default class App extends React.Component {
   makePatients(){
     let results = []
       for (var patient in this.state.patients) {
-          results.push( <option value={patient}>{this.state.patients[patient].patientuid}</option>)
+          results.push( <option value={patient}>{this.state.patients[patient].patientmedicalrecordno}</option>)
         }
     return results
   }
@@ -95,24 +95,43 @@ export default class App extends React.Component {
     <div>
       { this.state.patients ? 
       <div id="main">
+
+              <div className="form-group">
+                <label className="label">Patient</label>
+
+                {!this.state.redraw ?
+                                <select class="form-control" 
+                                    selected={this.state.currentpatient}
+                                    value={this.state.currentpatient} 
+                                    onChange={(e) => this.handlePatientChange(e)}>
+                                {this.makePatients()}
+                              </select>
+                              : null }
+
+                <button type="button" onClick={() => this.createPatient()} className="btn btn-info">Add Patient</button>
+
+                
+              </div>
+
+
+              
+
               <div class="card" >
                 <div class="card-body">
-                    <p>{this.props.user.displayName} | {this.state.hospital} </p>
                     
+                    
+
                     {/* PATIENT ID NUMBER */}
                       <div className="form-group">
-                        <label className="label">Patient ID Number</label>
+                        <label className="label">Patient Medical Record Number</label>
 
-                        {!this.state.redraw ?
-                          <select class="form-control" 
-                              selected={this.state.currentpatient}
-                              value={this.state.currentpatient} 
-                              onChange={(e) => this.handlePatientChange(e)}>
-                          {this.makePatients()}
-                        </select>
-                        : null }
+                        <input 
+                              className="form-control" 
+                              onChange={(e) => this.handlePatientInfoChange(e, 'patientmedicalrecordno')}
+                              value={this.state.patients[this.state.currentpatient].patientmedicalrecordno} 
+                              placeholder={'Unique-Identification-Number-123'} />
 
-                        <button type="button" onClick={() => this.createPatient()} className="btn btn-primary">Add Patient</button>
+                        
                       </div>
                     
                       <div className="form-group">
@@ -152,7 +171,7 @@ export default class App extends React.Component {
                                 value={this.state.patients[this.state.currentpatient].provider}
                                 placeholder={'Paperwork Labs Provider'} />
                       </p>
-                      <button type="button" onClick={() => this.updatePatient()} className="btn btn-primary">Update Patient Info</button>
+                      <button type="button" onClick={() => this.updatePatient()} className="btn btn-warning">Update Patient Info</button>
                 </div>
               </div>
 

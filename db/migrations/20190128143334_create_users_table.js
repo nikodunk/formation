@@ -2,9 +2,10 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('user', table => {
     table.increments();
-    table.text('email').unique().notNullable();
+    table.text('uid').unique().notNullable();
     table.text('organisation');
     table.boolean('is_active').notNullable().defaultTo(true);
+    table.text('usergroup').notNullable();
   });
 };
 

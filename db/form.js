@@ -4,12 +4,18 @@ module.exports = {
 
   createFormsForNewPatient: function(patientuid){
     return knex('forms')
-            .insert({
-                      'patientuid': patientuid, 'formname': 'prenatal', 'data': {}
-                    }, {
-                      'patientuid': patientuid, 'formname': 'postpartum', 'data': {}
+            .insert([
+                    {
+                      'patientuid': patientuid, 
+                      'formname': 'prenatal', 
+                      'data': {}
+                    }, 
+                    {
+                      'patientuid': patientuid, 
+                      'formname': 'postpartum', 
+                      'data': {}
                     }
-                    )
+                  ])
             .returning('patientuid')
   },
   

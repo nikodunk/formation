@@ -39,12 +39,13 @@ router.get('/patients/get/all', function(req, res, next) {
 
 
 
-router.post('/patients/create/:organisation', function(req, res, next) {
+router.post('/patients/create/:usergroup', function(req, res, next) {
 	        
-	        Patients.createNew(req.params.organisation).then(patientuid => {
-	          Forms.createFormsForNewPatient(patientuid[0].toString()).then(forms => {
+	        Patients.createNew(req.params.usergroup).then(patientuid => {
+	          
+	          Forms.createFormsForNewPatient(patientuid[0]).then(forms => {
 		          res.json(patientuid);
-		          console.log('CREATED PATIENT')
+		          console.log('CREATED PATIENT ', patientuid[0])
 		        });
 	          
 	        });
@@ -53,11 +54,11 @@ router.post('/patients/create/:organisation', function(req, res, next) {
     	}
     )
 
-router.get('/patients/get/:organisation', function(req, res, next) {
-	     	
-	        Patients.getAllByOrganisation(req.params.organisation).then(patients => {
+router.get('/patients/get/:usergroup', function(req, res, next) {
+
+	        Patients.getAllByUsergroup(req.params.usergroup).then(patients => {
 	          res.json(patients);
-	          console.log('GOT ALL PATIENTS FOR ', req.params.organisation)
+	          console.log('GOT ALL PATIENTS FOR ', req.params.usergroup)
 	        });
 
 
@@ -67,7 +68,7 @@ router.get('/patients/get/:organisation', function(req, res, next) {
 router.post('/patients/update/:patientuid/', function(req, res, next) {
 
 	        Patients.update(req.params.patientuid, req.body.patientData).then(patients => {
-	          // console.log(patients, req.params.organisation)
+	          // console.log(patients, req.params.usergroup)
 	          res.json(patients);
 	          console.log('UPDATED PATIENT ', req.params.patientuid)
 	        });
@@ -103,8 +104,6 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
 
 router.post('/updateform/:patientuid/:formName', function(req, res, next) {
 			
-
-
 			// admin.auth().verifyIdToken(idToken)
 			//   .then(function(decodedToken) {
 			//     var uid = decodedToken.uid;
@@ -115,7 +114,7 @@ router.post('/updateform/:patientuid/:formName', function(req, res, next) {
 
 			Forms.updateByPatient(req.params.patientuid, req.params.formName, JSON.stringify(req.body)).then(forms => {
 			  res.json(forms);
-			  console.log('UPDATED FORMS', req.params.patientuid, req.params.formName, JSON.stringify(req.body))
+			  console.log('UPDATED FORMS', req.params.patientuid, req.params.formName)
 			});
 			
 	        
