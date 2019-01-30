@@ -10,4 +10,6 @@ files:
     content: |
       #!/usr/bin/env bash
       cd /var/app/current
-      cd client && npm install && npm run build
+      cd client
+      npm install
+      npm run build
