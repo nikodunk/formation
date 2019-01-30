@@ -177,7 +177,7 @@ export default class App extends React.Component {
                                   placeholder={'Paperwork Labs Provider'} />
                           </div>
                       </div>
-                      <button type="button" onClick={() => this.updatePatient()} className="btn btn-warning">Save Patient Info</button>
+                      <button type="button" onClick={() => this.updatePatient()} className="btn btn-info">Save Patient Info</button>
                 </div>
               </div>
 
