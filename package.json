@@ -7,8 +7,7 @@
     "start": "node app.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"nodemon app.js\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install && npm run build",
-    "postinstall": "cd client && npm install && npm run build && cp -R libs/jpgjs node_modules"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "dotenv": "^6.2.0",
