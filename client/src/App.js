@@ -65,7 +65,7 @@ export default class App extends React.Component {
           <nav class="navbar navbar-light " >
             <img src={imageUrl} width="30" height="30" className="d-inline-block align-top" alt="" />
               <a className="navbar-brand" href="/app.html">
-                paperwork labs
+                &nbsp;paperwork labs
               </a>
               <span className="navbar-text" style={{marginRight: "auto"}}>
                 Healthcare Form Automation
@@ -86,7 +86,7 @@ export default class App extends React.Component {
             <nav className="navbar navbar-light  navbar-expand-md" >
               <img src={imageUrl} width="30" height="30" className="d-inline-block align-top" alt="" />
               <a className="navbar-brand" href="/app.html">
-                paperwork labs
+                &nbsp;paperwork labs
               </a>
               <span className="navbar-text" style={{marginRight: "auto"}}>
                 { firebase.auth().currentUser.displayName }

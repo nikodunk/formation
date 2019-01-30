@@ -178,7 +178,7 @@ export default class PrenatalPage extends React.Component {
                 
                 {this.makeHiddenInputs()}
 
-                <input className='btn btn-success' value="Save" onClick={() => { this.updateForm(); }} />
+                <input className='btn btn-success' value="Save Form" onClick={() => { this.updateForm(); }} />
                 {'  '}
                 <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => {}} />
               </form>
@@ -774,7 +774,7 @@ export default class PrenatalPage extends React.Component {
           
           {this.makeHiddenInputs()}
 
-          <input className='btn btn-success' value="Save" onClick={() => { this.updateForm(); }} />
+          <input className='btn btn-success' value="Save Form" onClick={() => { this.updateForm(); }} />
           {'  '}
           <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => {}} />
         </form>

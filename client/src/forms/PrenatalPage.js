@@ -81,7 +81,7 @@ export default class PrenatalPage extends React.Component {
                   <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
                   <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-                  <input className='btn btn-success' value="Save" onClick={() => { this.updateForm() }} />
+                  <input className='btn btn-success' value="Save Form" onClick={() => { this.updateForm() }} />
                   {'  '}
                   <input className='btn btn-primary' type="submit" value="Export Completed PDF"  />
                 </form>
@@ -251,7 +251,7 @@ export default class PrenatalPage extends React.Component {
           <input type="hidden" value={this.state.fathereducation} name="fathereducation" />
           <input type="hidden" value={this.state.fatherage} name="fatherage" />
 
-          <input className='btn btn-success' value="Save" onClick={() => { this.updateForm(); }} />
+          <input className='btn btn-success' value="Save Form" onClick={() => { this.updateForm(); }} />
           {'  '}
           <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => {}} />
         </form>

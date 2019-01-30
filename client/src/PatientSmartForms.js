@@ -99,17 +99,20 @@ export default class App extends React.Component {
               <div className="form-group">
                 <label className="label">Patient</label>
 
-                {!this.state.redraw ?
-                                <select class="form-control" 
-                                    selected={this.state.currentpatient}
-                                    value={this.state.currentpatient} 
-                                    onChange={(e) => this.handlePatientChange(e)}>
-                                {this.makePatients()}
-                              </select>
-                              : null }
-
-                <button type="button" onClick={() => this.createPatient()} className="btn btn-info">Add Patient</button>
-
+                <div className="form-inline">
+                  {!this.state.redraw ?
+                                  <select class="form-control col-7" 
+                                      selected={this.state.currentpatient}
+                                      value={this.state.currentpatient} 
+                                      onChange={(e) => this.handlePatientChange(e)}>
+                                  {this.makePatients()}
+                                </select>
+                                : null }
+                  <p>&nbsp;&nbsp;&nbsp;</p>
+                  <button type="button" 
+                          onClick={() => this.createPatient()} 
+                          className="btn btn-info col-4">Add Patient</button>
+                </div>
                 
               </div>
 
@@ -158,20 +161,23 @@ export default class App extends React.Component {
 
 
                     {/* PATIENT INFO BOX */}
-                      <p>
-                        <input 
-                                className="" 
-                                onChange={(e) => this.handlePatientInfoChange(e, 'healthplan')}
-                                value={this.state.patients[this.state.currentpatient].healthplan} 
-                                placeholder={'Paperwork Labs Healthplan'} />
-                        <span> | </span>
-                        <input 
-                                className="" 
-                                onChange={(e) => this.handlePatientInfoChange(e, 'provider')}
-                                value={this.state.patients[this.state.currentpatient].provider}
-                                placeholder={'Paperwork Labs Provider'} />
-                      </p>
-                      <button type="button" onClick={() => this.updatePatient()} className="btn btn-warning">Update Patient Info</button>
+                      <div className="">
+                        <label className="label">Plan & Provider</label>
+                        <div className="form-inline">
+                          <input 
+                                  className="form-control" 
+                                  onChange={(e) => this.handlePatientInfoChange(e, 'healthplan')}
+                                  value={this.state.patients[this.state.currentpatient].healthplan} 
+                                  placeholder={'Paperwork Labs Healthplan'} />
+                          <p>&nbsp;&nbsp;&nbsp;</p>
+                          <input 
+                                  className="form-control" 
+                                  onChange={(e) => this.handlePatientInfoChange(e, 'provider')}
+                                  value={this.state.patients[this.state.currentpatient].provider}
+                                  placeholder={'Paperwork Labs Provider'} />
+                          </div>
+                      </div>
+                      <button type="button" onClick={() => this.updatePatient()} className="btn btn-warning">Save Patient Info</button>
                 </div>
               </div>
 
