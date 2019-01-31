@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # set up database
-RUN ./setupdb.sh
+# RUN ./setupdb.sh
 
 EXPOSE 8080
 
