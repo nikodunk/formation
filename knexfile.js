@@ -16,7 +16,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-        host : 'aa7p5vez5ps6q9.c10mrpronxld.us-west-2.rds.amazonaws.com',
+        host : process.env.RDS_HOSTNAME,
         user : process.env.RDS_USERNAME,
         password : process.env.RDS_PASSWORD,
         database : process.env.RDS_DB_NAME,
