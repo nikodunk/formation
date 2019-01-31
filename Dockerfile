@@ -18,10 +18,3 @@ EXPOSE 8080
 
 
 CMD [ "node", "app.js" ]
-
-
-option_settings:
-container_commands:
-    database_migration:
-        leader_only: true
-        command: "./setupdb.sh"
