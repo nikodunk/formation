@@ -1,30 +1,28 @@
+import axios from 'axios';
+
+// let uriBase = `https://${window.location.hostname}`
+// let uriBase = 'http://localhost:8080'
+let uriBase = window.location.hostname === 'localhost' 
+          ? 'http://localhost:8080'
+          : `https://${window.location.hostname}`
+
 
 export function createNewPatient(usergroup){
 
-    let uriBase = `https://${window.location.hostname}`
-    // let uriBase = process.env.NODE_ENV === 'development' 
-    //          ? 'http://localhost:8080'
-    //          : `https://${window.location.hostname}`
-
-    return fetch(`${uriBase}/api/patients/create/${usergroup}`, {
+    console.log(`${uriBase}/api/patients/create/${usergroup}`)
+    return axios.get(`${uriBase}/api/patients/create/${usergroup}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         }
     }).then(res => {return res.json()})
-
   }
 
 
 export async function getForm(patientuid, formName){
 
-        let uriBase = `https://${window.location.hostname}`
-        // let uriBase = process.env.NODE_ENV === 'development' 
-        //  ? 'http://localhost:8080'
-        //  : `https://${window.location.hostname}`
-        
-
+        console.log(`${uriBase}/api/getform/${patientuid}/${formName}`)
         let results = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
            .then(res => res.json())
            .then(json => { return json[0].data.formData })
@@ -39,12 +37,8 @@ export async function getForm(patientuid, formName){
 
 export async function getReportCount(formName){
       
-      let uriBase = `https://${window.location.hostname}`
-      // let uriBase = process.env.NODE_ENV === 'development' 
-      //          ? 'http://localhost:8080'
-      //          : `https://${window.location.hostname}`
-
-      let results = await fetch(`${uriBase}/api/getreportcount/${formName}`)
+      console.log(`${uriBase}/api/getreportcount/${formName}`)
+      let results = await axios.get(`${uriBase}/api/getreportcount/${formName}`)
          .then(res => res.text())
          .then(res => JSON.parse(res) )
          .then(json => { return json })
@@ -55,14 +49,9 @@ export async function getReportCount(formName){
 
 
 export async function getPatientsAndInfoForUser(org){
-
-    let uriBase = `https://${window.location.hostname}`
-    // let uriBase = process.env.NODE_ENV === 'development' 
-    //          ? 'http://localhost:8080'
-    //          : `https://${window.location.hostname}`
-
-    let results = await fetch(`${uriBase}/api/patients/get/${org}`)
-                          .then(res => res.json())
+    console.log(`${uriBase}/api/patients/get/${org}`)
+    let results = await axios.get(`${uriBase}/api/patients/get/${org}`)
+                          .then(res => {res.json(); console.log('here'+res)})
                           .then(json => { return json })
 
     return results
@@ -71,14 +60,8 @@ export async function getPatientsAndInfoForUser(org){
 
 export function updateForm(patientuid, formName, formData ){
 
-      let uriBase = `https://${window.location.hostname}`
-      // let uriBase = process.env.NODE_ENV === 'development' 
-      //          ? 'http://localhost:8080'
-      //          : `https://${window.location.hostname}`
-
-      // console.log(formData)
-
-      fetch(`${uriBase}/api/updateform/${patientuid}/${formName}`, {
+      console.log(`${uriBase}/api/updateform/${patientuid}/${formName}`)
+      axios.get(`${uriBase}/api/updateform/${patientuid}/${formName}`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -93,12 +76,8 @@ export function updateForm(patientuid, formName, formData ){
 
 export function updatePatient(patientuid, patientData ){
 
-      let uriBase = `https://${window.location.hostname}`
-      // let uriBase = process.env.NODE_ENV === 'development' 
-      //          ? 'http://localhost:8080'
-      //          : `https://${window.location.hostname}`
-
-      fetch(`${uriBase}/api/patients/update/${patientuid}`, {
+      console.log(`${uriBase}/api/patients/update/${patientuid}`)
+      axios.get(`${uriBase}/api/patients/update/${patientuid}`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',

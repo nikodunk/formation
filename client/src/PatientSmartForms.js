@@ -28,11 +28,9 @@ export default class App extends React.Component {
     // firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then((idToken) => {
     //   // Send token to your backend via HTTPS
       
+
     // fetch PATIENTS, hospital etc for this.props.user.uid
-
-
     getPatientsAndInfoForUser(this.props.user.uid).then((res) => {
-            // console.log(res)
             this.setState({patients: res})
           })
 
@@ -93,6 +91,7 @@ export default class App extends React.Component {
   render() {
     return (
     <div>
+      <p>test</p>
       { this.state.patients ? 
       <div id="main">
 
@@ -221,8 +220,7 @@ export default class App extends React.Component {
                             hospital={this.state.hospital} /> 
                     } 
                   </div>
-                  : null
-                }
+                  : null }
             
             
 
