@@ -8,7 +8,7 @@
     "client": "cd client && npm start",
     "dev": "concurrently \"nodemon app.js\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "db:migration:run": "knex migrate:latest"
+    "db:migration:run": "knex migrate:latest && knex seed:run"
   },
   "dependencies": {
     "dotenv": "^6.2.0",
