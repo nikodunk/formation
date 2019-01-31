@@ -1,5 +1,5 @@
 exports.seed = (knex, Promise) => {
-    return knex.raw('DELETE FROM "user"; ALTER SEQUENCE user_id_seq RESTART WITH 3')
+    return knex.raw('DELETE FROM "usergroups";')
       .then(() => {
         const users = [
           {
