@@ -22,6 +22,7 @@ module.exports = {
   },
   production: {
     client: 'pg',
+    // connection: process.env.DATABASE_URL,
     connection: {
         host : process.env.RDS_HOSTNAME, // 'aa7p5vez5ps6q9.c10mrpronxld.us-west-2.rds.amazonaws.com'
         user : process.env.RDS_USERNAME, // 'bahamut3'
