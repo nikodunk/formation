@@ -20,6 +20,8 @@ knex.migrate.latest([config])
     console.log('migrations are finished')
   });
 
+
+
 app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // aka bodyparser
