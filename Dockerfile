@@ -11,10 +11,10 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# seed database
+# migrate & seed database
 RUN ln -sf `ls -td /opt/elasticbeanstalk/node-install/node-* | head -1`/bin/node /bin/node
 RUN ln -sf `ls -td /opt/elasticbeanstalk/node-install/node-* | head -1`/bin/npm /bin/npm
-RUN knex migrate:latest
+RUN npm run knex migrate:latest
 
 # Make React App
 # RUN  cd client && npm install && npm run build
