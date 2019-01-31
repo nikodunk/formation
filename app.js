@@ -8,8 +8,8 @@ const api = require('./routes/api');
 
 // migrate database
 const knex = require('./db/connection');
-// const environment = process.env.NODE_ENV || 'development';
-const config = require('./knexfile')['production'];
+const environment = process.env.NODE_ENV || 'development';
+const config = require('./knexfile')[environment];
 knex.migrate.latest([config])
   .then((bar) => {
   	console.log(bar)
