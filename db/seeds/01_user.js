@@ -21,6 +21,6 @@ exports.seed = (knex, Promise) => {
             usergroup: '3'
           }
         ]
-        return knex('user').insert(users)
+        return knex('usergroups').insert(users)
       })
 };
