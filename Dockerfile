@@ -11,6 +11,11 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+
+# Make React App
+RUN  cd client && npm install && npm run build
+
+
 # set up database
 # RUN ./setupdb.sh
 
