@@ -1,0 +1,27 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    networks:
+      - webnet
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: martinnord
+      POSTGRES_DB: devblog
+    ports:
+      - "15432:5432"
+  web:
+    image: paperworklabs
+    ports:
+      - "3010:3010"
+    networks:
+      - webnet
+    environment:
+      DB_PASSWORD: password
+      DB_USER: martinnord
+      DB_NAME: devblog
+      DB_HOST: db
+      REDIS_HOST: redis
+    command: ["./wait-for-it.sh", "db:5432", "--", "node", "index.js"]
+networks:
+    webnet:

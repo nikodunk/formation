@@ -26,7 +26,14 @@ Screenshots:
     npm run dev
 
     # To set up local databases, run
-    ./setup.sh
+    ./setupdb.sh
+
+
+OR WITH DOCKER:
+
+    # All-In-One
+    docker build -t paperworklabs .
+    docker run -d -p 8080:8080 --name paperworklabs paperworklabs
 
 
 ## To deploy on Heroku Dev:
