@@ -29,11 +29,11 @@ Screenshots:
     ./setupdb.sh
 
 
-OR WITH DOCKER:
+## Deploying to HIPAA compliant Elastic Beanstalk with Docker:
 
-    # All-In-One
     docker build -t paperworklabs .
-    docker run -d -p 8080:8080 --name paperworklabs paperworklabs
+    eb deploy
+    
 
 
 ## To deploy on Heroku Dev:
