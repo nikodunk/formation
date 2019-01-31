@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Make React App
-RUN  cd client && npm install && npm run build
+# RUN  cd client && npm install && npm run build
 
 EXPOSE 8080
 
