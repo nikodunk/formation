@@ -1,9 +1,10 @@
 
 export function createNewPatient(usergroup){
 
-    let uriBase = process.env.NODE_ENV === 'development' 
-             ? 'http://localhost:8080'
-             : `https://${window.location.hostname}`
+    let uriBase = `https://${window.location.hostname}`
+    // let uriBase = process.env.NODE_ENV === 'development' 
+    //          ? 'http://localhost:8080'
+    //          : `https://${window.location.hostname}`
 
     return fetch(`${uriBase}/api/patients/create/${usergroup}`, {
         method: 'POST',
@@ -18,10 +19,10 @@ export function createNewPatient(usergroup){
 
 export async function getForm(patientuid, formName){
 
-        // let uriBase = 'https://www.paperworklabs.com'
-        let uriBase = process.env.NODE_ENV === 'development' 
-         ? 'http://localhost:8080'
-         : `https://${window.location.hostname}`
+        let uriBase = `https://${window.location.hostname}`
+        // let uriBase = process.env.NODE_ENV === 'development' 
+        //  ? 'http://localhost:8080'
+        //  : `https://${window.location.hostname}`
         
 
         let results = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
@@ -38,9 +39,10 @@ export async function getForm(patientuid, formName){
 
 export async function getReportCount(formName){
       
-      let uriBase = process.env.NODE_ENV === 'development' 
-               ? 'http://localhost:8080'
-               : `https://${window.location.hostname}`
+      let uriBase = `https://${window.location.hostname}`
+      // let uriBase = process.env.NODE_ENV === 'development' 
+      //          ? 'http://localhost:8080'
+      //          : `https://${window.location.hostname}`
 
       let results = await fetch(`${uriBase}/api/getreportcount/${formName}`)
          .then(res => res.text())
@@ -54,9 +56,10 @@ export async function getReportCount(formName){
 
 export async function getPatientsAndInfoForUser(org){
 
-    let uriBase = process.env.NODE_ENV === 'development' 
-             ? 'http://localhost:8080'
-             : `https://${window.location.hostname}`
+    let uriBase = `https://${window.location.hostname}`
+    // let uriBase = process.env.NODE_ENV === 'development' 
+    //          ? 'http://localhost:8080'
+    //          : `https://${window.location.hostname}`
 
     let results = await fetch(`${uriBase}/api/patients/get/${org}`)
                           .then(res => res.json())
@@ -68,9 +71,10 @@ export async function getPatientsAndInfoForUser(org){
 
 export function updateForm(patientuid, formName, formData ){
 
-      let uriBase = process.env.NODE_ENV === 'development' 
-               ? 'http://localhost:8080'
-               : `https://${window.location.hostname}`
+      let uriBase = `https://${window.location.hostname}`
+      // let uriBase = process.env.NODE_ENV === 'development' 
+      //          ? 'http://localhost:8080'
+      //          : `https://${window.location.hostname}`
 
       // console.log(formData)
 
@@ -89,9 +93,10 @@ export function updateForm(patientuid, formName, formData ){
 
 export function updatePatient(patientuid, patientData ){
 
-      let uriBase = process.env.NODE_ENV === 'development' 
-               ? 'http://localhost:8080'
-               : `https://${window.location.hostname}`
+      let uriBase = `https://${window.location.hostname}`
+      // let uriBase = process.env.NODE_ENV === 'development' 
+      //          ? 'http://localhost:8080'
+      //          : `https://${window.location.hostname}`
 
       fetch(`${uriBase}/api/patients/update/${patientuid}`, {
           method: 'POST',
