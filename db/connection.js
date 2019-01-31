@@ -1,4 +1,4 @@
-const environment = 'production';
+const environment = process.env.NODE_ENV === 'development' ? 'development' : 'production';
 
 const config = require('../knexfile')[environment];
 
