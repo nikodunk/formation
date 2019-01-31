@@ -3,16 +3,11 @@ FROM node:carbon
 # install dependencies
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
-
-# Make React App
-RUN cd client && npm install && npm run build
+RUN npm install && npm install --client && npm run build --client
 
 
 # copy app source to image _after_ npm install so that application code changes don't bust the docker cache of npm install step
 COPY . .
-
-
 
 
 # set up database
