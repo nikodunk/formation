@@ -12,8 +12,8 @@ RUN npm install
 COPY . .
 
 # seed database
-RUN ./node_modules/.bin/knex seed:run
-RUN ./node_modules/.bin/knex migrate:latest
+RUN knex seed:run
+RUN knex migrate:latest
 
 # Make React App
 # RUN  cd client && npm install && npm run build
