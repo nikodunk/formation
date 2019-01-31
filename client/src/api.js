@@ -7,7 +7,6 @@ let uriBase = window.location.hostname === 'localhost'
 
 export function createNewPatient(usergroup){
 
-    console.log(`${uriBase}/api/patients/create/${usergroup}`)
     return fetch(`${uriBase}/api/patients/create/${usergroup}`, {
         method: 'POST',
         headers: {
@@ -19,8 +18,6 @@ export function createNewPatient(usergroup){
 
 
 export async function getForm(patientuid, formName){
-
-        console.log(`${uriBase}/api/getform/${patientuid}/${formName}`)
 
         let results = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
            .then(res => res.json())
@@ -36,7 +33,6 @@ export async function getForm(patientuid, formName){
 
 export async function getReportCount(formName){
       
-      console.log(`${uriBase}/api/getreportcount/${formName}`)
       let results = await fetch(`${uriBase}/api/getreportcount/${formName}`)
          .then(res => res.text())
          .then(res => JSON.parse(res) )
@@ -49,7 +45,6 @@ export async function getReportCount(formName){
 
 export async function getPatientsAndInfoForUser(org){
     
-    console.log(`${uriBase}/api/patients/get/${org}`)
     let results = await fetch(`${uriBase}/api/patients/get/${org}`)
                           .then(res => res.json())
                           .then(json => {console.log(json); return json })
@@ -60,7 +55,6 @@ export async function getPatientsAndInfoForUser(org){
 
 export function updateForm(patientuid, formName, formData ){
 
-      console.log(`${uriBase}/api/updateform/${patientuid}/${formName}`)
       fetch(`${uriBase}/api/updateform/${patientuid}/${formName}`, {
           method: 'POST',
           headers: {
@@ -76,7 +70,6 @@ export function updateForm(patientuid, formName, formData ){
 
 export function updatePatient(patientuid, patientData ){
 
-      console.log(`${uriBase}/api/patients/update/${patientuid}`)
       fetch(`${uriBase}/api/patients/update/${patientuid}`, {
           method: 'POST',
           headers: {

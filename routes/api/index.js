@@ -5,13 +5,6 @@ const Users = require('../../db/user');
 const Patients = require('../../db/patient');
 const Forms = require('../../db/form');
 
-// const { Client } = require('pg');
-// const client = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: true,
-// });
-
-// client.connect();
 
 
 // EXPORT
