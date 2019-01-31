@@ -8,8 +8,7 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN knex migrate:latest
-RUN knex seed:run
+
 
 # Bundle app source
 COPY . .
@@ -20,6 +19,9 @@ COPY . .
 
 EXPOSE 8080
 
+RUN npm install -g knex
 
+RUN knex migrate:latest
+RUN knex seed:run
 
 CMD [ "node", "app.js" ]
