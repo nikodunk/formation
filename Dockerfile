@@ -17,4 +17,5 @@ COPY . .
 
 EXPOSE 8080
 
+CMD [ "knex", "migrate:latest" ]
 CMD [ "node", "app.js" ]
