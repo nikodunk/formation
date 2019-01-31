@@ -2,7 +2,7 @@
 // let uriBase = 'http://localhost:8080'
 let uriBase = window.location.hostname === 'localhost' 
           ? 'http://localhost:8080'
-          : `${window.location.hostname}`
+          : window.location.hostname
 
 
 export function createNewPatient(usergroup){
@@ -21,6 +21,7 @@ export function createNewPatient(usergroup){
 export async function getForm(patientuid, formName){
 
         console.log(`${uriBase}/api/getform/${patientuid}/${formName}`)
+
         let results = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
            .then(res => res.json())
            .then(json => { return json[0].data.formData })
@@ -47,7 +48,8 @@ export async function getReportCount(formName){
 
 
 export async function getPatientsAndInfoForUser(org){
-    console.log(`${uriBase}/api/patients/get/${org}`, 'gaggi')
+    
+    console.log(`${uriBase}/api/patients/get/${org}`)
     let results = await fetch(`${uriBase}/api/patients/get/${org}`)
                           .then(res => res.json())
                           .then(json => {console.log(json); return json })

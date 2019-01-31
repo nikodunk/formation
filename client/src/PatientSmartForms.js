@@ -31,6 +31,7 @@ export default class App extends React.Component {
 
     // fetch PATIENTS, hospital etc for this.props.user.uid
     getPatientsAndInfoForUser(this.props.user.uid).then((res) => {
+            console.log(res)
             this.setState({patients: res})
           })
 
