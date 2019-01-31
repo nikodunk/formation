@@ -5,8 +5,8 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-            host : 'aa7p5vez5ps6q9.c10mrpronxld.us-west-2.rds.amazonaws.com',
-            user : process.env.RDS_USERNAME,
+            host : 'aa7p5vez5ps6q9.c10mrpronxld.us-west-2.rds.amazonaws.com', // process.env.RDS_HOSTNAME,
+            user : 'bahamut3', // process.env.RDS_USERNAME,
             password : process.env.RDS_PASSWORD,
             database : process.env.RDS_DB_NAME,
             port: process.env.RDS_PORT
@@ -22,8 +22,8 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-        host : 'aa7p5vez5ps6q9.c10mrpronxld.us-west-2.rds.amazonaws.com',
-        user : process.env.RDS_USERNAME,
+        host : 'aa7p5vez5ps6q9.c10mrpronxld.us-west-2.rds.amazonaws.com', // process.env.RDS_HOSTNAME,
+        user : 'bahamut3', // process.env.RDS_USERNAME,
         password : process.env.RDS_PASSWORD,
         database : process.env.RDS_DB_NAME,
         port: process.env.RDS_PORT
