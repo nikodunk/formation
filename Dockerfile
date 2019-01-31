@@ -17,6 +17,7 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "knex", "migrate:latest" ]
-CMD [ "knex", "seed:run" ]
+RUN knex migrate:latest
+RUN knex seed:run
+
 CMD [ "node", "app.js" ]
