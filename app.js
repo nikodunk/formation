@@ -20,7 +20,7 @@ knex.migrate.latest([config])
     console.log('migrations are finished')
   });
 
-
+console.log(process.env.NODE_ENV)
 
 app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
