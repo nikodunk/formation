@@ -2,7 +2,7 @@
 // let uriBase = 'http://localhost:8080'
 let uriBase = window.location.hostname === 'localhost' 
           ? 'http://localhost:8080'
-          : window.location.hostname
+          : `http://${window.location.hostname}`
 
 
 export function createNewPatient(usergroup){

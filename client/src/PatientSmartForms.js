@@ -92,7 +92,6 @@ export default class App extends React.Component {
   render() {
     return (
     <div>
-      <p>test</p>
       { this.state.patients ? 
       <div id="main">
 
