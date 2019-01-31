@@ -6,6 +6,19 @@ const index = require('./routes');
 const reactApp = require('./routes/app');
 const api = require('./routes/api');
 
+// migrate database
+const knex = require('./db/connection');
+const environment = process.env.NODE_ENV || 'development';
+const config = require('./knexfile')[environment];
+knex.migrate.latest([config])
+  .then((bar) => {
+  	console.log(bar)
+    return knex.seed.run();
+  })
+  .then((foo) => {
+  	console.log(foo)
+    console.log('migrations are finished')
+  });
 
 app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
