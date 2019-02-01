@@ -52,6 +52,12 @@ app.use(function(err, req, res, next) {
 
 });
 
-console.log('bisi', process.env.API_ENDPOINT)
+console.log('bisi')
 const PORT = process.env.PORT || 8080
-app.listen(PORT, () => console.log(`Listening on port ${process.env.PORT}!`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
+
+server.on('connection', function(socket) {
+  console.log("A new connection was made by a client.");
+  socket.setTimeout(30 * 1000); 
+  // 30 second timeout. Change this as you see fit.
+});
