@@ -58,7 +58,7 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
-                <form  className="w-100" id="myForm" method="post" action="/api/prenatal" >
+                <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/prenatal" : "/api/prenatal" } >
                   <input type="hidden" value={this.props.patientuid} name="patientuid" />
                   <input type="hidden" value={this.props.name} name="name" />
                   <input type="hidden" value={this.props.dob} name="dob" />
@@ -93,6 +93,70 @@ export default class PrenatalPage extends React.Component {
           <li class="nav-item">
             <a class="nav-link active" id="1-tab" data-toggle="tab" href="#p1" role="tab" >
               Page 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="2-tab" data-toggle="tab" href="#p2" role="tab" >
+              Page 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="3-tab" data-toggle="tab" href="#p3" role="tab" >
+              Page 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="4-tab" data-toggle="tab" href="#p4" role="tab" >
+              Page 4</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="5-tab" data-toggle="tab" href="#p5" role="tab" >
+              Page 5</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="6-tab" data-toggle="tab" href="#p6" role="tab" >
+              Page 6</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="7-tab" data-toggle="tab" href="#p7" role="tab" >
+              Page 7</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="8-tab" data-toggle="tab" href="#p8" role="tab" >
+              Page 8</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="9-tab" data-toggle="tab" href="#p9" role="tab" >
+              Page 9</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="10-tab" data-toggle="tab" href="#p10" role="tab" >
+              Page 10</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="11-tab" data-toggle="tab" href="#p11" role="tab" >
+              Page 11</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="12-tab" data-toggle="tab" href="#p12" role="tab" >
+              Page 12</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="13-tab" data-toggle="tab" href="#p13" role="tab" >
+              Page 13</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="14-tab" data-toggle="tab" href="#p14" role="tab" >
+              Page 14</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="15-tab" data-toggle="tab" href="#p15" role="tab" >
+              Page 15</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="16-tab" data-toggle="tab" href="#p16" role="tab" >
+              Page 16</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="17-tab" data-toggle="tab" href="#p17" role="tab" >
+              Page 17</a>
           </li>
           
         </ul>
@@ -219,16 +283,16 @@ export default class PrenatalPage extends React.Component {
 
 
         {/* PAGE 2 */}
-        {/*<div class="tab-pane fade show active" id="p2" role="tabpanel" >
+        <div class="tab-pane fade show active" id="p2" role="tabpanel" >
            PAGE 2
-        </div>*/}
+        </div>
 
       </div>
       
 
         
         
-        <form  className="w-100" id="myForm" method="post" action="/api/prenatal" >
+        <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/prenatal" : "/api/prenatal" } >
           <input type="hidden" value={this.props.patientuid} name="patientuid" />
           <input type="hidden" value={this.props.name} name="name" />
           <input type="hidden" value={this.props.dob} name="dob" />
