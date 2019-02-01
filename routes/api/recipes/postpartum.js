@@ -8,8 +8,6 @@ const HummusRecipe = require('hummus-recipe');
 /* POSTPARTUM */
 router.post('/', function(req, res, next) {
 
-    console.log('GEORGE POSTPARTUM REQUEST RECEIVED')
-
     // admin.auth().verifyIdToken(idToken)
     //   .then(function(decodedToken) {
     //     var uid = decodedToken.uid;
@@ -22,16 +20,16 @@ router.post('/', function(req, res, next) {
   	const pdfDoc = new HummusRecipe(`./public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, 
                                     `./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
   	
-  	// pdfDoc
+  	pdfDoc
   	     
-   //      // ---------------------------------------------------------------
-   //      // edit 1st page
-  	//     .editPage(1)
+        // ---------------------------------------------------------------
+        // edit 1st page
+  	    .editPage(1)
 
     
 
-   //    	    // patient name
-   //          .text(req.body.patient.name ? req.body.patient.name : ' ', 100, 73)
+      	    // patient name
+            .text(req.body.patient.name ? req.body.patient.name : ' ', 100, 73)
             
 
    //          // health plan
@@ -124,7 +122,7 @@ router.post('/', function(req, res, next) {
    //          .text(req.body.postpartumweightgoal ? req.body.postpartumweightgoal : ' ', 133, 665)
 
 
-  	//     .endPage()
+  	    .endPage()
 
 
 
@@ -409,9 +407,8 @@ router.post('/', function(req, res, next) {
   	//     .endPage()
 
 
-  	// .endPDF();
+  	.endPDF();
 
-    // console.log(pdfDoc)
 
   	res.download(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
 });
