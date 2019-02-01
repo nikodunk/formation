@@ -29,7 +29,7 @@ router.post('/', function(req, res, next) {
     
 
       	    // patient name
-            .text(req.body.patient.name ? req.body.patient.name : ' ', 100, 73)
+            //.text(req.body.name ? req.body.name : ' ', 100, 73)
             
 
    //          // health plan
