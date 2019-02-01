@@ -413,7 +413,7 @@ router.post('/', function(req, res, next) {
 
     // console.log(pdfDoc)
 
-  	res.download(`./public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+  	res.download(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
 });
 
 
