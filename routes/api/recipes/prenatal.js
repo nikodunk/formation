@@ -18,8 +18,8 @@ router.post('/', function(req, res, next) {
      //   });
 
      
-  	const pdfDoc = new HummusRecipe(`./inputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`, 
-                                     `./outputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`);
+  	const pdfDoc = new HummusRecipe(`./public/inputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`, 
+                                     `./public/outputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`);
       
       pdfDoc
           // edit 1st page
