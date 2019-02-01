@@ -8,7 +8,7 @@ const HummusRecipe = require('hummus-recipe');
 /* POSTPARTUM */
 router.post('/', function(req, res, next) {
 
-    console.log('NEW POSTPARTUM REQUEST RECEIVED')
+    console.log('FINAL POSTPARTUM REQUEST RECEIVED')
 
     // admin.auth().verifyIdToken(idToken)
     //   .then(function(decodedToken) {
