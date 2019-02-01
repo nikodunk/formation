@@ -166,7 +166,7 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
-              <form  className="w-100" id="myForm" method="post" action={"http://"+window.location.hostname+":8080/api/postpartum"} >
+              <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "http://turbotaxformedicalforms-dev2.us-west-2.elasticbeanstalk.com:8080/api/postpartum" } >
                 <input type="hidden" value={this.props.patientuid} name="patientuid" />
                 
                 <input type="hidden" value={this.props.name} name="name" />
