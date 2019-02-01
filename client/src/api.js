@@ -95,5 +95,5 @@ export function downloadPDF(form, state, patient){
         .then(res => res.text()) 
         .then(json => { console.log(json); })
         .catch(error => { console.log(error) });
-    }
 }
+
