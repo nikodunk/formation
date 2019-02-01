@@ -6,6 +6,8 @@ const index = require('./routes');
 const reactApp = require('./routes/app');
 const api = require('./routes/api');
 
+const timeout = require('connect-timeout');
+
 // migrate database
 // const knex = require('./db/connection');
 // const config = require('./knexfile')['production'];
@@ -20,6 +22,7 @@ const api = require('./routes/api');
 //   });
 
 // console.log('node process environment: ', process.env.NODE_ENV)
+app.use(timeout(120000));
 
 app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
@@ -52,12 +55,11 @@ app.use(function(err, req, res, next) {
 
 });
 
-console.log('bisi')
+app.use(haltOnTimedout);
+
+function haltOnTimedout(req, res, next){
+  if (!req.timedout) next();
+}
+
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
-
-app.on('connection', function(socket) {
-  console.log("A new connection was made by a client.");
-  socket.setTimeout(30 * 1000); 
-  // 30 second timeout. Change this as you see fit.
-});
