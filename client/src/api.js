@@ -82,3 +82,18 @@ export function updatePatient(patientuid, patientData ){
         .then(json => { console.log(json); })
         .catch(error => { console.log(error) });
     }
+
+export function downloadPDF(form, state, patient){
+      fetch(`${uriBase}/api/${form}`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ state, patient }),
+      })
+        .then(res => res.text()) 
+        .then(json => { console.log(json); })
+        .catch(error => { console.log(error) });
+    }
+}

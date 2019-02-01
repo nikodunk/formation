@@ -3,7 +3,7 @@ import React from 'react';
 import InputRadio from '../inputComponents/InputRadio'
 import InputRadioWithText from '../inputComponents/InputRadioWithText'
 
-import { getForm, updateForm } from '../api'
+import { getForm, updateForm, downloadPDF } from '../api'
 
 
 export default class PrenatalPage extends React.Component {
@@ -137,6 +137,10 @@ export default class PrenatalPage extends React.Component {
   updateForm(){
 
     updateForm(this.props.patientuid , this.props.form, this.state)
+  }
+
+  downloadForm(){
+    downloadPDF('postpartum' , this.state, this.props.patient)
   }
 
 
@@ -761,8 +765,8 @@ export default class PrenatalPage extends React.Component {
 
       {/* -----------------------   */}
       
-        
-        <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "/api/postpartum" } >
+        {/*action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "/api/postpartum" }*/}
+        <form  className="w-100" id="myForm" method="post"  >
           <input type="hidden" value={this.props.patient.patientmedicalrecordno} name="patientmedicalrecordno" />
           
           <input type="hidden" value={this.props.patient.name} name="name" />
@@ -776,7 +780,7 @@ export default class PrenatalPage extends React.Component {
 
           <input className='btn btn-success' value="Save Form" onClick={() => { this.updateForm(); }} />
           {'  '}
-          <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => {}} />
+          <input className='btn btn-primary' type="submit" value="Export Completed PDF" onClick={() => {this.downloadForm()}} />
         </form>
         
       </div>
