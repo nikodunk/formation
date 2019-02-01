@@ -19,8 +19,8 @@ router.post('/', function(req, res, next) {
     //   });
 
     
-  	const pdfDoc = new HummusRecipe(`./public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, 
-                                    `./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+  	const pdfDoc = new HummusRecipe(__dirname +`/public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, 
+                                    __dirname +`/public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
   	
   	pdfDoc
   	     
@@ -413,7 +413,7 @@ router.post('/', function(req, res, next) {
 
   	.endPDF();
 
-  	res.download(`/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+  	res.download( __dirname +`/public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
 });
 
 

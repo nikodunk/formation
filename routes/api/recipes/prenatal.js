@@ -112,7 +112,7 @@ router.post('/', function(req, res, next) {
 
           .endPDF();
 
-      res.download(`./outputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`);
+      res.download(`./public/outputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`);
 });
 
 
