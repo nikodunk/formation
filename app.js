@@ -52,6 +52,6 @@ app.use(function(err, req, res, next) {
 
 });
 
-
+console.log('bisi', process.env.API_ENDPOINT)
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => console.log(`Listening on port ${process.env.PORT}!`));
