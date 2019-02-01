@@ -59,15 +59,14 @@ export default class PrenatalPage extends React.Component {
       <div>
 
                 <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/prenatal" : "/api/prenatal" } >
-                  <input type="hidden" value={this.props.patientuid} name="patientuid" />
-                  <input type="hidden" value={this.props.name} name="name" />
-                  <input type="hidden" value={this.props.dob} name="dob" />
-                  <input type="hidden" value={this.props.healthplan} name="healthplan" />
-                  <input type="hidden" value={this.props.provider} name="provider" />
-                  <input type="hidden" value={this.props.coordinator} name="coordinator" />
-                  <input type="hidden" value={this.props.hospital} name="hospital" />
+                  <input type="hidden" value={this.props.patient.patientmedicalrecordno} name="patientmedicalrecordno" />
+                  <input type="hidden" value={this.props.patient.name} name="name" />
+                  <input type="hidden" value={this.props.patient.dob} name="dob" />
+                  <input type="hidden" value={this.props.patient.healthplan} name="healthplan" />
+                  <input type="hidden" value={this.props.patient.provider} name="provider" />
+                  <input type="hidden" value={this.props.patient.coordinator} name="coordinator" />
+                  <input type="hidden" value={this.props.patient.hospital} name="hospital" />
          
-                  
                   <input type="hidden" value={this.state.age} name="age" />
                   <input type="hidden" value={this.state.areyoumarried} name="areyoumarried" />
                   <input type="hidden" value={this.state.howlongcurrenthome} name="howlongcurrenthome" />
@@ -293,14 +292,13 @@ export default class PrenatalPage extends React.Component {
         
         
         <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/prenatal" : "/api/prenatal" } >
-          <input type="hidden" value={this.props.patientuid} name="patientuid" />
-          <input type="hidden" value={this.props.name} name="name" />
-          <input type="hidden" value={this.props.dob} name="dob" />
-          <input type="hidden" value={this.props.healthplan} name="healthplan" />
-          <input type="hidden" value={this.props.provider} name="provider" />
-          <input type="hidden" value={this.props.coordinator} name="coordinator" />
-          <input type="hidden" value={this.props.hospital} name="hospital" />
- 
+          <input type="hidden" value={this.props.patient.patientmedicalrecordno} name="patientmedicalrecordno" />
+          <input type="hidden" value={this.props.patient.name} name="name" />
+          <input type="hidden" value={this.props.patient.dob} name="dob" />
+          <input type="hidden" value={this.props.patient.healthplan} name="healthplan" />
+          <input type="hidden" value={this.props.patient.provider} name="provider" />
+          <input type="hidden" value={this.props.patient.coordinator} name="coordinator" />
+          <input type="hidden" value={this.props.patient.hospital} name="hospital" />
           
           <input type="hidden" value={this.state.age} name="age" />
           <input type="hidden" value={this.state.areyoumarried} name="areyoumarried" />

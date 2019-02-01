@@ -32,7 +32,8 @@ Screenshots:
 ## Deploying to HIPAA compliant Elastic Beanstalk with Docker:
 
     docker build -t paperworklabs .
-    eb deploy
+    docker run -d -p 8080:8080 --name paperworklabs paperworklabs
+    ./deploy.sh
     
 
 

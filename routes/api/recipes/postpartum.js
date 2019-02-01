@@ -8,7 +8,7 @@ const HummusRecipe = require('hummus-recipe');
 /* POSTPARTUM */
 router.post('/', function(req, res, next) {
 
-    console.log('FINAL POSTPARTUM REQUEST RECEIVED')
+    console.log('GEORGE POSTPARTUM REQUEST RECEIVED')
 
     // admin.auth().verifyIdToken(idToken)
     //   .then(function(decodedToken) {
@@ -44,7 +44,7 @@ router.post('/', function(req, res, next) {
 
 
             // ID number
-            .text(req.body.patientuid ? req.body.patientuid : ' ', 420, 91)
+            .text(req.body.patientmedicalrecordno ? req.body.patientmedicalrecordno : ' ', 420, 91)
             
             // DOB
             .text(req.body.dob ? req.body.dob : ' ', 430, 74)
@@ -184,7 +184,7 @@ router.post('/', function(req, res, next) {
             .text(req.body.feedingper24 ? req.body.feedingper24 : ' ', 239, 582)
 
             .text(req.body.name ? req.body.name : ' ', 387, 742)
-            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
+            .text(req.body.patientmedicalrecordno ? req.body.patientmedicalrecordno : ' ', 387, 758)
         .endPage()
 
 
@@ -253,7 +253,7 @@ router.post('/', function(req, res, next) {
             .text(!['Yes'].includes(req.body.whensomeoneelseistakingcare) && req.body.whensomeoneelseistakingcare ? req.body.whensomeoneelseistakingcare : ' ', 170, 701)
 
             .text(req.body.name ? req.body.name : ' ', 387, 742)
-            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
+            .text(req.body.patientmedicalrecordno ? req.body.patientmedicalrecordno : ' ', 387, 758)
         .endPage()
 
 
@@ -311,7 +311,7 @@ router.post('/', function(req, res, next) {
             .text(req.body.doyoudrinkalcohol === 'Yes: more than 3 drinks/day or 7 drinks/week in the past 3 months' ? 'x' : ' ', 70, 682)
             
             .text(req.body.name ? req.body.name : ' ', 387, 742)
-            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
+            .text(req.body.patientmedicalrecordno ? req.body.patientmedicalrecordno : ' ', 387, 758)
         .endPage()
 
 
@@ -370,7 +370,7 @@ router.post('/', function(req, res, next) {
 
 
             .text(req.body.name ? req.body.name : ' ', 387, 742)
-            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
+            .text(req.body.patientmedicalrecordno ? req.body.patientmedicalrecordno : ' ', 387, 758)
         .endPage()
 
 
@@ -404,13 +404,13 @@ router.post('/', function(req, res, next) {
 
 
             .text(req.body.name ? req.body.name : ' ', 387, 742)
-            .text(req.body.patientuid ? req.body.patientuid : ' ', 387, 758)
+            .text(req.body.patientmedicalrecordno ? req.body.patientmedicalrecordno : ' ', 387, 758)
   	    .endPage()
 
 
   	.endPDF();
 
-  	res.download( __dirname +`/public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+  	res.download(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
 });
 
 

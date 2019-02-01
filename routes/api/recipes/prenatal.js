@@ -7,7 +7,7 @@ const HummusRecipe = require('hummus-recipe');
 router.post('/', function(req, res, next) {
 
 
-     console.log('FINAL PRENATAL REQUEST RECEIVED')
+     console.log('GEORGE PRENATAL REQUEST RECEIVED')
      
      // admin.auth().verifyIdToken(idToken)
      //   .then(function(decodedToken) {
@@ -35,7 +35,7 @@ router.post('/', function(req, res, next) {
           .text('Paperwork Health Plan', 95, 106)
           
           // ID number
-          .text(req.body.patientuid ? req.body.patientuid : ' ', 480, 105)
+          .text(req.body.patientmedicalrecordno ? req.body.patientmedicalrecordno : ' ', 480, 105)
 
           // provider
           .text('Paperwork Health', 90, 123)
@@ -112,7 +112,7 @@ router.post('/', function(req, res, next) {
 
           .endPDF();
 
-      res.download(`./public/inputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`);
+      res.download(`./public/outputs/Prenatal Assessment & ICP LAC CPSP 2017.pdf`);
 });
 
 
