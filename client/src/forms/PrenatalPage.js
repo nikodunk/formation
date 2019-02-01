@@ -28,7 +28,7 @@ export default class PrenatalPage extends React.Component {
 
   componentDidMount() {
     // mixpanel.track("Prenatal Loaded");
-    getForm(this.props.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
+    getForm(this.props.patient.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
   }
 
   handleChange(e, fieldname) {
@@ -40,7 +40,7 @@ export default class PrenatalPage extends React.Component {
 
   updateForm(){
 
-    updateForm(this.props.patientuid, this.props.form, this.state)
+    updateForm(this.props.patient.patientuid, this.props.form, this.state)
   }
 
   makeRadios(inputs, variableName){

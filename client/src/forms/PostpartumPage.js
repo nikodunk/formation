@@ -119,7 +119,7 @@ export default class PrenatalPage extends React.Component {
 
   componentDidMount() {
     // mixpanel.track("Prenatal Loaded");
-    getForm(this.props.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
+    getForm(this.props.patient.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
   } 
 
   // componentWillReceiveProps(props){
@@ -136,7 +136,7 @@ export default class PrenatalPage extends React.Component {
 
   updateForm(){
 
-    updateForm(this.props.patientuid , this.props.form, this.state)
+    updateForm(this.props.patient.patientuid, this.props.form, this.state)
   }
 
   downloadForm(){
@@ -766,7 +766,7 @@ export default class PrenatalPage extends React.Component {
       {/* -----------------------   */}
       
         {/*action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "/api/postpartum" }*/}
-        <form  className="w-100" id="myForm" method="post"  >
+        <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "/api/postpartum"} >
           <input type="hidden" value={this.props.patient.patientmedicalrecordno} name="patientmedicalrecordno" />
           
           <input type="hidden" value={this.props.patient.name} name="name" />
