@@ -415,8 +415,8 @@ router.post('/', function(req, res, next) {
   	// .endPDF();
 
 
-       pdfDoc.editPage(1).text('gaggi', 100, 73).endPage().endPDF();
-      //   res.download(pdfDoc.editPage(1).text('gaggi', 100, 73).endPage().endPDF());
+     //  pdfDoc.editPage(1).text('gaggi', 100, 73).endPage().endPDF();
+      
 
 
          res.download(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
