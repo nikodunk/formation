@@ -118,7 +118,6 @@ router.post('/updateform/:patientuid/:formName', function(req, res, next) {
 			  console.log('UPDATED FORMS', req.params.patientuid, req.params.formName)
 			});
 			
-	        
     	}
     )
 
