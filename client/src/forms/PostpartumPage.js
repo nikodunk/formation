@@ -118,7 +118,6 @@ export default class PrenatalPage extends React.Component {
   }
 
   componentDidMount() {
-    console.log('PORTEEZE: ', process.env.PORT)
     // mixpanel.track("Prenatal Loaded");
     getForm(this.props.patientuid, this.props.form).then((res) => { console.log(res); this.setState(res) })
   } 
@@ -167,7 +166,7 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
-              <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "http://"+window.location.hostname+":80/api/postpartum" } >
+              <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "http://"+window.location.hostname+"/api/postpartum" } >
                 <input type="hidden" value={this.props.patient.patientmedicalrecordno} name="patientmedicalrecordno" />
           
                 <input type="hidden" value={this.props.patient.name} name="name" />

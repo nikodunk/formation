@@ -6,8 +6,6 @@ const index = require('./routes');
 const reactApp = require('./routes/app');
 const api = require('./routes/api');
 
-const timeout = require('connect-timeout');
-
 // migrate database
 // const knex = require('./db/connection');
 // const config = require('./knexfile')['production'];
@@ -22,7 +20,6 @@ const timeout = require('connect-timeout');
 //   });
 
 // console.log('node process environment: ', process.env.NODE_ENV)
-app.use(timeout(120000));
 
 app.use(sslRedirect());
 app.use(express.urlencoded({ extended: false }));
@@ -54,12 +51,6 @@ app.use(function(err, req, res, next) {
   })
 
 });
-
-app.use(haltOnTimedout);
-
-function haltOnTimedout(req, res, next){
-  if (!req.timedout) next();
-}
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const HummusRecipe = require('hummus-recipe');
 
-
+var path = require('path');
 
 
 /* POSTPARTUM */
@@ -413,7 +413,24 @@ router.post('/', function(req, res, next) {
 
     // console.log(pdfDoc)
 
-  	res.download(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+    var file = path.join(__dirname, `Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+  	res.download(file);
+
+
+    // var file = pdfDoc.createReadStream(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+    // var stat = pdfDoc.statSync(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
+    // res.setHeader('Content-Length', stat.size);
+    // res.setHeader('Content-Type', 'application/pdf');
+    // res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+    // file.pipe(res);
+
+
+    // res.writeHead(200, {
+    //   'Content-Type': 'application/pdf',
+    //   'Content-Disposition': 'attachment; filename=Postpartum.pdf',
+    //   'Content-Length': pdfDoc.length
+    // });
+    // res.end(`./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
 });
 
 
