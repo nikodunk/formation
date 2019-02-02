@@ -14,15 +14,6 @@ router.post('/', function(req, res, next) {
     //     // Handle error
     //   });
 
-    // var cxt = pdfWriter.createContentContext(aPage)
-    // var pdfWriter = hummus.createWriter(__dirname + '/output/EmptyPages.pdf',{version:hummus.ePDFVersion14});
-    // var page = pdfWriter.createPage();
-    // page.mediaBox = [0,0,595,842];
-    // pdfWriter.writePage(page);
-    // pdfWriter.end();
-    
-
-
 
   	const pdfDoc = new HummusRecipe(`./public/inputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`, 
                                     `./public/outputs/Postpartum Assessment & ICP tool LAC CPSP 2017.pdf`);
