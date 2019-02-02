@@ -170,7 +170,7 @@ export default class PrenatalPage extends React.Component {
     return (
       <div>
 
-              <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "http://"+window.location.hostname+"/api/postpartum" } >
+              <form  className="w-100" id="myForm" method="post" action={process.env.NODE_ENV === "development" ? "http://"+window.location.hostname+":8080/api/postpartum" : "/api/postpartum" } >
                 <input type="hidden" value={this.props.patient.patientmedicalrecordno} name="patientmedicalrecordno" />
           
                 <input type="hidden" value={this.props.patient.name} name="name" />
