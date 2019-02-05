@@ -13,7 +13,6 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    // connection: process.env.DATABASE_URL,
     connection: {
         host : process.env.RDS_HOSTNAME, 
         user : process.env.RDS_USERNAME,
