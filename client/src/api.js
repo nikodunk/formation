@@ -28,9 +28,11 @@ export async function getForm(patientuid, formName){
     }
 
 
-export async function getUsergroup(uid){
+// USER 
+export async function getUsergroup(uid, token){
       
-      let usergroup = await fetch(`${uriBase}/api/users/get/${uid}`)
+      
+      let usergroup = await fetch(`${uriBase}/api/users/get/${uid}/${token}`)
         .then(res => res.json()) 
         .then(json => { return json[0].usergroup})
         .catch(error => { console.log(error) });

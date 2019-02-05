@@ -1,5 +1,4 @@
 import React from 'react';
-import firebase from './auth/firebase';
 
 import {Bar, Doughnut} from 'react-chartjs-2';
 

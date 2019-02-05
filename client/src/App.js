@@ -39,13 +39,32 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-     // check that userid is logged in and fetch state
-     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
-            this.setState({isSignedIn: !!user});
-            getUsergroup(user.uid).then((usergroup) => {
-              this.setState({usergroup: usergroup})
-            })
-     });
+
+    
+      
+          // check that userid is logged in and fetch state
+          this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
+                 this.setState({isSignedIn: !!user});
+
+                 firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then((idToken) => {
+                 // Send token to your backend via HTTPS
+
+                     getUsergroup(user.uid, idToken)
+                        .then((usergroup) => {
+                            this.setState({usergroup: usergroup})
+                        })
+                        
+
+                 }).catch(function(error) {
+                   console.log(error)
+                 });
+
+          });
+
+    
+
+
+     
   }
 
 

@@ -5,8 +5,6 @@ import PostpartumPage from './forms/PostpartumPage'
 
 import { createNewPatient, getAllPatientsForUsergroup, updatePatient } from './api'
 
-import firebase from './auth/firebase';
-
 export default class App extends React.Component {
   
   constructor(props) {

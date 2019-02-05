@@ -5,6 +5,16 @@ const Users = require('../../db/user');
 const Patients = require('../../db/patient');
 const Forms = require('../../db/form');
 
+const admin = require("firebase-admin");
+
+const serviceAccount = require("../../paperworklabs-firebase-adminsdk-7dyaq-bf9a61493e.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://paperworklabs.firebaseio.com"
+});
+
+
 
 
 // EXPORT
@@ -16,12 +26,28 @@ router.use('/postpartum', postpartum);
 
 
 // USER
-router.get('/users/get/:uid', function(req, res, next) {
+router.get('/users/get/:uid/:idToken', function(req, res, next) {
 	     	
-	        Users.getGroupByUID(req.params.uid).then(usergroup => {
-	          res.json(usergroup);
-	          console.log('GOT USERGROUP for user '+req.params.uid )
-	        });
+	     	admin.auth().verifyIdToken(req.params.idToken)
+	     	  .then(function(decodedToken) {
+	     	    // var uid = decodedToken.uid;
+	     	    // console.log(decodedToken.uid, req.params.uid)
+
+	     	    if (decodedToken.uid === req.params.uid) {
+
+	     	    		Users.getGroupByUID(req.params.uid).then(usergroup => {
+	     	    		  res.json(usergroup);
+	     	    		  console.log('GOT USERGROUP for user '+req.params.uid )
+	     	    		});
+	     	    }
+
+
+	     	  }).catch(function(error) {
+	     	    console.log('WRONG TOKEN', error)
+	     	  });
+
+
+	        
     	}
     )
 
