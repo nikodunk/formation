@@ -21,7 +21,7 @@ module.exports = {
     return knex('patients');
   },
 
-  getAllByUsergroup: function(usergroup){
+  getAllPatientsByUsergroup: function(usergroup){
     return knex('patients')
         .where('usergroup', usergroup);
   },

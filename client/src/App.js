@@ -7,6 +7,8 @@ import './App.css';
 import ReportingDashboard from './ReportingDashboard'
 import PatientSmartForms from './PatientSmartForms'
 
+import { getUsergroup } from './api'
+
 import imageUrl from './icon.png';
 
 export default class App extends React.Component {
@@ -30,7 +32,8 @@ export default class App extends React.Component {
       this.state = { 
             dashboard: false,
             isSignedIn: false,
-            user: null
+            user: null,
+            usergroup: null
           }
 
   }
@@ -38,12 +41,11 @@ export default class App extends React.Component {
   componentDidMount() {
      // check that userid is logged in and fetch state
      this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
-            this.setState({isSignedIn: !!user})
+            this.setState({isSignedIn: !!user});
+            getUsergroup(user.uid).then((usergroup) => {
+              this.setState({usergroup: usergroup})
+            })
      });
-
-     
-
-
   }
 
 
@@ -110,17 +112,23 @@ export default class App extends React.Component {
                   </div>
                 </div> 
               </div>
-
             </nav>
 
             
             {/* APP  */}
-            <div style={{paddingTop: 55}}>
+            {this.state.usergroup ? 
+              <div style={{paddingTop: 55}}>
                 
                 {this.state.dashboard ? 
-                    <ReportingDashboard user={firebase.auth().currentUser} /> : 
-                    <PatientSmartForms user={firebase.auth().currentUser} /> }
-            </div>
+                    <ReportingDashboard 
+                            user={firebase.auth().currentUser}
+                            usergroup={this.state.usergroup}
+                            /> : 
+                    <PatientSmartForms 
+                            user={firebase.auth().currentUser}
+                            usergroup={this.state.usergroup}
+                            /> }
+             </div> : null }
 
 
 

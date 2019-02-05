@@ -1,4 +1,3 @@
-cp .env.sample .env
 createdb paperworklabs
 knex migrate:latest
 knex seed:run

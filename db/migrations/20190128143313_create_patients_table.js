@@ -9,7 +9,6 @@ exports.up = function(knex, Promise) {
     table.text('healthplan');
     table.text('provider');
     table.text('usergroup');
-    // table.text('usergroup').references('usergroup.id').unsigned().onDelete('cascade');
   });
 };
 

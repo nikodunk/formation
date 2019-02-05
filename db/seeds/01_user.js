@@ -1,5 +1,5 @@
 exports.seed = (knex, Promise) => {
-    return knex.raw('DELETE FROM "usergroups";')
+    return knex.raw('DELETE FROM "users";')
       .then(() => {
         const users = [
           {
@@ -18,9 +18,15 @@ exports.seed = (knex, Promise) => {
             id: 3,
             uid: 'GGpqsjCo7LP05KzEJY5BKCOTrxu1',
             email: 'george.jetson@gmail.com',
-            usergroup: '3'
+            usergroup: '2'
+          },
+          {
+            id: 4,
+            uid: 'tJvKN3Bj14b0LWf2dXr1GAJE5RM2',
+            email: 'gianni.dunk@gmail.com',
+            usergroup: '1'
           }
         ]
-        return knex('usergroups').insert(users)
+        return knex('users').insert(users)
       })
 };

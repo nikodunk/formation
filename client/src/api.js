@@ -19,13 +19,24 @@ export function createNewPatient(usergroup){
 
 export async function getForm(patientuid, formName){
 
-        let results = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
+        let form = await fetch(`${uriBase}/api/getform/${patientuid}/${formName}`)
            .then(res => res.json())
            .then(json => { return json[0].data.formData })
            .catch(error => { console.log(error) });
 
-        return results
+        return form
     }
+
+
+export async function getUsergroup(uid){
+      
+      let usergroup = await fetch(`${uriBase}/api/users/get/${uid}`)
+        .then(res => res.json()) 
+        .then(json => { return json[0].usergroup})
+        .catch(error => { console.log(error) });
+
+      return usergroup
+}
 
 
 
@@ -43,7 +54,7 @@ export async function getReportCount(formName){
   }
 
 
-export async function getPatientsAndInfoForUser(org){
+export async function getAllPatientsForUsergroup(org){
     
     let results = await fetch(`${uriBase}/api/patients/get/${org}`)
                           .then(res => res.json())

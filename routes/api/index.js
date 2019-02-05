@@ -15,6 +15,17 @@ router.use('/postpartum', postpartum);
 
 
 
+// USER
+router.get('/users/get/:uid', function(req, res, next) {
+	     	
+	        Users.getGroupByUID(req.params.uid).then(usergroup => {
+	          res.json(usergroup);
+	          console.log('GOT USERGROUP for user '+req.params.uid )
+	        });
+    	}
+    )
+
+
 
 // PATIENTS
 router.get('/patients/get/all', function(req, res, next) {
@@ -46,9 +57,19 @@ router.post('/patients/create/:usergroup', function(req, res, next) {
 
 router.get('/patients/get/:usergroup', function(req, res, next) {
 
-	        Patients.getAllByUsergroup(req.params.usergroup).then(patients => {
+			
+			// admin.auth().verifyIdToken(idToken)
+			//   .then(function(decodedToken) {
+			//     var uid = decodedToken.uid;
+			//     // ...
+			//   }).catch(function(error) {
+			//     // Handle error
+			//   });
+
+
+	        Patients.getAllPatientsByUsergroup(req.params.usergroup).then(patients => {
 	          res.json(patients);
-	          console.log('GOT ALL PATIENTS FOR ', req.params.usergroup)
+	          console.log('GOT ALL PATIENTS FOR USERGROUP', req.params.usergroup)
 	        });
 
 

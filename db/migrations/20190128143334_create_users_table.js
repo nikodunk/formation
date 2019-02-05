@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('usergroups', table => {
+  return knex.schema.createTable('users', table => {
     table.increments();
     table.text('uid').unique().notNullable();
     table.text('email');

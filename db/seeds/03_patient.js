@@ -9,7 +9,7 @@ exports.seed = (knex, Promise) => {
           dob: '09/18/1972',
           healthplan: 'Paperwork Health Plan',
           provider: 'Paperwork Health',
-          usergroup: 'DXis21cAGSbWIOhbG2yyYXgV3c93'
+          usergroup: '1'
         },
         {
           patientuid: 'bar', 
@@ -18,7 +18,7 @@ exports.seed = (knex, Promise) => {
           dob: '09/18/1972',
           healthplan: 'Paperwork Health Plan',
           provider: 'Paperwork Health',
-          usergroup: 'Bux3BnyLoDecUKr4fzmupiV3xfq2'
+          usergroup: '1'
         },
         {
           patientuid: 'baz', 
@@ -27,7 +27,7 @@ exports.seed = (knex, Promise) => {
           dob: '09/18/1972',
           healthplan: 'Paperwork Health Plan',
           provider: 'Paperwork Health',
-          usergroup: 'GGpqsjCo7LP05KzEJY5BKCOTrxu1'
+          usergroup: '2'
         }
         ];
 
