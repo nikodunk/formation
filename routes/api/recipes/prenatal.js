@@ -7,7 +7,7 @@ const HummusRecipe = require('hummus-recipe');
 router.post('/', function(req, res, next) {
 
 
-     console.log('GEORGE PRENATAL REQUEST RECEIVED')
+     console.log('PRENATAL REQUEST RECEIVED')
      
      // admin.auth().verifyIdToken(idToken)
      //   .then(function(decodedToken) {
