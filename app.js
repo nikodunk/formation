@@ -5,6 +5,9 @@ const index = require('./routes');
 const reactApp = require('./routes/app');
 const api = require('./routes/api');
 
+const path = require('path');
+
+
 // // MIGRATE DATABASE
 // const knex = require('./db/connection');
 // const config = require('./knexfile')['production'];
@@ -32,7 +35,14 @@ app.use(express.static('client/build')); // static react JS client app files
 
 app.use('/api', api); // api routes
 app.use('/app', reactApp); // app routes
+
+app.get('/forms', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/forms.html'));
+});
+
+
 app.use('*', index) // 
+
 
 
 // catch 404 and forward to error handler
