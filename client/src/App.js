@@ -4,7 +4,7 @@ import firebase from './auth/firebase';
 
 import './App.css';
 
-import ReportingDashboard from './ReportingDashboard'
+
 import PatientSmartForms from './PatientSmartForms'
 
 import { getUsergroup } from './api'
@@ -89,7 +89,7 @@ export default class App extends React.Component {
                 &nbsp;paperwork labs
               </a>
               <span className="navbar-text" style={{marginRight: "auto"}}>
-                Healthcare Form Automation
+                Healthcare Workflow Optimization
               </span>
           </nav>
           <div style={{paddingTop: 70}}>
@@ -120,12 +120,12 @@ export default class App extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div className="navbar-nav">
                     <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
-                      Smart Forms
+                      Workflows
                     </a>
                     
-                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                   {/* <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
                       Report Dashboard
-                    </a>
+                    </a>*/}
                     
                     <a className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {this.logout()}}>Logout</a>
                   </div>
@@ -136,18 +136,12 @@ export default class App extends React.Component {
             
             {/* APP  */}
             {this.state.usergroup ? 
-              <div style={{paddingTop: 55}}>
-                
-                {this.state.dashboard ? 
-                    <ReportingDashboard 
-                            user={firebase.auth().currentUser}
-                            usergroup={this.state.usergroup}
-                            /> : 
+              <div style={{paddingTop: 55}}> 
                     <PatientSmartForms 
                             user={firebase.auth().currentUser}
                             usergroup={this.state.usergroup}
-                            /> }
-             </div> : null }
+                            /> 
+              </div> : null }
 
 
 
