@@ -119,6 +119,7 @@ export default class App extends React.Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div className="navbar-nav">
+                    
                     <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
                       Workflows
                     </a>
