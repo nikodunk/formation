@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { createNewPatient, getAllPatientsForUsergroup, updatePatient } from './api'
 
 export default class App extends React.Component {
@@ -7,29 +8,25 @@ export default class App extends React.Component {
       super(props);
       
       this.state = {
-            currentForm: 'prenatal',
-            currentpatient: 0,
+            workflow: 0,
             loading: false,
             redraw: false,
 
             hospital: null,
             
-            patients: null
+            workflows: null
           }
   }
 
   componentDidMount() {
-
-    // fetch PATIENTS, hospital etc for from usergroup this.props.user.uid
+    console.log(this.props.usergroup)
     getAllPatientsForUsergroup(this.props.usergroup).then((res) => {
             console.log(res)
-            this.setState({patients: res})
+            this.setState({workflows: res})
           })
-
-
-
-    
   }
+
+
 
   handleChange(e, fieldname) {
     let newState = {}
@@ -40,24 +37,24 @@ export default class App extends React.Component {
   handlePatientChange(e) {
     this.setState({loading: true})
     console.log(typeof e.target.value)
-    this.setState({currentpatient: e.target.value})
+    this.setState({workflow: e.target.value})
     setTimeout(() => {this.setState({loading: false})} , 100);
   }
 
   handlePatientInfoChange(e, fieldname) {
     let newState = this.state
-    newState['patients'][this.state.currentpatient][fieldname] = e.target.value;
+    newState['workflows'][this.state.workflow][fieldname] = e.target.value;
     this.setState(newState);
   }
 
   updatePatient(){
-    updatePatient(this.props.patientuid, this.state.patients[this.state.currentpatient])
+    updatePatient(this.props.patientuid, this.state.workflows[this.state.workflow])
   }
 
-  makePatients(){
+  makeworkflows(){
     let results = []
-      for (var patient in this.state.patients) {
-          results.push( <option value={patient}>{this.state.patients[patient].patientmedicalrecordno}</option>)
+      for (var patient in this.state.workflows) {
+          results.push( <option value={patient}>{this.state.workflows[patient].patientmedicalrecordno}</option>)
         }
     return results
   }
@@ -70,7 +67,7 @@ export default class App extends React.Component {
               // console.log(res)
               let newCurrent = result.length-1
               newCurrent = newCurrent.toString()
-              this.setState({patients: result, redraw: true, currentpatient: newCurrent})
+              this.setState({workflows: result, redraw: true, workflow: newCurrent})
               setTimeout(() => {this.setState({redraw: false})} , 100);
             })
     })
@@ -80,7 +77,64 @@ export default class App extends React.Component {
   render() {
     return (
           <div>
-              <p> hello </p>
+              {/* WORKFLOW PICKER */}
+              { this.state.workflows ? 
+              <div id="main">
+
+                      <div className="form-group">
+                        <label className="label">Pick Workflow</label>
+
+                        <div className="form-inline">
+                          {!this.state.redraw ?
+                                          <select class="form-control col-7" 
+                                              selected={this.state.workflow}
+                                              value={this.state.workflow} 
+                                              onChange={(e) => this.handlePatientChange(e)}>
+                                          {this.makeworkflows()}
+                                        </select>
+                                        : null }
+                          <p>&nbsp;&nbsp;&nbsp;</p>
+                          <button type="button" 
+                                  onClick={() => this.createPatient()} 
+                                  className="btn btn-info col-4">Add Workflow</button>
+                        </div>
+                      </div>
+
+
+                      
+                    {/* WORKFLOW EDITOR */}
+                      <div class="card" >
+                        <div class="card-body">
+
+                              <div className="form-group">
+                                <label className="label">Edit Workflow Name</label>
+
+                                <input 
+                                      className="form-control" 
+                                      onChange={(e) => this.handlePatientInfoChange(e, 'patientmedicalrecordno')}
+                                      value={this.state.workflows[this.state.workflow].patientmedicalrecordno} 
+                                      placeholder={'Unique-Identification-Number-123'} />
+
+                                
+                              </div>
+                            
+                              <button type="button" onClick={() => this.updatePatient()} className="btn btn-info">Save Workflow Name</button>
+                        </div>
+                      </div>
+
+                      <br />
+
+
+                    {/* WORKFLOW DISPLAY AREA */}
+                      <div class="card">
+                        <div class="card-body">
+
+                        <p>{this.state.workflows[this.state.workflow].name}</p>
+                    
+                      </div>
+                </div>
+              </div>
+              : null }
             </div> 
 
     );

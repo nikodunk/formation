@@ -121,7 +121,7 @@ export default class App extends React.Component {
                   <div className="navbar-nav">
                     
                     <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
-                      Workflows
+                      eClinicalWorks
                     </a>
                     
                    {/* <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
