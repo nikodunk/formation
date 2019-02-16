@@ -14,7 +14,9 @@ export default class App extends React.Component {
 
             hospital: null,
             
-            workflows: null
+            workflows: null,
+
+            editing: false
           }
   }
 
@@ -101,36 +103,48 @@ export default class App extends React.Component {
                       </div>
 
 
-                      
-                    {/* WORKFLOW EDITOR */}
-                      <div class="card" >
-                        <div class="card-body">
-
-                              <div className="form-group">
-                                <label className="label">Edit Workflow Name</label>
-
-                                <input 
-                                      className="form-control" 
-                                      onChange={(e) => this.handlePatientInfoChange(e, 'patientmedicalrecordno')}
-                                      value={this.state.workflows[this.state.workflow].patientmedicalrecordno} 
-                                      placeholder={'Unique-Identification-Number-123'} />
-
-                                
-                              </div>
-                            
-                              <button type="button" onClick={() => this.updatePatient()} className="btn btn-info">Save Workflow Name</button>
-                        </div>
-                      </div>
-
-                      <br />
 
 
-                    {/* WORKFLOW DISPLAY AREA */}
+                    {/* WORKFLOW DISPLAY AND EDITOR */}
                       <div class="card">
                         <div class="card-body">
 
-                        <p>{this.state.workflows[this.state.workflow].name}</p>
-                    
+                        {this.state.editing ? 
+
+
+
+                          <div>
+                            <div className="form-group">
+                              <label className="label">Edit Workflow Name</label>
+                              <input 
+                                    className="form-control" 
+                                    onChange={(e) => this.handlePatientInfoChange(e, 'patientmedicalrecordno')}
+                                    value={this.state.workflows[this.state.workflow].patientmedicalrecordno} 
+                                    placeholder={'Unique-Identification-Number-123'} />
+                            </div>
+
+                            <div className="form-group">
+                              <label className="label">Edit Workflow</label>
+                              <textarea 
+                                    className="form-control" 
+                                    onChange={(e) => this.handlePatientInfoChange(e, 'dob')}
+                                    value={this.state.workflows[this.state.workflow].dob} 
+                                    placeholder={'Step 1...'} />
+                            </div>
+
+                            <button type="button" onClick={() => {this.updatePatient(); this.setState({editing: !this.state.editing})}} className="btn btn-info">Save Workflow</button>
+                          </div>
+
+
+
+                          :
+                          <div>
+                            <p><b>{this.state.workflows[this.state.workflow].patientmedicalrecordno}</b></p>
+                            <p>{this.state.workflows[this.state.workflow].dob}</p>
+                            <button class="btn btn-info" onClick={() => {this.setState({editing: !this.state.editing})}}>Edit</button>
+                          </div>
+                          }
+                                                    
                       </div>
                 </div>
               </div>
