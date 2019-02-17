@@ -5,7 +5,7 @@ import firebase from './auth/firebase';
 import './App.css';
 
 
-import PatientSmartForms from './PatientSmartForms'
+import Workflows from './Workflows'
 
 import { getUsergroup } from './api'
 
@@ -138,7 +138,7 @@ export default class App extends React.Component {
             {/* APP  */}
             {this.state.usergroup ? 
               <div style={{paddingTop: 55}}> 
-                    <PatientSmartForms 
+                    <Workflows 
                             user={firebase.auth().currentUser}
                             usergroup={this.state.usergroup}
                             /> 

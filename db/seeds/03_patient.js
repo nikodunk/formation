@@ -4,30 +4,23 @@ exports.seed = (knex, Promise) => {
         const patients = [
         {
           patientuid: 'foo', 
-          patientmedicalrecordno: '16707284',
-          name: 'Georgia Examplo', 
+          patientmedicalrecordno: 'How to do X',
+          name: null, 
           dob: '09/18/1972',
-          healthplan: 'Paperwork Health Plan',
-          provider: 'Paperwork Health',
-          usergroup: '1'
         },
         {
           patientuid: 'bar', 
-          patientmedicalrecordno: '16707284',
-          name: 'Georgia Examplo', 
+          patientmedicalrecordno: 'How to do Y',
+          name: null, 
           dob: '09/18/1972',
-          healthplan: 'Paperwork Health Plan',
-          provider: 'Paperwork Health',
-          usergroup: '1'
+          
         },
         {
           patientuid: 'baz', 
-          patientmedicalrecordno: '16707284',
-          name: 'Georgia Examplo', 
+          patientmedicalrecordno: 'How to do Z',
+          name: null, 
           dob: '09/18/1972',
-          healthplan: 'Paperwork Health Plan',
-          provider: 'Paperwork Health',
-          usergroup: '2'
+          usergroup: '1'
         }
         ];
 

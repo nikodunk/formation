@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.text('patientuid').notNullable();
     table.text('formname').notNullable();
     table.jsonb('data');
+    table.text('usergroup').notNullable();
   });
 };
 

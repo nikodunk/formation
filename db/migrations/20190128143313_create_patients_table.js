@@ -4,11 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.text('patientuid').notNullable();
     table.text('patientmedicalrecordno');
-    table.text('name');
+    table.jsonb('name');
     table.text('dob');
-    table.text('healthplan');
-    table.text('provider');
-    table.text('usergroup');
   });
 };
 
