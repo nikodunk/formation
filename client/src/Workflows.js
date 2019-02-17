@@ -46,7 +46,7 @@ export default class Workflows extends React.Component {
   makeWorkflowSelections(){
     let results = []
       for (var workflow in this.state.workflows) {
-          results.push( <option value={workflow}>{this.state.workflows[workflow].patientmedicalrecordno}</option>)
+          results.push( <option value={workflow}>{this.state.workflows[workflow].title}</option>)
         }
     return results
   }
@@ -81,7 +81,7 @@ export default class Workflows extends React.Component {
 
   updateWorkflow(){
     let newState = this.state.workflows[this.state.workflow]
-    newState.name = this.state.updatedGraph
+    newState.graph = this.state.updatedGraph
     updateWorkflow(this.props.workflowuid, newState)
     this.setState({editing: !this.state.editing})
   }
@@ -131,8 +131,8 @@ export default class Workflows extends React.Component {
                             <div className="form-group">
                               <input 
                                     className="form-control" 
-                                    onChange={(e) => this.handleWorkflowInfoChange(e, 'patientmedicalrecordno')}
-                                    value={this.state.workflows[this.state.workflow].workflowmedicalrecordno} 
+                                    onChange={(e) => this.handleWorkflowInfoChange(e, 'title')}
+                                    value={this.state.workflows[this.state.workflow].title} 
                                     placeholder={'Unique-Identification-Number-123'} />
                             </div>
 
@@ -140,7 +140,7 @@ export default class Workflows extends React.Component {
 
                               <CustomDiagram
                                       handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
-                                      model={this.state.workflows[this.state.workflow].name ? this.state.workflows[this.state.workflow].name : model} />
+                                      model={this.state.workflows[this.state.workflow].graph ? this.state.workflows[this.state.workflow].graph : model} />
 
                               {/*<button onClick={this._onBoldClick.bind(this)}>Bold</button>*/}
                               {/*<Editor 
@@ -149,8 +149,8 @@ export default class Workflows extends React.Component {
                                     handleKeyCommand={this.handleKeyCommand} />*/}
                               <textarea 
                                     className="form-control" 
-                                    onChange={(e) => this.handleWorkflowInfoChange(e, 'dob')}
-                                    value={this.state.workflows[this.state.workflow].dob} 
+                                    onChange={(e) => this.handleWorkflowInfoChange(e, 'text')}
+                                    value={this.state.workflows[this.state.workflow].text} 
                                     placeholder={'Step 1...'}
                                     rows="10" />
 
@@ -171,13 +171,13 @@ export default class Workflows extends React.Component {
                         
                           <div>
                             {/* WORKFLOW DISPLAY */}
-                            <p><b>{this.state.workflows[this.state.workflow].patientmedicalrecordno}</b></p>
+                            <p><b>{this.state.workflows[this.state.workflow].title}</b></p>
 
                             <CustomDiagram 
                                   handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
-                                  model={this.state.workflows[this.state.workflow].name ? this.state.workflows[this.state.workflow].name : model} />
+                                  model={this.state.workflows[this.state.workflow].graph ? this.state.workflows[this.state.workflow].graph : model} />
 
-                            <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.workflow].dob}</p>
+                            <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.workflow].text}</p>
                             
                             <br />
                             <button 

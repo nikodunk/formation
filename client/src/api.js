@@ -7,7 +7,7 @@ let uriBase = window.location.hostname === 'localhost'
 
 export function createNewWorkflow(usergroup){
 
-    return fetch(`${uriBase}/api/patients/create/${usergroup}`, {
+    return fetch(`${uriBase}/api/workflows/create/${usergroup}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -31,7 +31,7 @@ export async function getUsergroup(uid, token){
 
 export async function getAllWorkflowsForUsergroup(org){
     
-    let results = await fetch(`${uriBase}/api/patients/get/${org}`)
+    let results = await fetch(`${uriBase}/api/workflows/get/${org}`)
                           .then(res => res.json())
                           .then(json => {console.log(json); return json })
 
@@ -40,15 +40,15 @@ export async function getAllWorkflowsForUsergroup(org){
   }
 
 
-export function updateWorkflow(patientuid, patientData ){
+export function updateWorkflow(workflowuid, workflowData ){
 
-      fetch(`${uriBase}/api/patients/update/${patientuid}`, {
+      fetch(`${uriBase}/api/workflows/update/${workflowuid}`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ patientData }),
+          body: JSON.stringify({ workflowData }),
       })
         .then(res => res.text()) 
         .then(json => { console.log(json); })

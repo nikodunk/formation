@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Users = require('../../db/user');
-const Patients = require('../../db/patient');
-const Forms = require('../../db/form');
+const Workflows = require('../../db/workflow');
 
 const admin = require("firebase-admin");
 
@@ -44,25 +43,25 @@ router.get('/users/get/:uid/:idToken', function(req, res, next) {
 
 
 
-// PATIENTS
-router.get('/patients/get/all', function(req, res, next) {
+// WORKFLOWS
+router.get('/workflows/get/all', function(req, res, next) {
 	     	
-	        Patients.getAll().then(patients => {
-	          res.json(patients);
-	          console.log('GOT ALL PATIENTS')
+	        Workflows.getAll().then(workflows => {
+	          res.json(workflows);
+	          console.log('GOT ALL WORKFLOWS')
 	        });
     	}
     )
 
 
 
-router.post('/patients/create/:usergroup', function(req, res, next) {
+router.post('/workflows/create/:usergroup', function(req, res, next) {
 	        
-	        Patients.createNew(req.params.usergroup).then(patientuid => {
+	        Workflows.createNew(req.params.usergroup).then(workflowuid => {
 	          
-	          Forms.createFormsForNewPatient(patientuid[0]).then(forms => {
-		          res.json(patientuid);
-		          console.log('CREATED PATIENT ', patientuid[0])
+	          Forms.createFormsForNewWorkflow(workflowuid[0]).then(forms => {
+		          res.json(workflowuid);
+		          console.log('CREATED WORKFLOW ', workflowuid[0])
 		        });
 	          
 	        });
@@ -72,7 +71,7 @@ router.post('/patients/create/:usergroup', function(req, res, next) {
     )
 
 
-router.get('/patients/get/:usergroup', function(req, res, next) {
+router.get('/workflows/get/:usergroup', function(req, res, next) {
 
 			
 			// admin.auth().verifyIdToken(idToken)
@@ -84,9 +83,9 @@ router.get('/patients/get/:usergroup', function(req, res, next) {
 			//   });
 
 
-	        Patients.getAllPatientsByUsergroup(req.params.usergroup).then(patients => {
-	          res.json(patients);
-	          console.log('GOT ALL PATIENTS FOR USERGROUP', req.params.usergroup)
+	        Workflows.getAllWorkflowsByUsergroup(req.params.usergroup).then(workflows => {
+	          res.json(workflows);
+	          console.log('GOT ALL WORKFLOWS FOR USERGROUP', req.params.usergroup)
 	        });
 
 
@@ -94,12 +93,12 @@ router.get('/patients/get/:usergroup', function(req, res, next) {
     )
 
 
-router.post('/patients/update/:patientuid/', function(req, res, next) {
+router.post('/workflows/update/:workflowuid/', function(req, res, next) {
 
-	        Patients.update(req.params.patientuid, req.body.patientData).then(patients => {
-	          // console.log(patients, req.params.usergroup)
-	          res.json(patients);
-	          console.log('UPDATED PATIENT ', req.params.patientuid)
+	        Workflows.update(req.params.workflowuid, req.body.workflowData).then(workflows => {
+	          // console.log(workflows, req.params.usergroup)
+	          res.json(workflows);
+	          console.log('UPDATED WORKFLOW ', req.params.workflowuid)
 	        });
 
 
@@ -121,7 +120,7 @@ router.get('/forms/get/all', function(req, res, next) {
 
 
 
-router.get('/getform/:patientuid/:formName', function(req, res, next) {
+router.get('/getform/:workflowuid/:formName', function(req, res, next) {
 
 			// admin.auth().verifyIdToken(idToken)
 			//   .then(function(decodedToken) {
@@ -131,17 +130,17 @@ router.get('/getform/:patientuid/:formName', function(req, res, next) {
 			//     // Handle error
 			//   });
 
-			Forms.getByPatient(req.params.patientuid, req.params.formName).then(forms => {
+			Forms.getByWorkflow(req.params.workflowuid, req.params.formName).then(forms => {
 			  // console.log(forms)
 			  res.json(forms);
-			  console.log('GOT FORMS FOR ', req.params.patientuid)
+			  console.log('GOT FORMS FOR ', req.params.workflowuid)
 			});
 
 
     	}
     )
 
-router.post('/updateform/:patientuid/:formName', function(req, res, next) {
+router.post('/updateform/:workflowuid/:formName', function(req, res, next) {
 			
 			// admin.auth().verifyIdToken(idToken)
 			//   .then(function(decodedToken) {
@@ -151,9 +150,9 @@ router.post('/updateform/:patientuid/:formName', function(req, res, next) {
 			//     // Handle error
 			//   });
 
-			Forms.updateByPatient(req.params.patientuid, req.params.formName, JSON.stringify(req.body)).then(forms => {
+			Forms.updateByWorkflow(req.params.workflowuid, req.params.formName, JSON.stringify(req.body)).then(forms => {
 			  res.json(forms);
-			  console.log('UPDATED FORMS', req.params.patientuid, req.params.formName)
+			  console.log('UPDATED FORMS', req.params.workflowuid, req.params.formName)
 			});
 			
     	}

@@ -1,11 +1,11 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('patients', table => {
+  return knex.schema.createTable('workflows', table => {
     table.increments();
-    table.text('patientuid').notNullable();
-    table.text('patientmedicalrecordno');
-    table.jsonb('name');
-    table.text('dob');
+    table.text('workflowuid').notNullable();
+    table.text('title');
+    table.jsonb('graph');
+    table.text('text');
     table.text('usergroup').notNullable();
   });
 };
