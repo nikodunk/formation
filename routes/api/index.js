@@ -16,15 +16,6 @@ admin.initializeApp({
 
 
 
-
-// EXPORT
-const prenatal = require('./recipes/prenatal');
-const postpartum = require('./recipes/postpartum');
-router.use('/prenatal', prenatal);
-router.use('/postpartum', postpartum);
-
-
-
 // USER
 router.get('/users/get/:uid/:idToken', function(req, res, next) {
 	     	
@@ -168,25 +159,5 @@ router.post('/updateform/:patientuid/:formName', function(req, res, next) {
     	}
     )
 
-
-
-// REPORTS
-router.get('/getreportcount/:formname', function(req, res, next) {
-
-			// admin.auth().verifyIdToken(idToken)
-			//   .then(function(decodedToken) {
-			//     var uid = decodedToken.uid;
-			//     // ...
-			//   }).catch(function(error) {
-			//     // Handle error
-			//   });
-
-
-	        Forms.getReportFormCount(req.params.formname).then(count => {
-	          res.json(count);
-	        });
-	        
-    	}
-    )
 
 module.exports = router;
