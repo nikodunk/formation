@@ -7,7 +7,7 @@ module.exports = {
     return knex('workflows')
             .insert({
                   workflowuid: Date.now().toString(),
-                  title: '',
+                  title: 'New Workflow '+Date.now().toString(),
                   graph: null,
                   text: '',
                   usergroup: usergroup

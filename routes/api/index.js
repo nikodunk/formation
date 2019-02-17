@@ -58,12 +58,7 @@ router.get('/workflows/get/all', function(req, res, next) {
 router.post('/workflows/create/:usergroup', function(req, res, next) {
 	        
 	        Workflows.createNew(req.params.usergroup).then(workflowuid => {
-	          
-	          Forms.createFormsForNewWorkflow(workflowuid[0]).then(forms => {
-		          res.json(workflowuid);
-		          console.log('CREATED WORKFLOW ', workflowuid[0])
-		        });
-	          
+	          	res.json(workflowuid);	          
 	        });
 
 

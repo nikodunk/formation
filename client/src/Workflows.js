@@ -53,7 +53,7 @@ export default class Workflows extends React.Component {
 
 
   createWorkflow(){
-
+    
     createNewWorkflow(this.props.usergroup).then((res) => {
       console.log(res)
       getAllWorkflowsForUsergroup(this.props.usergroup).then((result) => {
