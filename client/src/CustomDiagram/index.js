@@ -11,6 +11,7 @@ import { config, customEntities } from './config-example';
 
 class CustomDiagram extends React.PureComponent {
 
+
   constructor(props) {
       super(props);
       console.log(this.props)
