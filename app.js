@@ -1,31 +1,18 @@
 const express = require('express');
 const app = express();
 
+var sslRedirect = require('heroku-ssl-redirect');
+
+
 const index = require('./routes');
 const reactApp = require('./routes/app');
 const api = require('./routes/api');
 
 const path = require('path');
 
-
-// MIGRATE DATABASE (AWS ONLY)
-// const knex = require('./db/connection');
-// const config = require('./knexfile')['production'];
-
-// OR TO CREATE A SERIOUSLY DESTROY DATABASE knex.raw('CREATE DATABASE my_database')
-
-// knex.migrate.latest([config])
-//   .then((bar) => {
-//   	console.log(bar)
-//     return knex.seed.run();
-//   })
-//   .then((foo) => {
-//   	console.log(foo)
-//     console.log('migrations are finished')
-//   });
-
 // console.log('node process environment: ', process.env.NODE_ENV)
 
+app.use(sslRedirect());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // aka bodyparser
