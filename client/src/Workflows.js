@@ -142,7 +142,6 @@ export default class Workflows extends React.Component {
                                       handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
                                       model={this.state.workflows[this.state.workflow].name ? this.state.workflows[this.state.workflow].name : model} />
 
-
                               {/*<button onClick={this._onBoldClick.bind(this)}>Bold</button>*/}
                               {/*<Editor 
                                     editorState={this.state.editorState} 

@@ -40,7 +40,18 @@ export default class App extends React.Component {
 
   componentDidMount() {
 
-    
+          
+          // displayName: displayName,
+          // email: email,
+          // emailVerified: emailVerified,
+          // phoneNumber: phoneNumber,
+          // photoURL: photoURL,
+          // uid: uid,
+          // accessToken: accessToken,
+          // providerData: providerData
+
+
+
       
           // check that userid is logged in and fetch state
           this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
@@ -60,10 +71,6 @@ export default class App extends React.Component {
                  });
 
           });
-
-    
-
-
      
   }
 
@@ -155,14 +162,6 @@ export default class App extends React.Component {
 }
 
 
-                // displayName: displayName,
-                // email: email,
-                // emailVerified: emailVerified,
-                // phoneNumber: phoneNumber,
-                // photoURL: photoURL,
-                // uid: uid,
-                // accessToken: accessToken,
-                // providerData: providerData
 
 
 
