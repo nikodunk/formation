@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.text('patientmedicalrecordno');
     table.jsonb('name');
     table.text('dob');
+    table.text('usergroup').notNullable();
   });
 };
 

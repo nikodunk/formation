@@ -31,7 +31,7 @@ module.exports = {
     		.update({
                   patientuid: patientdata.patientuid,
                   patientmedicalrecordno: patientdata.patientmedicalrecordno,
-                  name: patientdata.name,
+                  name: JSON.stringify(patientdata.name),
                   dob: patientdata.dob,
                   healthplan: patientdata.healthplan,
                   provider: patientdata.provider

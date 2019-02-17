@@ -8,21 +8,26 @@ const api = require('./routes/api');
 const path = require('path');
 
 
-// // MIGRATE DATABASE
-// const knex = require('./db/connection');
-// const config = require('./knexfile')['production'];
-// // OR TO CREATE A SERIOUSLY DESTROY DATABASE knex.raw('CREATE DATABASE my_database')
-// knex.migrate.latest([config])
-//   .then((bar) => {
-//   	console.log(bar)
-//     return knex.seed.run();
-//   })
-//   .then((foo) => {
-//   	console.log(foo)
-//     console.log('migrations are finished')
-//   });
+// MIGRATE DATABASE
+const knex = require('./db/connection');
+const config = require('./knexfile')['production'];
 
-// console.log('node process environment: ', process.env.NODE_ENV)
+// OR TO CREATE A SERIOUSLY DESTROY DATABASE knex.raw('CREATE DATABASE my_database')
+
+knex.raw('DROP DATABASE paperworklabs')
+knex.raw('CREATE DATABASE paperworklabs')
+
+knex.migrate.latest([config])
+  .then((bar) => {
+  	console.log(bar)
+    return knex.seed.run();
+  })
+  .then((foo) => {
+  	console.log(foo)
+    console.log('migrations are finished')
+  });
+
+console.log('node process environment: ', process.env.NODE_ENV)
 
 
 app.use(express.urlencoded({ extended: false }));
