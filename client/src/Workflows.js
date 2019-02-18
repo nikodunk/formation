@@ -122,7 +122,7 @@ export default class Workflows extends React.Component {
 
                 <div class="column-left">
                       <div className="form-group">
-                        <label className="label">Workflows</label>
+                        <label className="label">Workflow Library</label>
                         <ul>
                           {!this.state.redraw ? this.makeWorkflowLinks() : null }
                         </ul>
