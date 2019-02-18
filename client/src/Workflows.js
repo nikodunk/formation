@@ -78,11 +78,16 @@ export default class Workflows extends React.Component {
   }
 
   updateWorkflow(){
-    let newState = this.state.workflows[this.state.currentWorkflow]
-    newState.graph = this.state.updatedGraph
+    let workflow = this.state.workflows[this.state.currentWorkflow]
+    workflow.graph = this.state.updatedGraph
 
     // update server
-    updateWorkflow(this.state.workflows[this.state.currentWorkflow].workflowuid, newState).then((res) => console.log(res))
+    updateWorkflow(this.state.workflows[this.state.currentWorkflow].workflowuid, workflow).then((res) => {
+          getAllWorkflowsForUsergroup(this.props.usergroup).then((result) => {
+                  this.setState({workflows: result, redraw: true, loading: true})
+                  setTimeout(() => {this.setState({redraw: false, loading: false})} , 100);
+                })
+    })
     this.setState({editing: !this.state.editing})
   }
 
@@ -92,10 +97,7 @@ export default class Workflows extends React.Component {
       console.log('THIS IS WHAT WAS RETURNED', res)
       this.setState({editing: false})
       getAllWorkflowsForUsergroup(this.props.usergroup).then((result) => {
-              // console.log(res)
-              let newCurrent = result.length-1
-              newCurrent = newCurrent.toString()
-              this.setState({workflows: result, redraw: true, workflow: newCurrent})
+              this.setState({workflows: result, redraw: true})
               setTimeout(() => {this.setState({redraw: false})} , 100);
             })
     })
