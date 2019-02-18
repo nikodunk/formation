@@ -79,7 +79,7 @@ export default class Workflows extends React.Component {
 
   updateWorkflow(){
     let workflow = this.state.workflows[this.state.currentWorkflow]
-    workflow.graph = this.state.updatedGraph
+    workflow.graph = this.state.updatedGraph ? this.state.updatedGraph : workflow.graph
 
     // update server
     updateWorkflow(this.state.workflows[this.state.currentWorkflow].workflowuid, workflow).then((res) => {
@@ -88,7 +88,7 @@ export default class Workflows extends React.Component {
                   setTimeout(() => {this.setState({redraw: false, loading: false})} , 100);
                 })
     })
-    this.setState({editing: !this.state.editing})
+    this.setState({editing: !this.state.editing, currentWorkflow: 1})
   }
 
   _deleteWorkflow(){
@@ -97,14 +97,18 @@ export default class Workflows extends React.Component {
       console.log('THIS IS WHAT WAS RETURNED', res)
       this.setState({editing: false})
       getAllWorkflowsForUsergroup(this.props.usergroup).then((result) => {
-              this.setState({workflows: result, redraw: true})
-              setTimeout(() => {this.setState({redraw: false})} , 100);
+              this.setState({workflows: result, redraw: true, loading: true})
+              setTimeout(() => {this.setState({redraw: false, loading: false})} , 100);
             })
     })
   }
 
   cancel(){
     this.setState({editing: !this.state.editing})
+  }
+
+  startEditing(){
+    this.setState({updatedGraph: null, editing: !this.state.editing})
   }
   
 
@@ -208,7 +212,7 @@ export default class Workflows extends React.Component {
 
                               <button 
                                     class="btn btn-info" 
-                                    onClick={() => {this.setState({editing: !this.state.editing})}}>
+                                    onClick={() => this.startEditing()}>
                                     Edit
                                     </button>
                             </p>
