@@ -14,7 +14,8 @@ const config = {
       height: 50,
     },
   },
-  gridSize: 25,
+  gridSize: 10,
+  backgroundColor: 'white'
 };
 
 const customEntities = {

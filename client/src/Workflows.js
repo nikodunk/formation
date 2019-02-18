@@ -11,7 +11,7 @@ export default class Workflows extends React.Component {
       super(props);
       
       this.state = {
-            workflow: 0,
+            currentWorkflow: 0,
             loading: false,
             redraw: false,
             
@@ -37,7 +37,7 @@ export default class Workflows extends React.Component {
   handleWorkflowSelect(e) {
     this.setState({loading: true})
     console.log(typeof e.target.value)
-    this.setState({workflow: e.target.value})
+    this.setState({currentWorkflow: e.target.value})
     setTimeout(() => {this.setState({loading: false})} , 100);
   }
 
@@ -68,7 +68,7 @@ export default class Workflows extends React.Component {
 
   handleWorkflowInfoChange(e, fieldname) {
     let newState = this.state
-    newState['workflows'][this.state.workflow][fieldname] = e.target.value;
+    newState['workflows'][this.state.currentWorkflow][fieldname] = e.target.value;
     this.setState(newState);
   }
 
@@ -78,17 +78,17 @@ export default class Workflows extends React.Component {
   }
 
   updateWorkflow(){
-    let newState = this.state.workflows[this.state.workflow]
+    let newState = this.state.workflows[this.state.currentWorkflow]
     newState.graph = this.state.updatedGraph
 
     // update server
-    updateWorkflow(this.props.workflowuid, newState).then((res) => console.log(res))
+    updateWorkflow(this.state.workflows[this.state.currentWorkflow].workflowuid, newState).then((res) => console.log(res))
     this.setState({editing: !this.state.editing})
   }
 
   _deleteWorkflow(){
-    console.log(this.state.workflows[this.state.workflow])
-    deleteWorkflow(this.props.usergroup, this.state.workflows[this.state.workflow]).then((res) => {
+    console.log(this.state.workflows[this.state.currentWorkflow])
+    deleteWorkflow(this.props.usergroup, this.state.workflows[this.state.currentWorkflow]).then((res) => {
       console.log('THIS IS WHAT WAS RETURNED', res)
       this.setState({editing: false})
       getAllWorkflowsForUsergroup(this.props.usergroup).then((result) => {
@@ -117,8 +117,8 @@ export default class Workflows extends React.Component {
                         <div className="form-inline">
                           {!this.state.redraw ?
                                           <select class="form-control col-7" 
-                                              selected={this.state.workflow}
-                                              value={this.state.workflow} 
+                                              selected={this.state.currentWorkflow}
+                                              value={this.state.currentWorkflow} 
                                               onChange={(e) => this.handleWorkflowSelect(e)}>
                                           {this.makeWorkflowSelections()}
                                         </select>
@@ -150,7 +150,7 @@ export default class Workflows extends React.Component {
                               <input 
                                     className="form-control" 
                                     onChange={(e) => this.handleWorkflowInfoChange(e, 'title')}
-                                    value={this.state.workflows[this.state.workflow].title} 
+                                    value={this.state.workflows[this.state.currentWorkflow].title} 
                                     placeholder={'Unique-Identification-Number-123'} />
                               <button 
                                       type="button" 
@@ -164,7 +164,7 @@ export default class Workflows extends React.Component {
 
                               <CustomDiagram
                                       handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
-                                      model={this.state.workflows[this.state.workflow].graph ? this.state.workflows[this.state.workflow].graph : model} />
+                                      model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
 
                               {/*<button onClick={this._onBoldClick.bind(this)}>Bold</button>*/}
                               {/*<Editor 
@@ -174,7 +174,7 @@ export default class Workflows extends React.Component {
                               <textarea 
                                     className="form-control" 
                                     onChange={(e) => this.handleWorkflowInfoChange(e, 'text')}
-                                    value={this.state.workflows[this.state.workflow].text} 
+                                    value={this.state.workflows[this.state.currentWorkflow].text} 
                                     placeholder={'Step 1...'}
                                     rows="10" />
                             </div>
@@ -193,7 +193,7 @@ export default class Workflows extends React.Component {
                           <div>
                             {/* WORKFLOW DISPLAY */}
                             <p>
-                              <b>{this.state.workflows[this.state.workflow].title}</b>&nbsp;&nbsp;
+                              <b>{this.state.workflows[this.state.currentWorkflow].title}</b>&nbsp;&nbsp;
 
                               <button 
                                     class="btn btn-info" 
@@ -204,9 +204,9 @@ export default class Workflows extends React.Component {
 
                             <CustomDiagram 
                                   handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
-                                  model={this.state.workflows[this.state.workflow].graph ? this.state.workflows[this.state.workflow].graph : model} />
+                                  model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
 
-                            <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.workflow].text}</p>
+                            <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.currentWorkflow].text}</p>
                             
                             
                           </div>
