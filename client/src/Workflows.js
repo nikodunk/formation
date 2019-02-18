@@ -211,11 +211,11 @@ export default class Workflows extends React.Component {
                                     </button>
                             </p>
 
+                            <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.currentWorkflow].text}</p>
+
                             <CustomDiagram 
                                   handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
                                   model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
-
-                            <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.currentWorkflow].text}</p>
                             
                             
                           </div>
