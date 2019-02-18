@@ -5,16 +5,7 @@ let uriBase = window.location.hostname === 'localhost'
           : `https://${window.location.hostname}`
 
 
-export function createNewWorkflow(usergroup){
-
-    return fetch(`${uriBase}/api/workflows/create/${usergroup}`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        }
-    }).then(res => {return res.json()})
-  }
+// USERGROUP
 
 export async function getUsergroup(uid, token){
       
@@ -29,6 +20,20 @@ export async function getUsergroup(uid, token){
 
 
 
+// WORKFLOWS
+
+export function createNewWorkflow(usergroup){
+
+    return fetch(`${uriBase}/api/workflows/create/${usergroup}`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }
+    }).then(res => {return res.json()})
+  }
+
+
 export async function getAllWorkflowsForUsergroup(org){
     
     let results = await fetch(`${uriBase}/api/workflows/get/${org}`)
@@ -40,7 +45,7 @@ export async function getAllWorkflowsForUsergroup(org){
   }
 
 
-export function updateWorkflow(workflowuid, workflowData ){
+export async function updateWorkflow(workflowuid, workflowData ){
 
       fetch(`${uriBase}/api/workflows/update/${workflowuid}`, {
           method: 'POST',
@@ -52,6 +57,22 @@ export function updateWorkflow(workflowuid, workflowData ){
       })
         .then(res => res.text()) 
         .then(json => { console.log(json); })
+        .catch(error => { console.log(error) });
+    }
+
+
+export async function deleteWorkflow(workflowuid, workflowData){
+      console.log('DELETING')
+      fetch(`${uriBase}/api/workflows/delete/${workflowuid}`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ workflowData }),
+      })
+        .then(res => res.text()) 
+        .then(json => { console.log(json); return json })
         .catch(error => { console.log(error) });
     }
 

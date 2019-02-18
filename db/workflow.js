@@ -15,10 +15,6 @@ module.exports = {
             .returning('workflowuid')
   },
 
-  getAll: function(){
-    return knex('workflows');
-  },
-
   getAllWorkflowsByUsergroup: function(usergroup){
     return knex('workflows')
         .where('usergroup', usergroup);
@@ -33,6 +29,13 @@ module.exports = {
                   text: workflowdata.text
                 })
         .where('workflowuid', workflowdata.workflowuid)
+  },
+
+
+  delete: function(workflowuid, workflowdata){
+    return knex('workflows')
+        .where('workflowuid', workflowdata.workflowuid)
+        .del()
   }
   
 }

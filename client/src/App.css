@@ -10,7 +10,8 @@ body {
 #main {
 	padding: 10px;
   text-align: left;
-  max-width: 600px;
+  max-width: 100%;
+  display: flex;
 	margin: 0 auto;
 	padding-bottom: 200px;
 }
@@ -80,10 +81,23 @@ select{
 
 
 .sc-gqjmRU{
-  height: 400px;
+  height: 800px;
   margin-bottom: 10px;
+  width: 800px;
 }
 
 .sc-VigVT{
-  height: 400px;
+  height: 800px;
+  width: 800px;
+}
+
+
+.column-left{
+  flex: 0.2;
+}
+
+
+
+.column-right{
+  flex: 0.8;
 }

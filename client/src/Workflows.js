@@ -3,7 +3,7 @@ import {Editor, EditorState, RichUtils} from 'draft-js';
 import CustomDiagram from './CustomDiagram'
 import model from './CustomDiagram/model-example';
 
-import { createNewWorkflow, getAllWorkflowsForUsergroup, updateWorkflow } from './api'
+import { createNewWorkflow, getAllWorkflowsForUsergroup, updateWorkflow, deleteWorkflow } from './api'
 
 export default class Workflows extends React.Component {
   
@@ -14,8 +14,6 @@ export default class Workflows extends React.Component {
             workflow: 0,
             loading: false,
             redraw: false,
-
-            hospital: null,
             
             workflows: null,
 
@@ -82,11 +80,26 @@ export default class Workflows extends React.Component {
   updateWorkflow(){
     let newState = this.state.workflows[this.state.workflow]
     newState.graph = this.state.updatedGraph
-    updateWorkflow(this.props.workflowuid, newState)
+
+    // update server
+    updateWorkflow(this.props.workflowuid, newState).then((res) => console.log(res))
     this.setState({editing: !this.state.editing})
   }
-  
 
+  _deleteWorkflow(){
+    console.log(this.state.workflows[this.state.workflow])
+    deleteWorkflow(this.props.usergroup, this.state.workflows[this.state.workflow]).then((res) => {
+      console.log('THIS IS WHAT WAS RETURNED', res)
+      this.setState({editing: false})
+      getAllWorkflowsForUsergroup(this.props.usergroup).then((result) => {
+              // console.log(res)
+              let newCurrent = result.length-1
+              newCurrent = newCurrent.toString()
+              this.setState({workflows: result, redraw: true, workflow: newCurrent})
+              setTimeout(() => {this.setState({redraw: false})} , 100);
+            })
+    })
+  }
   
 
   render() {
@@ -96,6 +109,8 @@ export default class Workflows extends React.Component {
               { this.state.workflows ? 
               <div id="main">
 
+
+                <div class="column-left">
                       <div className="form-group">
                         <label className="label">Pick Workflow</label>
 
@@ -108,17 +123,20 @@ export default class Workflows extends React.Component {
                                           {this.makeWorkflowSelections()}
                                         </select>
                                         : null }
-                          <p>&nbsp;&nbsp;&nbsp;</p>
-                          <button type="button" 
-                                  onClick={() => this.createWorkflow()} 
-                                  className="btn btn-info col-4">Add Workflow</button>
                         </div>
+                        <button type="button" 
+                                onClick={() => this.createWorkflow()} 
+                                className="btn btn-info col-4">Add Workflow</button>
                       </div>
+                </div>
 
 
+                <div class="column-right">
 
                     {!this.state.loading ?
-                    
+                
+
+
                       <div class="card">
                         <div class="card-body">
 
@@ -134,6 +152,12 @@ export default class Workflows extends React.Component {
                                     onChange={(e) => this.handleWorkflowInfoChange(e, 'title')}
                                     value={this.state.workflows[this.state.workflow].title} 
                                     placeholder={'Unique-Identification-Number-123'} />
+                              <button 
+                                      type="button" 
+                                      onClick={() => {this._deleteWorkflow()}}
+                                      className="btn btn-danger">
+                                      Delete Workflow
+                                      </button>
                             </div>
 
                             <div className="form-group">
@@ -153,9 +177,6 @@ export default class Workflows extends React.Component {
                                     value={this.state.workflows[this.state.workflow].text} 
                                     placeholder={'Step 1...'}
                                     rows="10" />
-
-
-
                             </div>
 
                             <button 
@@ -171,7 +192,15 @@ export default class Workflows extends React.Component {
                         
                           <div>
                             {/* WORKFLOW DISPLAY */}
-                            <p><b>{this.state.workflows[this.state.workflow].title}</b></p>
+                            <p>
+                              <b>{this.state.workflows[this.state.workflow].title}</b>&nbsp;&nbsp;
+
+                              <button 
+                                    class="btn btn-info" 
+                                    onClick={() => {this.setState({editing: !this.state.editing})}}>
+                                    Edit
+                                    </button>
+                            </p>
 
                             <CustomDiagram 
                                   handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
@@ -179,21 +208,22 @@ export default class Workflows extends React.Component {
 
                             <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.workflow].text}</p>
                             
-                            <br />
-                            <button 
-                                    class="btn btn-info" 
-                                    onClick={() => {this.setState({editing: !this.state.editing})}}>
-                                    Edit
-                                    </button>
+                            
                           </div>
                           }
                                                     
                       </div> 
                     </div>
                    : null }
+
+                   </div>
               
               </div> 
+
+
               : null }
+
+
             </div> 
 
     );

@@ -44,14 +44,6 @@ router.get('/users/get/:uid/:idToken', function(req, res, next) {
 
 
 // WORKFLOWS
-router.get('/workflows/get/all', function(req, res, next) {
-	     	
-	        Workflows.getAll().then(workflows => {
-	          res.json(workflows);
-	          console.log('GOT ALL WORKFLOWS')
-	        });
-    	}
-    )
 
 
 
@@ -101,55 +93,15 @@ router.post('/workflows/update/:workflowuid/', function(req, res, next) {
     )
 
 
+router.post('/workflows/delete/:workflowuid/', function(req, res, next) {
 
-
-// FORMS
-router.get('/forms/get/all', function(req, res, next) {
-	     	
-	        Forms.getAll().then(forms => {
-	          res.json(forms);
-	          console.log('GOT ALL FORMS')
+	        Workflows.delete(req.params.workflowuid, req.body.workflowData).then(workflows => {
+	          // console.log(workflows, req.params.usergroup)
+	          res.json(workflows);
+	          console.log('DELETED WORKFLOW ', req.params.workflowuid)
 	        });
-    	}
-    )
 
 
-
-router.get('/getform/:workflowuid/:formName', function(req, res, next) {
-
-			// admin.auth().verifyIdToken(idToken)
-			//   .then(function(decodedToken) {
-			//     var uid = decodedToken.uid;
-			//     // ...
-			//   }).catch(function(error) {
-			//     // Handle error
-			//   });
-
-			Forms.getByWorkflow(req.params.workflowuid, req.params.formName).then(forms => {
-			  // console.log(forms)
-			  res.json(forms);
-			  console.log('GOT FORMS FOR ', req.params.workflowuid)
-			});
-
-
-    	}
-    )
-
-router.post('/updateform/:workflowuid/:formName', function(req, res, next) {
-			
-			// admin.auth().verifyIdToken(idToken)
-			//   .then(function(decodedToken) {
-			//     var uid = decodedToken.uid;
-			//     // ...
-			//   }).catch(function(error) {
-			//     // Handle error
-			//   });
-
-			Forms.updateByWorkflow(req.params.workflowuid, req.params.formName, JSON.stringify(req.body)).then(forms => {
-			  res.json(forms);
-			  console.log('UPDATED FORMS', req.params.workflowuid, req.params.formName)
-			});
-			
     	}
     )
 
