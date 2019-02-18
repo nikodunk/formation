@@ -41,10 +41,10 @@ export default class Workflows extends React.Component {
     setTimeout(() => {this.setState({loading: false})} , 100);
   }
 
-  makeWorkflowSelections(){
+  makeWorkflowLinks(){
     let results = []
       for (var i = 0; i < this.state.workflows.length; i++) {
-          results.push( <p onClick={this.handleWorkflowSelect.bind(this)} id={i}>{this.state.workflows[i].title}</p>)
+          results.push( <li class="leftlink" onClick={this.handleWorkflowSelect.bind(this)} id={i}>{this.state.workflows[i].title}</li>)
         }
     return results
   }
@@ -123,8 +123,9 @@ export default class Workflows extends React.Component {
                 <div class="column-left">
                       <div className="form-group">
                         <label className="label">Workflows</label>
-                          {!this.state.redraw ? this.makeWorkflowSelections() : null }
-
+                        <ul>
+                          {!this.state.redraw ? this.makeWorkflowLinks() : null }
+                        </ul>
                         <button type="button" 
                                 onClick={() => this.createWorkflow()} 
                                 className="btn btn-primary">Add Workflow</button>

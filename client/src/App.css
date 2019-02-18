@@ -104,3 +104,8 @@ select{
 .column-right{
   flex: 0.8;
 }
+
+.leftlink{
+  cursor: pointer;
+  color: dodgerblue;
+}
