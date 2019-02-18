@@ -5,3 +5,6 @@ knex seed:run
 # heroku restart -a paperworklabs
 # heroku pg:reset DATABASE -a paperworklabs
 # heroku run knex migrate:latest -a paperworklabs && heroku run knex seed:run -a paperworklabs
+
+
+# heroku pg:backups:restore --app paperworklabs

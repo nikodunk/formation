@@ -36,15 +36,15 @@ export default class Workflows extends React.Component {
 
   handleWorkflowSelect(e) {
     this.setState({loading: true})
-    console.log(typeof e.target.value)
-    this.setState({currentWorkflow: e.target.value})
+    console.log(e.target.id)
+    this.setState({currentWorkflow: e.target.id})
     setTimeout(() => {this.setState({loading: false})} , 100);
   }
 
   makeWorkflowSelections(){
     let results = []
-      for (var workflow in this.state.workflows) {
-          results.push( <option value={workflow}>{this.state.workflows[workflow].title}</option>)
+      for (var i = 0; i < this.state.workflows.length; i++) {
+          results.push( <p onClick={this.handleWorkflowSelect.bind(this)} id={i}>{this.state.workflows[i].title}</p>)
         }
     return results
   }
@@ -112,21 +112,12 @@ export default class Workflows extends React.Component {
 
                 <div class="column-left">
                       <div className="form-group">
-                        <label className="label">Pick Workflow</label>
+                        <label className="label">Workflows</label>
+                          {!this.state.redraw ? this.makeWorkflowSelections() : null }
 
-                        <div className="form-inline">
-                          {!this.state.redraw ?
-                                          <select class="form-control col-7" 
-                                              selected={this.state.currentWorkflow}
-                                              value={this.state.currentWorkflow} 
-                                              onChange={(e) => this.handleWorkflowSelect(e)}>
-                                          {this.makeWorkflowSelections()}
-                                        </select>
-                                        : null }
-                        </div>
                         <button type="button" 
                                 onClick={() => this.createWorkflow()} 
-                                className="btn btn-info col-4">Add Workflow</button>
+                                className="btn btn-info">Add Workflow</button>
                       </div>
                 </div>
 
