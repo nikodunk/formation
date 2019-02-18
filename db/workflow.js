@@ -22,13 +22,13 @@ module.exports = {
 
   update: function(workflowuid, workflowdata){
     return knex('workflows')
+        .where('workflowuid', workflowdata.workflowuid)
     		.update({
                   workflowuid: workflowdata.workflowuid,
                   title: workflowdata.title,
                   graph: JSON.stringify(workflowdata.graph),
                   text: workflowdata.text
                 })
-        .where('workflowuid', workflowdata.workflowuid)
   },
 
 
