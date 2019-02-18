@@ -79,16 +79,19 @@ select{
   box-shadow: none !important;
 }
 
-
+/* outer div*/
 .sc-gqjmRU{
-  height: 800px;
+  height: 1200px;
   margin-bottom: 10px;
   width: 800px;
 }
 
+/* svg's div*/
 .sc-VigVT{
-  height: 800px;
+  height: 1200px;
   width: 800px;
+  background-image: none !important;
+  background-color: #ffffff !important
 }
 
 

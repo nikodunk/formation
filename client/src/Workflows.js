@@ -100,6 +100,10 @@ export default class Workflows extends React.Component {
             })
     })
   }
+
+  cancel(){
+    this.setState({editing: !this.state.editing})
+  }
   
 
   render() {
@@ -117,7 +121,7 @@ export default class Workflows extends React.Component {
 
                         <button type="button" 
                                 onClick={() => this.createWorkflow()} 
-                                className="btn btn-info">Add Workflow</button>
+                                className="btn btn-primary">Add Workflow</button>
                       </div>
                 </div>
 
@@ -149,9 +153,33 @@ export default class Workflows extends React.Component {
                                       className="btn btn-danger">
                                       Delete Workflow
                                       </button>
+                            
+
+                            <button 
+                                    type="button" 
+                                    onClick={() => {this.updateWorkflow()}}
+                                    className="btn btn-success">
+                                    Save Workflow
+                                    </button>
+
+                            <button 
+                                    type="button" 
+                                    onClick={() => {this.cancel()}}
+                                    className="btn btn-info">
+                                    Cancel
+                                    </button>
+                            
                             </div>
 
                             <div className="form-group">
+
+                              <textarea 
+                                    className="form-control" 
+                                    onChange={(e) => this.handleWorkflowInfoChange(e, 'text')}
+                                    value={this.state.workflows[this.state.currentWorkflow].text} 
+                                    placeholder={'Step 1...'}
+                                    rows="10" />
+
 
                               <CustomDiagram
                                       handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
@@ -162,20 +190,10 @@ export default class Workflows extends React.Component {
                                     editorState={this.state.editorState} 
                                     onChange={this.onChange}
                                     handleKeyCommand={this.handleKeyCommand} />*/}
-                              <textarea 
-                                    className="form-control" 
-                                    onChange={(e) => this.handleWorkflowInfoChange(e, 'text')}
-                                    value={this.state.workflows[this.state.currentWorkflow].text} 
-                                    placeholder={'Step 1...'}
-                                    rows="10" />
+                              
                             </div>
 
-                            <button 
-                                    type="button" 
-                                    onClick={() => {this.updateWorkflow()}}
-                                    className="btn btn-info">
-                                    Save Workflow
-                                    </button>
+                            
                           </div>
 
                           :
