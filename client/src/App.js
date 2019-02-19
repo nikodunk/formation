@@ -131,9 +131,9 @@ export default class App extends React.Component {
                       eClinicalWorks
                     </a>
                     
-                   {/* <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
-                      Report Dashboard
-                    </a>*/}
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      Epic
+                    </a>
                     
                     <a className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {this.logout()}}>Logout</a>
                   </div>
