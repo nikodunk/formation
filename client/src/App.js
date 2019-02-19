@@ -134,6 +134,30 @@ export default class App extends React.Component {
                     <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
                       Epic
                     </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      Practice Fusion
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      NextGen
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      AllScripts
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      Greenway
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      athenahealth
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      Centricity
+                    </a>
                     
                     <a className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {this.logout()}}>Logout</a>
                   </div>
@@ -141,7 +165,8 @@ export default class App extends React.Component {
               </div>
             </nav>
 
-            
+
+
             {/* APP  */}
             {this.state.usergroup ? 
               <div style={{paddingTop: 55}}> 
