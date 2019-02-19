@@ -127,20 +127,17 @@ export default class App extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div className="navbar-nav">
                     
-                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
-                      eClinicalWorks
-                    </a>
                     
                     <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
                       Epic
                     </a>
 
                     <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
-                      Practice Fusion
+                      NextGen
                     </a>
 
-                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
-                      NextGen
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
+                      eClinicalWorks
                     </a>
 
                     <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
@@ -155,10 +152,6 @@ export default class App extends React.Component {
                       athenahealth
                     </a>
 
-                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
-                      Centricity
-                    </a>
-                    
                     <a className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {this.logout()}}>Logout</a>
                   </div>
                 </div> 
