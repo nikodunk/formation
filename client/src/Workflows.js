@@ -162,22 +162,25 @@ export default class Workflows extends React.Component {
                                     onChange={(e) => this.handleWorkflowInfoChange(e, 'title')}
                                     value={this.state.workflows[this.state.currentWorkflow].title} 
                                     placeholder={'Unique-Identification-Number-123'} />
+
+                              {' '}
                               <button 
                                       type="button" 
                                       onClick={() => {this._deleteWorkflow()}}
                                       className="btn btn-danger">
                                       Delete Workflow
                                       </button>
-                            
-
-                            <button 
+                              
+                              {' '}
+                              <button 
                                     type="button" 
                                     onClick={() => {this.updateWorkflow()}}
                                     className="btn btn-success">
                                     Save Workflow
                                     </button>
 
-                            <button 
+                              {' '}
+                              <button 
                                     type="button" 
                                     onClick={() => {this.cancel()}}
                                     className="btn btn-info">
