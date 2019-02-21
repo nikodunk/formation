@@ -2,6 +2,8 @@ import Task from './task/component';
 import taskIcon from './task/icon';
 import Event from './event/component';
 import eventIcon from './event/icon';
+import Text from './text/component';
+import textIcon from './text/icon';
 
 const config = {
   entityTypes: {
@@ -13,9 +15,12 @@ const config = {
       width: 50,
       height: 50,
     },
+    Text: {
+      width: 50,
+      height: 50,
+    },
   },
-  gridSize: 10,
-  backgroundColor: 'white'
+  gridSize: 10
 };
 
 const customEntities = {
@@ -26,6 +31,10 @@ const customEntities = {
   Event: {
     component: Event,
     icon: eventIcon,
+  },
+  Text: {
+    component: Text,
+    icon: textIcon,
   },
 };
 
