@@ -20,7 +20,8 @@ export default class Workflows extends React.Component {
             editing: false,
 
             editorState: EditorState.createEmpty(),
-            updatedGraph: null
+            updatedGraph: null,
+            updatedImage: null
           }
 
       this.onChange = (editorState) => this.setState({editorState});
@@ -49,20 +50,36 @@ export default class Workflows extends React.Component {
     return results
   }
 
+  makeImageTexts( inputs ){
+    let results = []
+      for (var i = 0; i < inputs.length; i++) {
+          results.push( <p id={i}>{inputs[i]}</p>)
+        }
+    return results
+  }
+
+  makeImages( inputs ){
+    let results = []
+      for (var i = 0; i < inputs.length; i++) {
+          results.push( <img id={i} src={inputs[i]} alt="screenshot" />)
+        }
+    return results
+  }
+
+
 
   createWorkflow(){
     
     createNewWorkflow(this.props.usergroup).then((res) => {
       console.log(res)
       getAllWorkflowsForUsergroup(this.props.usergroup).then((result) => {
-              // console.log(res)
+              console.log(res)
               let newCurrent = result.length-1
               newCurrent = newCurrent.toString()
               this.setState({workflows: result, redraw: true, workflow: newCurrent})
               setTimeout(() => {this.setState({redraw: false})} , 100);
             })
     })
-
   }
 
 
@@ -70,6 +87,17 @@ export default class Workflows extends React.Component {
     let newState = this.state
     newState['workflows'][this.state.currentWorkflow][fieldname] = e.target.value;
     this.setState(newState);
+  }
+
+
+
+  _addImage(currentworkflow){
+    // console.log(this.state.workflows[this.state.currentWorkflow])
+    let newWorkflows = this.state.workflows
+    if (newWorkflows[this.state.currentWorkflow].images === null) { newWorkflows[this.state.currentWorkflow].images = [] }
+    newWorkflows[this.state.currentWorkflow].images.push(this.state.updatedImage)
+    this.setState({workflows: newWorkflows})
+    console.log(this.state.workflows)
   }
 
   handleGraphUpdate(updatedGraph){
@@ -80,6 +108,8 @@ export default class Workflows extends React.Component {
   updateWorkflow(){
     let workflow = this.state.workflows[this.state.currentWorkflow]
     workflow.graph = this.state.updatedGraph ? this.state.updatedGraph : workflow.graph
+
+    // console.log('updatedworkflow:', workflow) // works
 
     // update server
     updateWorkflow(this.state.workflows[this.state.currentWorkflow].workflowuid, workflow).then((res) => {
@@ -208,6 +238,27 @@ export default class Workflows extends React.Component {
                                     editorState={this.state.editorState} 
                                     onChange={this.onChange}
                                     handleKeyCommand={this.handleKeyCommand} />*/}
+
+
+                              <input 
+                                    className="form-control" 
+                                    onChange={(e) => this.setState({updatedImage: e.target.value})}
+                                    value={this.state.updatedImage}
+                                    placeholder={'https://image.com/img.jpg'} />
+
+                              <button 
+                                    class="btn btn-info" 
+                                    onClick={() => this._addImage(this.state.workflows[this.state.currentWorkflow])}>
+                                    Attach Image
+                                    </button>
+
+                              <br />
+
+                              <br />
+
+                              { this.makeImageTexts(this.state.workflows[this.state.currentWorkflow].images) }
+
+
                               
                             </div>
 
@@ -234,7 +285,9 @@ export default class Workflows extends React.Component {
                             <CustomDiagram 
                                   handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
                                   model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
-                            
+
+                            { this.makeImages(this.state.workflows[this.state.currentWorkflow].images) }
+
                             
                           </div>
                           }

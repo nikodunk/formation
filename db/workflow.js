@@ -27,7 +27,8 @@ module.exports = {
                   workflowuid: workflowdata.workflowuid,
                   title: workflowdata.title,
                   graph: JSON.stringify(workflowdata.graph),
-                  text: workflowdata.text
+                  text: workflowdata.text,
+                  images: workflowdata.images
                 })
   },
 

@@ -46,7 +46,7 @@ export async function getAllWorkflowsForUsergroup(org){
 
 
 export async function updateWorkflow(workflowuid, workflowData ){
-
+  
       fetch(`${uriBase}/api/workflows/update/${workflowuid}`, {
           method: 'POST',
           headers: {

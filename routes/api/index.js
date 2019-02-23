@@ -44,9 +44,6 @@ router.get('/users/get/:uid/:idToken', function(req, res, next) {
 
 
 // WORKFLOWS
-
-
-
 router.post('/workflows/create/:usergroup', function(req, res, next) {
 	        
 	        Workflows.createNew(req.params.usergroup).then(workflowuid => {
@@ -81,9 +78,7 @@ router.get('/workflows/get/:usergroup', function(req, res, next) {
 
 
 router.post('/workflows/update/:workflowuid/', function(req, res, next) {
-
 	        Workflows.update(req.params.workflowuid, req.body.workflowData).then(workflows => {
-	          // console.log(workflows, req.params.usergroup)
 	          res.json(workflows);
 	          console.log('UPDATED WORKFLOW ', req.params.workflowuid)
 	        });
