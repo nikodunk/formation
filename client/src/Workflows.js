@@ -61,7 +61,7 @@ export default class Workflows extends React.Component {
   makeImages( inputs ){
     let results = []
       for (var i = 0; i < inputs.length; i++) {
-          results.push( <img id={i} src={inputs[i]} alt="screenshot" />)
+          results.push( <img class="screenshot" id={i} src={inputs[i]} alt="screenshot" />)
         }
     return results
   }
