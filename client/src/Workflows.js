@@ -256,10 +256,9 @@ export default class Workflows extends React.Component {
 
                               <br />
 
-                              { this.makeImageTexts(this.state.workflows[this.state.currentWorkflow].images) }
+                              { this.state.workflows[this.state.currentWorkflow].images ? this.makeImageTexts(this.state.workflows[this.state.currentWorkflow].images) : null }
 
 
-                              
                             </div>
 
                             
