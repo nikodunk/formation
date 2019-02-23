@@ -83,13 +83,13 @@ select{
 .sc-gqjmRU{
   height: 1800px;
   margin-bottom: 10px;
-  width: 800px;
+  width: 100%;
 }
 
 /* svg's div*/
 .sc-VigVT{
   height: 1800px;
-  width: 800px;
+  width: 100%;
   background-image: none !important;
   background-color: #ffffff !important
 }
@@ -112,6 +112,6 @@ select{
 
 
 .screenshot{
-  max-width: 100%;
+  width: 100%;
   padding: 10px;
 }

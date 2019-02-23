@@ -186,11 +186,11 @@ export default class Workflows extends React.Component {
 
                           <div style={{display: 'flex', flexDirection: 'row'}}>
                           {/* WORKFLOW EDITOR */}
-                            <div style={{flex: .4}}>
+                            <div style={{flex: .6}}>
                               <div className="form-group">
                                 <input 
                                       className="form-control"
-                                      style={{width: '100%'}}
+                                      style={{maxWidth: '100%'}}
                                       onChange={(e) => this.handleWorkflowInfoChange(e, 'title')}
                                       value={this.state.workflows[this.state.currentWorkflow].title} 
                                       placeholder={'Unique-Identification-Number-123'} />
@@ -224,7 +224,7 @@ export default class Workflows extends React.Component {
                               <div className="form-group">
 
                                 <textarea 
-                                      style={{width: '100%'}}
+                                      style={{maxWidth: '100%'}}
                                       className="form-control" 
                                       onChange={(e) => this.handleWorkflowInfoChange(e, 'text')}
                                       value={this.state.workflows[this.state.currentWorkflow].text} 
@@ -274,7 +274,7 @@ export default class Workflows extends React.Component {
 
                         
                           <div style={{display: 'flex', flexDirection: 'row'}}>
-                            <div style={{flex: .5}}>
+                            <div style={{flex: .6}}>
                               {/* WORKFLOW DISPLAY */}
                               <p>
                                 <b>{this.state.workflows[this.state.currentWorkflow].title}</b>&nbsp;&nbsp;
