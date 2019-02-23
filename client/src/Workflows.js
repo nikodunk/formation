@@ -286,7 +286,7 @@ export default class Workflows extends React.Component {
                                   handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
                                   model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
 
-                            { this.makeImages(this.state.workflows[this.state.currentWorkflow].images) }
+                            { this.state.workflows[this.state.currentWorkflow].images ? this.makeImages(this.state.workflows[this.state.currentWorkflow].images) : null }
 
                             
                           </div>
