@@ -184,109 +184,120 @@ export default class Workflows extends React.Component {
 
 
 
-                          <div>
+                          <div style={{display: 'flex', flexDirection: 'row'}}>
                           {/* WORKFLOW EDITOR */}
-                            <div className="form-group">
-                              <input 
-                                    className="form-control" 
-                                    onChange={(e) => this.handleWorkflowInfoChange(e, 'title')}
-                                    value={this.state.workflows[this.state.currentWorkflow].title} 
-                                    placeholder={'Unique-Identification-Number-123'} />
+                            <div style={{flex: .4}}>
+                              <div className="form-group">
+                                <input 
+                                      className="form-control"
+                                      style={{width: '100%'}}
+                                      onChange={(e) => this.handleWorkflowInfoChange(e, 'title')}
+                                      value={this.state.workflows[this.state.currentWorkflow].title} 
+                                      placeholder={'Unique-Identification-Number-123'} />
 
-                              {' '}
-                              <button 
+                                {' '}
+                                <button 
+                                        type="button" 
+                                        onClick={() => {this._deleteWorkflow()}}
+                                        className="btn btn-danger">
+                                        Delete Workflow
+                                        </button>
+                                
+                                {' '}
+                                <button 
                                       type="button" 
-                                      onClick={() => {this._deleteWorkflow()}}
-                                      className="btn btn-danger">
-                                      Delete Workflow
+                                      onClick={() => {this.updateWorkflow()}}
+                                      className="btn btn-success">
+                                      Save Workflow
+                                      </button>
+
+                                {' '}
+                                <button 
+                                      type="button" 
+                                      onClick={() => {this.cancel()}}
+                                      className="btn btn-info">
+                                      Cancel
                                       </button>
                               
-                              {' '}
-                              <button 
-                                    type="button" 
-                                    onClick={() => {this.updateWorkflow()}}
-                                    className="btn btn-success">
-                                    Save Workflow
-                                    </button>
+                              </div>
 
-                              {' '}
-                              <button 
-                                    type="button" 
-                                    onClick={() => {this.cancel()}}
-                                    className="btn btn-info">
-                                    Cancel
-                                    </button>
-                            
+                              <div className="form-group">
+
+                                <textarea 
+                                      style={{width: '100%'}}
+                                      className="form-control" 
+                                      onChange={(e) => this.handleWorkflowInfoChange(e, 'text')}
+                                      value={this.state.workflows[this.state.currentWorkflow].text} 
+                                      placeholder={'Step 1...'}
+                                      rows="10" />
+
+
+                                <CustomDiagram
+                                        handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
+                                        model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
+
+                                {/*<button onClick={this._onBoldClick.bind(this)}>Bold</button>*/}
+                                {/*<Editor 
+                                      editorState={this.state.editorState} 
+                                      onChange={this.onChange}
+                                      handleKeyCommand={this.handleKeyCommand} />*/}
                             </div>
+                            <div style={{flex: .4}}>
 
-                            <div className="form-group">
+                                <input 
+                                      style={{width: '100%'}}
+                                      className="form-control" 
+                                      onChange={(e) => this.setState({updatedImage: e.target.value})}
+                                      value={this.state.updatedImage}
+                                      placeholder={'https://image.com/img.jpg'} />
 
-                              <textarea 
-                                    className="form-control" 
-                                    onChange={(e) => this.handleWorkflowInfoChange(e, 'text')}
-                                    value={this.state.workflows[this.state.currentWorkflow].text} 
-                                    placeholder={'Step 1...'}
-                                    rows="10" />
+                                <button 
+                                      class="btn btn-info" 
+                                      onClick={() => this._addImage(this.state.workflows[this.state.currentWorkflow])}>
+                                      Attach Image
+                                      </button>
+
+                                <br />
+
+                                <br />
+
+                                { this.state.workflows[this.state.currentWorkflow].images ? this.makeImageTexts(this.state.workflows[this.state.currentWorkflow].images) : null }
 
 
-                              <CustomDiagram
-                                      handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
-                                      model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
-
-                              {/*<button onClick={this._onBoldClick.bind(this)}>Bold</button>*/}
-                              {/*<Editor 
-                                    editorState={this.state.editorState} 
-                                    onChange={this.onChange}
-                                    handleKeyCommand={this.handleKeyCommand} />*/}
-
-
-                              <input 
-                                    className="form-control" 
-                                    onChange={(e) => this.setState({updatedImage: e.target.value})}
-                                    value={this.state.updatedImage}
-                                    placeholder={'https://image.com/img.jpg'} />
-
-                              <button 
-                                    class="btn btn-info" 
-                                    onClick={() => this._addImage(this.state.workflows[this.state.currentWorkflow])}>
-                                    Attach Image
-                                    </button>
-
-                              <br />
-
-                              <br />
-
-                              { this.state.workflows[this.state.currentWorkflow].images ? this.makeImageTexts(this.state.workflows[this.state.currentWorkflow].images) : null }
-
+                              </div>
 
                             </div>
-
-                            
+                          
                           </div>
 
                           :
 
                         
-                          <div>
-                            {/* WORKFLOW DISPLAY */}
-                            <p>
-                              <b>{this.state.workflows[this.state.currentWorkflow].title}</b>&nbsp;&nbsp;
+                          <div style={{display: 'flex', flexDirection: 'row'}}>
+                            <div style={{flex: .5}}>
+                              {/* WORKFLOW DISPLAY */}
+                              <p>
+                                <b>{this.state.workflows[this.state.currentWorkflow].title}</b>&nbsp;&nbsp;
 
-                              <button 
-                                    class="btn btn-info" 
-                                    onClick={() => this.startEditing()}>
-                                    Edit
-                                    </button>
-                            </p>
+                                <button 
+                                      class="btn btn-info" 
+                                      onClick={() => this.startEditing()}>
+                                      Edit
+                                      </button>
+                              </p>
 
-                            <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.currentWorkflow].text}</p>
+                              <p style={{whiteSpace: 'pre-wrap'}}>{this.state.workflows[this.state.currentWorkflow].text}</p>
 
-                            <CustomDiagram 
-                                  handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
-                                  model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
+                              <CustomDiagram 
+                                    handleGraphUpdate={this.handleGraphUpdate.bind(this)} 
+                                    model={this.state.workflows[this.state.currentWorkflow].graph ? this.state.workflows[this.state.currentWorkflow].graph : model} />
+                            
+                            </div>
+                            <div style={{flex: .4}}>
 
-                            { this.state.workflows[this.state.currentWorkflow].images ? this.makeImages(this.state.workflows[this.state.currentWorkflow].images) : null }
+                              { this.state.workflows[this.state.currentWorkflow].images ? this.makeImages(this.state.workflows[this.state.currentWorkflow].images) : null }
 
+                            </div>
                             
                           </div>
                           }
