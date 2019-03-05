@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-var sslRedirect = require('heroku-ssl-redirect');
+// var sslRedirect = require('heroku-ssl-redirect');
 
 
 const index = require('./routes');
@@ -12,7 +12,7 @@ const path = require('path');
 
 // console.log('node process environment: ', process.env.NODE_ENV)
 
-app.use(sslRedirect());
+// app.use(sslRedirect());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // aka bodyparser
