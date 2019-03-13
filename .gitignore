@@ -8,4 +8,3 @@ client/node_modules/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-paperworklabs-firebase-adminsdk-7dyaq-0f6f3b29ff.json
