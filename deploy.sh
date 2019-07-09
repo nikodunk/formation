@@ -19,6 +19,9 @@ git commit -m "$commitmessage"
 
 git push origin develop
 
-echo -e "\033[0;32mPushing to AWS...\033[0m"
 
-eb deploy
+
+
+# echo -e "\033[0;32mPushing to AWS...\033[0m"
+
+# eb deploy

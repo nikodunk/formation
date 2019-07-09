@@ -10,7 +10,8 @@ body {
 #main {
 	padding: 10px;
   text-align: left;
-  max-width: 600px;
+  max-width: 100%;
+  display: flex;
 	margin: 0 auto;
 	padding-bottom: 200px;
 }
@@ -76,4 +77,41 @@ select{
 
 .mdl-shadow--2dp{
   box-shadow: none !important;
+}
+
+/* outer div*/
+.sc-gqjmRU{
+  height: 1800px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* svg's div*/
+.sc-VigVT{
+  height: 1800px;
+  width: 100%;
+  background-image: none !important;
+  background-color: #ffffff !important
+}
+
+
+.column-left{
+  flex: 0.2;
+}
+
+
+
+.column-right{
+  flex: 0.8;
+}
+
+.leftlink{
+  cursor: pointer;
+  color: dodgerblue;
+}
+
+
+.screenshot{
+  width: 100%;
+  padding: 10px;
 }
