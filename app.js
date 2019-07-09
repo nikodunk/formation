@@ -1,26 +1,18 @@
 const express = require('express');
 const app = express();
 
+// var sslRedirect = require('heroku-ssl-redirect');
+
+
 const index = require('./routes');
 const reactApp = require('./routes/app');
 const api = require('./routes/api');
 
-// // MIGRATE DATABASE
-// const knex = require('./db/connection');
-// const config = require('./knexfile')['production'];
-// // OR TO CREATE A SERIOUSLY DESTROY DATABASE knex.raw('CREATE DATABASE my_database')
-// knex.migrate.latest([config])
-//   .then((bar) => {
-//   	console.log(bar)
-//     return knex.seed.run();
-//   })
-//   .then((foo) => {
-//   	console.log(foo)
-//     console.log('migrations are finished')
-//   });
+const path = require('path');
 
 // console.log('node process environment: ', process.env.NODE_ENV)
 
+// app.use(sslRedirect());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // aka bodyparser
@@ -32,7 +24,14 @@ app.use(express.static('client/build')); // static react JS client app files
 
 app.use('/api', api); // api routes
 app.use('/app', reactApp); // app routes
+
+app.get('/forms', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/forms.html'));
+});
+
+
 app.use('*', index) // 
+
 
 
 // catch 404 and forward to error handler

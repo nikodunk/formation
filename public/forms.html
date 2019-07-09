@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paperwork labs | Healthcare Form Generator</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <!-- my own stylesheet -->
+    <link rel="stylesheet" href="./app.css">
+
+
+    <!-- mixpanel -->
+    <!-- start Mixpanel --><script type="text/javascript">(function(c,a){if(!a.__SV){var b=window;try{var d,m,j,k=b.location,f=k.hash;d=function(a,b){return(m=a.match(RegExp(b+"=([^&]*)")))?m[1]:null};f&&d(f,"state")&&(j=JSON.parse(decodeURIComponent(d(f,"state"))),"mpeditor"===j.action&&(b.sessionStorage.setItem("_mpcehash",f),history.replaceState(j.desiredHash||"",c.title,k.pathname+k.search)))}catch(n){}var l,h;window.mixpanel=a;a._i=[];a.init=function(b,d,g){function c(b,i){var a=i.split(".");2==a.length&&(b=b[a[0]],i=a[1]);b[i]=function(){b.push([i].concat(Array.prototype.slice.call(arguments,
+    0)))}}var e=a;"undefined"!==typeof g?e=a[g]=[]:g="mixpanel";e.people=e.people||[];e.toString=function(b){var a="mixpanel";"mixpanel"!==g&&(a+="."+g);b||(a+=" (stub)");return a};e.people.toString=function(){return e.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+    for(h=0;h<l.length;h++)c(e,l[h]);var f="set set_once union unset remove delete".split(" ");e.get_group=function(){function a(c){b[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));e.push([d,call2])}}for(var b={},d=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<f.length;c++)a(f[c]);return b};a._i.push([b,d,g])};a.__SV=1.2;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
+    MIXPANEL_CUSTOM_LIB_URL:"file:"===c.location.protocol&&"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d)}})(document,window.mixpanel||[]);
+    mixpanel.init("186f6fc97025736f07caf3eac7a02b44");</script><!-- end Mixpanel -->
+
+</head>
+
+<body>
+	
+	   <nav class="navbar navbar-light navbar-expand-md" >
+        <a class="navbar-brand" href="/">
+          <img src="./icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          paperwork labs
+        </a>
+        <span class="navbar-text" style="margin-right: auto">
+          <!-- Healthcare Form Automation -->
+        </span>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Workflows<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/forms">Forms</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="/app">Login</a>
+            </li>
+            
+          </ul>
+        </div>
+
+      </nav>
+
+    <div class="jumbotron" style="text-align: center; background-color: salmon !important; padding-top: 100px; ">
+      
+      <!-- title -->
+      <h1 class="display-4" >Smart forms. Smarter reports.</h1>
+
+      <!-- three benefits -->
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around; max-width: 800px; margin: 0 auto; margin-top: 30px; §">
+        <div style="width: 200px; padding: 20px;">
+            <h1><i class="fas fa-check"></i></h1>
+            <h2>Pre-filled</h2>
+            <p>
+                Save time with cloud-based smart forms: Pre-set common defaults for repetitive healthcare forms.
+            </p>
+        </div>
+        <div style="max-width: 200px; padding: 20px; ">
+            <h1><i class="fas fa-file-pdf"></i></h1>
+            <h2>Export</h2>
+            <p>
+                Export anywhere. Generators available for PDF, CSV, FAX, and attach to them patient docs.
+            </p>
+        </div>
+        <div style="max-width: 200px; padding: 20px; ">
+            <h1><i class="fas fa-chart-bar"></i></h1>
+            <h2>Reports</h2>
+            <p>
+                Data is aggregated, so you can refer back to and run reports on your newly-structured data.
+            </p>
+        </div>
+      </div>
+
+      <!-- hr -->
+      <hr style="max-width: 800px" class="my-4">
+
+
+      <!-- video -->
+      <div style=" max-width: 600px; height: 340px; margin: 50px auto;">
+        <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/IZHnqU43t0s?cc_load_policy=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+
+    
+      <!-- call to action -->
+
+      <p >Click below to schedule a demo, or <a href="mailto: niko@paperworklabs.com">contact us</a> for more information.</p>
+      <a class="btn btn-primary btn-lg" href="mailto: niko@paperworklabs.com" role="button">Schedule a Demo</a>
+      <br><br><br>
+    </div>
+
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">paperwork labs – Big Set Software, LLC | © 2019 All rights reserved</span>
+      </div>
+    </footer>
+    
+</body>
+
+</html>

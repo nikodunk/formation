@@ -4,8 +4,8 @@ import firebase from './auth/firebase';
 
 import './App.css';
 
-import ReportingDashboard from './ReportingDashboard'
-import PatientSmartForms from './PatientSmartForms'
+
+import Workflows from './Workflows'
 
 import { getUsergroup } from './api'
 
@@ -40,7 +40,18 @@ export default class App extends React.Component {
 
   componentDidMount() {
 
-    
+          
+          // displayName: displayName,
+          // email: email,
+          // emailVerified: emailVerified,
+          // phoneNumber: phoneNumber,
+          // photoURL: photoURL,
+          // uid: uid,
+          // accessToken: accessToken,
+          // providerData: providerData
+
+
+
       
           // check that userid is logged in and fetch state
           this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
@@ -60,10 +71,6 @@ export default class App extends React.Component {
                  });
 
           });
-
-    
-
-
      
   }
 
@@ -89,7 +96,7 @@ export default class App extends React.Component {
                 &nbsp;paperwork labs
               </a>
               <span className="navbar-text" style={{marginRight: "auto"}}>
-                Healthcare Form Automation
+                Healthcare Workflow Optimization
               </span>
           </nav>
           <div style={{paddingTop: 70}}>
@@ -119,35 +126,48 @@ export default class App extends React.Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div className="navbar-nav">
-                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
-                      Smart Forms
-                    </a>
+                    
                     
                     <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
-                      Report Dashboard
+                      Epic
                     </a>
-                    
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      NextGen
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: false})}>
+                      eClinicalWorks
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      AllScripts
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      Greenway
+                    </a>
+
+                    <a className="nav-item nav-link dodgerblue" onClick={() => this.setState({dashboard: true})}>
+                      athenahealth
+                    </a>
+
                     <a className="nav-item nav-link" style={{cursor: 'pointer'}} onClick={() => {this.logout()}}>Logout</a>
                   </div>
                 </div> 
               </div>
             </nav>
 
-            
+
+
             {/* APP  */}
             {this.state.usergroup ? 
-              <div style={{paddingTop: 55}}>
-                
-                {this.state.dashboard ? 
-                    <ReportingDashboard 
+              <div style={{paddingTop: 55}}> 
+                    <Workflows 
                             user={firebase.auth().currentUser}
                             usergroup={this.state.usergroup}
-                            /> : 
-                    <PatientSmartForms 
-                            user={firebase.auth().currentUser}
-                            usergroup={this.state.usergroup}
-                            /> }
-             </div> : null }
+                            /> 
+              </div> : null }
 
 
 
@@ -160,14 +180,6 @@ export default class App extends React.Component {
 }
 
 
-                // displayName: displayName,
-                // email: email,
-                // emailVerified: emailVerified,
-                // phoneNumber: phoneNumber,
-                // photoURL: photoURL,
-                // uid: uid,
-                // accessToken: accessToken,
-                // providerData: providerData
 
 
 
