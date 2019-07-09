@@ -2,13 +2,11 @@
 
 Tech demo for a react app with Node backend to pre-fill most common medical forms with sane defaults, as a service.
 
-Demo at [http://paperworklabs.herokuapp.com](http://paperworklabs.herokuapp.com)
+Demo on [Heroku Deployed Web App](https://paperworklabs.herokuapp.com/forms)
 
 Screenshots:
 
-![](/demo.png) | ![](/demo2.png)
-:-----------------------------:|:-------------------------:
-							   |
+![](demo_paperworklabs.gif) 
 
 
 
