@@ -6,7 +6,7 @@ const Workflows = require('../../db/workflow');
 
 const admin = require("firebase-admin");
 
-const serviceAccount = require("../../paperworklabs-firebase-adminsdk-7dyaq-0f6f3b29ff.json");
+const serviceAccount = require("../../paperworklabs-firebase-adminsdk-7dyaq-0f6f3b29ff.js");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
