@@ -7,7 +7,7 @@ const Forms = require('../../db/form');
 
 const admin = require("firebase-admin");
 
-const serviceAccount = require("../../paperworklabs-firebase-adminsdk-7dyaq-bf9a61493e.json");
+const serviceAccount = require("../../paperworklabs-firebase-adminsdk-7dyaq-bf9a61493e.js");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

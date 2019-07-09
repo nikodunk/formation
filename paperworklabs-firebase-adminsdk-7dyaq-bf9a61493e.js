@@ -1,4 +1,4 @@
-{
+module.exports = {
   "type": "service_account",
   "project_id": "paperworklabs",
   "private_key_id": "bf9a61493ee5beb3bfc1bc99a762b8bbb454d1da",
