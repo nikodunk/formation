@@ -5,7 +5,7 @@ const index = require('./routes');
 const reactApp = require('./routes/app');
 const api = require('./routes/api');
 
-// // MIGRATE DATABASE
+// // MIGRATE DATABASE ON AWS
 // const knex = require('./db/connection');
 // const config = require('./knexfile')['production'];
 // // OR TO CREATE A SERIOUSLY DESTROY DATABASE knex.raw('CREATE DATABASE my_database')
