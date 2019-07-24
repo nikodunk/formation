@@ -71,3 +71,13 @@ select{
 .form-control{
   margin-bottom: 5px !important;
 }
+
+
+.color {
+  color: #3A54B4
+}
+
+
+.bg-color{
+  background-color: #3A54B4
+}
